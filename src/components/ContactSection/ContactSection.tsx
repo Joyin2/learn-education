@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import styles from './ContactSection.module.css';
 import '@/styles/icons/contact-icons.css';
+import { submitContactForm, ContactFormData } from '@/lib/firestore';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -15,6 +16,7 @@ export default function ContactSection() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -27,10 +29,23 @@ export default function ContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
+    setSubmitStatus('idle');
+    setErrorMessage('');
+
     try {
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Prepare form data for submission
+      const contactData: ContactFormData = {
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim(),
+        subject: formData.subject.trim(),
+        message: formData.message.trim()
+      };
+
+      // Submit to Firestore
+      await submitContactForm(contactData);
+
+      // Success - reset form and show success message
       setSubmitStatus('success');
       setFormData({
         name: '',
@@ -40,7 +55,9 @@ export default function ContactSection() {
         message: ''
       });
     } catch (error) {
+      console.error('Form submission error:', error);
       setSubmitStatus('error');
+      setErrorMessage(error instanceof Error ? error.message : 'An unexpected error occurred. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -166,7 +183,7 @@ export default function ContactSection() {
                 {submitStatus === 'error' && (
                   <div className={styles.errorMessage}>
                     <i className="fa-solid fa-exclamation-circle"></i>
-                    Sorry, there was an error sending your message. Please try again.
+                    {errorMessage || 'Sorry, there was an error sending your message. Please try again.'}
                   </div>
                 )}
               </form>
