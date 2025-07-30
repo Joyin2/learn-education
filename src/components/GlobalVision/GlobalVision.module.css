@@ -1,0 +1,779 @@
+/* Global Vision Component Styles */
+
+.globalVisionSection {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #2b70fa 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated Floating Particles Background */
+.globalVisionSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(96, 165, 250, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 70%, rgba(147, 197, 253, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.08) 0%, transparent 50%);
+  background-size: 300px 300px, 400px 400px, 250px 250px, 350px 350px;
+  animation: floatingBubbles 20s ease-in-out infinite;
+  z-index: 1;
+}
+
+.globalVisionSection::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(circle at 10% 60%, rgba(30, 64, 175, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 90% 10%, rgba(96, 165, 250, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 60% 90%, rgba(59, 130, 246, 0.12) 0%, transparent 35%);
+  background-size: 200px 200px, 300px 300px, 180px 180px;
+  animation: floatingBubblesReverse 25s ease-in-out infinite reverse;
+  z-index: 1;
+}
+
+/* Enhanced Background Elements */
+.backgroundElements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.floatingOrb {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.6) 0%, rgba(59, 130, 246, 0.3) 40%, transparent 70%);
+  animation: constellationFloat 15s ease-in-out infinite;
+  filter: blur(1px);
+}
+
+.floatingOrb:nth-child(1) {
+  width: 12px;
+  height: 12px;
+  top: 20%;
+  left: 15%;
+  animation-delay: 0s;
+  animation-duration: 18s;
+}
+
+.floatingOrb:nth-child(2) {
+  width: 8px;
+  height: 8px;
+  top: 70%;
+  right: 20%;
+  animation-delay: -6s;
+  animation-duration: 22s;
+}
+
+.floatingOrb:nth-child(3) {
+  width: 15px;
+  height: 15px;
+  bottom: 30%;
+  left: 70%;
+  animation-delay: -12s;
+  animation-duration: 20s;
+}
+
+.floatingOrb:nth-child(4) {
+  width: 10px;
+  height: 10px;
+  top: 40%;
+  right: 30%;
+  animation-delay: -3s;
+  animation-duration: 25s;
+}
+
+.floatingOrb:nth-child(5) {
+  width: 6px;
+  height: 6px;
+  top: 80%;
+  left: 40%;
+  animation-delay: -9s;
+  animation-duration: 16s;
+}
+
+.floatingOrb:nth-child(6) {
+  width: 14px;
+  height: 14px;
+  top: 10%;
+  right: 60%;
+  animation-delay: -15s;
+  animation-duration: 24s;
+}
+
+.floatingOrb:nth-child(7) {
+  width: 9px;
+  height: 9px;
+  bottom: 60%;
+  right: 15%;
+  animation-delay: -7s;
+  animation-duration: 19s;
+}
+
+.floatingOrb:nth-child(8) {
+  width: 11px;
+  height: 11px;
+  bottom: 15%;
+  left: 25%;
+  animation-delay: -11s;
+  animation-duration: 21s;
+}
+
+.constellation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+    radial-gradient(circle at 75% 35%, rgba(255, 255, 255, 0.6) 1px, transparent 1px),
+    radial-gradient(circle at 45% 65%, rgba(255, 255, 255, 0.7) 1px, transparent 1px),
+    radial-gradient(circle at 85% 75%, rgba(255, 255, 255, 0.5) 1px, transparent 1px),
+    radial-gradient(circle at 15% 85%, rgba(255, 255, 255, 0.9) 1px, transparent 1px);
+  background-size: 400px 400px, 350px 350px, 300px 300px, 450px 450px, 250px 250px;
+  animation: constellationTwinkle 8s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+.worldMap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 70%;
+  background: radial-gradient(circle at 20% 50%, rgba(43, 112, 250, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(30, 64, 175, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 40% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 50%);
+  animation: worldMapGlow 6s ease-in-out infinite;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Section Header */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 80px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.headerBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  color: #60a5fa;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.headerBadge i {
+  font-size: 1.2rem;
+  animation: globeSpin 4s linear infinite;
+}
+
+.sectionTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 30%, #ffffff 60%, #f1f5f9 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 25px;
+  line-height: 1.2;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.titleHighlight {
+  background: linear-gradient(135deg, #60a5fa 0%, #2b70fa 50%, #1e40af 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sectionDescription {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Vision Content */
+.visionContent {
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.visionCard {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08));
+  padding: 50px;
+  border-radius: 30px;
+  backdrop-filter: blur(30px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.5),
+    0 10px 40px rgba(43, 112, 250, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  max-width: 700px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.visionCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #60a5fa, #2b70fa);
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.5);
+}
+
+.visionCard::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+  transform: rotate(45deg);
+  animation: visionCardShimmer 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.visionCard:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow:
+    0 35px 100px rgba(43, 112, 250, 0.4),
+    0 15px 50px rgba(0, 0, 0, 0.4),
+    inset 0 2px 0 rgba(255, 255, 255, 0.3);
+  border-color: rgba(96, 165, 250, 0.3);
+}
+
+.cardIcon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #60a5fa, #3b82f6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  margin: 0 auto 30px;
+  box-shadow: 0 15px 40px rgba(96, 165, 250, 0.4);
+  animation: iconFloat 3s ease-in-out infinite;
+}
+
+.cardTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.cardDescription {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.cardFeatures {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.featureItem i {
+  color: #60a5fa;
+  font-size: 1.1rem;
+}
+
+/* Countries Section */
+.countriesSection {
+  margin-bottom: 80px;
+}
+
+.countriesTitle {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 50px;
+}
+
+.countriesGrid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center;
+  overflow-x: auto;
+}
+
+.countryCard {
+  background: transparent;
+  padding: 30px 25px;
+  border-radius: 25px;
+  border: none;
+  box-shadow: none;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: countryCardEntrance 0.8s ease-out var(--delay) both;
+  flex: 1;
+  min-width: 220px;
+  max-width: 280px;
+}
+
+.countryCard:hover {
+  transform: translateY(-10px) scale(1.05);
+}
+
+.countryFlag {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  animation: flagFloat 4s ease-in-out infinite;
+}
+
+.flagEmoji {
+  font-size: 2.5rem;
+}
+
+.countryName {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.countryStatus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  background: #60a5fa;
+  border-radius: 50%;
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+.countryOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--accent-color), rgba(0, 0, 0, 0.8));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.countryCard:hover .countryOverlay {
+  opacity: 1;
+}
+
+.overlayContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-weight: 600;
+}
+
+.overlayContent i {
+  font-size: 2rem;
+}
+
+/* Global Stats */
+.globalStats {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08));
+  padding: 40px 35px;
+  border-radius: 25px;
+  backdrop-filter: blur(30px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    0 8px 30px rgba(43, 112, 250, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 120px;
+  flex: 1;
+  min-width: 280px;
+}
+
+.statItem::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(96, 165, 250, 0.05), transparent);
+  transform: rotate(45deg);
+  animation: statItemShimmer 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.statItem:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow:
+    0 25px 70px rgba(43, 112, 250, 0.3),
+    0 10px 35px rgba(0, 0, 0, 0.3),
+    inset 0 2px 0 rgba(255, 255, 255, 0.3);
+  border-color: rgba(96, 165, 250, 0.3);
+}
+
+.statIcon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #60a5fa, #3b82f6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  flex-shrink: 0;
+  box-shadow: 0 10px 30px rgba(96, 165, 250, 0.4);
+}
+
+.statContent {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.statNumber {
+  font-size: 3.2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #60a5fa, #3b82f6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.statLabel {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  line-height: 1.2;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatingBubbles {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(20px, -30px) scale(1.1);
+  }
+  50% {
+    transform: translate(-15px, -20px) scale(0.9);
+  }
+  75% {
+    transform: translate(30px, 10px) scale(1.05);
+  }
+}
+
+@keyframes floatingBubblesReverse {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-25px, 20px) scale(1.08);
+  }
+  66% {
+    transform: translate(15px, -25px) scale(0.95);
+  }
+}
+
+@keyframes constellationFloat {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translate(10px, -15px);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-8px, -10px);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translate(12px, 5px);
+    opacity: 0.8;
+  }
+}
+
+@keyframes constellationTwinkle {
+  0%, 100% {
+    opacity: 0.6;
+    filter: brightness(1);
+  }
+  25% {
+    opacity: 0.9;
+    filter: brightness(1.3);
+  }
+  50% {
+    opacity: 0.4;
+    filter: brightness(0.8);
+  }
+  75% {
+    opacity: 0.8;
+    filter: brightness(1.1);
+  }
+}
+
+@keyframes worldMapGlow {
+  0%, 100% {
+    opacity: 0.3;
+    filter: blur(1px);
+  }
+  50% {
+    opacity: 0.6;
+    filter: blur(0px);
+  }
+}
+
+@keyframes globeSpin {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes visionCardShimmer {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  50% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(200%) translateY(200%) rotate(45deg);
+  }
+}
+
+@keyframes countryCardShimmer {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  50% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(200%) translateY(200%) rotate(45deg);
+  }
+}
+
+@keyframes statItemShimmer {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  50% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(200%) translateY(200%) rotate(45deg);
+  }
+}
+
+@keyframes iconFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes countryCardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes flagFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(2deg);
+  }
+}
+
+@keyframes statusPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .globalVisionSection {
+    padding: 60px 0;
+  }
+
+  .sectionTitle {
+    font-size: 2.5rem;
+  }
+
+  .sectionDescription {
+    font-size: 1.1rem;
+  }
+
+  .visionCard {
+    padding: 30px;
+  }
+
+  .cardFeatures {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .countriesGrid {
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 100%;
+  }
+
+  .countryCard {
+    flex: 0 0 calc(50% - 10px);
+    min-width: 200px;
+    padding: 25px 20px;
+  }
+
+  .globalStats {
+    flex-direction: column;
+    gap: 25px;
+    max-width: 100%;
+  }
+
+  .statItem {
+    padding: 30px 25px;
+    gap: 20px;
+    min-height: 100px;
+    min-width: auto;
+  }
+
+  .statIcon {
+    width: 70px;
+    height: 70px;
+    font-size: 1.8rem;
+  }
+
+  .statNumber {
+    font-size: 2.8rem;
+  }
+
+  .statLabel {
+    font-size: 0.9rem;
+  }
+}

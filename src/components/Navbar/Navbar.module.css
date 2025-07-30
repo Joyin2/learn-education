@@ -1,0 +1,397 @@
+/* Navbar Component Styles */
+.navbarContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition: all 0.3s ease;
+}
+
+.navbar {
+  background-color: #2b70fa;
+}
+
+.navbarScrolled {
+  background-color: #2b70fa;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.navbarInner {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .navbarInner {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbarInner {
+    padding: 0 2rem;
+  }
+}
+
+.navbarContent {
+  display: flex;
+  align-items: center;
+  height: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .navbarContent {
+    height: 5rem;
+  }
+}
+
+.logoContainer {
+  flex-shrink: 0;
+  margin-right: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .logoContainer {
+    margin-right: 4rem;
+  }
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 3rem;
+  width: auto;
+}
+
+@media (min-width: 1024px) {
+  .logo {
+    height: 3.5rem;
+  }
+}
+
+.desktopNav {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .desktopNav {
+    display: flex;
+  }
+}
+
+.navLinksContainer {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navActionsContainer {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navLink {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.navLink:hover {
+  color: rgb(191, 219, 254);
+}
+
+.dropdownContainer {
+  position: relative;
+}
+
+.dropdownContainer::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: -10px;
+  right: -10px;
+  height: 10px;
+  background: transparent;
+  z-index: 49;
+}
+
+.dropdownContainer:hover .dropdownButton,
+.dropdownContainer.active .dropdownButton {
+  color: rgb(191, 219, 254);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdownContainer.active .dropdownIcon {
+  transform: rotate(180deg);
+}
+
+.dropdownButton {
+  color: white;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dropdownButton:hover {
+  color: rgb(191, 219, 254);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdownIcon {
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
+}
+
+.dropdownIconOpen {
+  transform: rotate(180deg);
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 0.25rem;
+  width: 12rem;
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+  padding: 0.75rem 0;
+  z-index: 50;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: dropdownFadeIn 0.2s ease-out;
+}
+
+.dropdownLink {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  color: rgb(31, 41, 55);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 0.375rem;
+  margin: 0 0.5rem;
+}
+
+.dropdownLink:hover {
+  background-color: rgb(239, 246, 255);
+  color: #2b70fa;
+  transform: translateX(4px);
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.phoneContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+}
+
+.phoneIcon {
+  font-size: 0.875rem;
+}
+
+.phoneLink {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.phoneLink:hover {
+  color: rgb(191, 219, 254);
+}
+
+.consultationButton {
+  background: white;
+  color: #2b70fa;
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s ease;
+}
+
+.consultationButton:hover {
+  background: rgb(239, 246, 255);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.mobileMenuButton {
+  display: block;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+@media (min-width: 1024px) {
+  .mobileMenuButton {
+    display: none;
+  }
+}
+
+.mobileMenuButton:hover {
+  color: rgb(191, 219, 254);
+}
+
+.mobileMenuIcon {
+  font-size: 1.25rem;
+}
+
+.mobileMenu {
+  display: block;
+  background-color: #2b70fa;
+  border-top: 1px solid rgb(96, 165, 250);
+}
+
+@media (min-width: 1024px) {
+  .mobileMenu {
+    display: none;
+  }
+}
+
+.mobileMenuContent {
+  padding: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.mobileNavLink {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+}
+
+.mobileNavLink:hover {
+  color: rgb(191, 219, 254);
+  background-color: rgb(37, 99, 235);
+}
+
+.mobileDropdownButton {
+  width: 100%;
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  color: white;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobileDropdownButton:hover {
+  color: rgb(191, 219, 254);
+  background-color: rgb(37, 99, 235);
+}
+
+.mobileDropdownContent {
+  margin-left: 1rem;
+  margin-top: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.mobileDropdownLink {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+}
+
+.mobileDropdownLink:hover {
+  color: rgb(191, 219, 254);
+  background-color: rgb(37, 99, 235);
+}
+
+.mobilePhoneContainer {
+  padding: 0.5rem 0.75rem;
+}
+
+.mobilePhoneLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.mobilePhoneLink:hover {
+  color: rgb(191, 219, 254);
+}
+
+.mobileConsultationContainer {
+  padding: 0.5rem 0.75rem;
+}
+
+.mobileConsultationButton {
+  display: block;
+  width: 100%;
+  background: white;
+  color: #2b70fa;
+  padding: 0.75rem 1rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s ease;
+}
+
+.mobileConsultationButton:hover {
+  background: rgb(239, 246, 255);
+}

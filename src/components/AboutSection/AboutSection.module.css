@@ -1,0 +1,928 @@
+/* Enhanced About Section with Advanced Animations */
+.aboutSection {
+  padding: 120px 0;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #475569 75%, #64748b 100%);
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+/* Floating Particles Background */
+.particlesContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  background: rgba(59, 130, 246, 0.6);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.particle0 {
+  width: 4px;
+  height: 4px;
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.particle1 {
+  width: 6px;
+  height: 6px;
+  top: 60%;
+  left: 80%;
+  animation-delay: 1s;
+  background: rgba(139, 92, 246, 0.6);
+}
+
+.particle2 {
+  width: 3px;
+  height: 3px;
+  top: 80%;
+  left: 20%;
+  animation-delay: 2s;
+  background: rgba(236, 72, 153, 0.6);
+}
+
+.particle3 {
+  width: 5px;
+  height: 5px;
+  top: 30%;
+  left: 70%;
+  animation-delay: 3s;
+  background: rgba(34, 197, 94, 0.6);
+}
+
+.particle4 {
+  width: 4px;
+  height: 4px;
+  top: 70%;
+  left: 50%;
+  animation-delay: 4s;
+  background: rgba(34, 197, 94, 0.6);
+}
+
+/* Animated Wave Background */
+.wavesContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  z-index: 1;
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 100px;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+  border-radius: 50%;
+  animation: wave 8s ease-in-out infinite;
+}
+
+.wave1 {
+  animation-delay: 0s;
+  opacity: 0.3;
+}
+
+.wave2 {
+  animation-delay: 2s;
+  opacity: 0.2;
+  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
+}
+
+.wave3 {
+  animation-delay: 4s;
+  opacity: 0.1;
+  background: linear-gradient(90deg, transparent, rgba(236, 72, 153, 0.1), transparent);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.aboutContent {
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.fadeInUp {
+  animation: fadeInUp 1s ease-out;
+}
+
+/* Enhanced Header Styles */
+.aboutHeader {
+  margin-bottom: 80px;
+}
+
+.titleWrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+.aboutTitle {
+  font-size: 4.5rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+  line-height: 1.1;
+  perspective: 1000px;
+}
+
+.titleWord {
+  display: inline-block;
+  margin-right: 20px;
+  background: linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite, titleFloat 4s ease-in-out infinite;
+  text-shadow: 0 0 30px rgba(96, 165, 250, 0.5);
+}
+
+.titleWord:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.titleUnderline {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+  border-radius: 2px;
+  animation: underlineExpand 2s ease-out 0.5s forwards;
+}
+
+.aboutDescription {
+  font-size: 1.4rem;
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.highlight {
+  color: #60a5fa;
+  font-weight: 800;
+  text-shadow: 0 0 20px rgba(96, 165, 250, 0.6);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Enhanced Stats Container with 3D Effects */
+.statsContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 80px;
+  perspective: 1000px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.statItem {
+  position: relative;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(20px);
+  padding: 30px 20px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+  overflow: hidden;
+  text-align: center;
+  flex: 1;
+  min-width: 220px;
+  max-width: 280px;
+}
+
+.statItem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 24px;
+}
+
+.statItem:hover {
+  transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.3),
+    0 0 50px rgba(59, 130, 246, 0.3);
+}
+
+.statItem:hover::before {
+  opacity: 1;
+}
+
+.statIcon {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+.statNumber {
+  font-size: 3.5rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+  line-height: 1;
+  text-shadow: 0 0 30px rgba(96, 165, 250, 0.5);
+}
+
+.statLabel {
+  font-size: 1.1rem;
+  color: #cbd5e1;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.statGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.3), transparent);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.statItem:hover .statGlow {
+  opacity: 1;
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Individual stat item animations */
+.statItem1 { animation: slideInLeft 0.8s ease-out 0.1s both; }
+.statItem2 { animation: slideInLeft 0.8s ease-out 0.2s both; }
+.statItem3 { animation: slideInLeft 0.8s ease-out 0.3s both; }
+.statItem4 { animation: slideInLeft 0.8s ease-out 0.4s both; }
+
+/* Enhanced Rating Section */
+.ratingSection {
+  margin-bottom: 80px;
+  padding: 0;
+  background: transparent;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ratingWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: nowrap;
+  width: 100%;
+  transform: translateX(-15px);
+}
+
+.ratingStars {
+  display: flex;
+  gap: 8px;
+}
+
+.ratingStar {
+  color: #3b82f6;
+  font-size: 2rem;
+  filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.6));
+  animation: starTwinkle 2s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.ratingStar:hover {
+  transform: scale(1.2) rotate(15deg);
+  color: #60a5fa;
+}
+
+.ratingBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(20px);
+  padding: 15px 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.ratingNumber {
+  font-size: 2rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ratingDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.ratingText {
+  font-size: 1rem;
+  color: #f1f5f9;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.reviewCount {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.trustBadges {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.trustBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(145deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.05));
+  backdrop-filter: blur(10px);
+  padding: 8px 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: #86efac;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.trustBadge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+}
+
+.trustBadge i {
+  font-size: 1.1rem;
+}
+
+/* Enhanced Countries Section */
+.countriesSection {
+  margin-bottom: 80px;
+}
+
+.countriesHeader {
+  margin-bottom: 50px;
+}
+
+.countriesTitle {
+  font-size: 2.5rem;
+  color: #f1f5f9;
+  margin-bottom: 15px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.titleIcon {
+  font-size: 2rem;
+  animation: rotate 4s linear infinite;
+}
+
+.countriesSubtitle {
+  font-size: 1.2rem;
+  color: #94a3b8;
+  font-weight: 500;
+  margin: 0;
+}
+
+.countriesList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.countryItem {
+  opacity: 0;
+  transform: translateY(50px);
+  animation: slideInUp 0.8s ease-out forwards;
+}
+
+.countryCard {
+  position: relative;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(20px);
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+  cursor: pointer;
+  flex: 0 0 240px;
+  min-width: 220px;
+  max-width: 280px;
+}
+
+.countryCard:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.countryFlagWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.countryFlag {
+  width: 60px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.flagImage {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.countryCard:hover .countryFlag {
+  transform: scale(1.1) rotateY(10deg);
+}
+
+.countryCard:hover .flagImage {
+  transform: scale(1.05);
+}
+
+.flagGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 60px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.3), transparent);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.countryCard:hover .flagGlow {
+  opacity: 1;
+  animation: glow 2s ease-in-out infinite;
+}
+
+.countryInfo {
+  text-align: center;
+}
+
+.countryName {
+  display: block;
+  font-size: 1.3rem;
+  color: #f1f5f9;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.countryCode {
+  display: block;
+  font-size: 0.9rem;
+  color: #64748b;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.universityCount {
+  display: block;
+  font-size: 1rem;
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+.countryHoverEffect {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.countryCard:hover .countryHoverEffect {
+  left: 100%;
+}
+
+/* Flag styles removed - now using img elements */
+
+/* CTA Section */
+.ctaSection {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.ctaContent {
+  background: linear-gradient(145deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+  backdrop-filter: blur(20px);
+  padding: 50px 40px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-size: 2.2rem;
+  color: #f1f5f9;
+  font-weight: 800;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ctaDescription {
+  font-size: 1.1rem;
+  color: #cbd5e1;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.ctaButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  color: white;
+  padding: 18px 35px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+}
+
+.ctaButton:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(59, 130, 246, 0.6);
+}
+
+.ctaButton i {
+  transition: transform 0.3s ease;
+}
+
+.ctaButton:hover i {
+  transform: translateX(5px);
+}
+
+.buttonRipple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.ctaButton:active .buttonRipple {
+  width: 300px;
+  height: 300px;
+}
+
+/* Keyframe Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+@keyframes wave {
+  0%, 100% { transform: translateX(-50%) rotate(0deg); }
+  50% { transform: translateX(-50%) rotate(180deg); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes titleFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes underlineExpand {
+  from { width: 0; }
+  to { width: 200px; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes glow {
+  0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.2); }
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Enhanced Responsive Design */
+@media (max-width: 1024px) {
+  .aboutTitle {
+    font-size: 3.5rem;
+  }
+
+  .statsContainer {
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .statItem {
+    flex: 0 0 calc(50% - 8px);
+    min-width: 200px;
+    max-width: none;
+    padding: 25px 15px;
+  }
+
+  .countriesList {
+    gap: 25px;
+  }
+
+  .countryCard {
+    flex: 0 0 calc(50% - 12px);
+    min-width: 200px;
+    max-width: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutSection {
+    padding: 80px 0;
+  }
+
+  .aboutTitle {
+    font-size: 2.8rem;
+  }
+
+  .titleWord {
+    margin-right: 10px;
+  }
+
+  .aboutDescription {
+    font-size: 1.2rem;
+  }
+
+  .statsContainer {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .statItem {
+    padding: 30px 25px;
+  }
+
+  .statNumber {
+    font-size: 3rem;
+  }
+
+  .countriesList {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .countryCard {
+    padding: 25px;
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .ratingWrapper {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .ctaContent {
+    padding: 40px 30px;
+  }
+
+  .ctaTitle {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutSection {
+    padding: 60px 0;
+  }
+
+  .aboutTitle {
+    font-size: 2.2rem;
+  }
+
+  .titleWord {
+    display: block;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .aboutDescription {
+    font-size: 1.1rem;
+  }
+
+  .statsContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .statItem {
+    padding: 25px 20px;
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .statNumber {
+    font-size: 2.5rem;
+  }
+
+  .statIcon {
+    font-size: 2rem;
+  }
+
+  .countryCard {
+    padding: 20px;
+  }
+
+  .countryFlag {
+    width: 50px;
+    height: 35px;
+  }
+
+  .flagImage {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .countriesTitle {
+    font-size: 2rem;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .ctaContent {
+    padding: 30px 20px;
+  }
+
+  .ctaTitle {
+    font-size: 1.6rem;
+  }
+
+  .ctaButton {
+    padding: 15px 25px;
+    font-size: 1rem;
+  }
+
+  .trustBadges {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .trustBadge {
+    font-size: 0.7rem;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 320px) {
+  .aboutTitle {
+    font-size: 1.8rem;
+  }
+
+  .statsContainer {
+    gap: 20px;
+  }
+
+  .statNumber {
+    font-size: 2rem;
+  }
+}

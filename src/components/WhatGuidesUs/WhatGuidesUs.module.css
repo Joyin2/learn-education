@@ -1,0 +1,569 @@
+/* What Guides Us Component Styles */
+
+.guidesSection {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #0a0e1a 0%, #1a1f2e 25%, #2a3441 50%, #1e2a3a 75%, #0f1419 100%);
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+/* Enhanced Background Effects */
+.backgroundEffects {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Animated Grid Pattern */
+.animatedGrid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.1;
+}
+
+.gridLine {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent);
+  height: 1px;
+  width: 100%;
+  animation: gridFlow 8s linear infinite;
+}
+
+.gridLine:nth-child(odd) {
+  top: calc(var(--index, 0) * 5%);
+  animation-delay: calc(var(--index, 0) * 0.5s);
+}
+
+.gridLine:nth-child(even) {
+  bottom: calc(var(--index, 0) * 5%);
+  animation-delay: calc(var(--index, 0) * 0.3s);
+  animation-direction: reverse;
+}
+
+/* Floating Geometric Shapes */
+.geometricShapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.shape {
+  position: absolute;
+  border: 2px solid rgba(59, 130, 246, 0.2);
+  animation: shapeFloat 12s ease-in-out infinite;
+}
+
+.shape:nth-child(1) { 
+  width: 80px; 
+  height: 80px; 
+  top: 10%; 
+  left: 5%; 
+  border-radius: 50%; 
+  animation-delay: 0s; 
+}
+
+.shape:nth-child(2) { 
+  width: 60px; 
+  height: 60px; 
+  top: 20%; 
+  right: 10%; 
+  transform: rotate(45deg); 
+  animation-delay: -2s; 
+}
+
+.shape:nth-child(3) { 
+  width: 100px; 
+  height: 100px; 
+  bottom: 15%; 
+  left: 8%; 
+  border-radius: 20px; 
+  animation-delay: -4s; 
+}
+
+.shape:nth-child(4) { 
+  width: 70px; 
+  height: 70px; 
+  bottom: 25%; 
+  right: 15%; 
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); 
+  animation-delay: -6s; 
+}
+
+.shape:nth-child(5) { 
+  width: 90px; 
+  height: 90px; 
+  top: 60%; 
+  left: 50%; 
+  border-radius: 50% 0; 
+  animation-delay: -8s; 
+}
+
+.shape:nth-child(6) { 
+  width: 50px; 
+  height: 50px; 
+  top: 40%; 
+  right: 30%; 
+  border-radius: 0 50% 0 50%; 
+  animation-delay: -10s; 
+}
+
+/* Gradient Waves */
+.gradientWaves {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.wave1,
+.wave2,
+.wave3 {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+  animation: waveMove 20s ease-in-out infinite;
+}
+
+.wave1 {
+  top: -50%;
+  left: -50%;
+  animation-delay: 0s;
+}
+
+.wave2 {
+  top: -30%;
+  right: -50%;
+  animation-delay: -7s;
+  background: radial-gradient(ellipse at center, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
+}
+
+.wave3 {
+  bottom: -50%;
+  left: -30%;
+  animation-delay: -14s;
+  background: radial-gradient(ellipse at center, rgba(29, 78, 216, 0.06) 0%, transparent 70%);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Section Header */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 80px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.headerBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08));
+  color: #3b82f6;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.headerBadge i {
+  font-size: 1.1rem;
+  color: #60a5fa;
+}
+
+.sectionTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 30%, #ffffff 60%, #f1f5f9 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 30px;
+  line-height: 1.2;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.titleHighlight {
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #2563eb 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sectionDescription {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Values Grid */
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-top: 60px;
+}
+
+/* Value Cards */
+.valueCard {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border-radius: 25px;
+  padding: 40px 30px;
+  backdrop-filter: blur(30px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: cardSlideIn 0.8s ease-out var(--delay) both;
+  overflow: hidden;
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.3),
+    0 8px 20px rgba(59, 130, 246, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.cardBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(37, 99, 235, 0.02));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cardContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.cardIcon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  margin: 0 auto 25px;
+  box-shadow: 
+    0 15px 40px rgba(59, 130, 246, 0.4),
+    0 5px 15px rgba(0, 0, 0, 0.3);
+  animation: iconPulse 3s ease-in-out infinite;
+}
+
+.cardTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.cardDescription {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.cardGlow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Hover Effects */
+.valueCard:hover {
+  transform: translateY(-15px) scale(1.02);
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.4),
+    0 15px 30px rgba(59, 130, 246, 0.3),
+    inset 0 2px 0 rgba(255, 255, 255, 0.3);
+}
+
+.valueCard:hover .cardBackground {
+  opacity: 1;
+}
+
+.valueCard:hover .cardGlow {
+  opacity: 1;
+}
+
+.valueCard:hover .cardIcon {
+  transform: scale(1.1);
+  box-shadow:
+    0 20px 50px rgba(59, 130, 246, 0.6),
+    0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Color Variants */
+.valueCard.blue .cardIcon {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.valueCard.indigo .cardIcon {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+}
+
+.valueCard.cyan .cardIcon {
+  background: linear-gradient(135deg, #06b6d4, #0891b2);
+}
+
+.valueCard.teal .cardIcon {
+  background: linear-gradient(135deg, #14b8a6, #0d9488);
+}
+
+.valueCard.blue:hover {
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.4),
+    0 15px 30px rgba(59, 130, 246, 0.3),
+    inset 0 2px 0 rgba(255, 255, 255, 0.3);
+}
+
+.valueCard.indigo:hover {
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.4),
+    0 15px 30px rgba(99, 102, 241, 0.3),
+    inset 0 2px 0 rgba(255, 255, 255, 0.3);
+}
+
+.valueCard.cyan:hover {
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.4),
+    0 15px 30px rgba(6, 182, 212, 0.3),
+    inset 0 2px 0 rgba(255, 255, 255, 0.3);
+}
+
+.valueCard.teal:hover {
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.4),
+    0 15px 30px rgba(20, 184, 166, 0.3),
+    inset 0 2px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes iconPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes gridFlow {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes shapeFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 0.6;
+  }
+}
+
+@keyframes waveMove {
+  0%, 100% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+  33% {
+    transform: translateX(30px) translateY(-15px) rotate(120deg);
+  }
+  66% {
+    transform: translateX(-20px) translateY(10px) rotate(240deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .guidesSection {
+    padding: 80px 0;
+  }
+
+  .sectionTitle {
+    font-size: 3rem;
+  }
+
+  .valuesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+
+  .valueCard {
+    padding: 35px 25px;
+  }
+
+  .cardIcon {
+    width: 70px;
+    height: 70px;
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .guidesSection {
+    padding: 60px 0;
+    min-height: auto;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  .sectionHeader {
+    margin-bottom: 60px;
+  }
+
+  .sectionTitle {
+    font-size: 2.5rem;
+  }
+
+  .sectionDescription {
+    font-size: 1.1rem;
+  }
+
+  .valuesGrid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .valueCard {
+    padding: 30px 20px;
+  }
+
+  .cardIcon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+
+  .cardTitle {
+    font-size: 1.6rem;
+  }
+
+  .cardDescription {
+    font-size: 0.95rem;
+  }
+
+  /* Simplify background effects on mobile */
+  .geometricShapes,
+  .gradientWaves {
+    display: none;
+  }
+
+  .animatedGrid {
+    opacity: 0.05;
+  }
+}
+
+@media (max-width: 480px) {
+  .guidesSection {
+    padding: 50px 0;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+
+  .sectionDescription {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .valueCard {
+    padding: 25px 15px;
+  }
+
+  .cardIcon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+
+  .cardTitle {
+    font-size: 1.4rem;
+  }
+
+  .cardDescription {
+    font-size: 0.9rem;
+  }
+
+  .headerBadge {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}

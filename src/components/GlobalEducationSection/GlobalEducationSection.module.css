@@ -1,0 +1,790 @@
+/* Global Education Section Styles */
+.globalEducationSection {
+  padding: 120px 0;
+  background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+/* Background Elements */
+.backgroundElements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.gradientOrb1 {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.3), transparent);
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite;
+}
+
+.gradientOrb2 {
+  position: absolute;
+  top: 60%;
+  right: 10%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.3), transparent);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite reverse;
+}
+
+.gradientOrb3 {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.2), transparent);
+  border-radius: 50%;
+  animation: float 10s ease-in-out infinite;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Header Section */
+.headerSection {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.mainTitle {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #f1f5f9;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite;
+  letter-spacing: -1px;
+}
+
+.subtitle {
+  font-size: 2rem;
+  color: #cbd5e1;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.tagline {
+  font-size: 1.5rem;
+  color: #94a3b8;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.description {
+  font-size: 1.2rem;
+  color: #cbd5e1;
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Stats Section */
+.statsSection {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-bottom: 100px;
+  flex-wrap: wrap;
+}
+
+.statItem {
+  text-align: center;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(20px);
+  padding: 30px 25px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  min-width: 180px;
+}
+
+.statItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.statNumber {
+  font-size: 3rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 1rem;
+  color: #cbd5e1;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Countries Grid */
+.countriesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-bottom: 80px;
+}
+
+.countryCard {
+  backdrop-filter: blur(20px);
+  padding: 30px;
+  border-radius: 24px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  border: 2px solid;
+}
+
+.countryCard:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+/* UK Card - Royal Blue Theme */
+.countryCard:nth-child(1) {
+  background: linear-gradient(145deg, rgba(30, 58, 138, 0.2), rgba(59, 130, 246, 0.1));
+  border-color: #1e3a8a;
+  box-shadow: 0 8px 32px rgba(30, 58, 138, 0.3);
+}
+
+.countryCard:nth-child(1):hover {
+  box-shadow: 0 25px 50px rgba(30, 58, 138, 0.4);
+  background: linear-gradient(145deg, rgba(30, 58, 138, 0.3), rgba(59, 130, 246, 0.15));
+}
+
+/* USA Card - Patriotic Red Theme */
+.countryCard:nth-child(2) {
+  background: linear-gradient(145deg, rgba(185, 28, 28, 0.2), rgba(239, 68, 68, 0.1));
+  border-color: #b91c1c;
+  box-shadow: 0 8px 32px rgba(185, 28, 28, 0.3);
+}
+
+.countryCard:nth-child(2):hover {
+  box-shadow: 0 25px 50px rgba(185, 28, 28, 0.4);
+  background: linear-gradient(145deg, rgba(185, 28, 28, 0.3), rgba(239, 68, 68, 0.15));
+}
+
+/* Ireland Card - Emerald Green Theme */
+.countryCard:nth-child(3) {
+  background: linear-gradient(145deg, rgba(5, 150, 105, 0.2), rgba(34, 197, 94, 0.1));
+  border-color: #059669;
+  box-shadow: 0 8px 32px rgba(5, 150, 105, 0.3);
+}
+
+.countryCard:nth-child(3):hover {
+  box-shadow: 0 25px 50px rgba(5, 150, 105, 0.4);
+  background: linear-gradient(145deg, rgba(5, 150, 105, 0.3), rgba(34, 197, 94, 0.15));
+}
+
+/* Canada Card - Maple Red Theme */
+.countryCard:nth-child(4) {
+  background: linear-gradient(145deg, rgba(220, 38, 38, 0.2), rgba(248, 113, 113, 0.1));
+  border-color: #dc2626;
+  box-shadow: 0 8px 32px rgba(220, 38, 38, 0.3);
+}
+
+.countryCard:nth-child(4):hover {
+  box-shadow: 0 25px 50px rgba(220, 38, 38, 0.4);
+  background: linear-gradient(145deg, rgba(220, 38, 38, 0.3), rgba(248, 113, 113, 0.15));
+}
+
+/* Europe Card - Purple Theme */
+.countryCard:nth-child(5) {
+  background: linear-gradient(145deg, rgba(126, 34, 206, 0.2), rgba(168, 85, 247, 0.1));
+  border-color: #7e22ce;
+  box-shadow: 0 8px 32px rgba(126, 34, 206, 0.3);
+}
+
+.countryCard:nth-child(5):hover {
+  box-shadow: 0 25px 50px rgba(126, 34, 206, 0.4);
+  background: linear-gradient(145deg, rgba(126, 34, 206, 0.3), rgba(168, 85, 247, 0.15));
+}
+
+/* Australia Card - Ocean Blue Theme */
+.countryCard:nth-child(6) {
+  background: linear-gradient(145deg, rgba(7, 89, 133, 0.2), rgba(14, 165, 233, 0.1));
+  border-color: #075985;
+  box-shadow: 0 8px 32px rgba(7, 89, 133, 0.3);
+}
+
+.countryCard:nth-child(6):hover {
+  box-shadow: 0 25px 50px rgba(7, 89, 133, 0.4);
+  background: linear-gradient(145deg, rgba(7, 89, 133, 0.3), rgba(14, 165, 233, 0.15));
+}
+
+/* New Zealand Card - Teal Theme */
+.countryCard:nth-child(7) {
+  background: linear-gradient(145deg, rgba(13, 148, 136, 0.2), rgba(20, 184, 166, 0.1));
+  border-color: #0d9488;
+  box-shadow: 0 8px 32px rgba(13, 148, 136, 0.3);
+}
+
+.countryCard:nth-child(7):hover {
+  box-shadow: 0 25px 50px rgba(13, 148, 136, 0.4);
+  background: linear-gradient(145deg, rgba(13, 148, 136, 0.3), rgba(20, 184, 166, 0.15));
+}
+
+.popularChoice {
+  position: relative;
+}
+
+.popularBadge {
+  position: absolute;
+  top: -1px;
+  right: 20px;
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 0 0 12px 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.popularBadge::before {
+  content: '⭐';
+  margin-right: 5px;
+  font-size: 0.9rem;
+}
+
+.flagWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.flagImage {
+  width: 80px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.countryName {
+  font-size: 1.8rem;
+  color: #f1f5f9;
+  font-weight: 800;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.universityCount {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+/* UK University Count */
+.countryCard:nth-child(1) .universityCount {
+  color: #3b82f6;
+  background: rgba(30, 58, 138, 0.2);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+/* USA University Count */
+.countryCard:nth-child(2) .universityCount {
+  color: #ef4444;
+  background: rgba(185, 28, 28, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* Ireland University Count */
+.countryCard:nth-child(3) .universityCount {
+  color: #22c55e;
+  background: rgba(5, 150, 105, 0.2);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+/* Canada University Count */
+.countryCard:nth-child(4) .universityCount {
+  color: #f87171;
+  background: rgba(220, 38, 38, 0.2);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+}
+
+/* Europe University Count */
+.countryCard:nth-child(5) .universityCount {
+  color: #a855f7;
+  background: rgba(126, 34, 206, 0.2);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+/* Australia University Count */
+.countryCard:nth-child(6) .universityCount {
+  color: #0ea5e9;
+  background: rgba(7, 89, 133, 0.2);
+  border: 1px solid rgba(14, 165, 233, 0.3);
+}
+
+/* New Zealand University Count */
+.countryCard:nth-child(7) .universityCount {
+  color: #14b8a6;
+  background: rgba(13, 148, 136, 0.2);
+  border: 1px solid rgba(20, 184, 166, 0.3);
+}
+
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 25px;
+}
+
+.featuresList li {
+  color: #cbd5e1;
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+  font-size: 0.95rem;
+}
+
+.featuresList li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #22c55e;
+  font-weight: bold;
+}
+
+.learnMoreBtn {
+  width: 100%;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.learnMoreBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.learnMoreBtn:hover::before {
+  left: 100%;
+}
+
+.learnMoreBtn:hover {
+  transform: translateY(-2px);
+}
+
+/* UK Button */
+.countryCard:nth-child(1) .learnMoreBtn {
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+  box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+}
+
+.countryCard:nth-child(1) .learnMoreBtn:hover {
+  box-shadow: 0 8px 25px rgba(30, 58, 138, 0.5);
+}
+
+/* USA Button */
+.countryCard:nth-child(2) .learnMoreBtn {
+  background: linear-gradient(135deg, #b91c1c, #ef4444);
+  box-shadow: 0 4px 15px rgba(185, 28, 28, 0.3);
+}
+
+.countryCard:nth-child(2) .learnMoreBtn:hover {
+  box-shadow: 0 8px 25px rgba(185, 28, 28, 0.5);
+}
+
+/* Ireland Button */
+.countryCard:nth-child(3) .learnMoreBtn {
+  background: linear-gradient(135deg, #059669, #22c55e);
+  box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
+}
+
+.countryCard:nth-child(3) .learnMoreBtn:hover {
+  box-shadow: 0 8px 25px rgba(5, 150, 105, 0.5);
+}
+
+/* Canada Button */
+.countryCard:nth-child(4) .learnMoreBtn {
+  background: linear-gradient(135deg, #dc2626, #f87171);
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+}
+
+.countryCard:nth-child(4) .learnMoreBtn:hover {
+  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.5);
+}
+
+/* Europe Button */
+.countryCard:nth-child(5) .learnMoreBtn {
+  background: linear-gradient(135deg, #7e22ce, #a855f7);
+  box-shadow: 0 4px 15px rgba(126, 34, 206, 0.3);
+}
+
+.countryCard:nth-child(5) .learnMoreBtn:hover {
+  box-shadow: 0 8px 25px rgba(126, 34, 206, 0.5);
+}
+
+/* Australia Button */
+.countryCard:nth-child(6) .learnMoreBtn {
+  background: linear-gradient(135deg, #075985, #0ea5e9);
+  box-shadow: 0 4px 15px rgba(7, 89, 133, 0.3);
+}
+
+.countryCard:nth-child(6) .learnMoreBtn:hover {
+  box-shadow: 0 8px 25px rgba(7, 89, 133, 0.5);
+}
+
+/* New Zealand Button */
+.countryCard:nth-child(7) .learnMoreBtn {
+  background: linear-gradient(135deg, #0d9488, #14b8a6);
+  box-shadow: 0 4px 15px rgba(13, 148, 136, 0.3);
+}
+
+.countryCard:nth-child(7) .learnMoreBtn:hover {
+  box-shadow: 0 8px 25px rgba(13, 148, 136, 0.5);
+}
+
+/* Europe Card Special Styling */
+.europeCard {
+  grid-column: span 2;
+}
+
+.europeanFlags {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.smallFlag {
+  width: 40px;
+  height: 25px;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.featuredCountries {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.featuredCountries h4 {
+  color: #f1f5f9;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.featuredCountries ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+}
+
+.featuredCountries li {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+}
+
+.europeDetails {
+  color: #94a3b8;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+/* CTA Section */
+.ctaSection {
+  background: linear-gradient(145deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+  backdrop-filter: blur(20px);
+  padding: 50px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+.ctaTitle {
+  font-size: 2.5rem;
+  color: #f1f5f9;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.ctaSubtitle {
+  font-size: 1.8rem;
+  color: #60a5fa;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.ctaDescription {
+  font-size: 1.1rem;
+  color: #cbd5e1;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ctaFeatures {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.ctaFeature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #22c55e;
+  font-weight: 600;
+}
+
+.ctaFeature i {
+  font-size: 1.2rem;
+}
+
+.scheduleBtn {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+  border: none;
+  padding: 18px 40px;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.scheduleBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(34, 197, 94, 0.4);
+}
+
+.ctaNote {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(30, 58, 138, 0.6);
+  }
+}
+
+.fadeInUp {
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .mainTitle {
+    font-size: 3rem;
+  }
+
+  .countriesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .europeCard {
+    grid-column: span 1;
+  }
+
+  .statsSection {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .globalEducationSection {
+    padding: 80px 0;
+  }
+
+  .mainTitle {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.6rem;
+  }
+
+  .tagline {
+    font-size: 1.2rem;
+  }
+
+  .description {
+    font-size: 1.1rem;
+  }
+
+  .statsSection {
+    gap: 20px;
+  }
+
+  .statItem {
+    min-width: 150px;
+    padding: 25px 20px;
+  }
+
+  .statNumber {
+    font-size: 2.5rem;
+  }
+
+  .countriesGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .countryCard {
+    padding: 25px;
+  }
+
+  .ctaSection {
+    padding: 40px 30px;
+  }
+
+  .ctaTitle {
+    font-size: 2rem;
+  }
+
+  .ctaSubtitle {
+    font-size: 1.5rem;
+  }
+
+  .ctaFeatures {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .globalEducationSection {
+    padding: 60px 0;
+  }
+
+  .mainTitle {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.4rem;
+  }
+
+  .tagline {
+    font-size: 1.1rem;
+  }
+
+  .statsSection {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .statItem {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .countryCard {
+    padding: 20px;
+  }
+
+  .flagImage {
+    width: 60px;
+    height: 40px;
+  }
+
+  .smallFlag {
+    width: 30px;
+    height: 20px;
+  }
+
+  .ctaSection {
+    padding: 30px 20px;
+  }
+
+  .ctaTitle {
+    font-size: 1.8rem;
+  }
+
+  .scheduleBtn {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+  }
+}

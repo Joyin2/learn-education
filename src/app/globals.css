@@ -1,5 +1,219 @@
 @import "tailwindcss";
 
+/* Font Awesome Icons */
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('/assets/fonts/fa-solid-900.woff2') format('woff2'),
+       url('/assets/fonts/fa-solid-900.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/fa-regular-400.woff2') format('woff2'),
+       url('/assets/fonts/fa-regular-400.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Font Awesome 6 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/fa-brands-400.woff2') format('woff2'),
+       url('/assets/fonts/fa-brands-400.ttf') format('truetype');
+}
+
+.fa-solid {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+}
+
+.fa-regular {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 400;
+}
+
+.fa-brands {
+  font-family: 'Font Awesome 6 Brands';
+  font-weight: 400;
+}
+
+/* Font Awesome icon base styles */
+.fa-solid:before,
+.fa-regular:before {
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Specific icon content */
+.fa-bars:before { content: "\f0c9"; }
+.fa-times:before { content: "\f00d"; }
+.fa-chevron-down:before { content: "\f078"; }
+.fa-phone:before { content: "\f095"; }
+.fa-arrow-right:before { content: "\f061"; }
+.fa-check:before { content: "\f00c"; }
+.fa-graduation-cap:before { content: "\f19d"; }
+
+/* ProcessSection icons */
+.fa-comments:before { content: "\f086"; }
+.fa-university:before { content: "\f19c"; }
+.fa-file-alt:before { content: "\f15c"; }
+.fa-passport:before { content: "\f5ab"; }
+.fa-hands-helping:before { content: "\f4c4"; }
+.fa-rocket:before { content: "\f135"; }
+
+/* ExpertGuidanceSection icons */
+.fa-user-graduate:before { content: "\f501"; }
+.fa-bullseye:before { content: "\f140"; }
+.fa-gift:before { content: "\f06b"; }
+
+/* AboutHero icons */
+.fa-heart:before { content: "\f004"; }
+.fa-hands-helping:before { content: "\f4c4"; }
+
+/* OurApproach icons */
+.fa-globe:before { content: "\f0ac"; }
+.fa-users:before { content: "\f0c0"; }
+
+/* WhyChooseIreland icons */
+.fa-location-dot:before { content: "\f3c5"; }
+
+/* FeaturedIrelandUniversities icons */
+.fa-book:before { content: "\f02d"; }
+.fa-euro-sign:before { content: "\f153"; }
+
+/* PartnerIrelandUniversities icons */
+.fa-globe-europe:before { content: "\f7a2"; }
+.fa-comments:before { content: "\f086"; }
+.fa-calendar-check:before { content: "\f274"; }
+.fa-user-tie:before { content: "\f508"; }
+.fa-file-alt:before { content: "\f15c"; }
+
+/* CanadaUniversitiesHero icons */
+.fa-maple-leaf:before { content: "\f6c6"; }
+.fa-passport:before { content: "\f5ab"; }
+.fa-globe-americas:before { content: "\f57d"; }
+.fa-chevron-right:before { content: "\f054"; }
+.fa-play:before { content: "\f04b"; }
+.fa-clock:before { content: "\f017"; }
+.fa-calendar-alt:before { content: "\f073"; }
+.fa-dollar-sign:before { content: "\f155"; }
+.fa-language:before { content: "\f1ab"; }
+
+/* WhyChooseCanada icons */
+.fa-shield-alt:before { content: "\f3ed"; }
+
+/* GlobalVision icons */
+.fa-globe-americas:before { content: "\f57d"; }
+.fa-rocket:before { content: "\f135"; }
+.fa-graduation-cap:before { content: "\f19d"; }
+.fa-university:before { content: "\f19c"; }
+.fa-map-marker-alt:before { content: "\f3c5"; }
+.fa-earth-americas:before { content: "\f57d"; }
+.fa-users-line:before { content: "\e592"; }
+.fa-building-columns:before { content: "\f19c"; }
+
+/* OurPassion icons */
+.fa-file-alt:before { content: "\f15c"; }
+.fa-passport:before { content: "\f5ab"; }
+.fa-coins:before { content: "\f51e"; }
+.fa-home:before { content: "\f015"; }
+.fa-calendar-check:before { content: "\f274"; }
+.fa-phone:before { content: "\f095"; }
+
+/* AboutEducation icons */
+.fa-book-open:before { content: "\f518"; }
+.fa-file-signature:before { content: "\f573"; }
+.fa-arrow-right:before { content: "\f061"; }
+.fa-star:before { content: "\f005"; }
+.fa-trophy:before { content: "\f091"; }
+
+/* WhoWeAre icons */
+.fa-calendar-alt:before { content: "\f073"; }
+.fa-globe:before { content: "\f0ac"; }
+.fa-user-graduate:before { content: "\f501"; }
+.fa-lightbulb:before { content: "\f0eb"; }
+.fa-handshake:before { content: "\f2b5"; }
+.fa-award:before { content: "\f559"; }
+
+/* OurPurpose icons */
+.fa-bullseye:before { content: "\f140"; }
+.fa-compass:before { content: "\f14e"; }
+.fa-eye:before { content: "\f06e"; }
+.fa-link:before { content: "\f0c1"; }
+
+/* StudentSuccessSection icons */
+.fa-star:before { content: "\f005"; }
+.fa-quote-left:before { content: "\f10d"; }
+.fa-quote-right:before { content: "\f10e"; }
+.fa-check-circle:before { content: "\f058"; }
+
+/* Footer icons */
+.fa-building:before { content: "\f1ad"; }
+.fa-briefcase:before { content: "\f0b1"; }
+.fa-phone:before { content: "\f095"; }
+.fa-envelope:before { content: "\f0e0"; }
+.fa-chevron-up:before { content: "\f077"; }
+
+/* Social Media Brand icons */
+.fa-youtube:before { content: "\f167"; }
+.fa-facebook:before { content: "\f09a"; }
+.fa-x-twitter:before { content: "\e61b"; }
+.fa-linkedin:before { content: "\f08c"; }
+
+/* WhatGuidesUs icons */
+.fa-compass:before { content: "\f14e"; }
+.fa-user-graduate:before { content: "\f501"; }
+.fa-award:before { content: "\f559"; }
+.fa-lightbulb:before { content: "\f0eb"; }
+.fa-globe:before { content: "\f0ac"; }
+
+/* WhyChooseUs icons */
+.fa-star:before { content: "\f005"; }
+.fa-user-tie:before { content: "\f508"; }
+.fa-handshake:before { content: "\f2b5"; }
+.fa-hands-helping:before { content: "\f4c4"; }
+.fa-trophy:before { content: "\f091"; }
+.fa-arrow-right:before { content: "\f061"; }
+
+/* ServicesHero icons */
+.fa-briefcase:before { content: "\f0b1"; }
+.fa-graduation-cap:before { content: "\f19d"; }
+.fa-university:before { content: "\f19c"; }
+.fa-users:before { content: "\f0c0"; }
+.fa-chart-line:before { content: "\f201"; }
+.fa-search:before { content: "\f002"; }
+.fa-file-alt:before { content: "\f15c"; }
+.fa-passport:before { content: "\f5ab"; }
+.fa-plane:before { content: "\f072"; }
+.fa-book:before { content: "\f02d"; }
+.fa-calendar:before { content: "\f073"; }
+
+/* PrivacyPolicy icons */
+.fa-info-circle:before { content: "\f05a"; }
+.fa-cog:before { content: "\f013"; }
+.fa-wrench:before { content: "\f0ad"; }
+.fa-balance-scale:before { content: "\f24e"; }
+.fa-file-text:before { content: "\f15c"; }
+.fa-circle:before { content: "\f111"; }
+.fa-lock:before { content: "\f023"; }
+.fa-list:before { content: "\f03a"; }
+.fa-globe:before { content: "\f0ac"; }
+.fa-external-link:before { content: "\f08e"; }
+.fa-user:before { content: "\f007"; }
+.fa-child:before { content: "\f1ae"; }
+.fa-clock:before { content: "\f017"; }
+.fa-pencil:before { content: "\f303"; }
+.fa-envelope:before { content: "\f0e0"; }
+
+
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -24,3 +238,5 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Global utility classes - keep only truly global styles */

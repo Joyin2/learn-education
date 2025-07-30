@@ -1,0 +1,778 @@
+/* Our Approach Component Styles */
+
+.ourApproachSection {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #2b70fa 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated Background Lines - Horizontal and Vertical Movement */
+.ourApproachSection::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  left: -200px;
+  right: -200px;
+  bottom: -200px;
+  background-image:
+    linear-gradient(0deg, transparent 48%, rgba(255, 255, 255, 0.06) 49%, rgba(255, 255, 255, 0.06) 51%, transparent 52%),
+    linear-gradient(90deg, transparent 48%, rgba(255, 255, 255, 0.06) 49%, rgba(255, 255, 255, 0.06) 51%, transparent 52%);
+  background-size: 100% 80px, 80px 100%;
+  animation: gridLinesFlow 8s linear infinite;
+  z-index: 1;
+}
+
+.ourApproachSection::after {
+  content: '';
+  position: absolute;
+  top: -300px;
+  left: -300px;
+  right: -300px;
+  bottom: -300px;
+  background-image:
+    linear-gradient(0deg, transparent 48%, rgba(96, 165, 250, 0.04) 49%, rgba(96, 165, 250, 0.04) 51%, transparent 52%),
+    linear-gradient(90deg, transparent 48%, rgba(43, 112, 250, 0.04) 49%, rgba(43, 112, 250, 0.04) 51%, transparent 52%);
+  background-size: 100% 120px, 120px 100%;
+  animation: gridLinesFlowSlow 12s linear infinite;
+  z-index: 1;
+}
+
+/* Floating Particles */
+.floatingParticles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.8) 0%, rgba(96, 165, 250, 0.2) 70%, transparent 100%);
+  border-radius: 50%;
+  animation: floatParticle 15s linear infinite;
+}
+
+.particle:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 20s;
+}
+
+.particle:nth-child(2) {
+  top: 60%;
+  left: 20%;
+  animation-delay: -5s;
+  animation-duration: 25s;
+}
+
+.particle:nth-child(3) {
+  top: 30%;
+  left: 70%;
+  animation-delay: -10s;
+  animation-duration: 18s;
+}
+
+.particle:nth-child(4) {
+  top: 80%;
+  left: 60%;
+  animation-delay: -15s;
+  animation-duration: 22s;
+}
+
+.particle:nth-child(5) {
+  top: 10%;
+  left: 80%;
+  animation-delay: -8s;
+  animation-duration: 16s;
+}
+
+.particle:nth-child(6) {
+  top: 70%;
+  left: 30%;
+  animation-delay: -12s;
+  animation-duration: 24s;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Section Header */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 60px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.sectionTag {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  color: #60a5fa;
+  padding: 10px 28px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sectionTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 30%, #ffffff 60%, #f1f5f9 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.sectionDescription {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Layout - Awesome Steps */
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+  margin: 0;
+  position: relative;
+}
+
+.colLg6 {
+  width: 100%;
+  max-width: 650px;
+  padding: 0;
+  position: relative;
+}
+
+.colLg6:nth-child(1) {
+  align-self: flex-start;
+  margin-left: 5%;
+  transform: perspective(1000px) rotateY(5deg);
+}
+
+.colLg6:nth-child(2) {
+  align-self: flex-end;
+  margin-right: 5%;
+  transform: perspective(1000px) rotateY(-5deg);
+}
+
+/* Step Connectors */
+.colLg6:nth-child(1)::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -60px;
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, #60a5fa, transparent);
+  border-radius: 2px;
+  z-index: 1;
+  animation: stepConnector1 2s ease-in-out infinite alternate;
+}
+
+.colLg6:nth-child(2)::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -60px;
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(270deg, #2b70fa, transparent);
+  border-radius: 2px;
+  z-index: 1;
+  animation: stepConnector2 2s ease-in-out infinite alternate;
+}
+
+@media (max-width: 991px) {
+  .colLg6 {
+    max-width: 100%;
+    align-self: center !important;
+    margin: 0 !important;
+    transform: none !important;
+  }
+
+  .colLg6::before {
+    display: none;
+  }
+
+  .row {
+    gap: 60px;
+  }
+}
+
+/* Approach Cards - Step Layout */
+.approachContent {
+  margin-bottom: 80px;
+  position: relative;
+}
+
+/* Main Step Connection Path */
+.approachContent::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 60%;
+  height: 60%;
+  background: none;
+  border: 3px dashed rgba(96, 165, 250, 0.4);
+  border-radius: 50% 20% 50% 20%;
+  z-index: 0;
+  animation: stepPathGlow 4s ease-in-out infinite;
+  transform: rotate(15deg);
+}
+
+/* Animated Step Flow */
+.approachContent::after {
+  content: '';
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle, #60a5fa 0%, #2b70fa 70%, transparent 100%);
+  border-radius: 50%;
+  z-index: 1;
+  animation: stepFlowAnimation 3s ease-in-out infinite;
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.8);
+}
+
+@media (max-width: 991px) {
+  .approachContent::before,
+  .approachContent::after {
+    display: none;
+  }
+}
+
+.approachCard {
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(96, 165, 250, 0.1) 100%);
+  padding: 50px;
+  border-radius: 30px;
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.5),
+    0 10px 40px rgba(43, 112, 250, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  height: 100%;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid rgba(96, 165, 250, 0.2);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(30px);
+  z-index: 2;
+  transform-style: preserve-3d;
+}
+
+/* Awesome Step Numbers */
+.approachCard::after {
+  content: '';
+  position: absolute;
+  top: -25px;
+  right: -25px;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #60a5fa 0%, #2b70fa 50%, #1e40af 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 900;
+  font-size: 1.8rem;
+  font-family: 'Arial', sans-serif;
+  box-shadow:
+    0 15px 40px rgba(96, 165, 250, 0.6),
+    0 5px 15px rgba(0, 0, 0, 0.3),
+    inset 0 2px 0 rgba(255, 255, 255, 0.3);
+  z-index: 3;
+  animation: stepNumberPulse 3s ease-in-out infinite;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.colLg6:nth-child(1) .approachCard::after {
+  content: 'STEP\A 01';
+  white-space: pre;
+  text-align: center;
+  line-height: 1.2;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.colLg6:nth-child(2) .approachCard::after {
+  content: 'STEP\A 02';
+  white-space: pre;
+  text-align: center;
+  line-height: 1.2;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.approachCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #60a5fa, #2b70fa);
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.5);
+}
+
+.approachCard::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+  transform: rotate(45deg);
+  animation: shimmerCard 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.approachCard:hover {
+  transform: translateY(-20px) scale(1.03) rotateX(5deg);
+  box-shadow:
+    0 35px 100px rgba(43, 112, 250, 0.6),
+    0 15px 50px rgba(0, 0, 0, 0.4),
+    inset 0 2px 0 rgba(255, 255, 255, 0.3);
+  border-color: rgba(96, 165, 250, 0.5);
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.12) 50%,
+    rgba(96, 165, 250, 0.15) 100%);
+}
+
+.colLg6:nth-child(1):hover {
+  transform: perspective(1000px) rotateY(8deg) translateY(-10px);
+}
+
+.colLg6:nth-child(2):hover {
+  transform: perspective(1000px) rotateY(-8deg) translateY(-10px);
+}
+
+.cardIcon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #60a5fa, #2b70fa);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  box-shadow: 0 15px 40px rgba(96, 165, 250, 0.4);
+  position: relative;
+  animation: iconPulse 3s ease-in-out infinite;
+}
+
+.cardIcon::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(135deg, #60a5fa, #2b70fa);
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.3;
+  animation: iconGlow 2s ease-in-out infinite alternate;
+}
+
+.cardTitle {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 20px;
+  line-height: 1.3;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.cardDescription {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  margin-bottom: 20px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.cardFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.featureItem:hover {
+  color: rgba(255, 255, 255, 1);
+  transform: translateX(5px);
+}
+
+.featureItem i {
+  color: #60a5fa;
+  font-size: 1rem;
+  text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+}
+
+/* Stats Section */
+.statsSection {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  padding: 60px 40px;
+  border-radius: 25px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(25px);
+  position: relative;
+  overflow: hidden;
+}
+
+.statsSection::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(96, 165, 250, 0.05), transparent);
+  transform: rotate(45deg);
+  animation: shimmerStats 6s ease-in-out infinite;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  text-align: center;
+}
+
+.statItem {
+  position: relative;
+}
+
+.statItem::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(135deg, #60a5fa, #2b70fa);
+  border-radius: 2px;
+  box-shadow: 0 0 15px rgba(96, 165, 250, 0.5);
+  animation: statGlow 2s ease-in-out infinite alternate;
+}
+
+.statNumber {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffffff 0%, #60a5fa 50%, #2b70fa 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  margin-bottom: 10px;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  animation: numberPulse 3s ease-in-out infinite;
+}
+
+.statLabel {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gridLinesFlow {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(80px, 80px);
+  }
+}
+
+@keyframes gridLinesFlowSlow {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(120px, 120px);
+  }
+}
+
+@keyframes shimmerCard {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  50% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(200%) translateY(200%) rotate(45deg);
+  }
+}
+
+@keyframes shimmerStats {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  50% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(200%) translateY(200%) rotate(45deg);
+  }
+}
+
+@keyframes iconPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes iconGlow {
+  0% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes statGlow {
+  0% {
+    box-shadow: 0 0 15px rgba(96, 165, 250, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 25px rgba(96, 165, 250, 0.8);
+  }
+}
+
+@keyframes numberPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes floatParticle {
+  0% {
+    transform: translateY(0px) translateX(0px) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(-20px) translateX(10px) scale(1);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(-80vh) translateX(50px) scale(1);
+  }
+  100% {
+    transform: translateY(-100vh) translateX(60px) scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes stepLineGlow {
+  0% {
+    opacity: 0.3;
+    filter: blur(1px);
+  }
+  100% {
+    opacity: 0.8;
+    filter: blur(0px);
+  }
+}
+
+@keyframes stepConnector1 {
+  0% {
+    width: 120px;
+    opacity: 0.6;
+  }
+  100% {
+    width: 140px;
+    opacity: 1;
+  }
+}
+
+@keyframes stepConnector2 {
+  0% {
+    width: 120px;
+    opacity: 0.6;
+  }
+  100% {
+    width: 140px;
+    opacity: 1;
+  }
+}
+
+@keyframes stepPathGlow {
+  0% {
+    border-color: rgba(96, 165, 250, 0.4);
+    filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.3));
+  }
+  50% {
+    border-color: rgba(96, 165, 250, 0.8);
+    filter: drop-shadow(0 0 20px rgba(96, 165, 250, 0.6));
+  }
+  100% {
+    border-color: rgba(96, 165, 250, 0.4);
+    filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.3));
+  }
+}
+
+@keyframes stepFlowAnimation {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  25% {
+    transform: translate(100px, -50px) scale(1.2);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(200px, 0px) scale(0.8);
+    opacity: 0.6;
+  }
+  75% {
+    transform: translate(150px, 100px) scale(1.1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes stepNumberPulse {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    box-shadow:
+      0 15px 40px rgba(96, 165, 250, 0.6),
+      0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow:
+      0 20px 50px rgba(96, 165, 250, 0.8),
+      0 8px 25px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ourApproachSection {
+    padding: 60px 0;
+  }
+  
+  .sectionTitle {
+    font-size: 2.2rem;
+  }
+  
+  .sectionDescription {
+    font-size: 1.1rem;
+  }
+  
+  .approachCard {
+    padding: 30px;
+  }
+  
+  .cardIcon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+  
+  .cardTitle {
+    font-size: 1.3rem;
+  }
+  
+  .statsSection {
+    padding: 40px 20px;
+  }
+  
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  
+  .statNumber {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+  
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .statNumber {
+    font-size: 2rem;
+  }
+}

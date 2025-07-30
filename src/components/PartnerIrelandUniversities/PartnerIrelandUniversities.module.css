@@ -1,0 +1,496 @@
+/* Partner Ireland Universities Section */
+.partnerSection {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.partnerSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(34, 197, 94, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(249, 115, 22, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Section Header */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 80px;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sectionHeader.fadeInUp {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sectionTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #22c55e, #f97316);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.sectionSubtitle {
+  font-size: 1.5rem;
+  color: #cbd5e1;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.sectionDescription {
+  font-size: 1.1rem;
+  color: #94a3b8;
+  max-width: 900px;
+  margin: 0 auto 25px;
+  line-height: 1.7;
+}
+
+.missionStatement {
+  font-size: 1rem;
+  color: #64748b;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* Main Content Grid */
+.mainContent {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 60px;
+  margin-bottom: 80px;
+}
+
+/* Left Content - Universities List */
+.leftContent {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.leftContent.slideInLeft {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.brandHeader {
+  margin-bottom: 30px;
+}
+
+.brandTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #22c55e;
+  margin-bottom: 15px;
+}
+
+.listTitle {
+  font-size: 1.2rem;
+  color: #e2e8f0;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.universitiesList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
+}
+
+.universityItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.universityItem.fadeInItem {
+  opacity: 1;
+  transform: translateY(0);
+  animation-delay: var(--delay);
+  animation-duration: 0.6s;
+  animation-fill-mode: both;
+}
+
+.universityItem:hover {
+  background: rgba(34, 197, 94, 0.1);
+  border-color: rgba(34, 197, 94, 0.3);
+  transform: translateX(8px);
+}
+
+.universityItem i {
+  color: #22c55e;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.universityItem span {
+  color: #e2e8f0;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Right Content */
+.rightContent {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rightContent.slideInRight {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Stats Card */
+.statsCard {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(249, 115, 22, 0.1));
+  border-radius: 24px;
+  padding: 40px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.statNumber {
+  font-size: 4rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #22c55e, #f97316);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.statLabel {
+  font-size: 1.2rem;
+  color: #cbd5e1;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.ctaSection {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 30px;
+}
+
+.ctaTitle {
+  font-size: 1.4rem;
+  color: #f1f5f9;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.ctaDescription {
+  font-size: 1rem;
+  color: #94a3b8;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.consultationBtn {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.consultationBtn:hover {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(34, 197, 94, 0.3);
+}
+
+.consultationBtn i {
+  transition: transform 0.3s ease;
+}
+
+.consultationBtn:hover i {
+  transform: translateX(5px);
+}
+
+/* Advantages Grid */
+.advantagesGrid {
+  display: grid;
+  gap: 20px;
+}
+
+.advantageCard {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.advantageCard.slideInRight {
+  opacity: 1;
+  transform: translateY(0);
+  animation-delay: var(--delay);
+  animation-duration: 0.6s;
+  animation-fill-mode: both;
+}
+
+.advantageCard:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(34, 197, 94, 0.3);
+  transform: translateY(-5px);
+}
+
+.advantageIcon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.advantageIcon i {
+  color: white;
+  font-size: 1.2rem;
+}
+
+.advantageTitle {
+  font-size: 1.1rem;
+  color: #f1f5f9;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.advantageDescription {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  line-height: 1.5;
+}
+
+/* Bottom CTA Section */
+.bottomCTA {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  border-radius: 24px;
+  padding: 60px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bottomCTA.fadeInUp {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ctaMainTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #f1f5f9;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.ctaMainDescription {
+  font-size: 1.1rem;
+  color: #94a3b8;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+.featuresRow {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+.featureItem i {
+  color: #22c55e;
+  font-size: 1.1rem;
+}
+
+.successStats {
+  margin-bottom: 40px;
+}
+
+.successNumber {
+  font-size: 3rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #22c55e, #f97316);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.successLabel {
+  font-size: 1.1rem;
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+.finalCTA {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.mainCTABtn {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+  border: none;
+  padding: 18px 40px;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3);
+}
+
+.mainCTABtn:hover {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(34, 197, 94, 0.4);
+}
+
+.mainCTABtn i {
+  transition: transform 0.3s ease;
+}
+
+.mainCTABtn:hover i {
+  transform: translateX(5px);
+}
+
+.disclaimer {
+  font-size: 0.9rem;
+  color: #64748b;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .mainContent {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .rightContent {
+    order: -1;
+  }
+  
+  .universitiesList {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .partnerSection {
+    padding: 60px 0;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2.5rem;
+  }
+  
+  .ctaMainTitle {
+    font-size: 2rem;
+  }
+  
+  .featuresRow {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .bottomCTA {
+    padding: 40px 20px;
+  }
+  
+  .statsCard {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .ctaMainTitle {
+    font-size: 1.8rem;
+  }
+  
+  .statNumber {
+    font-size: 3rem;
+  }
+  
+  .successNumber {
+    font-size: 2.5rem;
+  }
+}

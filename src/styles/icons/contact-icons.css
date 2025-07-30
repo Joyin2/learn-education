@@ -1,0 +1,34 @@
+/* Font Awesome icons for Contact-related components */
+
+/* Contact form icons */
+.fa-paper-plane:before { content: "\f1d8"; }
+.fa-spinner:before { content: "\f110"; }
+.fa-check-circle:before { content: "\f058"; }
+.fa-exclamation-circle:before { content: "\f06a"; }
+
+/* Contact information icons */
+.fa-building:before { content: "\f1ad"; }
+.fa-envelope:before { content: "\f0e0"; }
+.fa-phone:before { content: "\f095"; }
+.fa-map-marker-alt:before { content: "\f3c5"; }
+.fa-share-nodes:before { content: "\f1e0"; }
+
+/* Social media brand icons */
+.fa-youtube:before { content: "\f167"; }
+.fa-facebook:before { content: "\f09a"; }
+.fa-x-twitter:before { content: "\e61b"; }
+.fa-linkedin:before { content: "\f08c"; }
+
+/* Icon animations */
+.fa-spin {
+  animation: fa-spin 2s infinite linear;
+}
+
+@keyframes fa-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

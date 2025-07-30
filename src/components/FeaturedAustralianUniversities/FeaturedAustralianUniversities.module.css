@@ -1,0 +1,308 @@
+/* Featured Australian Universities Section */
+.featuredUniversities {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #0c1426 0%, #002868 50%, #1e3a8a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Effects */
+.backgroundEffects {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.floatingElement1,
+.floatingElement2,
+.floatingElement3 {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #ff0000, #cc0000);
+  opacity: 0.05;
+  animation: float 8s ease-in-out infinite;
+}
+
+.floatingElement1 {
+  width: 200px;
+  height: 200px;
+  top: 10%;
+  right: 5%;
+  animation-delay: 0s;
+}
+
+.floatingElement2 {
+  width: 150px;
+  height: 150px;
+  bottom: 20%;
+  left: 8%;
+  animation-delay: 3s;
+}
+
+.floatingElement3 {
+  width: 100px;
+  height: 100px;
+  top: 60%;
+  right: 15%;
+  animation-delay: 6s;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Section Header */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 50%, #e2e8f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(45deg, #ff0000, #cc0000);
+  border-radius: 2px;
+}
+
+.sectionDescription {
+  font-size: 1.2rem;
+  background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 50%, #64748b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Universities Grid */
+.universitiesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+@media (max-width: 768px) {
+  .universitiesGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* University Card */
+.universityCard {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  max-width: 400px;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+
+.universityCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #ff0000;
+}
+
+/* Card Image */
+.cardImage {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+}
+
+.cardImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.universityCard:hover .cardImage img {
+  transform: scale(1.1);
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.universityCard:hover .imageOverlay {
+  opacity: 1;
+}
+
+.badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: linear-gradient(45deg, #ff0000, #cc0000);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+  z-index: 3;
+}
+
+/* Card Content */
+.cardContent {
+  padding: 1.5rem;
+}
+
+.universityName {
+  font-size: 1.4rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #e2e8f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.universityDetails {
+  margin-bottom: 1.5rem;
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  transition: color 0.3s ease;
+}
+
+.detailItem:hover {
+  color: #ff0000;
+}
+
+.detailItem i {
+  width: 16px;
+  color: #ff0000;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.detailItem:last-child {
+  margin-bottom: 0;
+}
+
+/* Learn More Button */
+.learnMoreBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  background: linear-gradient(45deg, #ff0000, #cc0000);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+}
+
+.learnMoreBtn:hover {
+  background: linear-gradient(45deg, #cc0000, #990000);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+}
+
+.learnMoreBtn i {
+  transition: transform 0.3s ease;
+}
+
+.learnMoreBtn:hover i {
+  transform: translateX(3px);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-20px) rotate(120deg);
+  }
+  66% {
+    transform: translateY(10px) rotate(240deg);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .featuredUniversities {
+    padding: 3rem 0;
+  }
+  
+  .sectionHeader {
+    margin-bottom: 2.5rem;
+  }
+  
+  .cardImage {
+    height: 200px;
+  }
+  
+  .cardContent {
+    padding: 1rem;
+  }
+  
+  .universityName {
+    font-size: 1.2rem;
+  }
+  
+  .detailItem {
+    font-size: 0.85rem;
+  }
+  
+  .universitiesGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}

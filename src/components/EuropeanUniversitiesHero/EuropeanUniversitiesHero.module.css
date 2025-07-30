@@ -1,0 +1,295 @@
+/* European Universities Hero Section */
+.europeanHeroSection {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f1419 0%, #1e3a8a 25%, #3b82f6 50%, #1e3a8a 75%, #0f1419 100%);
+  overflow: hidden;
+  padding-top: 5rem; /* Mobile navbar height + minimal spacing */
+}
+
+@media (min-width: 1024px) {
+  .europeanHeroSection {
+    min-height: 95vh;
+    padding-top: 6rem; /* Desktop navbar height + minimal spacing */
+  }
+}
+
+/* Background Elements */
+.heroBgElements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.bgElement1,
+.bgElement2,
+.bgElement3 {
+  position: absolute;
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.bgElement1 {
+  background: rgba(30, 58, 138, 0.15);
+  width: 300px;
+  height: 300px;
+  top: 10%;
+  left: 5%;
+  animation-delay: 0s;
+}
+
+.bgElement2 {
+  background: rgba(59, 130, 246, 0.1);
+  width: 200px;
+  height: 200px;
+  top: 60%;
+  right: 10%;
+  animation-delay: 2s;
+}
+
+.bgElement3 {
+  background: rgba(30, 58, 138, 0.1);
+  width: 150px;
+  height: 150px;
+  bottom: 20%;
+  left: 15%;
+  animation-delay: 4s;
+}
+
+/* Gradient Overlay */
+.heroGradientOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(15, 20, 25, 0.7), rgba(30, 58, 138, 0.3));
+  z-index: 2;
+}
+
+/* European Stars Pattern */
+.europeanStarsPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  opacity: 0.1;
+}
+
+.europeanStarsPattern::before {
+  content: '★';
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  font-size: 2rem;
+  color: #60a5fa;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.europeanStarsPattern::after {
+  content: '★';
+  position: absolute;
+  top: 70%;
+  right: 25%;
+  font-size: 1.5rem;
+  color: #60a5fa;
+  animation: twinkle 3s ease-in-out infinite 1.5s;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 3;
+  text-align: center;
+}
+
+/* Trust Badge */
+.trustBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 1rem;
+  animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.trustIcon {
+  font-size: 1.2rem;
+}
+
+.trustText {
+  color: white;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Hero Content */
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Hero Title */
+.heroTitle {
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+
+.titleMain {
+  display: block;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  color: white;
+  margin-bottom: 0.1rem;
+  animation: fadeInUp 1s ease-out 0.7s both;
+}
+
+.titleHighlight {
+  display: block;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  background: linear-gradient(45deg, #60a5fa, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.1rem;
+  animation: fadeInUp 1s ease-out 0.9s both;
+}
+
+.titleLocation {
+  display: block;
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 600;
+  color: #e5e7eb;
+  margin-bottom: 0.1rem;
+  animation: fadeInUp 1s ease-out 1.1s both;
+}
+
+.titleEducation {
+  display: block;
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-weight: 500;
+  color: #d1d5db;
+  animation: fadeInUp 1s ease-out 1.3s both;
+}
+
+/* CTA Container */
+.ctaContainer {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeInUp 1s ease-out 1.5s both;
+}
+
+/* Primary Button */
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(45deg, #3b82f6, #2563eb);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+  background: linear-gradient(45deg, #2563eb, #1d4ed8);
+}
+
+/* Secondary Button */
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.secondaryBtn:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .ctaContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+  
+  .trustBadge {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+}
