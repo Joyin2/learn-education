@@ -9,7 +9,7 @@ interface Feature {
   description: string;
 }
 
-export default function WhyChooseIreland(): JSX.Element {
+export default function WhyChooseIreland() {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   useEffect(() => {

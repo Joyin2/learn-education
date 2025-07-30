@@ -2,7 +2,7 @@
 
 import styles from './CanadaUniversitiesHero.module.css';
 
-export default function CanadaUniversitiesHero(): JSX.Element {
+export default function CanadaUniversitiesHero() {
   return (
     <div className={styles.canadaHeroSection}>
       {/* Background Elements */}

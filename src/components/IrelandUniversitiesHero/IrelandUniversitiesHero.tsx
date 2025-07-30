@@ -2,7 +2,7 @@
 
 import styles from './IrelandUniversitiesHero.module.css';
 
-export default function IrelandUniversitiesHero(): JSX.Element {
+export default function IrelandUniversitiesHero() {
   return (
     <div className={styles.irelandHeroSection}>
       {/* Background Elements */}
