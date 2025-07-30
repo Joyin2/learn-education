@@ -7,7 +7,37 @@
   background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #2b70fa 100%);
   overflow: hidden;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  padding: 20px 0 40px 0; /* Much closer to navbar */
+}
+
+/* Mobile-first responsive adjustments */
+@media (max-width: 480px) {
+  .enhancedHeroSection {
+    min-height: 100vh;
+    padding: 15px 0 30px 0;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .enhancedHeroSection {
+    min-height: 100vh;
+    padding: 18px 0 35px 0;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .enhancedHeroSection {
+    min-height: 100vh;
+    padding: 20px 0 40px 0;
+  }
+}
+
+@media (min-width: 1025px) {
+  .enhancedHeroSection {
+    min-height: 100vh;
+    padding: 25px 0 50px 0;
+  }
 }
 
 .heroParticles {
@@ -93,34 +123,120 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 12px;
   position: relative;
   z-index: 3;
+  width: 100%;
+}
+
+/* Mobile-first container padding */
+@media (min-width: 320px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
+@media (min-width: 480px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 30px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    padding: 0 15px;
+  }
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -15px;
+  margin: 0 -12px;
+  align-items: flex-start;
+  min-height: auto;
+}
+
+/* Mobile-first row adjustments */
+@media (min-width: 320px) {
+  .row {
+    margin: 0 -16px;
+    min-height: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .row {
+    margin: 0 -24px;
+    min-height: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .row {
+    margin: 0 -15px;
+    min-height: auto;
+  }
 }
 
 .colLg7 {
-  flex: 0 0 58.333333%;
-  max-width: 58.333333%;
-  padding: 0 15px;
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding: 0 12px;
+  order: 1;
 }
 
 .colLg5 {
-  flex: 0 0 41.666667%;
-  max-width: 41.666667%;
-  padding: 0 15px;
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding: 0 12px;
+  order: 2;
 }
 
-@media (max-width: 991px) {
+/* Responsive column layout */
+@media (min-width: 320px) {
   .colLg7,
   .colLg5 {
-    flex: 0 0 100%;
-    max-width: 100%;
+    padding: 0 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .colLg7,
+  .colLg5 {
+    padding: 0 24px;
+  }
+}
+
+@media (min-width: 992px) {
+  .colLg7 {
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%;
+    order: 1;
+  }
+
+  .colLg5 {
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%;
+    order: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .colLg7,
+  .colLg5 {
+    padding: 0 15px;
   }
 }
 
@@ -128,7 +244,34 @@
 .heroContent {
   position: relative;
   z-index: 3;
-  padding-top: 20px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+/* Mobile-first content adjustments */
+@media (min-width: 480px) {
+  .heroContent {
+    padding-top: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  .heroContent {
+    padding-top: 20px;
+    text-align: left;
+  }
+}
+
+@media (min-width: 992px) {
+  .heroContent {
+    padding-top: 25px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .heroContent {
+    padding-top: 30px;
+  }
 }
 
 .heroTag {
@@ -139,11 +282,11 @@
 .heroTagBadge {
   background: linear-gradient(135deg, rgba(43, 112, 250, 0.15) 0%, rgba(74, 144, 255, 0.25) 100%);
   color: white;
-  padding: 12px 24px;
+  padding: 10px 20px;
   border-radius: 30px;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.4px;
   text-transform: uppercase;
   backdrop-filter: blur(15px);
   border: 2px solid rgba(74, 144, 255, 0.3);
@@ -153,7 +296,35 @@
   transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+/* Mobile-first badge adjustments */
+@media (min-width: 480px) {
+  .heroTagBadge {
+    padding: 11px 22px;
+    font-size: 14px;
+    letter-spacing: 0.45px;
+    gap: 7px;
+  }
+}
+
+@media (min-width: 768px) {
+  .heroTagBadge {
+    padding: 12px 24px;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    gap: 8px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heroTagBadge {
+    padding: 14px 26px;
+    font-size: 16px;
+    letter-spacing: 0.6px;
+  }
 }
 
 .heroTagBadge::before {
@@ -190,11 +361,11 @@
 }
 
 .heroSubtitle {
-  font-size: 22px;
+  font-size: 16px;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 0.6px;
   text-transform: uppercase;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   position: relative;
   display: inline-block;
   background: linear-gradient(135deg, #ffffff 0%, #4a90ff 30%, #ffffff 60%, #6ba3ff 100%);
@@ -203,6 +374,40 @@
   -webkit-text-fill-color: transparent;
   text-shadow: 0 4px 12px rgba(74, 144, 255, 0.3);
   animation: heroSubtitleGlow 3s ease-in-out infinite alternate, heroSubtitleSlide 1s ease-out 0.2s both;
+  line-height: 1.3;
+}
+
+/* Mobile-first subtitle adjustments */
+@media (min-width: 480px) {
+  .heroSubtitle {
+    font-size: 18px;
+    letter-spacing: 0.7px;
+    margin-bottom: 13px;
+  }
+}
+
+@media (min-width: 768px) {
+  .heroSubtitle {
+    font-size: 20px;
+    letter-spacing: 0.8px;
+    margin-bottom: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heroSubtitle {
+    font-size: 22px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .heroSubtitle {
+    font-size: 24px;
+    letter-spacing: 1.2px;
+    margin-bottom: 16px;
+  }
 }
 
 .heroSubtitle::before {
@@ -292,31 +497,108 @@
 }
 
 .universityList {
-  margin: 25px 0;
+  margin: 15px 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 8px;
   align-items: center;
+  justify-content: center;
+}
+
+/* Mobile-first university list adjustments */
+@media (min-width: 480px) {
+  .universityList {
+    margin: 18px 0;
+    gap: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .universityList {
+    margin: 20px 0;
+    gap: 12px;
+    justify-content: flex-start;
+  }
+}
+
+@media (min-width: 1024px) {
+  .universityList {
+    margin: 25px 0;
+    gap: 14px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .universityList {
+    margin: 30px 0;
+    gap: 16px;
+  }
 }
 
 .universityItem {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
+  gap: 6px;
+  padding: 8px 12px;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 25px;
+  border-radius: 20px;
   color: #fff;
   text-decoration: none;
   font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.3px;
+  font-size: 12px;
+  letter-spacing: 0.2px;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
+  white-space: nowrap;
+  min-height: 36px;
+  touch-action: manipulation;
+}
+
+/* Mobile-first university item adjustments */
+@media (min-width: 480px) {
+  .universityItem {
+    gap: 7px;
+    padding: 9px 14px;
+    font-size: 13px;
+    letter-spacing: 0.25px;
+    border-radius: 22px;
+    min-height: 38px;
+  }
+}
+
+@media (min-width: 768px) {
+  .universityItem {
+    gap: 8px;
+    padding: 10px 16px;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    border-radius: 25px;
+    min-height: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .universityItem {
+    gap: 9px;
+    padding: 11px 18px;
+    font-size: 15px;
+    letter-spacing: 0.35px;
+    min-height: 42px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .universityItem {
+    gap: 10px;
+    padding: 12px 20px;
+    font-size: 16px;
+    letter-spacing: 0.4px;
+    min-height: 44px;
+  }
 }
 
 .universityItem::before {
@@ -343,13 +625,45 @@
 }
 
 .universityFlag {
-  width: 20px;
-  height: 15px;
-  border-radius: 3px;
+  width: 16px;
+  height: 12px;
+  border-radius: 2px;
   display: inline-block;
   background-size: cover;
   background-position: center;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+}
+
+/* Mobile-first flag adjustments */
+@media (min-width: 480px) {
+  .universityFlag {
+    width: 18px;
+    height: 13px;
+    border-radius: 2.5px;
+  }
+}
+
+@media (min-width: 768px) {
+  .universityFlag {
+    width: 20px;
+    height: 15px;
+    border-radius: 3px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .universityFlag {
+    width: 22px;
+    height: 16px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .universityFlag {
+    width: 24px;
+    height: 18px;
+  }
 }
 
 .flagUK {
@@ -397,18 +711,66 @@
 }
 
 .heroTitle {
-  font-size: 3.8rem;
+  font-size: 1.8rem;
   font-weight: 800;
-  line-height: 1.15;
+  line-height: 1.2;
   background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 30%, #ffffff 60%, #f1f5f9 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), 0 0 30px rgba(43, 112, 250, 0.2);
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   position: relative;
   animation: heroTitleEntrance 1.2s ease-out 0.3s both;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
+/* Mobile-first title adjustments */
+@media (min-width: 480px) {
+  .heroTitle {
+    font-size: 2.2rem;
+    line-height: 1.18;
+    margin-bottom: 22px;
+    letter-spacing: -0.015em;
+  }
+}
+
+@media (min-width: 768px) {
+  .heroTitle {
+    font-size: 2.8rem;
+    line-height: 1.16;
+    margin-bottom: 25px;
+    letter-spacing: -0.018em;
+    text-align: left;
+  }
+}
+
+@media (min-width: 992px) {
+  .heroTitle {
+    font-size: 3.2rem;
+    line-height: 1.15;
+    margin-bottom: 28px;
+    letter-spacing: -0.02em;
+  }
+}
+
+@media (min-width: 1200px) {
+  .heroTitle {
+    font-size: 3.8rem;
+    line-height: 1.15;
+    margin-bottom: 30px;
+    letter-spacing: -0.02em;
+  }
+}
+
+@media (min-width: 1400px) {
+  .heroTitle {
+    font-size: 4.2rem;
+    line-height: 1.12;
+    margin-bottom: 35px;
+    letter-spacing: -0.025em;
+  }
 }
 
 .heroTitle::before {
@@ -470,12 +832,12 @@
 }
 
 .heroDescription {
-  font-size: 1.25rem;
-  line-height: 1.7;
+  font-size: 1rem;
+  line-height: 1.6;
   color: rgba(255, 255, 255, 0.95);
-  margin-bottom: 35px;
+  margin-bottom: 25px;
   font-weight: 400;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.2px;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   position: relative;
   animation: heroDescriptionEntrance 1.4s ease-out 0.6s both;
@@ -483,7 +845,57 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  max-width: 90%;
+  max-width: 100%;
+  text-align: center;
+}
+
+/* Mobile-first description adjustments */
+@media (min-width: 480px) {
+  .heroDescription {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    margin-bottom: 28px;
+    letter-spacing: 0.25px;
+    max-width: 95%;
+  }
+}
+
+@media (min-width: 768px) {
+  .heroDescription {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    letter-spacing: 0.3px;
+    max-width: 90%;
+    text-align: left;
+  }
+}
+
+@media (min-width: 992px) {
+  .heroDescription {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    margin-bottom: 32px;
+    max-width: 85%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .heroDescription {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    margin-bottom: 35px;
+    max-width: 90%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .heroDescription {
+    font-size: 1.3rem;
+    line-height: 1.75;
+    margin-bottom: 40px;
+    letter-spacing: 0.35px;
+  }
 }
 
 .heroDescription::before {
@@ -644,30 +1056,106 @@
 /* CTA Buttons */
 .heroCtaButtons {
   display: flex;
-  gap: 20px;
+  gap: 12px;
   flex-wrap: wrap;
   animation: heroButtonsEntrance 1.8s ease-out 1.2s both;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Mobile-first CTA buttons adjustments */
+@media (min-width: 480px) {
+  .heroCtaButtons {
+    gap: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  .heroCtaButtons {
+    gap: 18px;
+    justify-content: flex-start;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heroCtaButtons {
+    gap: 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .heroCtaButtons {
+    gap: 25px;
+  }
 }
 
 .btnPrimary {
   background: linear-gradient(135deg, #2b70fa 0%, #4a90ff 50%, #6ba3ff 100%);
   color: white;
-  padding: 14px 28px;
+  padding: 12px 20px;
   border-radius: 50px;
   text-decoration: none;
   font-weight: 700;
-  font-size: 1rem;
-  letter-spacing: 0.3px;
+  font-size: 0.85rem;
+  letter-spacing: 0.2px;
   text-transform: uppercase;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  gap: 6px;
   box-shadow: 0 12px 35px rgba(43, 112, 250, 0.4), 0 0 20px rgba(74, 144, 255, 0.2);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border: none;
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(10px);
+  min-height: 44px;
+  touch-action: manipulation;
+  white-space: nowrap;
+  flex: 1;
+  max-width: 200px;
+}
+
+/* Mobile-first primary button adjustments */
+@media (min-width: 480px) {
+  .btnPrimary {
+    padding: 13px 24px;
+    font-size: 0.9rem;
+    letter-spacing: 0.25px;
+    gap: 7px;
+    min-height: 46px;
+    max-width: 220px;
+  }
+}
+
+@media (min-width: 768px) {
+  .btnPrimary {
+    padding: 14px 28px;
+    font-size: 1rem;
+    letter-spacing: 0.3px;
+    gap: 8px;
+    min-height: 48px;
+    flex: none;
+    max-width: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .btnPrimary {
+    padding: 15px 30px;
+    font-size: 1.05rem;
+    letter-spacing: 0.35px;
+    min-height: 50px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .btnPrimary {
+    padding: 16px 32px;
+    font-size: 1.1rem;
+    letter-spacing: 0.4px;
+    min-height: 52px;
+  }
 }
 
 .btnPrimary::before {
@@ -716,22 +1204,70 @@
 .btnSecondary {
   background: rgba(255, 255, 255, 0.05);
   color: white;
-  padding: 14px 28px;
+  padding: 12px 20px;
   border-radius: 50px;
   text-decoration: none;
   font-weight: 700;
-  font-size: 1rem;
-  letter-spacing: 0.3px;
+  font-size: 0.85rem;
+  letter-spacing: 0.2px;
   text-transform: uppercase;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  gap: 6px;
   border: 2px solid rgba(255, 255, 255, 0.4);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(15px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  min-height: 44px;
+  touch-action: manipulation;
+  white-space: nowrap;
+  flex: 1;
+  max-width: 200px;
+}
+
+/* Mobile-first secondary button adjustments */
+@media (min-width: 480px) {
+  .btnSecondary {
+    padding: 13px 24px;
+    font-size: 0.9rem;
+    letter-spacing: 0.25px;
+    gap: 7px;
+    min-height: 46px;
+    max-width: 220px;
+  }
+}
+
+@media (min-width: 768px) {
+  .btnSecondary {
+    padding: 14px 28px;
+    font-size: 1rem;
+    letter-spacing: 0.3px;
+    gap: 8px;
+    min-height: 48px;
+    flex: none;
+    max-width: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .btnSecondary {
+    padding: 15px 30px;
+    font-size: 1.05rem;
+    letter-spacing: 0.35px;
+    min-height: 50px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .btnSecondary {
+    padding: 16px 32px;
+    font-size: 1.1rem;
+    letter-spacing: 0.4px;
+    min-height: 52px;
+  }
 }
 
 .btnSecondary::before {
@@ -891,10 +1427,40 @@
 /* Image section */
 .heroImgWrapper {
   position: relative;
-  padding-top: 15px;
-  padding-bottom: 120px;
+  padding-top: 20px;
+  padding-bottom: 40px;
   animation: heroWrapperFadeIn 1s ease-out 0.2s both;
   transform: translateY(0px);
+  text-align: center;
+}
+
+/* Mobile-first image wrapper adjustments */
+@media (min-width: 480px) {
+  .heroImgWrapper {
+    padding-top: 25px;
+    padding-bottom: 50px;
+  }
+}
+
+@media (min-width: 768px) {
+  .heroImgWrapper {
+    padding-top: 30px;
+    padding-bottom: 60px;
+  }
+}
+
+@media (min-width: 992px) {
+  .heroImgWrapper {
+    padding-top: 15px;
+    padding-bottom: 80px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .heroImgWrapper {
+    padding-top: 15px;
+    padding-bottom: 120px;
+  }
 }
 
 .heroImg {
@@ -906,11 +1472,54 @@
 .heroImageContainer {
   position: relative;
   overflow: hidden;
-  border-radius: 30px;
-  margin-top: 30px;
-  transform: scale(1.8);
+  border-radius: 15px;
+  margin-top: 20px;
+  transform: scale(1.1);
   animation: heroImageEntrance 1.2s ease-out 0.5s both, heroImageFloat 6s ease-in-out infinite 1.7s;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4), 0 0 60px rgba(43, 112, 250, 0.15);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(43, 112, 250, 0.1);
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Mobile-first image container adjustments */
+@media (min-width: 480px) {
+  .heroImageContainer {
+    border-radius: 20px;
+    margin-top: 25px;
+    transform: scale(1.2);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), 0 0 40px rgba(43, 112, 250, 0.12);
+  }
+}
+
+@media (min-width: 768px) {
+  .heroImageContainer {
+    border-radius: 25px;
+    margin-top: 30px;
+    transform: scale(1.4);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4), 0 0 50px rgba(43, 112, 250, 0.13);
+  }
+}
+
+@media (min-width: 992px) {
+  .heroImageContainer {
+    border-radius: 30px;
+    transform: scale(1.6);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4), 0 0 55px rgba(43, 112, 250, 0.14);
+  }
+}
+
+@media (min-width: 1200px) {
+  .heroImageContainer {
+    transform: scale(1.8);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4), 0 0 60px rgba(43, 112, 250, 0.15);
+  }
+}
+
+@media (min-width: 1400px) {
+  .heroImageContainer {
+    transform: scale(2.0);
+    box-shadow: 0 35px 90px rgba(0, 0, 0, 0.45), 0 0 70px rgba(43, 112, 250, 0.18);
+  }
 }
 
 .heroImageContainer img {
@@ -1180,27 +1789,27 @@
 }
 
 .mb15 {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .mb20 {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .mb25 {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .mb30 {
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .mb40 {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .pt20 {
-  padding-top: 20px;
+  padding-top: 15px;
 }
 
 .pRelative {
@@ -1211,8 +1820,275 @@
   display: none;
 }
 
+/* Mobile-first utility adjustments */
+@media (min-width: 768px) {
+  .mb15 {
+    margin-bottom: 15px;
+  }
+
+  .mb20 {
+    margin-bottom: 20px;
+  }
+
+  .mb25 {
+    margin-bottom: 25px;
+  }
+
+  .mb30 {
+    margin-bottom: 30px;
+  }
+
+  .mb40 {
+    margin-bottom: 40px;
+  }
+
+  .pt20 {
+    padding-top: 20px;
+  }
+}
+
 @media (min-width: 992px) {
   .dLgBlock {
     display: block;
+  }
+}
+
+/* Accessibility and performance improvements */
+@media (prefers-reduced-motion: reduce) {
+  .enhancedHeroSection,
+  .enhancedHeroSection::before,
+  .enhancedHeroSection::after,
+  .heroBgElements::before,
+  .heroBgElements::after,
+  .heroTag,
+  .heroSubtitle,
+  .heroTitle,
+  .heroDescription,
+  .heroCtaButtons,
+  .heroImageContainer,
+  .heroImgWrapper,
+  .universityItem,
+  .btnPrimary,
+  .btnSecondary {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .heroTitle,
+  .heroSubtitle,
+  .heroDescription {
+    background: white;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .universityItem,
+  .heroTagBadge {
+    border-width: 3px;
+    border-color: white;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    border-width: 3px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .enhancedHeroSection {
+    background: white !important;
+    color: black !important;
+    min-height: auto !important;
+    padding: 20px 0 !important;
+  }
+
+  .heroTitle,
+  .heroSubtitle,
+  .heroDescription {
+    background: black !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: black !important;
+  }
+
+  .heroImageContainer,
+  .heroBgElements,
+  .heroGradientOverlay {
+    display: none !important;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    background: white !important;
+    color: black !important;
+    border: 2px solid black !important;
+  }
+}
+
+/* Focus management for better keyboard navigation */
+.btnPrimary:focus,
+.btnSecondary:focus,
+.universityItem:focus {
+  outline: 3px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 2px;
+}
+
+@supports selector(:focus-visible) {
+  .btnPrimary:focus,
+  .btnSecondary:focus,
+  .universityItem:focus {
+    outline: none;
+  }
+
+  .btnPrimary:focus-visible,
+  .btnSecondary:focus-visible,
+  .universityItem:focus-visible {
+    outline: 3px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 2px;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .btnPrimary:hover,
+  .btnSecondary:hover,
+  .universityItem:hover,
+  .heroImageContainer:hover {
+    transform: none;
+  }
+
+  .btnPrimary:active,
+  .btnSecondary:active {
+    transform: scale(0.98);
+  }
+
+  .universityItem:active {
+    transform: scale(0.95);
+  }
+}
+
+/* Very small devices (320px and below) */
+@media (max-width: 320px) {
+  .enhancedHeroSection {
+    padding: 10px 0 20px 0;
+  }
+
+  .container {
+    padding: 0 12px;
+  }
+
+  .heroTitle {
+    font-size: 1.6rem;
+    line-height: 1.25;
+  }
+
+  .heroDescription {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .heroCtaButtons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    width: 100%;
+    max-width: none;
+    padding: 14px 20px;
+    font-size: 0.8rem;
+  }
+
+  .universityList {
+    gap: 6px;
+  }
+
+  .universityItem {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+
+  .universityFlag {
+    width: 14px;
+    height: 10px;
+  }
+}
+
+/* Landscape orientation on mobile devices */
+@media (max-height: 500px) and (orientation: landscape) {
+  .enhancedHeroSection {
+    min-height: 100vh;
+    padding: 15px 0 20px 0;
+  }
+
+  .row {
+    min-height: auto;
+  }
+
+  .heroTitle {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+
+  .heroDescription {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  .heroCtaButtons {
+    gap: 10px;
+  }
+
+  .heroImgWrapper {
+    padding-top: 10px;
+    padding-bottom: 20px;
+  }
+
+  .heroImageContainer {
+    transform: scale(1.0);
+    margin-top: 10px;
+  }
+}
+
+/* Large screens (1440px and up) */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1400px;
+  }
+
+  .heroTitle {
+    font-size: 4.5rem;
+    line-height: 1.1;
+  }
+
+  .heroDescription {
+    font-size: 1.4rem;
+    line-height: 1.8;
+  }
+
+  .heroCtaButtons {
+    gap: 30px;
+  }
+}
+
+/* Ultra-wide screens (1920px and up) */
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1600px;
+  }
+
+  .heroTitle {
+    font-size: 5rem;
+  }
+
+  .heroDescription {
+    font-size: 1.5rem;
   }
 }

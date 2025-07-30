@@ -1,5 +1,4 @@
 import Hero from "@/components/Hero";
-import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";
 import GlobalEducationSection from "@/components/GlobalEducationSection";
 import CompareChooseSection from "@/components/CompareChooseSection";
@@ -12,7 +11,6 @@ export default function Home() {
   return (
     <div>
       <Hero />
-      <ServicesSection />
       <AboutSection />
       <GlobalEducationSection />
       <CompareChooseSection />

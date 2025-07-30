@@ -47,7 +47,7 @@ export default function EnhancedHeroSection() {
               </div>
 
               <h1 className={`${styles.heroTitle} ${styles.mb25}`}>
-                Premier Education Consultancy for<br />
+                Premier Education Consultancy for{' '}
                 <span className={styles.heroTitleHighlight}>UK & International Students</span>
               </h1>
 
@@ -61,16 +61,18 @@ export default function EnhancedHeroSection() {
                 <a
                   href="/contact"
                   className={styles.btnPrimary}
+                  aria-label="Get free consultation - Contact us now"
                 >
-                  Get Free Consultation
-                  <i className="fa-solid fa-arrow-right"></i>
+                  <span>Get Free Consultation</span>
+                  <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
                 </a>
-                <a 
-                  href="/universities" 
+                <a
+                  href="/universities"
                   className={styles.btnSecondary}
+                  aria-label="Explore universities - Browse our partner institutions"
                 >
-                  Explore Universities
-                  <i className="fa-solid fa-graduation-cap"></i>
+                  <span>Explore Universities</span>
+                  <i className="fa-solid fa-graduation-cap" aria-hidden="true"></i>
                 </a>
               </div>
             </div>

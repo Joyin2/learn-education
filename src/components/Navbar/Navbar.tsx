@@ -21,7 +21,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu when clicking outside
+  // Close mobile menu when clicking outside or on escape key
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
@@ -31,8 +31,47 @@ export default function Navbar() {
       }
     };
 
+    const handleEscapeKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+        setIsUniversitiesOpen(false);
+      }
+    };
+
     document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
+    document.addEventListener('keydown', handleEscapeKey);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('keydown', handleEscapeKey);
+    };
+  }, []);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
+  // Close mobile menu on window resize to desktop size
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setIsOpen(false);
+        setIsUniversitiesOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   // Dropdown hover handlers with delay
@@ -176,7 +215,9 @@ export default function Navbar() {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className={styles.mobileMenuButton}
-            aria-label="Toggle mobile menu"
+            aria-label={isOpen ? 'Close mobile menu' : 'Open mobile menu'}
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
           >
             <i className={`fa-solid ${isOpen ? 'fa-times' : 'fa-bars'} ${styles.mobileMenuIcon}`}></i>
           </button>
@@ -184,7 +225,12 @@ export default function Navbar() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className={styles.mobileMenu}>
+          <div
+            className={styles.mobileMenu}
+            id="mobile-menu"
+            role="navigation"
+            aria-label="Mobile navigation menu"
+          >
             <div className={styles.mobileMenuContent}>
               {/* Navigation Items */}
               {navigationItems.map((item) => (
@@ -203,6 +249,9 @@ export default function Navbar() {
                 <button
                   className={styles.mobileDropdownButton}
                   onClick={() => setIsUniversitiesOpen(!isUniversitiesOpen)}
+                  aria-expanded={isUniversitiesOpen}
+                  aria-controls="universities-submenu"
+                  aria-label={isUniversitiesOpen ? 'Close universities menu' : 'Open universities menu'}
                 >
                   <span>Universities</span>
                   <i className={`fa-solid fa-chevron-down ${styles.dropdownIcon} ${
@@ -211,7 +260,12 @@ export default function Navbar() {
                 </button>
 
                 {isUniversitiesOpen && (
-                  <div className={styles.mobileDropdownContent}>
+                  <div
+                    className={styles.mobileDropdownContent}
+                    id="universities-submenu"
+                    role="menu"
+                    aria-label="Universities submenu"
+                  >
                     {universities.map((university) => (
                       <Link
                         key={university.name}
