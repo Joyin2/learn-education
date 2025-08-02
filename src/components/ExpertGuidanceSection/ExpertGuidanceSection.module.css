@@ -53,6 +53,7 @@
   padding: 0 20px;
   position: relative;
   z-index: 10;
+  width: 100%;
 }
 
 .contentWrapper {
@@ -60,6 +61,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 80px;
   align-items: center;
+  width: 100%;
 }
 
 /* Images Section - Modern Design */
@@ -84,6 +86,8 @@
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: absolute;
   object-fit: cover;
+  max-width: 100%;
+  height: auto;
 }
 
 .aboutImage1 {
@@ -558,9 +562,47 @@
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
+/* Large tablets and small desktops */
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 30px;
+  }
+
   .contentWrapper {
     gap: 60px;
+  }
+
+  .mainTitle {
+    font-size: 3.5rem;
+  }
+
+  .imageContainer {
+    height: 650px;
+  }
+
+  .aboutImage1 {
+    width: 380px;
+    height: 450px;
+  }
+
+  .aboutImage2 {
+    width: 340px;
+    height: 410px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .expertGuidanceSection {
+    padding: 100px 0;
+  }
+
+  .container {
+    padding: 0 25px;
+  }
+
+  .contentWrapper {
+    gap: 50px;
   }
 
   .contentSection {
@@ -569,6 +611,10 @@
 
   .mainTitle {
     font-size: 3rem;
+  }
+
+  .subtitle {
+    font-size: 1.8rem;
   }
 
   .imageContainer {
@@ -594,60 +640,106 @@
   .aboutImage2:hover {
     transform: translate(-25%, -50%) rotate(4deg) scale(1.05);
   }
+
+  .featureItem {
+    padding: 25px;
+    margin-bottom: 25px;
+  }
+
+  .featureTitle {
+    font-size: 1.3rem;
+  }
+
+  .featureDescription {
+    font-size: 1rem;
+  }
 }
 
+/* Small tablets and large phones */
 @media (max-width: 768px) {
   .expertGuidanceSection {
     padding: 80px 0;
+    min-height: auto;
+  }
+
+  .container {
+    padding: 0 20px;
   }
 
   .contentWrapper {
     grid-template-columns: 1fr;
-    gap: 50px;
+    gap: 40px;
   }
 
   .contentSection {
     padding-left: 0;
+    order: 2;
+  }
+
+  .imagesSection {
+    order: 1;
   }
 
   .mainTitle {
     font-size: 2.5rem;
+    text-align: center;
   }
 
   .subtitle {
     font-size: 1.6rem;
+    text-align: center;
   }
 
   .description {
     font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 30px;
   }
 
+  .commitmentBadge {
+    margin: 0 auto 20px;
+  }
+
+  /* Mobile-optimized image layout */
   .imageContainer {
-    height: 500px;
+    height: 400px;
+    margin-bottom: 20px;
   }
 
   .aboutImage1 {
-    width: 280px;
-    height: 350px;
-    transform: translate(-50%, -50%) rotate(-4deg);
+    width: 260px;
+    height: 320px;
+    transform: translate(-50%, -50%) rotate(-3deg);
+    z-index: 2;
   }
 
   .aboutImage2 {
-    width: 240px;
-    height: 300px;
-    transform: translate(-30%, -50%) rotate(8deg);
+    width: 220px;
+    height: 280px;
+    transform: translate(-50%, -60%) rotate(6deg);
+    z-index: 1;
+    opacity: 0.8;
   }
 
   .aboutImage1:hover {
-    transform: translate(-50%, -50%) rotate(-1deg) scale(1.03);
+    transform: translate(-50%, -50%) rotate(0deg) scale(1.02);
   }
 
   .aboutImage2:hover {
-    transform: translate(-30%, -50%) rotate(3deg) scale(1.03);
+    transform: translate(-50%, -60%) rotate(3deg) scale(1.02);
   }
 
   .featureItem {
     padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .featureTitle {
+    font-size: 1.2rem;
+  }
+
+  .featureDescription {
+    font-size: 0.95rem;
   }
 
   .bottomSection {
@@ -658,50 +750,84 @@
 
   .statsContainer {
     justify-content: center;
+    gap: 40px;
   }
 
   .ctaButton {
     justify-content: center;
+    align-self: center;
+    max-width: 300px;
   }
 }
 
+/* Mobile phones */
 @media (max-width: 480px) {
   .expertGuidanceSection {
-    padding: 60px 0;
+    padding: 50px 0;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  .contentWrapper {
+    gap: 30px;
   }
 
   .mainTitle {
     font-size: 2rem;
+    line-height: 1.1;
   }
 
   .subtitle {
     font-size: 1.4rem;
+    line-height: 1.3;
   }
 
+  .description {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  /* Stack images vertically on mobile */
   .imageContainer {
-    height: 400px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
   }
 
   .aboutImage1 {
-    width: 220px;
-    height: 280px;
-    transform: translate(-45%, -50%) rotate(-3deg);
+    width: 200px;
+    height: 250px;
+    position: relative;
+    transform: rotate(-2deg);
+    top: auto;
+    left: auto;
+    margin-bottom: 10px;
   }
 
   .aboutImage2 {
-    width: 190px;
-    height: 240px;
-    transform: translate(-35%, -50%) rotate(6deg);
+    width: 180px;
+    height: 220px;
+    position: relative;
+    transform: rotate(3deg);
+    top: auto;
+    left: auto;
+    margin-top: -30px;
   }
 
   .aboutImage1:hover {
-    transform: translate(-45%, -50%) rotate(0deg) scale(1.02);
+    transform: rotate(0deg) scale(1.02);
   }
 
   .aboutImage2:hover {
-    transform: translate(-35%, -50%) rotate(2deg) scale(1.02);
+    transform: rotate(1deg) scale(1.02);
   }
 
+  /* Hide decorative elements on mobile */
   .imageContainer::before,
   .imageContainer::after {
     display: none;
@@ -711,6 +837,8 @@
     flex-direction: column;
     text-align: center;
     gap: 15px;
+    padding: 18px;
+    margin-bottom: 15px;
   }
 
   .featureIcon {
@@ -720,17 +848,86 @@
     margin: 0 auto;
   }
 
+  .featureTitle {
+    font-size: 1.1rem;
+  }
+
+  .featureDescription {
+    font-size: 0.9rem;
+  }
+
   .statsContainer {
     flex-direction: column;
     gap: 20px;
+    align-items: center;
   }
 
   .statItem {
     min-width: auto;
+    text-align: center;
+  }
+
+  .statNumber {
+    font-size: 2rem;
   }
 
   .ctaButton {
     padding: 15px 25px;
     font-size: 1rem;
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+  .expertGuidanceSection {
+    padding: 40px 0;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+
+  .mainTitle {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
+
+  .imageContainer {
+    height: 300px;
+  }
+
+  .aboutImage1 {
+    width: 170px;
+    height: 210px;
+  }
+
+  .aboutImage2 {
+    width: 150px;
+    height: 190px;
+    margin-top: -25px;
+  }
+
+  .featureItem {
+    padding: 15px;
+  }
+
+  .featureIcon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+
+  .statNumber {
+    font-size: 1.8rem;
+  }
+
+  .ctaButton {
+    padding: 12px 20px;
+    font-size: 0.95rem;
   }
 }

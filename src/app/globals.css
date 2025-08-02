@@ -233,10 +233,637 @@
   }
 }
 
+/* ===== ULTRA-SMOOTH SCROLLING SYSTEM ===== */
+
+/* Advanced smooth scrolling with custom timing */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Account for fixed navbar */
+  /* Enhanced scroll performance */
+  scroll-snap-type: y proximity;
+  -webkit-scroll-behavior: smooth;
+  -moz-scroll-behavior: smooth;
+  -ms-scroll-behavior: smooth;
+}
+
+/* Ultra-smooth scrolling for all elements */
+* {
+  scroll-behavior: smooth;
+  /* Advanced GPU acceleration */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+}
+
+/* Optimized body for ultra-smooth scrolling */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  /* Ultra-smooth scrolling optimizations */
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  /* Advanced text rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  /* Performance optimizations */
+  will-change: scroll-position;
+  contain: layout style paint;
+  /* Smooth momentum */
+  scroll-snap-type: y proximity;
+  scroll-padding: 0;
+}
+
+/* ===== ULTRA-SMOOTH SCROLLING ENHANCEMENTS ===== */
+
+/* Advanced smooth scrolling for anchor links */
+a[href^="#"] {
+  scroll-behavior: smooth;
+  -webkit-scroll-behavior: smooth;
+  scroll-margin-top: 80px;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Enhanced scrolling utility classes */
+.smooth-scroll {
+  scroll-behavior: smooth;
+  -webkit-scroll-behavior: smooth;
+  scroll-snap-align: start;
+}
+
+.ultra-smooth {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  scroll-snap-align: start;
+  overscroll-behavior: contain;
+}
+
+/* Advanced mobile scrolling optimizations */
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 70px; /* Adjust for mobile navbar height */
+    /* Enhanced mobile scroll performance */
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: y proximity;
+  }
+
+  body {
+    /* Ultra-smooth touch scrolling */
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+    overscroll-behavior-x: none;
+    /* Mobile-specific optimizations */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  /* Smooth scroll for mobile sections */
+  section {
+    scroll-snap-align: start;
+    scroll-margin-top: 70px;
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  html,
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Smooth scrolling for custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+}
+
+/* Firefox scrollbar styling */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #3b82f6 rgba(0, 0, 0, 0.1);
+}
+
+/* ===== ULTRA-PERFORMANCE OPTIMIZATIONS FOR BUTTERY-SMOOTH SCROLLING ===== */
+
+/* Advanced GPU acceleration for maximum performance */
+body,
+html {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  will-change: scroll-position, transform;
+  /* Hardware acceleration */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  /* Smooth rendering */
+  -webkit-font-smoothing: subpixel-antialiased;
+  image-rendering: optimizeQuality;
+}
+
+/* Ultra-smooth rendering optimizations */
+* {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  /* Advanced compositing */
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  /* Smooth transitions */
+  -webkit-transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Ultra-smooth momentum scrolling */
+body {
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+  /* Advanced scroll optimizations */
+  scroll-snap-type: y proximity;
+  overscroll-behavior: contain;
+  /* Performance containment */
+  contain: layout style paint;
+}
+
+/* Maximum performance for sections */
+section {
+  contain: layout style paint;
+  will-change: transform, opacity;
+  /* Smooth section transitions */
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  scroll-snap-align: start;
+  scroll-margin-top: 80px;
+}
+
+/* Ultra-smooth image performance */
+img {
+  will-change: transform, opacity;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  /* Smooth image rendering */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Smooth performance for interactive elements */
+button,
+a,
+input,
+textarea {
+  will-change: transform;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Optimize animations during scroll */
+@media (prefers-reduced-motion: no-preference) {
+  /* Enable smooth scrolling animations */
+  .scroll-animate {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Smooth fade-in animations */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== ULTRA-SMOOTH SCROLLING SYSTEM CLASSES ===== */
+
+/* Ultra-smooth scrolling enabled state */
+.ultra-smooth-enabled {
+  scroll-behavior: smooth !important;
+  -webkit-scroll-behavior: smooth !important;
+}
+
+.ultra-smooth-scrolling {
+  /* Advanced momentum scrolling */
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: y proximity;
+  overscroll-behavior: contain;
+  /* Performance optimizations */
+  will-change: scroll-position;
+  contain: layout style paint;
+}
+
+/* Smooth scroll sections */
+.ultra-smooth-scrolling section {
+  scroll-snap-align: start;
+  scroll-margin-top: 80px;
+  will-change: transform;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+/* Ultra-smooth anchor links */
+.ultra-smooth-scrolling a[href^="#"] {
+  scroll-behavior: smooth;
+  scroll-margin-top: 80px;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Smooth scrolling during navigation */
+.ultra-smooth-scrolling.scrolling {
+  pointer-events: none;
+}
+
+.ultra-smooth-scrolling.scrolling * {
+  pointer-events: none;
+}
+
+/* Enhanced mobile ultra-smooth scrolling */
+@media (max-width: 768px) {
+  .ultra-smooth-scrolling {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+    overscroll-behavior-x: none;
+    scroll-padding-top: 70px;
+  }
+
+  .ultra-smooth-scrolling section {
+    scroll-margin-top: 70px;
+  }
+
+  .ultra-smooth-scrolling a[href^="#"] {
+    scroll-margin-top: 70px;
+  }
+}
+
+/* Buttery smooth animations */
+@keyframes ultraSmoothFadeIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 30px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.ultra-smooth-fade-in {
+  animation: ultraSmoothFadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Ultra-smooth hover effects */
+.ultra-smooth-hover {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+.ultra-smooth-hover:hover {
+  transform: translate3d(0, -2px, 0);
+}
+
+/* ===== RESPONSIVE TYPOGRAPHY SYSTEM ===== */
+
+/* Fluid typography using clamp() for smooth scaling */
+:root {
+  /* Base font sizes with fluid scaling */
+  --font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --font-size-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+  --font-size-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  --font-size-lg: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+  --font-size-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+  --font-size-2xl: clamp(1.5rem, 1.3rem + 1vw, 1.875rem);
+  --font-size-3xl: clamp(1.875rem, 1.6rem + 1.375vw, 2.25rem);
+  --font-size-4xl: clamp(2.25rem, 1.9rem + 1.75vw, 3rem);
+  --font-size-5xl: clamp(3rem, 2.5rem + 2.5vw, 4rem);
+  --font-size-6xl: clamp(4rem, 3rem + 5vw, 6rem);
+
+  /* Line heights for optimal readability */
+  --line-height-tight: 1.1;
+  --line-height-snug: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.6;
+  --line-height-loose: 1.8;
+
+  /* Letter spacing for different text sizes */
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+  --letter-spacing-wider: 0.05em;
+  --letter-spacing-widest: 0.1em;
+}
+
+/* Typography utility classes */
+.text-responsive-xs { font-size: var(--font-size-xs); }
+.text-responsive-sm { font-size: var(--font-size-sm); }
+.text-responsive-base { font-size: var(--font-size-base); }
+.text-responsive-lg { font-size: var(--font-size-lg); }
+.text-responsive-xl { font-size: var(--font-size-xl); }
+.text-responsive-2xl { font-size: var(--font-size-2xl); }
+.text-responsive-3xl { font-size: var(--font-size-3xl); }
+.text-responsive-4xl { font-size: var(--font-size-4xl); }
+.text-responsive-5xl { font-size: var(--font-size-5xl); }
+.text-responsive-6xl { font-size: var(--font-size-6xl); }
+
+/* Line height utilities */
+.leading-tight { line-height: var(--line-height-tight); }
+.leading-snug { line-height: var(--line-height-snug); }
+.leading-normal { line-height: var(--line-height-normal); }
+.leading-relaxed { line-height: var(--line-height-relaxed); }
+.leading-loose { line-height: var(--line-height-loose); }
+
+/* Letter spacing utilities */
+.tracking-tight { letter-spacing: var(--letter-spacing-tight); }
+.tracking-normal { letter-spacing: var(--letter-spacing-normal); }
+.tracking-wide { letter-spacing: var(--letter-spacing-wide); }
+.tracking-wider { letter-spacing: var(--letter-spacing-wider); }
+.tracking-widest { letter-spacing: var(--letter-spacing-widest); }
+
+/* Responsive heading styles */
+.heading-hero {
+  font-size: var(--font-size-6xl);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  font-weight: 900;
+}
+
+.heading-section {
+  font-size: var(--font-size-5xl);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-spacing-tight);
+  font-weight: 800;
+}
+
+.heading-subsection {
+  font-size: var(--font-size-4xl);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-spacing-normal);
+  font-weight: 700;
+}
+
+.heading-card {
+  font-size: var(--font-size-2xl);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-spacing-normal);
+  font-weight: 600;
+}
+
+/* Responsive body text styles */
+.text-body-large {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+.text-body {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+.text-body-small {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+/* Touch-friendly button text */
+.text-button {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-spacing-wide);
+  font-weight: 600;
+}
+
+/* Responsive text optimization for different devices */
+@media (max-width: 480px) {
+  :root {
+    /* Slightly smaller base sizes for mobile */
+    --font-size-base: clamp(0.9rem, 0.85rem + 0.25vw, 1rem);
+    --font-size-lg: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    --line-height-normal: 1.6; /* Increased for mobile readability */
+    --line-height-relaxed: 1.7;
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    /* Larger sizes for large screens */
+    --font-size-6xl: clamp(4rem, 3rem + 3vw, 5rem);
+    --font-size-5xl: clamp(3rem, 2.5rem + 2vw, 3.5rem);
+  }
+}
+
+/* ===== TOUCH-FRIENDLY INTERACTIONS ===== */
+
+/* Touch target minimum sizes (44px x 44px recommended by WCAG) */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.touch-target-large {
+  min-height: 48px;
+  min-width: 48px;
+}
+
+/* Button touch-friendly styles */
+.btn-touch {
+  min-height: 44px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.btn-touch-large {
+  min-height: 48px;
+  padding: 16px 32px;
+  font-size: 1rem;
+}
+
+/* Touch-friendly hover states that work on both mouse and touch */
+@media (hover: hover) {
+  .btn-touch:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* Touch feedback for touch devices */
+.btn-touch:active {
+  transform: translateY(0);
+  transition: transform 0.1s ease;
+}
+
+/* Card touch interactions */
+.card-touch {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+@media (hover: hover) {
+  .card-touch:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.card-touch:active {
+  transform: translateY(-2px);
+  transition: transform 0.1s ease;
+}
+
+/* Link touch targets */
+.link-touch {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  margin: -8px -12px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+@media (hover: hover) {
+  .link-touch:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}
+
+.link-touch:active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Icon button touch targets */
+.icon-btn-touch {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+@media (hover: hover) {
+  .icon-btn-touch:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: scale(1.1);
+  }
+}
+
+.icon-btn-touch:active {
+  transform: scale(1.05);
+  transition: transform 0.1s ease;
+}
+
+/* Form input touch improvements */
+.input-touch {
+  min-height: 44px;
+  padding: 12px 16px;
+  font-size: 16px; /* Prevents zoom on iOS */
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.input-touch:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Dropdown/select touch improvements */
+.select-touch {
+  min-height: 44px;
+  padding: 12px 16px;
+  font-size: 16px; /* Prevents zoom on iOS */
+  border-radius: 8px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+/* Touch-friendly spacing utilities */
+.touch-spacing-sm { margin: 8px; }
+.touch-spacing { margin: 12px; }
+.touch-spacing-lg { margin: 16px; }
+
+/* Disable text selection on interactive elements */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Remove tap highlight on touch devices */
+.no-tap-highlight {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Touch-friendly focus styles */
+.focus-touch:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Smooth touch scrolling */
+.touch-scroll {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }
 
 /* Global utility classes - keep only truly global styles */

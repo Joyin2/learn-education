@@ -1,31 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Footer.module.css';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const [showScrollTop, setShowScrollTop] = useState(false);
-
-  // Show/hide scroll to top button based on scroll position
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 300);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Scroll to top function
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
 
   const informationLinks = [
     { name: 'Home', href: '/' },
@@ -193,22 +173,13 @@ export default function Footer() {
               © {currentYear} Learn Education, All Rights Reserved.
             </p>
             <p className={styles.designCredit}>
-              Design By <a href="https://flerid.com" target="_blank" rel="noopener noreferrer" className={styles.designerName}>Flerid</a>
+              Designed by <a href="https://flerid.com" target="_blank" rel="noopener noreferrer" className={styles.designerName}>Flerid</a>
             </p>
           </div>
         </div>
       </div>
 
-      {/* Scroll to Top Button */}
-      {showScrollTop && (
-        <button
-          onClick={scrollToTop}
-          className={styles.scrollToTop}
-          aria-label="Scroll to top"
-        >
-          <i className="fa-solid fa-chevron-up" style={{fontStyle: 'normal'}}></i>
-        </button>
-      )}
+
     </footer>
   );
 }

@@ -610,24 +610,86 @@
   }
 }
 
-/* Enhanced Responsive Design - Alternating Layout */
-@media (max-width: 1200px) {
+/* Enhanced Responsive Design - Awesome Multi-Device Layout */
+
+/* Extra Large Screens (1400px+) - Premium Layout */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1600px;
+    padding: 0 40px;
+  }
+
+  .stepsWrapper {
+    max-width: 1200px;
+    gap: 80px;
+    padding: 0 80px;
+  }
+
+  .stepItem {
+    max-width: 480px;
+    padding: 56px 48px 48px;
+  }
+
+  .stepNumber {
+    width: 72px;
+    height: 72px;
+    font-size: 1.8rem;
+  }
+
+  .stepIcon {
+    width: 96px;
+    height: 96px;
+    font-size: 2.4rem;
+    margin: 36px auto 32px;
+  }
+
+  .stepTitle {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  .stepDescription {
+    font-size: 1.15rem;
+    line-height: 1.8;
+  }
+}
+
+/* Large Screens (1200px-1399px) - Enhanced Layout */
+@media (max-width: 1399px) and (min-width: 1200px) {
+  .container {
+    padding: 0 36px;
+  }
+
+  .stepsWrapper {
+    max-width: 1000px;
+    gap: 65px;
+    padding: 0 60px;
+  }
+
+  .stepItem {
+    max-width: 420px;
+    padding: 52px 44px 44px;
+  }
+
+  .stepConnector {
+    width: 70px;
+  }
+
+  .stepItem:nth-child(odd) .stepConnector {
+    right: -70px;
+  }
+
+  .stepItem:nth-child(even) .stepConnector {
+    left: -70px;
+  }
+}
+
+/* Medium-Large Screens (1024px-1199px) - Tablet Landscape */
+@media (max-width: 1199px) and (min-width: 1024px) {
   .container {
     padding: 0 32px;
   }
 
-  .stepsWrapper {
-    max-width: 900px;
-    gap: 50px;
-    padding: 0 50px;
-  }
-
-  .stepItem {
-    max-width: 380px;
-  }
-}
-
-@media (max-width: 1024px) {
   .mainTitle {
     font-size: 3.8rem;
   }
@@ -642,19 +704,32 @@
   }
 
   .stepsWrapper {
-    max-width: 800px;
-    gap: 45px;
-    padding: 0 40px;
+    max-width: 900px;
+    gap: 55px;
+    padding: 0 50px;
   }
 
   .stepItem {
-    max-width: 350px;
+    max-width: 380px;
+    padding: 48px 40px 40px;
+  }
+
+  .stepConnector {
+    width: 65px;
+  }
+
+  .stepItem:nth-child(odd) .stepConnector {
+    right: -65px;
+  }
+
+  .stepItem:nth-child(even) .stepConnector {
+    left: -65px;
   }
 
   .floatingShape1,
   .floatingShape2,
   .floatingShape3 {
-    opacity: 0.2;
+    opacity: 0.25;
   }
 
   .pathLine {
@@ -664,100 +739,227 @@
   }
 }
 
-@media (max-width: 768px) {
+/* Tablet Portrait (768px-1023px) - Transition Layout */
+@media (max-width: 1023px) and (min-width: 768px) {
   .processSection {
     padding: 100px 0;
   }
 
   .container {
-    padding: 0 20px;
+    padding: 0 28px;
   }
 
   .headerSection {
-    margin-bottom: 80px;
+    margin-bottom: 90px;
   }
 
   .mainTitle {
-    font-size: 3.2rem;
-    margin-bottom: 20px;
+    font-size: 3.4rem;
+    margin-bottom: 22px;
   }
 
   .mainTitle::after {
-    width: 240px;
+    width: 260px;
     height: 4px;
   }
 
   .subtitle {
-    font-size: 1.9rem;
+    font-size: 2rem;
+    margin-bottom: 22px;
+  }
+
+  .description {
+    font-size: 1.25rem;
+    max-width: 650px;
+  }
+
+  /* Hybrid layout - slightly reduced alternating */
+  .stepsWrapper {
+    max-width: 750px;
+    gap: 45px;
+    padding: 0 35px;
+  }
+
+  .stepItem {
+    max-width: 320px;
+    padding: 44px 36px 36px;
+  }
+
+  .stepItem:nth-child(odd) {
+    margin-left: 20px;
+  }
+
+  .stepItem:nth-child(even) {
+    margin-right: 20px;
+  }
+
+  .stepConnector {
+    width: 55px;
+  }
+
+  .stepItem:nth-child(odd) .stepConnector {
+    right: -55px;
+  }
+
+  .stepItem:nth-child(even) .stepConnector {
+    left: -55px;
+  }
+
+  .stepNumber {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+
+  .stepIcon {
+    width: 80px;
+    height: 80px;
+    font-size: 2.1rem;
+    margin: 30px auto 26px;
+  }
+
+  .stepTitle {
+    font-size: 1.55rem;
+    margin-bottom: 15px;
+  }
+
+  .stepDescription {
+    font-size: 1.08rem;
+    line-height: 1.65;
+  }
+
+  .floatingShape1,
+  .floatingShape2,
+  .floatingShape3 {
+    opacity: 0.15;
+  }
+
+  .pathLine {
+    width: 200px;
+    height: 200px;
+    opacity: 0.3;
+  }
+}
+
+/* Mobile Landscape & Small Tablets (667px-767px) - Optimized Layout */
+@media (max-width: 767px) and (min-width: 667px) {
+  .processSection {
+    padding: 90px 0;
+  }
+
+  .container {
+    padding: 0 24px;
+  }
+
+  .headerSection {
+    margin-bottom: 75px;
+  }
+
+  .mainTitle {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+
+  .mainTitle::after {
+    width: 220px;
+    height: 4px;
+  }
+
+  .subtitle {
+    font-size: 1.8rem;
     margin-bottom: 20px;
   }
 
   .description {
-    font-size: 1.2rem;
-    max-width: 700px;
+    font-size: 1.15rem;
+    max-width: 600px;
   }
 
-  /* Switch to centered layout on mobile */
+  /* Centered single-column layout with enhanced spacing */
   .stepsWrapper {
     max-width: 100%;
-    gap: 32px;
+    gap: 40px;
     padding: 0 20px;
     align-items: center;
+    position: relative;
   }
 
   .stepItem {
-    padding: 40px 32px 36px;
+    padding: 32px 34px 32px; /* Reduced top padding since no step number */
     max-width: 100%;
     margin: 0 auto !important;
     align-self: center !important;
+    border-radius: 26px;
+    position: relative;
+    overflow: hidden;
+    z-index: 10; /* Ensure cards are above any background elements */
+  }
+
+  /* Add subtle slide-in animation for mobile */
+  .stepItem::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(96, 165, 250, 0.1) 50%,
+      transparent 100%);
+    transition: left 0.8s ease;
+    z-index: 1;
+  }
+
+  .stepItem:hover::after {
+    left: 100%;
   }
 
   .stepNumber {
-    width: 56px;
-    height: 56px;
-    font-size: 1.4rem;
-    left: 50% !important;
-    right: auto !important;
-    top: 22px;
-    transform: translateX(-50%);
+    display: none !important;
   }
 
   .stepIcon {
-    width: 76px;
-    height: 76px;
-    font-size: 2rem;
-    margin: 28px auto 24px;
-    border-radius: 20px;
+    width: 78px;
+    height: 78px;
+    font-size: 2.05rem;
+    margin: 30px auto 26px;
+    border-radius: 22px;
+    z-index: 12;
+    position: relative;
   }
 
   .stepTitle {
-    font-size: 1.5rem;
-    margin-bottom: 14px;
+    font-size: 1.52rem;
+    margin-bottom: 15px;
+    z-index: 12;
+    position: relative;
   }
 
   .stepDescription {
-    font-size: 1.02rem;
-    line-height: 1.6;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    z-index: 12;
+    position: relative;
   }
 
   .ctaButton {
-    padding: 20px 40px;
-    font-size: 1.2rem;
-    gap: 14px;
+    padding: 22px 42px;
+    font-size: 1.25rem;
+    gap: 15px;
   }
 
-  /* Hide connectors on mobile */
+  /* Completely hide timeline elements on mobile */
   .stepConnector {
-    display: none;
+    display: none !important;
   }
 
-  /* Center the timeline on mobile */
   .stepsWrapper::before {
-    left: 50%;
+    display: none !important;
   }
 
   .progressLine {
-    left: 50%;
+    display: none !important;
   }
 
   .floatingShape1,
@@ -768,9 +970,129 @@
   }
 }
 
-@media (max-width: 480px) {
+/* Mobile Portrait (480px-666px) - Compact Awesome Layout */
+@media (max-width: 666px) and (min-width: 480px) {
   .processSection {
     padding: 80px 0;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .headerSection {
+    margin-bottom: 70px;
+  }
+
+  .mainTitle {
+    font-size: 2.8rem;
+    margin-bottom: 18px;
+    line-height: 1.1;
+  }
+
+  .mainTitle::after {
+    width: 200px;
+    height: 3px;
+    bottom: -14px;
+  }
+
+  .subtitle {
+    font-size: 1.7rem;
+    margin-bottom: 18px;
+  }
+
+  .description {
+    font-size: 1.12rem;
+    max-width: 500px;
+    line-height: 1.7;
+  }
+
+  /* Enhanced mobile card layout */
+  .stepsWrapper {
+    max-width: 100%;
+    gap: 35px;
+    padding: 0 18px;
+    align-items: center;
+    position: relative;
+  }
+
+  .stepItem {
+    padding: 28px 30px 28px; /* Reduced top padding since no step number */
+    max-width: 100%;
+    margin: 0 auto !important;
+    align-self: center !important;
+    border-radius: 24px;
+    transform: scale(0.98);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    z-index: 10;
+  }
+
+  .stepItem:hover {
+    transform: scale(1.02) translateY(-4px);
+  }
+
+  .stepNumber {
+    display: none !important;
+  }
+
+  .stepIcon {
+    width: 74px;
+    height: 74px;
+    font-size: 1.95rem;
+    margin: 28px auto 24px;
+    border-radius: 20px;
+    position: relative;
+    z-index: 12;
+  }
+
+  .stepTitle {
+    font-size: 1.45rem;
+    margin-bottom: 14px;
+    line-height: 1.3;
+    position: relative;
+    z-index: 12;
+  }
+
+  .stepDescription {
+    font-size: 1.02rem;
+    line-height: 1.6;
+    position: relative;
+    z-index: 12;
+  }
+
+  .ctaButton {
+    padding: 20px 38px;
+    font-size: 1.18rem;
+    gap: 14px;
+  }
+
+  /* Completely hide all timeline elements on mobile */
+  .stepsWrapper::before {
+    display: none !important;
+  }
+
+  .progressLine {
+    display: none !important;
+  }
+
+  .stepConnector {
+    display: none !important;
+  }
+
+  .floatingShape1,
+  .floatingShape2,
+  .floatingShape3,
+  .pathLine {
+    display: none;
+  }
+}
+
+/* Small Mobile (320px-479px) - Ultra-Compact Awesome Design */
+@media (max-width: 479px) {
+  .processSection {
+    padding: 70px 0;
+    background: linear-gradient(135deg, #0a0f1c 0%, #1a1f2e 30%, #2a2f3e 60%, #1e293b 90%, #0f172a 100%);
   }
 
   .container {
@@ -778,81 +1100,551 @@
   }
 
   .headerSection {
-    margin-bottom: 60px;
+    margin-bottom: 55px;
   }
 
   .mainTitle {
-    font-size: 2.6rem;
+    font-size: 2.4rem;
     margin-bottom: 16px;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
   }
 
   .mainTitle::after {
-    width: 180px;
+    width: 160px;
     height: 3px;
     bottom: -12px;
   }
 
   .subtitle {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     margin-bottom: 16px;
+    line-height: 1.2;
   }
 
   .description {
-    font-size: 1.1rem;
+    font-size: 1.08rem;
     line-height: 1.7;
+    max-width: 400px;
   }
 
   .processContainer {
-    margin-bottom: 60px;
+    margin-bottom: 55px;
   }
 
+  /* Ultra-compact card design */
   .stepsWrapper {
-    gap: 28px;
-    padding: 0 16px;
+    gap: 24px;
+    padding: 0 14px;
+    max-width: 100%;
+    position: relative;
   }
 
   .stepItem {
-    padding: 36px 24px 32px;
-    border-radius: 24px;
+    padding: 24px 20px 24px; /* Reduced top padding since no step number */
+    border-radius: 22px;
+    position: relative;
+    background: linear-gradient(145deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0.02) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transform: scale(0.97);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 10;
+    margin: 0 auto !important;
+    align-self: center !important;
+    max-width: 100%;
   }
 
+  .stepItem:hover {
+    transform: scale(1) translateY(-2px);
+    border-color: rgba(96, 165, 250, 0.3);
+    box-shadow:
+      0 16px 40px rgba(59, 130, 246, 0.15),
+      0 6px 20px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+
+  /* Hide step numbers on small mobile */
   .stepNumber {
-    width: 48px;
-    height: 48px;
-    font-size: 1.2rem;
-    left: 50% !important;
-    right: auto !important;
-    top: 26px;
-    transform: translateX(-50%);
+    display: none !important;
   }
 
+  /* Compact icons */
   .stepIcon {
-    width: 68px;
-    height: 68px;
-    font-size: 1.8rem;
-    margin: 24px auto 20px;
-    border-radius: 18px;
+    width: 64px;
+    height: 64px;
+    font-size: 1.7rem;
+    margin: 22px auto 18px;
+    border-radius: 16px;
+    background: linear-gradient(135deg,
+      rgba(59, 130, 246, 0.12) 0%,
+      rgba(139, 92, 246, 0.1) 50%,
+      rgba(236, 72, 153, 0.12) 100%);
+    position: relative;
+    z-index: 12;
   }
 
+  /* Compact typography */
   .stepTitle {
-    font-size: 1.4rem;
-    margin-bottom: 12px;
-    line-height: 1.3;
+    font-size: 1.32rem;
+    margin-bottom: 11px;
+    line-height: 1.25;
+    font-weight: 700;
+    position: relative;
+    z-index: 12;
   }
 
   .stepDescription {
-    font-size: 1rem;
+    font-size: 0.98rem;
     line-height: 1.6;
+    color: #e2e8f0;
+    position: relative;
+    z-index: 12;
   }
 
+  /* Compact CTA button */
   .ctaButton {
-    padding: 18px 36px;
-    font-size: 1.1rem;
-    gap: 12px;
-    border-radius: 50px;
+    padding: 16px 32px;
+    font-size: 1.05rem;
+    gap: 11px;
+    border-radius: 48px;
+    font-weight: 700;
   }
 
   .ctaButton i {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+  }
+
+  /* Completely hide all timeline elements on small mobile */
+  .stepsWrapper::before {
+    display: none !important;
+  }
+
+  .progressLine {
+    display: none !important;
+  }
+
+  .stepConnector {
+    display: none !important;
+  }
+
+  .floatingShape1,
+  .floatingShape2,
+  .floatingShape3,
+  .pathLine {
+    display: none;
+  }
+}
+
+/* Extra Small Mobile (280px-319px) - Minimal Awesome Design */
+@media (max-width: 319px) {
+  .processSection {
+    padding: 60px 0;
+  }
+
+  .container {
+    padding: 0 12px;
+  }
+
+  .headerSection {
+    margin-bottom: 45px;
+  }
+
+  .mainTitle {
+    font-size: 2.1rem;
+    margin-bottom: 14px;
+    line-height: 1.1;
+  }
+
+  .mainTitle::after {
+    width: 140px;
+    height: 2px;
+    bottom: -10px;
+  }
+
+  .subtitle {
+    font-size: 1.35rem;
+    margin-bottom: 14px;
+  }
+
+  .description {
+    font-size: 1.02rem;
+    line-height: 1.65;
+  }
+
+  .processContainer {
+    margin-bottom: 45px;
+  }
+
+  .stepsWrapper {
+    gap: 20px;
+    padding: 0 12px;
+    position: relative;
+  }
+
+  .stepItem {
+    padding: 22px 16px 22px; /* Reduced top padding since no step number */
+    border-radius: 20px;
+    position: relative;
+    z-index: 10;
+    margin: 0 auto !important;
+    align-self: center !important;
+    max-width: 100%;
+  }
+
+  .stepNumber {
+    display: none !important;
+  }
+
+  .stepIcon {
+    width: 58px;
+    height: 58px;
+    font-size: 1.5rem;
+    margin: 20px auto 16px;
+    border-radius: 14px;
+    position: relative;
+    z-index: 12;
+  }
+
+  .stepTitle {
+    font-size: 1.22rem;
+    margin-bottom: 10px;
+    line-height: 1.2;
+    position: relative;
+    z-index: 12;
+  }
+
+  .stepDescription {
+    font-size: 0.94rem;
+    line-height: 1.55;
+    position: relative;
+    z-index: 12;
+  }
+
+  .ctaButton {
+    padding: 14px 28px;
+    font-size: 1rem;
+    gap: 10px;
+    border-radius: 44px;
+  }
+
+  .ctaButton i {
+    font-size: 1.1rem;
+  }
+
+  /* Ensure no timeline elements appear */
+  .stepsWrapper::before {
+    display: none !important;
+  }
+
+  .progressLine {
+    display: none !important;
+  }
+
+  .stepConnector {
+    display: none !important;
+  }
+}
+
+/* ===== AWESOME RESPONSIVE ENHANCEMENTS ===== */
+
+/* Enhanced Mobile Interactions */
+@media (max-width: 768px) {
+  /* Add touch-friendly hover states */
+  .stepItem {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .stepItem:active {
+    transform: scale(0.98) translateY(2px);
+  }
+
+  /* Enhanced mobile animations */
+  .stepItem.active {
+    animation: mobileStepPulse 2s ease-in-out infinite;
+  }
+
+  /* Mobile-specific step reveal animation */
+  .stepItem.slideInUp {
+    animation: mobileSlideInUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+
+  /* Progressive step highlighting on mobile */
+  .stepItem:nth-child(1) { animation-delay: 0.1s; }
+  .stepItem:nth-child(2) { animation-delay: 0.2s; }
+  .stepItem:nth-child(3) { animation-delay: 0.3s; }
+  .stepItem:nth-child(4) { animation-delay: 0.4s; }
+  .stepItem:nth-child(5) { animation-delay: 0.5s; }
+}
+
+/* Tablet-specific enhancements */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Smooth alternating reveal */
+  .stepItem:nth-child(odd).slideInUp {
+    animation: slideInFromLeft 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+
+  .stepItem:nth-child(even).slideInUp {
+    animation: slideInFromRight 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+
+  /* Enhanced tablet hover effects */
+  .stepItem:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
+
+  .stepItem:hover .stepIcon {
+    transform: scale(1.08) rotate(3deg);
+  }
+}
+
+/* Desktop enhancements */
+@media (min-width: 1024px) {
+  /* Enhanced alternating animations */
+  .stepItem:nth-child(odd).slideInUp {
+    animation: slideInFromLeft 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+
+  .stepItem:nth-child(even).slideInUp {
+    animation: slideInFromRight 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+
+  /* Enhanced desktop hover effects */
+  .stepItem:hover {
+    transform: translateY(-12px) scale(1.03);
+  }
+
+  .stepItem:hover .stepNumber {
+    transform: scale(1.1);
+    box-shadow:
+      0 16px 40px rgba(59, 130, 246, 0.5),
+      0 6px 20px rgba(59, 130, 246, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  }
+
+  .stepItem:hover .stepIcon {
+    transform: scale(1.12) rotate(5deg);
+  }
+
+  /* Connector glow effect on hover */
+  .stepItem:hover .stepConnector {
+    background: linear-gradient(90deg,
+      rgba(96, 165, 250, 0.8) 0%,
+      rgba(96, 165, 250, 1) 100%);
+    box-shadow: 0 0 20px rgba(96, 165, 250, 0.6);
+    height: 4px;
+  }
+}
+
+/* ===== NEW AWESOME ANIMATIONS ===== */
+
+/* Mobile step pulse animation */
+@keyframes mobileStepPulse {
+  0%, 100% {
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.12),
+      0 2px 8px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 12px 40px rgba(59, 130, 246, 0.2),
+      0 4px 16px rgba(59, 130, 246, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* Mobile slide in animation */
+@keyframes mobileSlideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Slide in from left (odd steps) */
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px) translateY(20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(0) scale(1);
+  }
+}
+
+/* Slide in from right (even steps) */
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px) translateY(20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(0) scale(1);
+  }
+}
+
+/* Enhanced progress line animation */
+@keyframes progressGlow {
+  0%, 100% {
+    box-shadow: 0 0 16px rgba(59, 130, 246, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 24px rgba(59, 130, 246, 0.6);
+  }
+}
+
+.progressFill {
+  animation: progressGlow 3s ease-in-out infinite;
+}
+
+/* ===== RESPONSIVE GRID ENHANCEMENTS ===== */
+
+/* Large screens - 3-column grid option for steps */
+@media (min-width: 1400px) {
+  .stepsWrapper.gridLayout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+  }
+
+  .stepsWrapper.gridLayout .stepItem {
+    margin: 0 !important;
+    align-self: stretch !important;
+  }
+
+  .stepsWrapper.gridLayout .stepItem:nth-child(4),
+  .stepsWrapper.gridLayout .stepItem:nth-child(5) {
+    grid-column: span 1;
+  }
+
+  /* Center the last row items */
+  .stepsWrapper.gridLayout .stepItem:nth-child(4) {
+    grid-column: 1 / 2;
+    margin-left: auto;
+  }
+
+  .stepsWrapper.gridLayout .stepItem:nth-child(5) {
+    grid-column: 3 / 4;
+    margin-right: auto;
+  }
+}
+
+/* Medium screens - 2-column grid option */
+@media (min-width: 768px) and (max-width: 1399px) {
+  .stepsWrapper.gridLayout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+    max-width: 800px;
+  }
+
+  .stepsWrapper.gridLayout .stepItem {
+    margin: 0 !important;
+    align-self: stretch !important;
+  }
+
+  /* Center the last item */
+  .stepsWrapper.gridLayout .stepItem:nth-child(5) {
+    grid-column: 1 / -1;
+    max-width: 400px;
+    justify-self: center;
+  }
+}
+
+/* ===== MOBILE-SPECIFIC ENHANCEMENTS ===== */
+
+/* Enhanced touch interactions */
+@media (max-width: 768px) {
+  .stepItem {
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+  }
+
+  .stepItem:focus {
+    outline: 2px solid rgba(96, 165, 250, 0.6);
+    outline-offset: 4px;
+  }
+
+  .stepItem:focus-visible {
+    outline: 2px solid rgba(96, 165, 250, 0.8);
+  }
+
+
+}
+
+/* ===== ACCESSIBILITY ENHANCEMENTS ===== */
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .stepItem {
+    border: 2px solid rgba(255, 255, 255, 0.8);
+  }
+
+  .stepItem.active {
+    border-color: #60a5fa;
+  }
+
+  .stepNumber {
+    border: 2px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .progressDot.activeDot {
+    border: 2px solid #ffffff;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .stepItem,
+  .stepIcon,
+  .stepNumber,
+  .progressFill,
+  .floatingShape1,
+  .floatingShape2,
+  .floatingShape3,
+  .pathLine {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .stepItem:hover {
+    transform: none;
+  }
+
+  .ctaButton:hover {
+    transform: none;
+  }
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark) {
+  .processSection {
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 25%, #2a2a2a 50%, #1e1e1e 75%, #0a0a0a 100%);
+  }
+
+  .stepItem {
+    background: linear-gradient(145deg,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0.06) 50%,
+      rgba(255, 255, 255, 0.03) 100%);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .stepItem.active {
+    border-color: rgba(96, 165, 250, 0.4);
   }
 }

@@ -57,6 +57,8 @@
   padding: 0 20px;
   position: relative;
   z-index: 10;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Header Section */
@@ -77,6 +79,10 @@
   background-clip: text;
   animation: gradientShift 3s ease-in-out infinite;
   letter-spacing: -1px;
+  line-height: 1.1;
+  text-align: center;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .subtitle {
@@ -84,6 +90,8 @@
   color: #cbd5e1;
   margin-bottom: 10px;
   font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
 }
 
 .tagline {
@@ -91,6 +99,8 @@
   color: #94a3b8;
   margin-bottom: 30px;
   font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
 }
 
 .description {
@@ -99,6 +109,8 @@
   line-height: 1.7;
   max-width: 800px;
   margin: 0 auto;
+  text-align: center;
+  padding: 0 20px;
 }
 
 /* Stats Section */
@@ -148,9 +160,27 @@
 /* Countries Grid */
 .countriesGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: 1fr;
   gap: 30px;
   margin-bottom: 80px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 20px;
+  justify-items: center;
+}
+
+/* Ensure grid items don't overflow */
+.countriesGrid > * {
+  min-width: 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Desktop only: limit card width */
+@media (min-width: 768px) {
+  .countriesGrid > * {
+    max-width: 450px;
+  }
 }
 
 .countryCard {
@@ -297,6 +327,9 @@
   font-weight: 800;
   margin-bottom: 10px;
   text-align: center;
+  line-height: 1.2;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .universityCount {
@@ -307,6 +340,8 @@
   padding: 8px 16px;
   border-radius: 20px;
   backdrop-filter: blur(10px);
+  line-height: 1.3;
+  word-break: break-word;
 }
 
 /* UK University Count */
@@ -362,6 +397,8 @@
   list-style: none;
   padding: 0;
   margin-bottom: 25px;
+  text-align: left;
+  max-width: 100%;
 }
 
 .featuresList li {
@@ -370,6 +407,9 @@
   padding-left: 20px;
   position: relative;
   font-size: 0.95rem;
+  line-height: 1.4;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .featuresList li::before {
@@ -654,13 +694,78 @@
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
+
+/* Extra Large Screens (1440px and up) */
+@media (min-width: 1440px) {
+  .globalEducationSection {
+    padding: 140px 0;
+  }
+
+  .container {
+    max-width: 1400px;
+  }
+
   .mainTitle {
-    font-size: 3rem;
+    font-size: 4rem;
+  }
+
+  .subtitle {
+    font-size: 2.2rem;
+  }
+
+  .tagline {
+    font-size: 1.6rem;
+  }
+
+  .statsSection {
+    gap: 80px;
+    margin-bottom: 120px;
+  }
+
+  .statItem {
+    min-width: 220px;
+    padding: 40px 35px;
+  }
+
+  .statNumber {
+    font-size: 3.5rem;
   }
 
   .countriesGrid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+  }
+}
+
+/* Large Screens (1200px - 1439px) */
+@media (min-width: 1200px) and (max-width: 1439px) {
+  .globalEducationSection {
+    padding: 130px 0;
+  }
+
+  .mainTitle {
+    font-size: 3.8rem;
+  }
+
+  .statsSection {
+    gap: 70px;
+  }
+
+  .statItem {
+    min-width: 200px;
+    padding: 35px 30px;
+  }
+}
+
+/* Desktop (1024px - 1199px) */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .mainTitle {
+    font-size: 3.2rem;
+  }
+
+  .countriesGrid {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 30px;
+    gap: 25px;
   }
 
   .europeCard {
@@ -668,51 +773,327 @@
   }
 
   .statsSection {
-    gap: 40px;
+    gap: 50px;
+  }
+
+  .statItem {
+    min-width: 180px;
+    padding: 32px 28px;
   }
 }
 
-@media (max-width: 768px) {
+/* Large Desktop (1200px and above) */
+@media (min-width: 1200px) {
+  .countriesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    max-width: 1400px;
+    margin: 0 auto 80px auto;
+    gap: 30px;
+    padding: 0 40px;
+  }
+}
+
+/* Large Tablets and Small Desktops (900px - 1023px) */
+@media (min-width: 900px) and (max-width: 1023px) {
+  .countriesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    padding: 0 30px;
+  }
+}
+
+/* Medium Tablets (768px - 899px) */
+@media (min-width: 768px) and (max-width: 899px) {
+  .countriesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 0 25px;
+  }
+
+  .countryCard {
+    padding: 25px;
+  }
+}
+
+/* Tablet Landscape (768px - 899px) */
+@media (min-width: 768px) and (max-width: 899px) {
   .globalEducationSection {
-    padding: 80px 0;
+    padding: 100px 0;
   }
 
   .mainTitle {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
 
   .subtitle {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 
   .tagline {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+  }
+
+  .description {
+    font-size: 1.15rem;
+    max-width: 700px;
+  }
+
+  .statsSection {
+    gap: 40px;
+    margin-bottom: 80px;
+  }
+
+  .statItem {
+    min-width: 160px;
+    padding: 28px 24px;
+  }
+
+  .statNumber {
+    font-size: 2.8rem;
+  }
+
+  .countriesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    padding: 0 30px;
+  }
+
+  .countryCard {
+    padding: 28px;
+    min-height: 400px;
+  }
+
+  .countryName {
+    font-size: 1.7rem;
+    margin-bottom: 12px;
+  }
+
+  .universityCount {
+    font-size: 1.05rem;
+    margin-bottom: 18px;
+    padding: 10px 18px;
+  }
+
+  .featuresList li {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+
+  .flagImage {
+    width: 70px;
+    height: 45px;
+  }
+
+  .europeCard {
+    grid-column: span 1;
+  }
+}
+
+/* Tablet Portrait (600px - 767px) */
+@media (min-width: 600px) and (max-width: 767px) {
+  .globalEducationSection {
+    padding: 90px 0;
+  }
+
+  .container {
+    padding: 0 30px;
+  }
+
+  .mainTitle {
+    font-size: 2.8rem;
+    line-height: 1.1;
+  }
+
+  .subtitle {
+    font-size: 1.7rem;
+  }
+
+  .tagline {
+    font-size: 1.25rem;
   }
 
   .description {
     font-size: 1.1rem;
+    max-width: 600px;
   }
 
   .statsSection {
-    gap: 20px;
+    gap: 30px;
+    margin-bottom: 70px;
   }
 
   .statItem {
-    min-width: 150px;
-    padding: 25px 20px;
+    min-width: 140px;
+    padding: 24px 20px;
   }
 
   .statNumber {
-    font-size: 2.5rem;
+    font-size: 2.6rem;
   }
 
   .countriesGrid {
     grid-template-columns: 1fr;
     gap: 20px;
+    padding: 0 25px;
   }
 
   .countryCard {
-    padding: 25px;
+    padding: 24px;
+    min-height: 380px;
+  }
+
+  .countryName {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+  }
+
+  .universityCount {
+    font-size: 1rem;
+    margin-bottom: 16px;
+    padding: 8px 14px;
+  }
+
+  .featuresList li {
+    font-size: 0.9rem;
+    margin-bottom: 7px;
+  }
+
+  .flagImage {
+    width: 65px;
+    height: 42px;
+  }
+
+  .smallFlag {
+    width: 30px;
+    height: 20px;
+  }
+
+  .learnMoreBtn {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+
+  .ctaSection {
+    padding: 45px 35px;
+  }
+
+  .ctaTitle {
+    font-size: 2.2rem;
+  }
+
+  .ctaSubtitle {
+    font-size: 1.6rem;
+  }
+
+  .ctaFeatures {
+    gap: 20px;
+  }
+
+  .scheduleBtn {
+    padding: 16px 35px;
+    font-size: 1.15rem;
+  }
+}
+
+/* Mobile Landscape (480px - 599px) */
+@media (min-width: 480px) and (max-width: 599px) {
+  .globalEducationSection {
+    padding: 80px 0;
+  }
+
+  .container {
+    padding: 0 25px;
+  }
+
+  .mainTitle {
+    font-size: 2.5rem;
+    line-height: 1.05;
+    letter-spacing: -0.5px;
+    margin-bottom: 18px;
+    padding: 0 10px;
+  }
+
+  .subtitle {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+    padding: 0 15px;
+  }
+
+  .tagline {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    padding: 0 15px;
+  }
+
+  .description {
+    font-size: 1.1rem;
+    max-width: 500px;
+    padding: 0 20px;
+    line-height: 1.6;
+  }
+
+  .statsSection {
+    gap: 25px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .statItem {
+    min-width: 130px;
+    max-width: 180px;
+    padding: 22px 18px;
+    flex: 0 0 calc(50% - 12.5px);
+  }
+
+  .statNumber {
+    font-size: 2.4rem;
+  }
+
+  .statLabel {
+    font-size: 0.9rem;
+  }
+
+  .countriesGrid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 0 20px;
+  }
+
+  .countryCard {
+    padding: 22px;
+    min-height: 350px;
+  }
+
+  .countryName {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+  }
+
+  .universityCount {
+    font-size: 1rem;
+    margin-bottom: 16px;
+    padding: 8px 14px;
+  }
+
+  .featuresList li {
+    font-size: 0.9rem;
+    margin-bottom: 7px;
+  }
+
+  .flagImage {
+    width: 60px;
+    height: 38px;
+  }
+
+  .smallFlag {
+    width: 28px;
+    height: 18px;
+  }
+
+  .learnMoreBtn {
+    padding: 12px 22px;
+    font-size: 0.9rem;
   }
 
   .ctaSection {
@@ -731,38 +1112,104 @@
     flex-direction: column;
     gap: 15px;
   }
+
+  .scheduleBtn {
+    padding: 15px 32px;
+    font-size: 1.1rem;
+  }
 }
 
-@media (max-width: 480px) {
+/* Mobile Portrait (320px - 479px) */
+@media (min-width: 320px) and (max-width: 479px) {
   .globalEducationSection {
     padding: 60px 0;
   }
 
+  .container {
+    padding: 0 15px;
+  }
+
+  .headerSection {
+    margin-bottom: 50px;
+  }
+
   .mainTitle {
     font-size: 2rem;
+    line-height: 1.05;
+    margin-bottom: 15px;
+    letter-spacing: -0.3px;
+    padding: 0 5px;
+    word-break: break-word;
   }
 
   .subtitle {
     font-size: 1.4rem;
+    margin-bottom: 8px;
+    padding: 0 5px;
+    line-height: 1.2;
   }
 
   .tagline {
     font-size: 1.1rem;
+    margin-bottom: 20px;
+    padding: 0 5px;
+    line-height: 1.3;
+  }
+
+  .description {
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 100%;
+    padding: 0 10px;
   }
 
   .statsSection {
     flex-direction: column;
     align-items: center;
     gap: 15px;
+    margin-bottom: 50px;
   }
 
   .statItem {
     width: 100%;
-    max-width: 200px;
+    max-width: 220px;
+    padding: 20px 16px;
+  }
+
+  .statNumber {
+    font-size: 2.2rem;
+  }
+
+  .statLabel {
+    font-size: 0.85rem;
+  }
+
+  .countriesGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .countryCard {
     padding: 20px;
+  }
+
+  .countryName {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+
+  .universityCount {
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+  }
+
+  .featuresList {
+    margin-bottom: 20px;
+  }
+
+  .featuresList li {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
   }
 
   .flagImage {
@@ -771,20 +1218,669 @@
   }
 
   .smallFlag {
-    width: 30px;
-    height: 20px;
+    width: 28px;
+    height: 18px;
+  }
+
+  .europeanFlags {
+    gap: 8px;
+    margin-bottom: 15px;
+  }
+
+  .featuredCountries h4 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+
+  .featuredCountries ul li {
+    font-size: 0.85rem;
+  }
+
+  .learnMoreBtn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
   }
 
   .ctaSection {
-    padding: 30px 20px;
+    padding: 35px 20px;
   }
 
   .ctaTitle {
     font-size: 1.8rem;
+    margin-bottom: 8px;
+  }
+
+  .ctaSubtitle {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+
+  .ctaFeatures {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+
+  .ctaFeature {
+    font-size: 0.9rem;
   }
 
   .scheduleBtn {
-    padding: 15px 30px;
+    padding: 14px 28px;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .ctaNote {
+    font-size: 0.85rem;
+  }
+}
+
+/* Very Small Screens (below 320px) */
+@media (max-width: 319px) {
+  .globalEducationSection {
+    padding: 50px 0;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  .mainTitle {
+    font-size: 1.8rem;
+    line-height: 1.05;
+    letter-spacing: -0.2px;
+    margin-bottom: 12px;
+    padding: 0 10px;
+    word-break: break-word;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+    padding: 0 15px;
+    line-height: 1.2;
+  }
+
+  .tagline {
+    font-size: 1rem;
+    margin-bottom: 18px;
+    padding: 0 15px;
+    line-height: 1.3;
+  }
+
+  .description {
+    font-size: 0.95rem;
+    padding: 0 20px;
+    line-height: 1.5;
+  }
+
+  .statItem {
+    max-width: 200px;
+    padding: 18px 14px;
+  }
+
+  .statNumber {
+    font-size: 2rem;
+  }
+
+  .countryCard {
+    padding: 18px;
+  }
+
+  .countryName {
+    font-size: 1.3rem;
+  }
+
+  .flagImage {
+    width: 50px;
+    height: 32px;
+  }
+
+  .smallFlag {
+    width: 24px;
+    height: 16px;
+  }
+
+  .ctaSection {
+    padding: 30px 15px;
+  }
+
+  .ctaTitle {
+    font-size: 1.6rem;
+  }
+
+  .ctaSubtitle {
+    font-size: 1.2rem;
+  }
+
+  .scheduleBtn {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Additional Responsive Enhancements */
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .countryCard:hover {
+    transform: none;
+  }
+
+  .countryCard:active {
+    transform: scale(0.98);
+  }
+
+  .statItem:hover {
+    transform: none;
+  }
+
+  .statItem:active {
+    transform: scale(0.98);
+  }
+
+  .learnMoreBtn:hover {
+    transform: none;
+  }
+
+  .learnMoreBtn:active {
+    transform: scale(0.95);
+  }
+
+  .scheduleBtn:hover {
+    transform: none;
+  }
+
+  .scheduleBtn:active {
+    transform: scale(0.95);
+  }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .flagImage,
+  .smallFlag {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Landscape Orientation on Mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .globalEducationSection {
+    padding: 40px 0;
+  }
+
+  .headerSection {
+    margin-bottom: 30px;
+  }
+
+  .mainTitle {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+  }
+
+  .tagline {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+
+  .description {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  .statsSection {
+    flex-direction: row;
+    gap: 20px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .statItem {
+    min-width: 120px;
+    max-width: 150px;
+    padding: 15px 12px;
+  }
+
+  .statNumber {
+    font-size: 1.8rem;
+  }
+
+  .statLabel {
+    font-size: 0.75rem;
+  }
+
+  .countriesGrid {
+    gap: 15px;
+  }
+
+  .countryCard {
+    padding: 15px;
+  }
+
+  .ctaSection {
+    padding: 25px 20px;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .gradientOrb1,
+  .gradientOrb2,
+  .gradientOrb3 {
+    animation: none;
+  }
+
+  .mainTitle {
+    animation: none;
+  }
+
+  .countryCard,
+  .statItem,
+  .learnMoreBtn,
+  .scheduleBtn {
+    transition: none;
+  }
+
+  .countryCard:hover,
+  .statItem:hover {
+    transform: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .globalEducationSection {
+    background: white !important;
+    color: black !important;
+    padding: 20px 0;
+  }
+
+  .backgroundElements {
+    display: none;
+  }
+
+  .mainTitle,
+  .subtitle,
+  .tagline,
+  .description,
+  .countryName,
+  .statNumber,
+  .statLabel {
+    color: black !important;
+    background: none !important;
+    -webkit-text-fill-color: initial !important;
+  }
+
+  .countryCard,
+  .statItem {
+    background: white !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+  }
+
+  .scheduleBtn,
+  .learnMoreBtn {
+    background: white !important;
+    color: black !important;
+    border: 2px solid black !important;
+  }
+
+  .ctaSection {
+    background: white !important;
+  }
+}
+
+/* Focus Management and Accessibility */
+.learnMoreBtn:focus,
+.scheduleBtn:focus {
+  outline: 3px solid rgba(59, 130, 246, 0.6);
+  outline-offset: 2px;
+}
+
+@supports selector(:focus-visible) {
+  .learnMoreBtn:focus,
+  .scheduleBtn:focus {
+    outline: none;
+  }
+
+  .learnMoreBtn:focus-visible,
+  .scheduleBtn:focus-visible {
+    outline: 3px solid rgba(59, 130, 246, 0.6);
+    outline-offset: 2px;
+  }
+}
+
+/* Ensure minimum touch targets on mobile */
+@media (max-width: 768px) {
+  .learnMoreBtn,
+  .scheduleBtn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Improve text readability on mobile */
+  .mainTitle,
+  .subtitle,
+  .tagline,
+  .description {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Better spacing for mobile header */
+  .headerSection {
+    padding: 0 5px;
+  }
+}
+
+/* FORCE SINGLE COLUMN FOR ALL MOBILE DEVICES */
+@media (max-width: 767px) {
+  .countriesGrid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+    padding: 0 20px;
+    justify-items: center;
+  }
+
+  .countryCard {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* Very Small Mobile Devices (below 480px) */
+@media (max-width: 479px) {
+  .countriesGrid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+    padding: 0 15px;
+    justify-items: center;
+  }
+
+  .countryCard {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 20px;
+  }
+}
+
+/* Extra Small Mobile (below 375px) */
+@media (max-width: 374px) {
+  .countriesGrid {
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+    padding: 0 10px;
+    justify-items: center;
+  }
+
+  .countryCard {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 18px;
+  }
+}
+
+/* Additional responsive typography improvements */
+@media (max-width: 640px) {
+  .container {
+    padding: 0 12px;
+  }
+
+  .mainTitle {
+    font-size: 2.2rem;
+    line-height: 1.05;
+    letter-spacing: -0.4px;
+    margin-bottom: 16px;
+    padding: 0 5px;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    padding: 0 5px;
+  }
+
+  .tagline {
+    font-size: 1.15rem;
+    margin-bottom: 22px;
+    padding: 0 5px;
+  }
+
+  .description {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    padding: 0 8px;
+  }
+
+  /* Country cards for medium mobile */
+  .countriesGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 0 20px;
+  }
+
+  .countryCard {
+    padding: 20px;
+    min-height: 340px;
+  }
+
+  .countryName {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+
+  .universityCount {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    padding: 7px 12px;
+  }
+
+  .featuresList li {
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+  }
+
+  .flagImage {
+    width: 55px;
+    height: 35px;
+  }
+
+  .smallFlag {
+    width: 26px;
+    height: 17px;
+  }
+
+  .learnMoreBtn {
+    padding: 11px 20px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Ultra-wide screen optimizations */
+@media (min-width: 1920px) {
+  .mainTitle {
+    font-size: 4.5rem;
+    letter-spacing: -1.5px;
+  }
+
+  .subtitle {
+    font-size: 2.5rem;
+  }
+
+  .tagline {
+    font-size: 1.8rem;
+  }
+
+  .description {
+    font-size: 1.4rem;
+    max-width: 900px;
+  }
+
+  .headerSection {
+    margin-bottom: 80px;
+  }
+}
+
+/* Container queries support (future-proofing) */
+@container (max-width: 400px) {
+  .countriesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .statItem {
+    min-width: 100%;
+  }
+
+  .mainTitle {
+    font-size: 1.6rem;
+    line-height: 1.1;
+  }
+
+  .subtitle {
     font-size: 1.1rem;
+  }
+
+  .tagline {
+    font-size: 0.95rem;
+  }
+}
+
+/* FINAL MOBILE OVERRIDE - ABSOLUTELY FORCE SINGLE COLUMN */
+@media screen and (max-width: 767px) {
+  .countriesGrid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+  }
+
+  .countryCard {
+    width: 100% !important;
+    max-width: none !important;
+    grid-column: 1 !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .countriesGrid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+  }
+
+  .countryCard {
+    width: 100% !important;
+    max-width: none !important;
+    grid-column: 1 !important;
+  }
+}
+
+/* Text overflow handling for very long titles */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  .mainTitle {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    padding: 0 2px;
+    font-size: 1.9rem;
+  }
+
+  .subtitle {
+    padding: 0 2px;
+    font-size: 1.3rem;
+  }
+
+  .tagline {
+    padding: 0 2px;
+    font-size: 1.05rem;
+  }
+
+  .description {
+    padding: 0 5px;
+    font-size: 0.98rem;
+  }
+
+  /* Enhanced country card responsiveness for small mobile */
+  .countryCard {
+    padding: 18px;
+    min-height: 320px;
+  }
+
+  .countryName {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .universityCount {
+    font-size: 0.9rem;
+    margin-bottom: 14px;
+    padding: 6px 10px;
+  }
+
+  .featuresList {
+    margin-bottom: 18px;
+  }
+
+  .featuresList li {
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+    line-height: 1.3;
+  }
+
+  .flagImage {
+    width: 50px;
+    height: 32px;
+  }
+
+  .smallFlag {
+    width: 24px;
+    height: 16px;
+  }
+
+  .europeanFlags {
+    gap: 6px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .featuredCountries h4 {
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+  }
+
+  .featuredCountries ul li {
+    font-size: 0.8rem;
+    margin-bottom: 3px;
+  }
+
+  .learnMoreBtn {
+    padding: 10px 18px;
+    font-size: 0.8rem;
+    min-height: 44px;
+  }
+}
+
+/* Improved gradient text fallback for older browsers */
+@supports not (-webkit-background-clip: text) {
+  .mainTitle {
+    background: none !important;
+    color: #f1f5f9 !important;
+    -webkit-text-fill-color: initial !important;
   }
 }

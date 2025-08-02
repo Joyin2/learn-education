@@ -314,7 +314,6 @@
   margin-bottom: 20px;
   flex-wrap: nowrap;
   width: 100%;
-  transform: translateX(-15px);
 }
 
 .ratingStars {
@@ -415,10 +414,16 @@
 /* Enhanced Countries Section */
 .countriesSection {
   margin-bottom: 80px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .countriesHeader {
   margin-bottom: 50px;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .countriesTitle {
@@ -430,11 +435,15 @@
   align-items: center;
   justify-content: center;
   gap: 15px;
+  line-height: 1.2;
+  text-align: center;
+  flex-wrap: wrap;
 }
 
 .titleIcon {
   font-size: 2rem;
   animation: rotate 4s linear infinite;
+  flex-shrink: 0;
 }
 
 .countriesSubtitle {
@@ -442,15 +451,25 @@
   color: #94a3b8;
   font-weight: 500;
   margin: 0;
+  text-align: center;
+  line-height: 1.5;
 }
 
 .countriesList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+
+/* Ensure grid items don't overflow */
+.countriesList > * {
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .countryItem {
@@ -469,9 +488,14 @@
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   overflow: hidden;
   cursor: pointer;
-  flex: 0 0 240px;
-  min-width: 220px;
-  max-width: 280px;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 .countryCard:hover {
@@ -830,6 +854,231 @@
   }
 }
 
+/* Countries Section Responsive Design */
+
+/* Extra Large Screens (1440px and up) */
+@media (min-width: 1440px) {
+  .countriesSection {
+    margin-bottom: 100px;
+  }
+
+  .countriesHeader {
+    margin-bottom: 60px;
+  }
+
+  .countriesTitle {
+    font-size: 3rem;
+    gap: 20px;
+  }
+
+  .titleIcon {
+    font-size: 2.5rem;
+  }
+
+  .countriesSubtitle {
+    font-size: 1.4rem;
+  }
+
+  .countriesList {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px;
+    max-width: 1400px;
+  }
+
+  .countryCard {
+    padding: 35px;
+    height: 220px;
+  }
+
+  .countryFlag {
+    width: 70px;
+    height: 50px;
+  }
+
+  .countryName {
+    font-size: 1.4rem;
+  }
+
+  .universityCount {
+    font-size: 1.1rem;
+  }
+}
+
+/* Large Screens (1200px - 1439px) */
+@media (min-width: 1200px) and (max-width: 1439px) {
+  .countriesTitle {
+    font-size: 2.8rem;
+  }
+
+  .titleIcon {
+    font-size: 2.3rem;
+  }
+
+  .countriesSubtitle {
+    font-size: 1.3rem;
+  }
+
+  .countriesList {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 35px;
+  }
+
+  .countryCard {
+    padding: 32px;
+    height: 220px;
+  }
+
+  .countryFlag {
+    width: 65px;
+    height: 45px;
+  }
+}
+
+/* Desktop (1024px - 1199px) */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .countriesTitle {
+    font-size: 2.6rem;
+  }
+
+  .titleIcon {
+    font-size: 2.1rem;
+  }
+
+  .countriesList {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+  }
+
+  .countryCard {
+    padding: 30px;
+    height: 220px;
+  }
+}
+
+/* Tablet Landscape (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .countriesSection {
+    margin-bottom: 70px;
+  }
+
+  .countriesHeader {
+    margin-bottom: 45px;
+  }
+
+  .countriesTitle {
+    font-size: 2.3rem;
+    gap: 12px;
+  }
+
+  .titleIcon {
+    font-size: 1.9rem;
+  }
+
+  .countriesSubtitle {
+    font-size: 1.15rem;
+  }
+
+  .countriesList {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 0 30px;
+  }
+
+  .countryCard {
+    padding: 28px;
+    height: 200px;
+  }
+
+  .countryFlag {
+    width: 55px;
+    height: 38px;
+  }
+
+  .countryName {
+    font-size: 1.25rem;
+  }
+}
+
+/* Tablet Portrait (600px - 767px) */
+@media (min-width: 600px) and (max-width: 767px) {
+  .countriesSection {
+    margin-bottom: 65px;
+  }
+
+  .countriesTitle {
+    font-size: 2.1rem;
+  }
+
+  .titleIcon {
+    font-size: 1.8rem;
+  }
+
+  .countriesList {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    padding: 0 25px;
+  }
+
+  .countryCard {
+    padding: 26px;
+    height: 200px;
+  }
+
+  .countryFlag {
+    width: 52px;
+    height: 36px;
+  }
+}
+
+/* Mobile Landscape (480px - 599px) */
+@media (min-width: 480px) and (max-width: 599px) {
+  .countriesSection {
+    margin-bottom: 60px;
+  }
+
+  .countriesTitle {
+    font-size: 2rem;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .titleIcon {
+    font-size: 1.7rem;
+  }
+
+  .countriesSubtitle {
+    font-size: 1.1rem;
+  }
+
+  .countriesList {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    padding: 0 20px;
+  }
+
+  .countryCard {
+    padding: 22px;
+    height: 180px;
+  }
+
+  .countryFlag {
+    width: 48px;
+    height: 32px;
+  }
+
+  .countryName {
+    font-size: 1.15rem;
+  }
+
+  .countryCode {
+    font-size: 0.8rem;
+  }
+
+  .universityCount {
+    font-size: 0.9rem;
+  }
+}
+
 @media (max-width: 480px) {
   .aboutSection {
     padding: 60px 0;
@@ -869,8 +1118,41 @@
     font-size: 2rem;
   }
 
+  /* Countries Section Mobile Styles */
+  .countriesSection {
+    margin-bottom: 60px;
+  }
+
+  .countriesHeader {
+    margin-bottom: 40px;
+    padding: 0 20px;
+  }
+
+  .countriesTitle {
+    font-size: 2rem;
+    flex-direction: column;
+    gap: 10px;
+    line-height: 1.1;
+  }
+
+  .titleIcon {
+    font-size: 1.8rem;
+  }
+
+  .countriesSubtitle {
+    font-size: 1.1rem;
+    margin-top: 10px;
+  }
+
+  .countriesList {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 20px;
+  }
+
   .countryCard {
-    padding: 20px;
+    padding: 25px 20px;
+    height: 180px;
   }
 
   .countryFlag {
@@ -883,10 +1165,16 @@
     height: 100% !important;
   }
 
-  .countriesTitle {
-    font-size: 2rem;
-    flex-direction: column;
-    gap: 10px;
+  .countryName {
+    font-size: 1.2rem;
+  }
+
+  .countryCode {
+    font-size: 0.85rem;
+  }
+
+  .universityCount {
+    font-size: 0.95rem;
   }
 
   .ctaContent {
@@ -913,6 +1201,7 @@
   }
 }
 
+/* Very Small Screens (320px and below) */
 @media (max-width: 320px) {
   .aboutTitle {
     font-size: 1.8rem;
@@ -924,5 +1213,253 @@
 
   .statNumber {
     font-size: 2rem;
+  }
+
+  /* Countries Section for Very Small Screens */
+  .countriesSection {
+    margin-bottom: 50px;
+  }
+
+  .countriesHeader {
+    margin-bottom: 30px;
+    padding: 0 15px;
+  }
+
+  .countriesTitle {
+    font-size: 1.8rem;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .titleIcon {
+    font-size: 1.5rem;
+  }
+
+  .countriesSubtitle {
+    font-size: 1rem;
+    margin-top: 8px;
+  }
+
+  .countriesList {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 0 15px;
+  }
+
+  .countryCard {
+    padding: 18px;
+    height: 160px;
+  }
+
+  .countryFlag {
+    width: 40px;
+    height: 28px;
+  }
+
+  .countryName {
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+
+  .countryCode {
+    font-size: 0.75rem;
+    margin-bottom: 6px;
+  }
+
+  .universityCount {
+    font-size: 0.85rem;
+  }
+}
+
+/* Additional Responsive Enhancements */
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .countryCard:hover {
+    transform: none;
+  }
+
+  .countryCard:active {
+    transform: scale(0.98);
+  }
+
+  .countryCard:hover .countryFlag {
+    transform: none;
+  }
+
+  .countryCard:hover .flagImage {
+    transform: none;
+  }
+
+  .countryCard:hover .flagGlow {
+    opacity: 0;
+    animation: none;
+  }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .flagImage {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Landscape Orientation on Mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .countriesSection {
+    margin-bottom: 40px;
+  }
+
+  .countriesHeader {
+    margin-bottom: 25px;
+  }
+
+  .countriesTitle {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+  }
+
+  .titleIcon {
+    font-size: 1.5rem;
+  }
+
+  .countriesSubtitle {
+    font-size: 1rem;
+  }
+
+  .countriesList {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+  }
+
+  .countryCard {
+    padding: 15px;
+    height: 140px;
+  }
+
+  .countryFlag {
+    width: 40px;
+    height: 28px;
+    margin-bottom: 10px;
+  }
+
+  .countryName {
+    font-size: 1rem;
+    margin-bottom: 3px;
+  }
+
+  .countryCode {
+    font-size: 0.75rem;
+    margin-bottom: 5px;
+  }
+
+  .universityCount {
+    font-size: 0.8rem;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .titleIcon {
+    animation: none;
+  }
+
+  .countryCard,
+  .countryFlag,
+  .flagImage,
+  .countryHoverEffect {
+    transition: none;
+  }
+
+  .countryCard:hover {
+    transform: none;
+  }
+
+  .flagGlow {
+    animation: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .countriesSection {
+    background: white !important;
+    color: black !important;
+    margin-bottom: 30px;
+  }
+
+  .countriesTitle,
+  .countriesSubtitle,
+  .countryName,
+  .countryCode,
+  .universityCount {
+    color: black !important;
+    background: none !important;
+    -webkit-text-fill-color: initial !important;
+  }
+
+  .countryCard {
+    background: white !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+
+  .titleIcon {
+    display: none;
+  }
+
+  .flagGlow,
+  .countryHoverEffect {
+    display: none;
+  }
+}
+
+/* Focus Management and Accessibility */
+.countryCard:focus {
+  outline: 3px solid rgba(59, 130, 246, 0.6);
+  outline-offset: 2px;
+}
+
+@supports selector(:focus-visible) {
+  .countryCard:focus {
+    outline: none;
+  }
+
+  .countryCard:focus-visible {
+    outline: 3px solid rgba(59, 130, 246, 0.6);
+    outline-offset: 2px;
+  }
+}
+
+/* Ensure minimum touch targets on mobile */
+@media (max-width: 768px) {
+  .countryCard {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Container queries support (future-proofing) */
+@container (max-width: 400px) {
+  .countriesList {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .countryCard {
+    height: 160px;
+  }
+}
+
+/* Improved text readability */
+@media (max-width: 768px) {
+  .countriesTitle,
+  .countriesSubtitle,
+  .countryName,
+  .countryCode,
+  .universityCount {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   }
 }

@@ -83,30 +83,37 @@
   }
 }
 
+/* Tablet landscape and up - adjust layout for desktop nav */
+@media (min-width: 768px) and (orientation: landscape) {
+  .navbarContent {
+    justify-content: flex-start;
+  }
+}
+
 /* Desktop devices */
 @media (min-width: 1024px) {
   .navbarContent {
     height: 5rem;
+    justify-content: flex-start; /* Change from space-between to flex-start for better desktop layout */
   }
 }
 
 .logoContainer {
   flex-shrink: 0;
-  margin-right: auto;
   z-index: 51;
 }
 
 /* Tablet and up */
 @media (min-width: 768px) {
   .logoContainer {
-    margin-right: 2rem;
+    margin-right: 1.5rem;
   }
 }
 
 /* Desktop and up */
 @media (min-width: 1024px) {
   .logoContainer {
-    margin-right: 4rem;
+    margin-right: 2.5rem;
   }
 }
 
@@ -169,7 +176,7 @@
 @media (min-width: 1024px) {
   .desktopNav {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
   }
 }
 
@@ -182,7 +189,7 @@
 /* Larger gap on desktop */
 @media (min-width: 1024px) {
   .navLinksContainer {
-    gap: 2rem;
+    gap: 1.5rem;
   }
 }
 
@@ -195,7 +202,7 @@
 /* Larger gap on desktop */
 @media (min-width: 1024px) {
   .navActionsContainer {
-    gap: 2rem;
+    gap: 1.25rem;
   }
 }
 

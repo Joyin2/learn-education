@@ -505,6 +505,15 @@
   justify-content: center;
 }
 
+/* University list visibility control */
+.universityListDesktop {
+  display: flex; /* Default: show on desktop */
+}
+
+.universityListMobile {
+  display: none; /* Default: hide on desktop */
+}
+
 /* Mobile-first university list adjustments */
 @media (min-width: 480px) {
   .universityList {
@@ -1327,8 +1336,74 @@
   transform: translateX(3px);
 }
 
-/* Responsive adjustments for hero buttons */
-@media (max-width: 768px) {
+/* Mobile layout adjustments for screens below 720px */
+@media (max-width: 719px) {
+  /* Hide hero image section on mobile */
+  .colLg5 {
+    display: none !important;
+  }
+
+  /* Make content take full width when image is hidden */
+  .colLg7 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0 20px;
+  }
+
+  /* University list visibility control */
+  .universityListDesktop {
+    display: none !important;
+  }
+
+  .universityListMobile {
+    display: flex !important;
+    margin: 20px 0 25px 0; /* Add spacing between description and buttons */
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* Stack buttons vertically on screens below 720px */
+  .heroCtaButtons {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    text-align: center;
+    justify-content: center;
+    padding: 14px 24px;
+    font-size: 0.95rem;
+    letter-spacing: 0.2px;
+    min-height: 48px;
+    width: 100%;
+    max-width: 280px;
+    white-space: nowrap;
+  }
+}
+
+/* Desktop layout for screens 720px and above */
+@media (min-width: 720px) {
+  /* Show hero image section on desktop */
+  .colLg5 {
+    display: block !important;
+  }
+
+  /* University list visibility control for desktop */
+  .universityListDesktop {
+    display: flex !important;
+  }
+
+  .universityListMobile {
+    display: none !important;
+  }
+}
+
+/* Keep buttons in a row for screens 720px and above but below 768px */
+@media (min-width: 720px) and (max-width: 768px) {
   .heroCtaButtons {
     flex-direction: row;
     align-items: center;
@@ -1352,26 +1427,28 @@
 
 @media (max-width: 480px) {
   .heroCtaButtons {
-    gap: 8px;
+    gap: 12px;
   }
 
   .btnPrimary,
   .btnSecondary {
-    padding: 10px 16px;
-    font-size: 0.8rem;
+    padding: 12px 20px;
+    font-size: 0.85rem;
     letter-spacing: 0.1px;
-    max-width: 150px;
+    max-width: 260px;
     gap: 6px;
+    min-height: 46px;
   }
 }
 
 @media (max-width: 360px) {
   .btnPrimary,
   .btnSecondary {
-    padding: 8px 12px;
-    font-size: 0.75rem;
-    max-width: 130px;
-    gap: 4px;
+    padding: 10px 16px;
+    font-size: 0.8rem;
+    max-width: 240px;
+    gap: 5px;
+    min-height: 44px;
   }
 }
 

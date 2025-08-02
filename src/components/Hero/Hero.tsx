@@ -18,7 +18,8 @@ export default function EnhancedHeroSection() {
 
               <div className={styles.heroTextWrapper}>
                 <span className={`${styles.heroSubtitle} ${styles.textWhite} ${styles.mb15}`}>Your Education Journey Begins Here</span>
-                <div className={styles.universityList}>
+                {/* University list for desktop - shown in original position */}
+                <div className={`${styles.universityList} ${styles.universityListDesktop}`}>
                   <a className={styles.universityItem} href="/universities/uk">
                     <span className={`${styles.universityFlag} ${styles.flagUK}`}></span>
                     UK Universities
@@ -54,6 +55,34 @@ export default function EnhancedHeroSection() {
               <p className={`${styles.heroDescription} ${styles.textWhite} ${styles.mb30}`}>
                 Get personalized guidance and secure your spot at top universities in the UK, USA, Canada, Ireland, and Germany. FREE 1-on-1 consultation available now!
               </p>
+
+              {/* University list for mobile - shown after description */}
+              <div className={`${styles.universityList} ${styles.universityListMobile} ${styles.mb30}`}>
+                <a className={styles.universityItem} href="/universities/uk">
+                  <span className={`${styles.universityFlag} ${styles.flagUK}`}></span>
+                  UK Universities
+                </a>
+                <a className={styles.universityItem} href="/usa-universities">
+                  <span className={`${styles.universityFlag} ${styles.flagUSA}`}></span>
+                  USA Universities
+                </a>
+                <a className={styles.universityItem} href="/universities/canada">
+                  <span className={`${styles.universityFlag} ${styles.flagCanada}`}></span>
+                  Canada Universities
+                </a>
+                <a className={styles.universityItem} href="/ireland-universities">
+                  <span className={`${styles.universityFlag} ${styles.flagIreland}`}></span>
+                  Ireland Universities
+                </a>
+                <a className={styles.universityItem} href="/australian-universities">
+                  <span className={`${styles.universityFlag} ${styles.flagAustralia}`}></span>
+                  Australia Universities
+                </a>
+                <a className={styles.universityItem} href="/new-zealand-universities">
+                  <span className={`${styles.universityFlag} ${styles.flagNewZealand}`}></span>
+                  New Zealand Universities
+                </a>
+              </div>
 
 
 

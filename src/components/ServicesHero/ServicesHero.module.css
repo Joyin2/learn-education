@@ -79,37 +79,37 @@
   animation: shapeFloat 15s ease-in-out infinite;
 }
 
-.shape:nth-child(1) { 
-  width: 100px; height: 100px; top: 8%; left: 8%; 
-  border-radius: 50%; animation-delay: 0s; 
+.shape:nth-child(1) {
+  width: 100px; height: 100px; top: 8%; left: 8%;
+  border-radius: 50%; animation-delay: 0s;
 }
-.shape:nth-child(2) { 
-  width: 80px; height: 80px; top: 15%; right: 12%; 
-  transform: rotate(45deg); animation-delay: -2s; 
+.shape:nth-child(2) {
+  width: 80px; height: 80px; top: 15%; right: 12%;
+  transform: rotate(45deg); animation-delay: -2s;
 }
-.shape:nth-child(3) { 
-  width: 120px; height: 120px; bottom: 20%; left: 10%; 
-  border-radius: 25px; animation-delay: -4s; 
+.shape:nth-child(3) {
+  width: 120px; height: 120px; bottom: 20%; left: 10%;
+  border-radius: 25px; animation-delay: -4s;
 }
-.shape:nth-child(4) { 
-  width: 90px; height: 90px; bottom: 30%; right: 18%; 
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); animation-delay: -6s; 
+.shape:nth-child(4) {
+  width: 90px; height: 90px; bottom: 30%; right: 18%;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); animation-delay: -6s;
 }
-.shape:nth-child(5) { 
-  width: 110px; height: 110px; top: 50%; left: 5%; 
-  border-radius: 50% 0; animation-delay: -8s; 
+.shape:nth-child(5) {
+  width: 110px; height: 110px; top: 50%; left: 5%;
+  border-radius: 50% 0; animation-delay: -8s;
 }
-.shape:nth-child(6) { 
-  width: 70px; height: 70px; top: 60%; right: 8%; 
-  border-radius: 0 50% 0 50%; animation-delay: -10s; 
+.shape:nth-child(6) {
+  width: 70px; height: 70px; top: 60%; right: 8%;
+  border-radius: 0 50% 0 50%; animation-delay: -10s;
 }
-.shape:nth-child(7) { 
-  width: 95px; height: 95px; top: 25%; left: 70%; 
-  border-radius: 20px; animation-delay: -12s; 
+.shape:nth-child(7) {
+  width: 95px; height: 95px; top: 25%; left: 70%;
+  border-radius: 20px; animation-delay: -12s;
 }
-.shape:nth-child(8) { 
-  width: 85px; height: 85px; bottom: 15%; left: 60%; 
-  border-radius: 50%; animation-delay: -14s; 
+.shape:nth-child(8) {
+  width: 85px; height: 85px; bottom: 15%; left: 60%;
+  border-radius: 50%; animation-delay: -14s;
 }
 
 /* Gradient Waves */
@@ -317,6 +317,11 @@
     0 5px 15px rgba(0, 0, 0, 0.3);
   position: relative;
   overflow: hidden;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
+  min-height: 48px; /* Touch-friendly minimum */
 }
 
 .primaryButton::before {
@@ -334,21 +339,36 @@
   left: 100%;
 }
 
-.primaryButton:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow:
-    0 25px 50px rgba(59, 130, 246, 0.5),
-    0 10px 25px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(135deg, #60a5fa, #3b82f6);
+/* Hover effects only for devices that support hover */
+@media (hover: hover) {
+  .primaryButton:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow:
+      0 25px 50px rgba(59, 130, 246, 0.5),
+      0 10px 25px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #60a5fa, #3b82f6);
+  }
+
+  .primaryButton:hover::before {
+    left: 100%;
+  }
+
+  .primaryButton:hover i {
+    transform: translateX(5px);
+  }
+}
+
+/* Touch feedback for touch devices */
+.primaryButton:active {
+  transform: translateY(-1px) scale(1.02);
+  transition: all 0.1s ease;
 }
 
 .primaryButton i {
   transition: transform 0.3s ease;
 }
 
-.primaryButton:hover i {
-  transform: translateX(5px);
-}
+
 
 .secondaryButton {
   display: inline-flex;
@@ -365,13 +385,27 @@
   backdrop-filter: blur(20px);
   border: 2px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
+  min-height: 48px; /* Touch-friendly minimum */
 }
 
-.secondaryButton:hover {
-  transform: translateY(-3px);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08));
-  border-color: rgba(59, 130, 246, 0.3);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+/* Secondary button hover effects only for devices that support hover */
+@media (hover: hover) {
+  .secondaryButton:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08));
+    border-color: rgba(59, 130, 246, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Touch feedback for secondary button */
+.secondaryButton:active {
+  transform: translateY(-1px);
+  transition: all 0.1s ease;
 }
 
 .secondaryButton i {
@@ -404,15 +438,28 @@
     0 15px 40px rgba(0, 0, 0, 0.2),
     0 5px 15px rgba(59, 130, 246, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
 }
 
-.highlightCard:hover {
-  transform: translateY(-8px) scale(1.03);
-  border-color: rgba(59, 130, 246, 0.3);
-  box-shadow:
-    0 25px 60px rgba(0, 0, 0, 0.3),
-    0 10px 25px rgba(59, 130, 246, 0.2),
-    inset 0 2px 0 rgba(255, 255, 255, 0.3);
+/* Hover effects only for devices that support hover */
+@media (hover: hover) {
+  .highlightCard:hover {
+    transform: translateY(-8px) scale(1.03);
+    border-color: rgba(59, 130, 246, 0.3);
+    box-shadow:
+      0 25px 60px rgba(0, 0, 0, 0.3),
+      0 10px 25px rgba(59, 130, 246, 0.2),
+      inset 0 2px 0 rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Touch feedback for touch devices */
+.highlightCard:active {
+  transform: translateY(-4px) scale(1.01);
+  transition: all 0.1s ease;
 }
 
 .highlightIcon {
@@ -599,67 +646,106 @@
 }
 
 /* Responsive Design */
-@media (max-width: 1920px) {
-  .servicesHero {
-    height: 100vh;
-    padding-top: 0; /* Removed padding to move content upwards */
-    margin-top: -10px; /* Move content upwards by 10px */
-    padding-bottom: 20px;
+
+/* Large Desktop (1440px+) */
+@media (min-width: 1440px) {
+  .container {
+    padding: 0 40px;
+  }
+
+  .heroGrid {
+    gap: 100px;
+    max-width: 1300px;
+  }
+
+  .heroTitle {
+    font-size: 4.5rem;
+  }
+
+  .heroDescription {
+    font-size: 1.3rem;
   }
 }
 
-@media (max-width: 1440px) {
-  .servicesHero {
-    height: 100vh;
-    padding-top: 0; /* Removed padding to move content upwards */
-    margin-top: -10px; /* Move content upwards by 10px */
-    padding-bottom: 20px;
+/* Desktop (1024px - 1439px) */
+@media (max-width: 1439px) and (min-width: 1024px) {
+  .container {
+    padding: 0 30px;
+  }
+
+  .heroGrid {
+    gap: 80px;
+    max-width: 1200px;
+  }
+
+  .heroTitle {
+    font-size: 4rem;
+  }
+
+  .heroDescription {
+    font-size: 1.25rem;
+  }
+
+  .highlightsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
   }
 }
 
-@media (max-width: 1200px) {
+/* Tablet Landscape (768px - 1023px) */
+@media (max-width: 1023px) and (min-width: 768px) {
   .servicesHero {
-    height: 100vh;
-    padding-top: 0; /* Removed padding to move content upwards */
-    margin-top: -10px; /* Move content upwards by 10px */
-    padding-bottom: 20px;
+    height: auto;
+    min-height: 100vh;
+    padding: 40px 0;
   }
-}
 
-@media (max-width: 1024px) {
-  .servicesHero {
-    height: 100vh;
-    padding-top: 0; /* Removed padding to move content upwards */
-    margin-top: -10px; /* Move content upwards by 10px */
-    padding-bottom: 20px;
+  .container {
+    padding: 0 25px;
   }
 
   .heroGrid {
     gap: 60px;
+    max-width: 900px;
   }
 
   .heroTitle {
     font-size: 3.5rem;
+    line-height: 1.1;
   }
 
   .heroDescription {
     font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+
+  .highlightsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 
   .highlightCard {
-    padding: 20px 15px;
+    padding: 25px 20px;
   }
 
-
+  .highlightNumber {
+    font-size: 2rem;
+  }
 
   .primaryButton,
   .secondaryButton {
-    padding: 18px 35px;
+    padding: 16px 32px;
     font-size: 1rem;
+    min-height: 48px; /* Touch-friendly */
+  }
+
+  .heroActions {
+    gap: 20px;
   }
 }
 
-@media (max-width: 768px) {
+/* Mobile and Tablet Portrait (up to 767px) */
+@media (max-width: 767px) {
   .servicesHero {
     height: auto;
     min-height: 100vh;
@@ -729,6 +815,21 @@
   .highlightNumber {
     font-size: 1.8rem;
   }
+  .highlightLabel {
+    font-size: 0.9rem;
+  }
+
+  .highlightDescription {
+    font-size: 0.8rem;
+  }
+
+  /* Add touch-friendly button sizing */
+  .primaryButton,
+  .secondaryButton {
+    min-height: 48px; /* Touch-friendly */
+    padding: 16px 24px;
+    font-size: 1rem;
+  }
 
 
 
@@ -746,32 +847,135 @@
   }
 }
 
+/* Tablet Portrait (481px - 767px) */
+@media (max-width: 767px) and (min-width: 481px) {
+  .servicesHero {
+    height: auto;
+    min-height: 100vh;
+    padding: 30px 0;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    text-align: center;
+  }
+
+  .leftColumn,
+  .rightColumn {
+    padding: 0;
+  }
+
+  .heroTitle {
+    font-size: 3.2rem;
+    line-height: 1.1;
+  }
+
+  .heroDescription {
+    font-size: 1.15rem;
+    margin-bottom: 35px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .heroActions {
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    padding: 16px 32px;
+    font-size: 1rem;
+    min-height: 48px; /* Touch-friendly */
+    min-width: 200px;
+  }
+
+  .highlightsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .highlightCard {
+    padding: 25px 20px;
+  }
+
+  .highlightIcon {
+    width: 55px;
+    height: 55px;
+    font-size: 1.3rem;
+    margin-bottom: 18px;
+  }
+
+  .highlightNumber {
+    font-size: 2.2rem;
+  }
+
+  .highlightLabel {
+    font-size: 0.95rem;
+  }
+
+  .highlightDescription {
+    font-size: 0.85rem;
+  }
+
+  .particleSystem {
+    opacity: 0.4;
+  }
+
+  /* Simplify background effects on tablet */
+  .geometricShapes {
+    opacity: 0.6;
+  }
+}
+
+/* Mobile (320px - 480px) */
 @media (max-width: 480px) {
   .servicesHero {
     height: auto;
     min-height: 100vh;
-    padding-top: 0; /* Removed padding to move content upwards */
-    margin-top: -10px; /* Move content upwards by 10px */
-    padding-bottom: 15px;
+    padding: 20px 0;
+  }
+
+  .container {
+    padding: 0 15px;
   }
 
   .heroGrid {
-    gap: 30px;
+    grid-template-columns: 1fr;
+    gap: 35px;
+    text-align: center;
+  }
+
+  .leftColumn,
+  .rightColumn {
+    padding: 0;
   }
 
   .heroTitle {
-    font-size: 2.2rem;
-    line-height: 1.3;
+    font-size: 2.5rem;
+    line-height: 1.2;
   }
 
   .heroDescription {
     font-size: 1rem;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
+    line-height: 1.6;
   }
 
   .heroActions {
+    justify-content: center;
+    gap: 15px;
     flex-direction: column;
-    gap: 12px;
+    align-items: center;
   }
 
   .highlightsSection {
@@ -811,7 +1015,53 @@
 
   .primaryButton,
   .secondaryButton {
-    padding: 15px 25px;
+    width: 100%;
+    max-width: 280px;
+    padding: 16px 24px;
+    font-size: 1rem;
+    min-height: 48px; /* Touch-friendly */
+    justify-content: center;
+  }
+
+  /* Update grid layout for mobile */
+  .highlightsGrid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .highlightCard {
+    padding: 20px 15px;
+  }
+
+  .highlightIcon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+
+  .highlightNumber {
+    font-size: 1.8rem;
+  }
+
+  .highlightLabel {
     font-size: 0.9rem;
+  }
+
+  .highlightDescription {
+    font-size: 0.8rem;
+  }
+
+  /* Reduce background effects on mobile for better performance */
+  .backgroundEffects {
+    opacity: 0.7;
+  }
+
+  .geometricShapes,
+  .floatingIcons,
+  .gradientWaves {
+    display: none;
   }
 }

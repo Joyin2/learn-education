@@ -462,13 +462,118 @@
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+
+/* Large Desktop (1440px+) */
+@media (min-width: 1440px) {
+  .container {
+    padding: 0 40px;
+  }
+
+  .stepsContainer {
+    max-width: 1300px;
+  }
+
+  .stepCard {
+    padding: 50px 40px;
+  }
+
+  .stepWrapper {
+    margin-bottom: 100px;
+  }
+}
+
+/* Desktop (1024px - 1439px) */
+@media (max-width: 1439px) and (min-width: 1024px) {
+  .container {
+    padding: 0 30px;
+  }
+
+  .stepsContainer {
+    max-width: 1200px;
+  }
+
+  .stepCard {
+    padding: 45px 35px;
+  }
+
+  .stepWrapper {
+    margin-bottom: 80px;
+  }
+}
+
+/* Tablet Landscape (768px - 1023px) */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .howWeWorkSection {
+    padding: 100px 0;
+  }
+
+  .container {
+    padding: 0 25px;
+  }
+
+  .headerSection {
+    margin-bottom: 80px;
+  }
+
+  .mainTitle {
+    font-size: 3.2rem;
+    line-height: 1.1;
+  }
+
+  .description {
+    font-size: 1.15rem;
+  }
+
+  .stepsContainer {
+    max-width: 900px;
+  }
+
+  .stepWrapper {
+    margin-bottom: 70px;
+  }
+
+  .stepCard {
+    padding: 40px 30px;
+    max-width: calc(50% - 80px);
+  }
+
+  .leftAlign .stepCard {
+    margin-right: 50px;
+  }
+
+  .rightAlign .stepCard {
+    margin-left: 50px;
+  }
+
+  .stepNumber {
+    width: 75px;
+    height: 75px;
+    font-size: 1.6rem;
+  }
+
+  .stepIcon {
+    width: 55px;
+    height: 55px;
+    font-size: 1.4rem;
+  }
+
+  .stepTitle {
+    font-size: 1.4rem;
+  }
+
+  .stepDescription {
+    font-size: 1.05rem;
+  }
+}
+
+/* Tablet Portrait and Mobile (up to 767px) */
+@media (max-width: 767px) {
   .howWeWorkSection {
     padding: 80px 0;
   }
 
   .container {
-    padding: 0 15px;
+    padding: 0 20px;
   }
 
   .headerSection {
@@ -546,9 +651,18 @@
   }
 }
 
+/* Mobile (320px - 480px) */
 @media (max-width: 480px) {
   .howWeWorkSection {
     padding: 60px 0;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  .headerSection {
+    margin-bottom: 50px;
   }
 
   .badge {
@@ -558,7 +672,8 @@
   }
 
   .mainTitle {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
+    line-height: 1.2;
   }
 
   .description {
@@ -567,23 +682,31 @@
 
   .stepWrapper {
     margin-bottom: 40px;
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .rightAlign {
+    flex-direction: column !important;
   }
 
   .stepNumber {
     width: 60px;
     height: 60px;
     font-size: 1.3rem;
-    margin-bottom: 15px;
+    margin: 0 0 15px 0;
   }
 
   .stepCard {
     padding: 25px 20px;
+    max-width: 100%;
   }
 
   .stepIcon {
     width: 45px;
     height: 45px;
     font-size: 1.1rem;
+    margin: 0 auto 15px;
   }
 
   .stepTitle {
@@ -596,5 +719,19 @@
 
   .featureItem {
     font-size: 0.85rem;
+  }
+
+  .stepConnector {
+    display: none;
+  }
+
+  .connectingLine {
+    display: none;
+  }
+
+  .floatingShape1,
+  .floatingShape2,
+  .floatingShape3 {
+    display: none;
   }
 }

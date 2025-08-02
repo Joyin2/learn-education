@@ -111,9 +111,10 @@
 /* Services Grid */
 .servicesGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   margin-top: 60px;
+  justify-items: center;
 }
 
 .serviceCard {
@@ -129,6 +130,10 @@
     0 15px 40px rgba(0, 0, 0, 0.3),
     0 8px 25px rgba(59, 130, 246, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
 }
 
 .serviceCard::before {
@@ -144,17 +149,26 @@
   border-radius: 25px;
 }
 
-.serviceCard:hover {
-  transform: translateY(-12px) scale(1.02);
-  box-shadow:
-    0 30px 60px rgba(0, 0, 0, 0.4),
-    0 20px 40px rgba(59, 130, 246, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  border-color: rgba(59, 130, 246, 0.4);
+/* Hover effects only for devices that support hover */
+@media (hover: hover) {
+  .serviceCard:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow:
+      0 30px 60px rgba(0, 0, 0, 0.4),
+      0 20px 40px rgba(59, 130, 246, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-color: rgba(59, 130, 246, 0.4);
+  }
+
+  .serviceCard:hover::before {
+    opacity: 1;
+  }
 }
 
-.serviceCard:hover::before {
-  opacity: 1;
+/* Touch feedback for touch devices */
+.serviceCard:active {
+  transform: translateY(-6px) scale(1.01);
+  transition: all 0.1s ease;
 }
 
 .serviceIcon {
@@ -359,13 +373,90 @@
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+
+/* Large Desktop (1440px+) */
+@media (min-width: 1440px) {
+  .container {
+    padding: 0 40px;
+  }
+
+  .servicesGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1300px;
+    margin: 60px auto 0;
+  }
+
+  .serviceCard {
+    padding: 50px 40px;
+  }
+}
+
+/* Desktop (1024px - 1439px) */
+@media (max-width: 1439px) and (min-width: 1024px) {
+  .container {
+    padding: 0 30px;
+  }
+
+  .servicesGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+    max-width: 1200px;
+    margin: 60px auto 0;
+  }
+
+  .serviceCard {
+    padding: 45px 35px;
+  }
+}
+
+/* Tablet Landscape (768px - 1023px) */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .ourServicesSection {
+    padding: 100px 0;
+  }
+
+  .container {
+    padding: 0 25px;
+  }
+
+  .servicesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .serviceCard {
+    padding: 40px 30px;
+  }
+
+  .serviceIcon {
+    width: 75px;
+    height: 75px;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+
+  .serviceTitle {
+    font-size: 1.4rem;
+  }
+
+  .serviceDescription {
+    font-size: 1.05rem;
+  }
+}
+
+/* Tablet Portrait (481px - 767px) */
+@media (max-width: 767px) and (min-width: 481px) {
   .ourServicesSection {
     padding: 80px 0;
   }
 
   .container {
-    padding: 0 15px;
+    padding: 0 20px;
   }
 
   .headerSection {
@@ -379,22 +470,22 @@
   }
 
   .mainTitle {
-    font-size: 2.8rem;
+    font-size: 3rem;
     line-height: 1.2;
   }
 
   .description {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
   }
 
   .servicesGrid {
-    grid-template-columns: 1fr;
-    gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
     margin-top: 50px;
   }
 
   .serviceCard {
-    padding: 35px 30px;
+    padding: 35px 25px;
   }
 
   .serviceIcon {
@@ -422,9 +513,18 @@
   }
 }
 
+/* Mobile (320px - 480px) */
 @media (max-width: 480px) {
   .ourServicesSection {
     padding: 60px 0;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  .headerSection {
+    margin-bottom: 50px;
   }
 
   .badge {
@@ -434,26 +534,35 @@
   }
 
   .mainTitle {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
+    line-height: 1.2;
   }
 
   .description {
     font-size: 1rem;
   }
 
+  .servicesGrid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-top: 40px;
+  }
+
   .serviceCard {
     padding: 30px 25px;
+    max-width: 400px;
+    margin: 0 auto;
   }
 
   .serviceIcon {
-    width: 60px;
-    height: 60px;
-    font-size: 1.5rem;
+    width: 65px;
+    height: 65px;
+    font-size: 1.6rem;
     margin-bottom: 20px;
   }
 
   .serviceTitle {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
   }
 
   .serviceDescription {
@@ -462,12 +571,10 @@
 
   .featureItem {
     font-size: 0.9rem;
-    gap: 12px;
   }
 
   .featureItem i {
     width: 16px;
     height: 16px;
-    font-size: 0.6rem;
   }
 }
