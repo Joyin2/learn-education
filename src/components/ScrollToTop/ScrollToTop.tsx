@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import styles from './ScrollToTop.module.css';
-import { ultraSmoothScrollToTop } from '@/utils/smoothScroll';
 
 export default function ScrollToTop() {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -48,46 +47,19 @@ export default function ScrollToTop() {
     };
   }, []);
 
-  // Ultra-smooth scroll to top function
+  // Standard scroll to top function
   const scrollToTop = () => {
-    ultraSmoothScrollToTop(1800); // Ultra-smooth 1.8 second animation
-  };
-
-  // Get responsive positioning
-  const getBottomPosition = () => {
-    if (isMobile) {
-      return window.innerWidth <= 480 ? '2rem' : '2.5rem'; // Moved up
-    }
-    return '3rem'; // Moved up from 2rem
-  };
-
-  const getRightPosition = () => {
-    if (isMobile) {
-      return window.innerWidth <= 480 ? '1rem' : '1.5rem';
-    }
-    return '2rem';
+    window.scrollTo({ top: 0, behavior: 'auto' });
   };
 
   // Always render but control visibility with CSS
   return (
-    <div style={{
-      position: 'fixed',
-      bottom: getBottomPosition(),
-      right: getRightPosition(),
-      zIndex: 99999,
-      pointerEvents: showScrollTop ? 'auto' : 'none'
-    }}>
+    <div className={styles.scrollToTopContainer}>
       <button
         onClick={scrollToTop}
         className={`${styles.scrollToTop} ${isScrolling ? styles.scrolling : ''} ${showScrollTop ? styles.visible : styles.hidden}`}
         aria-label="Scroll to top"
         title="Scroll to top"
-        style={{
-          opacity: showScrollTop ? 1 : 0,
-          visibility: showScrollTop ? 'visible' : 'hidden',
-          transform: showScrollTop ? 'translateY(0)' : 'translateY(20px)',
-          transition: 'all 0.3s ease'
-        }}
       >
         <i className="fa-solid fa-chevron-up" style={{fontStyle: 'normal'}}></i>
         <div className={styles.ripple}></div>

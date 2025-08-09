@@ -3,8 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { AuthProvider } from "@/contexts/AuthContext";
-import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import ScrollToTop from "@/components/ScrollToTop";
+import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,7 +34,7 @@ export default function RootLayout({
         <SmoothScrollProvider>
           <AuthProvider>
             <Navbar />
-            <main className="pt-16 lg:pt-20">
+            <main>
               {children}
             </main>
           </AuthProvider>

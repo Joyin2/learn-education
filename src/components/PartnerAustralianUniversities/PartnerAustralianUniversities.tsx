@@ -1,8 +1,34 @@
 'use client';
 
+import React from 'react';
+import { useEffect, useState } from 'react';
+
 import styles from './PartnerAustralianUniversities.module.css';
 
 export default function PartnerAustralianUniversities() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const element = document.getElementById('partner-australian-universities');
+    if (element) {
+      observer.observe(element);
+    }
+
+    return () => {
+      if (element) {
+        observer.unobserve(element);
+      }
+    };
+  }, []);
   const universities = [
     'University of Melbourne',
     'University of Sydney',
@@ -51,7 +77,7 @@ export default function PartnerAustralianUniversities() {
   ];
 
   return (
-    <section className={styles.partnerUniversities}>
+    <section id="partner-australian-universities" className={styles.partnerUniversities}>
       {/* Background Effects */}
       <div className={styles.backgroundEffects}>
         <div className={styles.floatingElement1}></div>
@@ -60,9 +86,9 @@ export default function PartnerAustralianUniversities() {
 
       <div className={styles.container}>
         {/* Main Content Section */}
-        <div className={styles.mainContent}>
+        <div className={`${styles.mainContent} ${isVisible ? styles.fadeInUp : ''}`}>
           <div className={styles.contentLeft}>
-            <h2 className={styles.sectionTitle}>Our Partner Universities</h2>
+            <h2 className={`${styles.sectionTitle} ${isVisible ? styles.fadeInUp : ''}`}>Our Partner Universities</h2>
             <p className={styles.subtitle}>
               Learn Education has partnered with 20+ prestigious Australian universities
             </p>
@@ -82,11 +108,11 @@ export default function PartnerAustralianUniversities() {
           </div>
 
           <div className={styles.contentRight}>
-            <div className={styles.universitiesList}>
+            <div className={`${styles.universitiesList} ${isVisible ? styles.fadeInUp : ''}`}>
               <h3 className={styles.listTitle}>
                 List of Universities in Australia that Learn Education London has partnered with:
               </h3>
-              <div className={styles.universitiesGrid}>
+              <div className={`${styles.universitiesGrid} ${isVisible ? styles.fadeInUp : ''}`}>
                 {universities.map((university, index) => (
                   <div key={index} className={styles.universityItem}>
                     <i className="fa-solid fa-check"></i>

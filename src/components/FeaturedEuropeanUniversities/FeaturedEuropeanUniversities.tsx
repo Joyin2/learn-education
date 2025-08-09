@@ -1,8 +1,32 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import styles from './FeaturedEuropeanUniversities.module.css';
 
 export default function FeaturedEuropeanUniversities() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const section = document.getElementById('featured-european-universities');
+    if (section) {
+      observer.observe(section);
+    }
+
+    return () => {
+      if (section) {
+        observer.unobserve(section);
+      }
+    };
+  }, []);
   const universities = [
     {
       id: 1,
@@ -73,16 +97,16 @@ export default function FeaturedEuropeanUniversities() {
   ];
 
   return (
-    <section className={styles.featuredUniversities}>
+    <section id="featured-european-universities" className={styles.featuredUniversities}>
       <div className={styles.container}>
-        <div className={styles.sectionHeader}>
+        <div className={`${styles.sectionHeader} ${isVisible ? styles.fadeInUp : ''}`}>
           <h2 className={styles.sectionTitle}>Featured Universities</h2>
           <p className={styles.sectionDescription}>
             Explore our partner universities across Europe and find the perfect match for your academic journey
           </p>
         </div>
 
-        <div className={styles.universitiesGrid}>
+        <div className={`${styles.universitiesGrid} ${isVisible ? styles.fadeInUp : ''}`}>
           {universities.map((university) => (
             <div key={university.id} className={styles.universityCard}>
               <div className={styles.cardImage}>

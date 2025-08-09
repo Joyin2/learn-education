@@ -1,8 +1,32 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import styles from './FeaturedAustralianUniversities.module.css';
 
 export default function FeaturedAustralianUniversities() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const section = document.getElementById('featured-australian-universities');
+    if (section) {
+      observer.observe(section);
+    }
+
+    return () => {
+      if (section) {
+        observer.unobserve(section);
+      }
+    };
+  }, []);
   const universities = [
     {
       id: 1,
@@ -73,7 +97,7 @@ export default function FeaturedAustralianUniversities() {
   ];
 
   return (
-    <section className={styles.featuredUniversities}>
+    <section id="featured-australian-universities" className={styles.featuredUniversities}>
       {/* Background Effects */}
       <div className={styles.backgroundEffects}>
         <div className={styles.floatingElement1}></div>
@@ -82,14 +106,14 @@ export default function FeaturedAustralianUniversities() {
       </div>
 
       <div className={styles.container}>
-        <div className={styles.sectionHeader}>
+        <div className={`${styles.sectionHeader} ${isVisible ? styles.fadeInUp : ''}`}>
           <h2 className={styles.sectionTitle}>Featured Universities</h2>
           <p className={styles.sectionDescription}>
             Explore our partner universities across Australia and find the perfect match for your academic journey
           </p>
         </div>
 
-        <div className={styles.universitiesGrid}>
+        <div className={`${styles.universitiesGrid} ${isVisible ? styles.fadeInUp : ''}`}>
           {universities.map((university) => (
             <div key={university.id} className={styles.universityCard}>
               <div className={styles.cardImage}>

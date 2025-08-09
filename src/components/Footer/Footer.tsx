@@ -12,8 +12,9 @@ export default function Footer() {
     { name: 'About Us', href: '/about' },
     { name: 'Services', href: '/services' },
     { name: 'Privacy Policy', href: '/privacy' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'Blog', href: '/blog' },
     { name: 'FAQ', href: '/faq' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   const universityLinks = [

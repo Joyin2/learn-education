@@ -107,6 +107,66 @@
   box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
 }
 
+/* Tab Navigation */
+.tabNavigation {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  padding: 0;
+  position: relative;
+  z-index: 9;
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.tabButton {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  padding: 16px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 3px solid transparent;
+  position: relative;
+}
+
+.tabButton:hover {
+  color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.tabButton.tabActive {
+  color: #3b82f6;
+  border-bottom-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.tabButton.tabActive::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+}
+
+.tabButton svg {
+  transition: transform 0.3s ease;
+}
+
+.tabButton:hover svg,
+.tabButton.tabActive svg {
+  transform: scale(1.1);
+}
+
 /* Loading */
 .loadingContainer {
   min-height: 100vh;

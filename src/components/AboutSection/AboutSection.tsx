@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import styles from './AboutSection.module.css';
+import ScrollAnimationWrapper from '../ScrollAnimationWrapper';
 
 // Flag paths - using Supabase URLs
 const flagPaths = {
@@ -13,39 +14,20 @@ const flagPaths = {
 };
 
 export default function AboutSection() {
-  const [isVisible, setIsVisible] = useState(false);
   const [counters, setCounters] = useState({
     universities: 0,
     countries: 0,
     rating: 0,
     reviews: 0
   });
+  const [hasAnimated, setHasAnimated] = useState(false);
 
-  useEffect(() => {
-    // Start animation immediately for now, and also set up intersection observer
-    const timer = setTimeout(() => {
-      setIsVisible(true);
+  const handleInView = () => {
+    if (!hasAnimated) {
+      setHasAnimated(true);
       startCounterAnimation();
-    }, 500);
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !isVisible) {
-          setIsVisible(true);
-          startCounterAnimation();
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    const section = document.querySelector(`.${styles.aboutSection}`);
-    if (section) observer.observe(section);
-
-    return () => {
-      clearTimeout(timer);
-      observer.disconnect();
-    };
-  }, [isVisible]);
+    }
+  };
 
   const startCounterAnimation = () => {
     // Prevent multiple animations
@@ -92,124 +74,148 @@ export default function AboutSection() {
       </div>
 
       <div className={styles.container}>
-        <div className={`${styles.aboutContent} ${isVisible ? styles.fadeInUp : ''}`}>
+        <div className={styles.aboutContent}>
           {/* Main heading with enhanced animations */}
-          <div className={styles.aboutHeader}>
-            <div className={styles.titleWrapper}>
-              <h2 className={styles.aboutTitle}>
-                <span className={styles.titleWord}>Learn</span>
-                <span className={styles.titleWord}>Education</span>
-              </h2>
-              <div className={styles.titleUnderline}></div>
+          <ScrollAnimationWrapper animation="fadeIn" onInView={handleInView}>
+            <div className={styles.aboutHeader}>
+              <ScrollAnimationWrapper animation="slideUp" delay={0.2}>
+                <div className={styles.titleWrapper}>
+                  <h2 className={styles.aboutTitle}>
+                    <span className={styles.titleWord}>Learn</span>
+                    <span className={styles.titleWord}>Education</span>
+                  </h2>
+                  <div className={styles.titleUnderline}></div>
+                </div>
+              </ScrollAnimationWrapper>
+              <ScrollAnimationWrapper animation="slideUp" delay={0.4}>
+                <p className={styles.aboutDescription}>
+                  Facilitating admissions for both Local UK and International students in{' '}
+                  <span className={styles.highlight}>130+ Universities</span> across{' '}
+                  <span className={styles.highlight}>5 Countries</span>.
+                </p>
+              </ScrollAnimationWrapper>
             </div>
-            <p className={styles.aboutDescription}>
-              Facilitating admissions for both Local UK and International students in{' '}
-              <span className={styles.highlight}>130+ Universities</span> across{' '}
-              <span className={styles.highlight}>5 Countries</span>.
-            </p>
-          </div>
+          </ScrollAnimationWrapper>
 
           {/* Enhanced Stats section with animations */}
-          <div className={styles.statsContainer}>
-            <div className={`${styles.statItem} ${styles.statItem1}`}>
-              <div className={styles.statIcon}>
-                <i className="fa-solid fa-university"></i>
-              </div>
-              <div className={styles.statNumber}>
-                {counters.universities || 130}+
-              </div>
-              <div className={styles.statLabel}>Universities</div>
-              <div className={styles.statGlow}></div>
+          <ScrollAnimationWrapper animation="slideUp" delay={0.6}>
+            <div className={styles.statsContainer}>
+              <ScrollAnimationWrapper animation="scale" delay={0.8}>
+                <div className={`${styles.statItem} ${styles.statItem1}`}>
+                  <div className={styles.statIcon}>
+                    <i className="fa-solid fa-university"></i>
+                  </div>
+                  <div className={styles.statNumber}>
+                    {counters.universities || 130}+
+                  </div>
+                  <div className={styles.statLabel}>Universities</div>
+                  <div className={styles.statGlow}></div>
+                </div>
+              </ScrollAnimationWrapper>
+              <ScrollAnimationWrapper animation="scale" delay={1.0}>
+                <div className={`${styles.statItem} ${styles.statItem2}`}>
+                  <div className={styles.statIcon}>
+                    <i className="fa-solid fa-globe"></i>
+                  </div>
+                  <div className={styles.statNumber}>
+                    {counters.countries || 5}
+                  </div>
+                  <div className={styles.statLabel}>Countries</div>
+                  <div className={styles.statGlow}></div>
+                </div>
+              </ScrollAnimationWrapper>
+              <ScrollAnimationWrapper animation="scale" delay={1.2}>
+                <div className={`${styles.statItem} ${styles.statItem3}`}>
+                  <div className={styles.statIcon}>
+                    <i className="fa-solid fa-star"></i>
+                  </div>
+                  <div className={styles.statNumber}>
+                    {(counters.rating || 4.5).toFixed(1)}
+                  </div>
+                  <div className={styles.statLabel}>Star Rating</div>
+                  <div className={styles.statGlow}></div>
+                </div>
+              </ScrollAnimationWrapper>
+              <ScrollAnimationWrapper animation="scale" delay={1.4}>
+                <div className={`${styles.statItem} ${styles.statItem4}`}>
+                  <div className={styles.statIcon}>
+                    <i className="fa-solid fa-comments"></i>
+                  </div>
+                  <div className={styles.statNumber}>
+                    {counters.reviews || 20}+
+                  </div>
+                  <div className={styles.statLabel}>Reviews</div>
+                  <div className={styles.statGlow}></div>
+                </div>
+              </ScrollAnimationWrapper>
             </div>
-            <div className={`${styles.statItem} ${styles.statItem2}`}>
-              <div className={styles.statIcon}>
-                <i className="fa-solid fa-globe"></i>
-              </div>
-              <div className={styles.statNumber}>
-                {counters.countries || 5}
-              </div>
-              <div className={styles.statLabel}>Countries</div>
-              <div className={styles.statGlow}></div>
-            </div>
-            <div className={`${styles.statItem} ${styles.statItem3}`}>
-              <div className={styles.statIcon}>
-                <i className="fa-solid fa-star"></i>
-              </div>
-              <div className={styles.statNumber}>
-                {(counters.rating || 4.5).toFixed(1)}
-              </div>
-              <div className={styles.statLabel}>Star Rating</div>
-              <div className={styles.statGlow}></div>
-            </div>
-            <div className={`${styles.statItem} ${styles.statItem4}`}>
-              <div className={styles.statIcon}>
-                <i className="fa-solid fa-comments"></i>
-              </div>
-              <div className={styles.statNumber}>
-                {counters.reviews || 20}+
-              </div>
-              <div className={styles.statLabel}>Reviews</div>
-              <div className={styles.statGlow}></div>
-            </div>
-          </div>
+          </ScrollAnimationWrapper>
 
           {/* Enhanced Rating section with animations */}
-          <div className={styles.ratingSection}>
-            <div className={styles.ratingWrapper}>
-              <div className={styles.ratingStars}>
-                {[1, 2, 3, 4, 5].map((star, index) => (
-                  <i
-                    key={star}
-                    className={`fa-solid ${index < 4 ? 'fa-star' : 'fa-star-half-stroke'} ${styles.ratingStar}`}
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  ></i>
-                ))}
-              </div>
-              <div className={styles.ratingBadge}>
-                <span className={styles.ratingNumber}>4.5</span>
-                <div className={styles.ratingDetails}>
-                  <span className={styles.ratingText}>Excellent Rating</span>
-                  <span className={styles.reviewCount}>Based on 20+ Reviews</span>
+          <ScrollAnimationWrapper animation="slideLeft" delay={1.6}>
+            <div className={styles.ratingSection}>
+              <div className={styles.ratingWrapper}>
+                <div className={styles.ratingStars}>
+                  {[1, 2, 3, 4, 5].map((star, index) => (
+                    <i
+                      key={star}
+                      className={`fa-solid ${index < 4 ? 'fa-star' : 'fa-star-half-stroke'} ${styles.ratingStar}`}
+                      style={{ animationDelay: `${index * 0.1}s` }}
+                    ></i>
+                  ))}
+                </div>
+                <div className={styles.ratingBadge}>
+                  <span className={styles.ratingNumber}>4.5</span>
+                  <div className={styles.ratingDetails}>
+                    <span className={styles.ratingText}>Excellent Rating</span>
+                    <span className={styles.reviewCount}>Based on 20+ Reviews</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className={styles.trustBadges}>
-              <div className={styles.trustBadge}>
-                <i className="fa-solid fa-shield-check"></i>
-                <span>Verified Reviews</span>
+              <div className={styles.trustBadges}>
+                <ScrollAnimationWrapper animation="scale" delay={1.8}>
+                  <div className={styles.trustBadge}>
+                    <i className="fa-solid fa-shield-check"></i>
+                    <span>Verified Reviews</span>
+                  </div>
+                </ScrollAnimationWrapper>
+                <ScrollAnimationWrapper animation="scale" delay={2.0}>
+                  <div className={styles.trustBadge}>
+                    <i className="fa-solid fa-award"></i>
+                    <span>Top Rated</span>
+                  </div>
+                </ScrollAnimationWrapper>
               </div>
-              <div className={styles.trustBadge}>
-                <i className="fa-solid fa-award"></i>
-                <span>Top Rated</span>
-              </div>
             </div>
-          </div>
+          </ScrollAnimationWrapper>
 
           {/* Enhanced Countries section with 3D effects */}
-          <div className={styles.countriesSection}>
-            <div className={styles.countriesHeader}>
-              <h3 className={styles.countriesTitle}>
-                <span className={styles.titleIcon}>🌍</span>
-                We serve students across
-              </h3>
-              <p className={styles.countriesSubtitle}>
-                Connecting dreams to destinations worldwide
-              </p>
-            </div>
-            <div className={styles.countriesList}>
-              {[
-                { name: 'United Kingdom', code: 'UK', universities: '40+' },
-                { name: 'United States', code: 'USA', universities: '35+' },
-                { name: 'Canada', code: 'CAN', universities: '25+' },
-                { name: 'Ireland', code: 'IRE', universities: '15+' },
-                { name: 'Germany', code: 'GER', universities: '15+' }
-              ].map((country, index) => (
-                <div
-                  key={country.code}
-                  className={`${styles.countryItem} ${styles[`countryItem${index + 1}`]}`}
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className={styles.countryCard}>
+          <ScrollAnimationWrapper animation="slideRight" delay={2.2}>
+            <div className={styles.countriesSection}>
+              <ScrollAnimationWrapper animation="fadeIn" delay={2.4}>
+                <div className={styles.countriesHeader}>
+                  <h3 className={styles.countriesTitle}>
+                    <span className={styles.titleIcon}>🌍</span>
+                    We serve students across
+                  </h3>
+                  <p className={styles.countriesSubtitle}>
+                    Connecting dreams to destinations worldwide
+                  </p>
+                </div>
+              </ScrollAnimationWrapper>
+              <div className={styles.countriesList}>
+                {[
+                  { name: 'United Kingdom', code: 'UK', universities: '40+' },
+                  { name: 'United States', code: 'USA', universities: '35+' },
+                  { name: 'Canada', code: 'CAN', universities: '25+' },
+                  { name: 'Ireland', code: 'IRE', universities: '15+' },
+                  { name: 'Germany', code: 'GER', universities: '15+' }
+                ].map((country, index) => (
+                  <ScrollAnimationWrapper key={country.code} animation="slideUp" delay={2.6 + index * 0.1}>
+                    <div
+                      className={`${styles.countryItem} ${styles[`countryItem${index + 1}`]}`}
+                    >
+                      <div className={styles.countryCard}>
                     <div className={styles.countryFlagWrapper}>
                       <div className={styles.countryFlag}>
                         <img
@@ -263,11 +269,13 @@ export default function AboutSection() {
                       <span className={styles.universityCount}>{country.universities} Universities</span>
                     </div>
                     <div className={styles.countryHoverEffect}></div>
-                  </div>
-                </div>
-              ))}
+                      </div>
+                    </div>
+                  </ScrollAnimationWrapper>
+                ))}
+              </div>
             </div>
-          </div>
+          </ScrollAnimationWrapper>
 
 
         </div>

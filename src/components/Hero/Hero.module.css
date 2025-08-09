@@ -1,42 +1,32 @@
 /* Hero Component Styles */
 
-/* Main hero section */
+/* Main hero section - exactly 100vh minus navbar height */
 .enhancedHeroSection {
   position: relative;
-  min-height: 100vh;
+  height: calc(100vh - 3.5rem); /* 100vh minus navbar height (56px) */
+  min-height: calc(100vh - 3.5rem);
+  max-height: calc(100vh - 3.5rem);
   background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #2b70fa 100%);
   overflow: hidden;
   display: flex;
-  align-items: flex-start;
-  padding: 20px 0 40px 0; /* Much closer to navbar */
+  align-items: center; /* Center content vertically */
+  padding: 0; /* Remove all padding for exact sizing */
 }
 
 /* Mobile-first responsive adjustments */
-@media (max-width: 480px) {
+@media (min-width: 480px) {
   .enhancedHeroSection {
-    min-height: 100vh;
-    padding: 15px 0 30px 0;
+    height: calc(100vh - 4rem); /* 100vh minus navbar height (64px) */
+    min-height: calc(100vh - 4rem);
+    max-height: calc(100vh - 4rem);
   }
 }
 
-@media (min-width: 481px) and (max-width: 768px) {
+@media (min-width: 768px) {
   .enhancedHeroSection {
-    min-height: 100vh;
-    padding: 18px 0 35px 0;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .enhancedHeroSection {
-    min-height: 100vh;
-    padding: 20px 0 40px 0;
-  }
-}
-
-@media (min-width: 1025px) {
-  .enhancedHeroSection {
-    min-height: 100vh;
-    padding: 25px 0 50px 0;
+    height: calc(100vh - 4.5rem); /* 100vh minus navbar height (72px) */
+    min-height: calc(100vh - 4.5rem);
+    max-height: calc(100vh - 4.5rem);
   }
 }
 
@@ -164,8 +154,9 @@
   display: flex;
   flex-wrap: wrap;
   margin: 0 -12px;
-  align-items: flex-start;
-  min-height: auto;
+  align-items: center; /* Center content vertically within row */
+  min-height: 100%; /* Take full height of hero section */
+  width: 100%;
 }
 
 /* Mobile-first row adjustments */
@@ -240,37 +231,39 @@
   }
 }
 
-/* Content styling */
+/* Content styling - perfectly centered in viewport */
 .heroContent {
   position: relative;
   z-index: 3;
-  padding-top: 10px;
+  padding: 0; /* Remove all padding for perfect centering */
   text-align: center;
+  width: 100%;
+  margin-top: 0px; /* Move content to neutral position */
 }
 
 /* Mobile-first content adjustments */
 @media (min-width: 480px) {
   .heroContent {
-    padding-top: 15px;
+    margin-top: -10px; /* Move content upward slightly on larger screens */
   }
 }
 
 @media (min-width: 768px) {
   .heroContent {
-    padding-top: 20px;
     text-align: left;
+    margin-top: -20px; /* Move content upward slightly on tablet+ */
   }
 }
 
 @media (min-width: 992px) {
   .heroContent {
-    padding-top: 25px;
+    margin-top: -30px; /* Move content upward slightly on desktop */
   }
 }
 
 @media (min-width: 1200px) {
   .heroContent {
-    padding-top: 30px;
+    margin-top: -40px; /* Move content upward slightly on large desktop */
   }
 }
 
@@ -1101,69 +1094,71 @@
 .btnPrimary {
   background: linear-gradient(135deg, #2b70fa 0%, #4a90ff 50%, #6ba3ff 100%);
   color: white;
-  padding: 12px 20px;
+  padding: 10px 16px;
   border-radius: 50px;
   text-decoration: none;
   font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.2px;
+  font-size: 0.75rem;
+  letter-spacing: 0.1px;
   text-transform: uppercase;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 4px;
   box-shadow: 0 12px 35px rgba(43, 112, 250, 0.4), 0 0 20px rgba(74, 144, 255, 0.2);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border: none;
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(10px);
-  min-height: 44px;
+  min-height: 38px;
   touch-action: manipulation;
   white-space: nowrap;
   flex: 1;
-  max-width: 200px;
+  max-width: 250px;
 }
 
 /* Mobile-first primary button adjustments */
 @media (min-width: 480px) {
   .btnPrimary {
-    padding: 13px 24px;
-    font-size: 0.9rem;
-    letter-spacing: 0.25px;
-    gap: 7px;
-    min-height: 46px;
-    max-width: 220px;
+    padding: 11px 18px;
+    font-size: 0.8rem;
+    letter-spacing: 0.15px;
+    gap: 5px;
+    min-height: 40px;
+    max-width: 260px;
   }
 }
 
 @media (min-width: 768px) {
   .btnPrimary {
-    padding: 14px 28px;
-    font-size: 1rem;
-    letter-spacing: 0.3px;
-    gap: 8px;
-    min-height: 48px;
+    padding: 12px 20px;
+    font-size: 0.85rem;
+    letter-spacing: 0.2px;
+    gap: 6px;
+    min-height: 42px;
     flex: none;
-    max-width: none;
+    max-width: 270px;
   }
 }
 
 @media (min-width: 1024px) {
   .btnPrimary {
-    padding: 15px 30px;
-    font-size: 1.05rem;
-    letter-spacing: 0.35px;
-    min-height: 50px;
+    padding: 13px 22px;
+    font-size: 0.9rem;
+    letter-spacing: 0.25px;
+    min-height: 44px;
+    max-width: 260px;
   }
 }
 
 @media (min-width: 1200px) {
   .btnPrimary {
-    padding: 16px 32px;
-    font-size: 1.1rem;
-    letter-spacing: 0.4px;
-    min-height: 52px;
+    padding: 14px 24px;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    min-height: 46px;
+    max-width: 270px;
   }
 }
 
@@ -1213,17 +1208,17 @@
 .btnSecondary {
   background: rgba(255, 255, 255, 0.05);
   color: white;
-  padding: 12px 20px;
+  padding: 10px 16px;
   border-radius: 50px;
   text-decoration: none;
   font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.2px;
+  font-size: 0.75rem;
+  letter-spacing: 0.1px;
   text-transform: uppercase;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 4px;
   border: 2px solid rgba(255, 255, 255, 0.4);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
@@ -1234,48 +1229,50 @@
   touch-action: manipulation;
   white-space: nowrap;
   flex: 1;
-  max-width: 200px;
+  max-width: 250px;
 }
 
 /* Mobile-first secondary button adjustments */
 @media (min-width: 480px) {
   .btnSecondary {
-    padding: 13px 24px;
-    font-size: 0.9rem;
-    letter-spacing: 0.25px;
-    gap: 7px;
-    min-height: 46px;
-    max-width: 220px;
+    padding: 11px 18px;
+    font-size: 0.8rem;
+    letter-spacing: 0.15px;
+    gap: 5px;
+    min-height: 40px;
+    max-width: 260px;
   }
 }
 
 @media (min-width: 768px) {
   .btnSecondary {
-    padding: 14px 28px;
-    font-size: 1rem;
-    letter-spacing: 0.3px;
-    gap: 8px;
-    min-height: 48px;
+    padding: 12px 20px;
+    font-size: 0.85rem;
+    letter-spacing: 0.2px;
+    gap: 6px;
+    min-height: 42px;
     flex: none;
-    max-width: none;
+    max-width: 270px;
   }
 }
 
 @media (min-width: 1024px) {
   .btnSecondary {
-    padding: 15px 30px;
-    font-size: 1.05rem;
-    letter-spacing: 0.35px;
-    min-height: 50px;
+    padding: 13px 22px;
+    font-size: 0.9rem;
+    letter-spacing: 0.25px;
+    min-height: 44px;
+    max-width: 260px;
   }
 }
 
 @media (min-width: 1200px) {
   .btnSecondary {
-    padding: 16px 32px;
-    font-size: 1.1rem;
-    letter-spacing: 0.4px;
-    min-height: 52px;
+    padding: 14px 24px;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    min-height: 46px;
+    max-width: 270px;
   }
 }
 
@@ -1380,7 +1377,7 @@
     letter-spacing: 0.2px;
     min-height: 48px;
     width: 100%;
-    max-width: 280px;
+    max-width: 320px;
     white-space: nowrap;
   }
 }
@@ -1420,7 +1417,7 @@
     font-size: 0.9rem;
     letter-spacing: 0.2px;
     flex: 1;
-    max-width: 180px;
+    max-width: 270px;
     white-space: nowrap;
   }
 }
@@ -1446,7 +1443,7 @@
   .btnSecondary {
     padding: 10px 16px;
     font-size: 0.8rem;
-    max-width: 240px;
+    max-width: 270px;
     gap: 5px;
     min-height: 44px;
   }
@@ -1504,39 +1501,43 @@
 /* Image section */
 .heroImgWrapper {
   position: relative;
-  padding-top: 20px;
+  padding-top: 100px;
   padding-bottom: 40px;
   animation: heroWrapperFadeIn 1s ease-out 0.2s both;
-  transform: translateY(0px);
+  transform: translateY(80px);
   text-align: center;
 }
 
 /* Mobile-first image wrapper adjustments */
 @media (min-width: 480px) {
   .heroImgWrapper {
-    padding-top: 25px;
+    padding-top: 110px;
     padding-bottom: 50px;
+    transform: translateY(90px);
   }
 }
 
 @media (min-width: 768px) {
   .heroImgWrapper {
-    padding-top: 30px;
+    padding-top: 120px;
     padding-bottom: 60px;
+    transform: translateY(100px);
   }
 }
 
 @media (min-width: 992px) {
   .heroImgWrapper {
-    padding-top: 15px;
+    padding-top: 100px;
     padding-bottom: 80px;
+    transform: translateY(110px);
   }
 }
 
 @media (min-width: 1200px) {
   .heroImgWrapper {
-    padding-top: 15px;
+    padding-top: 100px;
     padding-bottom: 120px;
+    transform: translateY(120px);
   }
 }
 

@@ -1,5 +1,87 @@
 @import "tailwindcss";
 
+/* Smooth Scrolling Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Lenis Smooth Scroll */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Scroll Animation Classes */
+.scroll-fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-fade-in.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-slide-up {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-slide-up.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-slide-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-slide-left.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-slide-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-slide-right.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-scale.animate {
+  opacity: 1;
+  transform: scale(1);
+}
+
 /* Font Awesome Icons */
 @font-face {
   font-family: 'Font Awesome 6 Free';
@@ -28,24 +110,31 @@
        url('/assets/fonts/fa-brands-400.ttf') format('truetype');
 }
 
-.fa-solid {
+.fa-solid,
+.fas {
   font-family: 'Font Awesome 6 Free';
   font-weight: 900;
 }
 
-.fa-regular {
+.fa-regular,
+.far {
   font-family: 'Font Awesome 6 Free';
   font-weight: 400;
 }
 
-.fa-brands {
+.fa-brands,
+.fab {
   font-family: 'Font Awesome 6 Brands';
   font-weight: 400;
 }
 
 /* Font Awesome icon base styles */
 .fa-solid:before,
-.fa-regular:before {
+.fas:before,
+.fa-regular:before,
+.far:before,
+.fa-brands:before,
+.fab:before {
   display: inline-block;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
@@ -55,8 +144,11 @@
 .fa-bars:before { content: "\f0c9"; }
 .fa-times:before { content: "\f00d"; }
 .fa-chevron-down:before { content: "\f078"; }
+.fa-chevron-left:before { content: "\f053"; }
+.fa-chevron-right:before { content: "\f054"; }
 .fa-phone:before { content: "\f095"; }
 .fa-arrow-right:before { content: "\f061"; }
+.fa-arrow-left:before { content: "\f060"; }
 .fa-check:before { content: "\f00c"; }
 .fa-graduation-cap:before { content: "\f19d"; }
 
@@ -212,6 +304,10 @@
 .fa-pencil:before { content: "\f303"; }
 .fa-envelope:before { content: "\f0e0"; }
 
+/* TrustedServicesSection icons */
+.fa-headset:before { content: "\f590"; }
+.fa-plane-departure:before { content: "\f5b0"; }
+
 
 
 :root {
@@ -233,74 +329,27 @@
   }
 }
 
-/* ===== ULTRA-SMOOTH SCROLLING SYSTEM ===== */
+/* ===== BASIC STYLING ===== */
 
-/* Advanced smooth scrolling with custom timing */
 html {
-  scroll-behavior: smooth;
   scroll-padding-top: 80px; /* Account for fixed navbar */
-  /* Enhanced scroll performance */
-  scroll-snap-type: y proximity;
-  -webkit-scroll-behavior: smooth;
-  -moz-scroll-behavior: smooth;
-  -ms-scroll-behavior: smooth;
 }
 
-/* Ultra-smooth scrolling for all elements */
-* {
-  scroll-behavior: smooth;
-  /* Advanced GPU acceleration */
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
-}
-
-/* Optimized body for ultra-smooth scrolling */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-  /* Ultra-smooth scrolling optimizations */
-  -webkit-overflow-scrolling: touch;
   overflow-x: hidden;
-  overscroll-behavior: contain;
   /* Advanced text rendering */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  /* Performance optimizations */
-  will-change: scroll-position;
-  contain: layout style paint;
-  /* Smooth momentum */
-  scroll-snap-type: y proximity;
-  scroll-padding: 0;
 }
 
-/* ===== ULTRA-SMOOTH SCROLLING ENHANCEMENTS ===== */
-
-/* Advanced smooth scrolling for anchor links */
+/* Anchor links */
 a[href^="#"] {
-  scroll-behavior: smooth;
-  -webkit-scroll-behavior: smooth;
   scroll-margin-top: 80px;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* Enhanced scrolling utility classes */
-.smooth-scroll {
-  scroll-behavior: smooth;
-  -webkit-scroll-behavior: smooth;
-  scroll-snap-align: start;
-}
-
-.ultra-smooth {
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
-  scroll-snap-align: start;
-  overscroll-behavior: contain;
 }
 
 /* Advanced mobile scrolling optimizations */
@@ -313,20 +362,14 @@ a[href^="#"] {
   }
 
   body {
-    /* Ultra-smooth touch scrolling */
+    /* Mobile-specific optimizations */
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-y: contain;
     overscroll-behavior-x: none;
-    /* Mobile-specific optimizations */
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
   }
 
-  /* Smooth scroll for mobile sections */
+  /* Mobile sections */
   section {
-    scroll-snap-align: start;
     scroll-margin-top: 70px;
   }
 }
@@ -337,14 +380,13 @@ a[href^="#"] {
   *,
   *::before,
   *::after {
-    scroll-behavior: auto !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }
 
-/* Smooth scrolling for custom scrollbars */
+/* Custom scrollbars */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -371,51 +413,60 @@ html {
   scrollbar-color: #3b82f6 rgba(0, 0, 0, 0.1);
 }
 
-/* ===== ULTRA-PERFORMANCE OPTIMIZATIONS FOR BUTTERY-SMOOTH SCROLLING ===== */
+/* ===== BASIC OPTIMIZATIONS ===== */
 
-/* Advanced GPU acceleration for maximum performance */
-body,
-html {
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
-  will-change: scroll-position, transform;
-  /* Hardware acceleration */
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
-  /* Smooth rendering */
-  -webkit-font-smoothing: subpixel-antialiased;
-  image-rendering: optimizeQuality;
-}
-
-/* Ultra-smooth rendering optimizations */
+/* CSS Reset for margin and padding */
 * {
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
-  /* Advanced compositing */
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  /* Smooth transitions */
-  -webkit-transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Ultra-smooth momentum scrolling */
+/* Exclude navbar and hero from global transforms to prevent positioning issues */
+nav[class*="navbarContainer"],
+.navbarContainer,
+.navbarContainer *,
+[class*="enhancedHeroSection"],
+.enhancedHeroSection,
+.enhancedHeroSection * {
+  -webkit-transform-style: flat !important;
+  transform-style: flat !important;
+  -webkit-perspective: none !important;
+  perspective: none !important;
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  -webkit-transform: none !important;
+  transform: none !important;
+  will-change: auto !important;
+  contain: none !important;
+  isolation: auto !important;
+}
+
+/* Force navbar to be completely independent of any parent transforms */
+nav[class*="navbarContainer"] {
+  position: sticky !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 10000 !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+}
+
+/* Basic scrolling optimizations */
 body {
   -webkit-overflow-scrolling: touch;
   overflow-scrolling: touch;
-  /* Advanced scroll optimizations */
-  scroll-snap-type: y proximity;
   overscroll-behavior: contain;
-  /* Performance containment */
-  contain: layout style paint;
 }
 
-/* Maximum performance for sections */
-section {
+/* Maximum performance for sections - exclude hero from transforms */
+section:not([class*="enhancedHeroSection"]) {
   contain: layout style paint;
   will-change: transform, opacity;
   /* Smooth section transitions */
@@ -425,12 +476,19 @@ section {
   scroll-margin-top: 80px;
 }
 
-/* Ultra-smooth image performance */
+/* Hero section specific optimizations without transforms */
+section[class*="enhancedHeroSection"] {
+  contain: none;
+  will-change: auto;
+  transform: none;
+  -webkit-transform: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Image performance */
 img {
-  will-change: transform, opacity;
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
-  /* Smooth image rendering */
+  /* Image rendering */
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
   -webkit-backface-visibility: hidden;
@@ -451,12 +509,12 @@ textarea {
 
 /* Optimize animations during scroll */
 @media (prefers-reduced-motion: no-preference) {
-  /* Enable smooth scrolling animations */
+  /* Basic animations */
   .scroll-animate {
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* Smooth fade-in animations */
+  /* Fade-in animations */
   .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -469,91 +527,30 @@ textarea {
   }
 }
 
-/* ===== ULTRA-SMOOTH SCROLLING SYSTEM CLASSES ===== */
+/* ===== BASIC ANIMATIONS ===== */
 
-/* Ultra-smooth scrolling enabled state */
-.ultra-smooth-enabled {
-  scroll-behavior: smooth !important;
-  -webkit-scroll-behavior: smooth !important;
-}
-
-.ultra-smooth-scrolling {
-  /* Advanced momentum scrolling */
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-type: y proximity;
-  overscroll-behavior: contain;
-  /* Performance optimizations */
-  will-change: scroll-position;
-  contain: layout style paint;
-}
-
-/* Smooth scroll sections */
-.ultra-smooth-scrolling section {
-  scroll-snap-align: start;
-  scroll-margin-top: 80px;
-  will-change: transform;
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-}
-
-/* Ultra-smooth anchor links */
-.ultra-smooth-scrolling a[href^="#"] {
-  scroll-behavior: smooth;
-  scroll-margin-top: 80px;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* Smooth scrolling during navigation */
-.ultra-smooth-scrolling.scrolling {
-  pointer-events: none;
-}
-
-.ultra-smooth-scrolling.scrolling * {
-  pointer-events: none;
-}
-
-/* Enhanced mobile ultra-smooth scrolling */
-@media (max-width: 768px) {
-  .ultra-smooth-scrolling {
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-y: contain;
-    overscroll-behavior-x: none;
-    scroll-padding-top: 70px;
-  }
-
-  .ultra-smooth-scrolling section {
-    scroll-margin-top: 70px;
-  }
-
-  .ultra-smooth-scrolling a[href^="#"] {
-    scroll-margin-top: 70px;
-  }
-}
-
-/* Buttery smooth animations */
-@keyframes ultraSmoothFadeIn {
+@keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translate3d(0, 30px, 0);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
-    transform: translate3d(0, 0, 0);
+    transform: translateY(0);
   }
 }
 
-.ultra-smooth-fade-in {
-  animation: ultraSmoothFadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
 }
 
-/* Ultra-smooth hover effects */
-.ultra-smooth-hover {
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  will-change: transform;
+/* Basic hover effects */
+.hover-lift {
+  transition: transform 0.3s ease;
 }
 
-.ultra-smooth-hover:hover {
-  transform: translate3d(0, -2px, 0);
+.hover-lift:hover {
+  transform: translateY(-2px);
 }
 
 /* ===== RESPONSIVE TYPOGRAPHY SYSTEM ===== */
@@ -860,10 +857,9 @@ textarea {
   border-radius: 4px;
 }
 
-/* Smooth touch scrolling */
+/* Touch scrolling */
 .touch-scroll {
   -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
 }
 
 /* Global utility classes - keep only truly global styles */

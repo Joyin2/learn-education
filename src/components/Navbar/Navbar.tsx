@@ -113,8 +113,7 @@ export default function Navbar() {
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
-    { name: 'FAQ', href: '/faq' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'Blog', href: '/blog' },
   ];
 
   return (
@@ -143,8 +142,8 @@ export default function Navbar() {
           <div className={styles.desktopNav}>
             {/* Left side - Navigation Items */}
             <div className={styles.navLinksContainer}>
-              {/* Navigation Items */}
-              {navigationItems.map((item) => (
+              {/* Navigation Items - Home and About */}
+              {navigationItems.slice(0, 2).map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
@@ -185,6 +184,17 @@ export default function Navbar() {
                   </div>
                 )}
               </div>
+
+              {/* Navigation Items - Services and Blog */}
+              {navigationItems.slice(2).map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={styles.navLink}
+                >
+                  {item.name}
+                </Link>
+              ))}
             </div>
 
             {/* Right side - Phone and CTA */}
@@ -232,8 +242,8 @@ export default function Navbar() {
             aria-label="Mobile navigation menu"
           >
             <div className={styles.mobileMenuContent}>
-              {/* Navigation Items */}
-              {navigationItems.map((item) => (
+              {/* Navigation Items - Home and About */}
+              {navigationItems.slice(0, 2).map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
@@ -282,6 +292,18 @@ export default function Navbar() {
                   </div>
                 )}
               </div>
+
+              {/* Navigation Items - Services and Blog */}
+              {navigationItems.slice(2).map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={styles.mobileNavLink}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))}
 
               {/* Phone Number Mobile */}
               <div className={styles.mobilePhoneContainer}>

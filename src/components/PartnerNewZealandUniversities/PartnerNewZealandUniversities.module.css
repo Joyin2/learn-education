@@ -407,8 +407,24 @@
   }
 }
 
+/* Animations */
+.fadeInUp {
+  animation: fadeInUp 0.45s ease-out both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Mobile Responsive */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .mainContent {
     grid-template-columns: 1fr;
     gap: 2rem;

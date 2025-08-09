@@ -168,33 +168,6 @@ export default function GlobalEducationSection() {
             <a href="/universities/canada" className={styles.learnMoreBtn}>Learn More</a>
           </div>
 
-          {/* Europe Card */}
-          <div className={`${styles.countryCard} ${styles.europeCard}`}>
-            <h3 className={styles.countryName}>Europe</h3>
-            <p className={styles.universityCount}>50+ Countries Available</p>
-            <div className={styles.europeanFlags}>
-              <img src={flagPaths.GER} alt="Germany" className={styles.smallFlag} />
-              <img src={flagPaths.HUN} alt="Hungary" className={styles.smallFlag} />
-              <img src={flagPaths.DEN} alt="Denmark" className={styles.smallFlag} />
-              <img src={flagPaths.FIN} alt="Finland" className={styles.smallFlag} />
-              <img src={flagPaths.SWE} alt="Sweden" className={styles.smallFlag} />
-              <img src={flagPaths.NET} alt="Netherlands" className={styles.smallFlag} />
-            </div>
-            <div className={styles.featuredCountries}>
-              <h4>Featured Countries:</h4>
-              <ul>
-                <li>Germany</li>
-                <li>Hungary</li>
-                <li>Denmark</li>
-                <li>Finland</li>
-                <li>Sweden</li>
-                <li>Netherlands</li>
-              </ul>
-            </div>
-            <p className={styles.europeDetails}>Minimum IELTS: 4.5 • Quality education systems</p>
-            <a href="/european-universities" className={styles.learnMoreBtn}>Explore European Universities</a>
-          </div>
-
           {/* Australia Card */}
           <div className={styles.countryCard}>
             <div className={styles.flagWrapper}>
@@ -223,6 +196,33 @@ export default function GlobalEducationSection() {
               <li>Minimum IELTS: 5.5</li>
             </ul>
             <a href="/new-zealand-universities" className={styles.learnMoreBtn}>Explore New Zealand Universities</a>
+          </div>
+
+          {/* Europe Card */}
+          <div className={`${styles.countryCard} ${styles.europeCard}`}>
+            <h3 className={styles.countryName}>Europe</h3>
+            <p className={styles.universityCount}>50+ Countries Available</p>
+            <div className={styles.europeanFlags}>
+              <img src={flagPaths.GER} alt="Germany" className={styles.smallFlag} />
+              <img src={flagPaths.HUN} alt="Hungary" className={styles.smallFlag} />
+              <img src={flagPaths.DEN} alt="Denmark" className={styles.smallFlag} />
+              <img src={flagPaths.FIN} alt="Finland" className={styles.smallFlag} />
+              <img src={flagPaths.SWE} alt="Sweden" className={styles.smallFlag} />
+              <img src={flagPaths.NET} alt="Netherlands" className={styles.smallFlag} />
+            </div>
+            <div className={styles.featuredCountries}>
+              <h4>Featured Countries:</h4>
+              <ul>
+                <li>Germany</li>
+                <li>Hungary</li>
+                <li>Denmark</li>
+                <li>Finland</li>
+                <li>Sweden</li>
+                <li>Netherlands</li>
+              </ul>
+            </div>
+            <p className={styles.europeDetails}>Minimum IELTS: 4.5 • Quality education systems</p>
+            <a href="/european-universities" className={styles.learnMoreBtn}>Explore European Universities</a>
           </div>
         </div>
 

@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
+import { initializeApp, getApps, getApp } from "firebase/app";
+import { getFirestore, connectFirestoreEmulator } from "firebase/firestore";
+import { getAuth, connectAuthEmulator } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -13,11 +13,37 @@ const firebaseConfig = {
   appId: "1:963412813766:web:7d45f8dc8177824735f4c7"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+// Initialize Firebase only if it hasn't been initialized already
+// This prevents multiple initialization errors in SSR
+let app;
+try {
+  app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
+} catch (error) {
+  console.error('Error initializing Firebase app:', error);
+  // Fallback initialization
+  app = initializeApp(firebaseConfig);
+}
 
-// Initialize Firebase services
-export const db = getFirestore(app);
-export const auth = getAuth(app);
+// Initialize Firebase services with error handling
+let db;
+let auth;
 
+try {
+  db = getFirestore(app);
+  auth = getAuth(app);
+
+  // Log successful initialization
+  if (typeof window !== 'undefined') {
+    console.log('Firebase initialized successfully on client');
+  } else {
+    console.log('Firebase initialized successfully on server');
+  }
+} catch (error) {
+  console.error('Error initializing Firebase services:', error);
+  // Set to null if initialization fails
+  db = null;
+  auth = null;
+}
+
+export { db, auth };
 export default app;

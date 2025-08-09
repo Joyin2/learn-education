@@ -1,8 +1,34 @@
 'use client';
 
+import React from 'react';
+import { useEffect, useState } from 'react';
+
 import styles from './PartnerNewZealandUniversities.module.css';
 
 export default function PartnerNewZealandUniversities() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const element = document.getElementById('partner-newzealand-universities');
+    if (element) {
+      observer.observe(element);
+    }
+
+    return () => {
+      if (element) {
+        observer.unobserve(element);
+      }
+    };
+  }, []);
   const universities = [
     'University of Auckland',
     'University of Otago',
@@ -39,7 +65,7 @@ export default function PartnerNewZealandUniversities() {
   ];
 
   return (
-    <section className={styles.partnerUniversities}>
+    <section id="partner-newzealand-universities" className={styles.partnerUniversities}>
       {/* Background Effects */}
       <div className={styles.backgroundEffects}>
         <div className={styles.floatingElement1}></div>
@@ -48,14 +74,14 @@ export default function PartnerNewZealandUniversities() {
 
       <div className={styles.container}>
         {/* Section Header */}
-        <div className={styles.sectionHeader}>
-          <h2 className={styles.sectionTitle}>Our Partner Universities</h2>
+        <div className={`${styles.sectionHeader} ${isVisible ? styles.fadeInUp : ''}`}>
+          <h2 className={`${styles.sectionTitle} ${isVisible ? styles.fadeInUp : ''}`}>Our Partner Universities</h2>
           <p className={styles.sectionSubtitle}>
             Learn Education has partnered with 8+ prestigious New Zealand universities
           </p>
         </div>
 
-        <div className={styles.mainContent}>
+        <div className={`${styles.mainContent} ${isVisible ? styles.fadeInUp : ''}`}>
           <div className={styles.contentLeft}>
             <div className={styles.headerSection}>
               <p className={styles.missionText}>

@@ -159,14 +159,15 @@
 
 /* Countries Grid */
 .countriesGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 120px;
+  row-gap: 40px;
   margin-bottom: 80px;
   width: 100%;
   box-sizing: border-box;
   padding: 0 20px;
-  justify-items: center;
 }
 
 /* Ensure grid items don't overflow */
@@ -176,10 +177,12 @@
   width: 100%;
 }
 
-/* Desktop only: limit card width */
+/* Tablet and Desktop: consistent card widths */
 @media (min-width: 768px) {
-  .countriesGrid > * {
-    max-width: 450px;
+  .countryCard {
+    width: 100%;
+    max-width: 420px;
+    min-width: 350px;
   }
 }
 
@@ -191,6 +194,9 @@
   position: relative;
   overflow: hidden;
   border: 2px solid;
+  width: 100%;
+  max-width: 400px;
+  min-width: 350px;
 }
 
 .countryCard:hover {
@@ -526,6 +532,9 @@
 /* Europe Card Special Styling */
 .europeCard {
   grid-column: span 2;
+  width: 800px;
+  max-width: 800px;
+  min-width: 700px;
 }
 
 .europeanFlags {
@@ -732,7 +741,8 @@
   }
 
   .countriesGrid {
-    gap: 40px;
+    column-gap: 60px;
+    row-gap: 25px;
   }
 }
 
@@ -763,13 +773,24 @@
   }
 
   .countriesGrid {
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     padding: 0 30px;
-    gap: 25px;
+    column-gap: 90px;
+    row-gap: 30px;
+  }
+  
+  .countryCard {
+    flex: 0 0 auto;
+    width: 400px;
+    max-width: 400px;
+    min-height: 400px;
   }
 
   .europeCard {
-    grid-column: span 1;
+    width: 800px;
+    max-width: 800px;
   }
 
   .statsSection {
@@ -782,35 +803,97 @@
   }
 }
 
-/* Large Desktop (1200px and above) */
-@media (min-width: 1200px) {
+/* Large Desktop (1200px - 1599px) */
+@media (min-width: 1200px) and (max-width: 1599px) {
   .countriesGrid {
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    max-width: 1400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1500px;
     margin: 0 auto 80px auto;
-    gap: 30px;
+    column-gap: 90px;
+    row-gap: 30px;
     padding: 0 40px;
+  }
+  
+  .countryCard {
+    flex: 0 0 auto;
+    width: 400px;
+    max-width: 400px;
+    min-height: 420px;
+  }
+  
+  /* Europe card is wider to accommodate more content */
+  .europeCard {
+    width: 800px;
+    max-width: 800px;
+  }
+}
+
+/* Extra Large Desktop (1600px and above) */
+@media (min-width: 1600px) {
+  .countriesGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1800px;
+    margin: 0 auto 80px auto;
+    column-gap: 120px;
+    row-gap: 40px;
+    padding: 0 60px;
+  }
+  
+  .countryCard {
+    flex: 0 0 auto;
+    width: 400px;
+    max-width: 400px;
+    min-height: 440px;
+  }
+  
+  /* Europe card is wider to accommodate more content */
+  .europeCard {
+    width: 800px;
+    max-width: 800px;
   }
 }
 
 /* Large Tablets and Small Desktops (900px - 1023px) */
 @media (min-width: 900px) and (max-width: 1023px) {
   .countriesGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 90px;
+    row-gap: 30px;
     padding: 0 30px;
+  }
+  
+  .countryCard {
+    flex: 0 0 auto;
+    width: 470px;
+    max-width: 470px;
+    min-width: 400px;
+  }
+  
+  .europeCard {
+    width: 470px;
+    max-width: 470px;
   }
 }
 
 /* Medium Tablets (768px - 899px) */
 @media (min-width: 768px) and (max-width: 899px) {
   .countriesGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 75px;
+    row-gap: 25px;
     padding: 0 25px;
   }
 
   .countryCard {
+    flex: 0 0 auto;
     padding: 25px;
   }
 }

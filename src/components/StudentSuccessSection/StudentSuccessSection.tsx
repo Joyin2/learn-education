@@ -1,11 +1,16 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
 import styles from './StudentSuccessSection.module.css';
 
 export default function StudentSuccessSection() {
   const [isVisible, setIsVisible] = useState(false);
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
 
   const testimonials = [
     {
@@ -47,16 +52,12 @@ export default function StudentSuccessSection() {
       setIsVisible(true);
     }, 300);
 
-    // Auto-cycle through testimonials
-    const testimonialTimer = setInterval(() => {
-      setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-
     return () => {
       clearTimeout(timer);
-      clearInterval(testimonialTimer);
     };
-  }, [testimonials.length]);
+  }, []);
+
+  // Removed manual navigation to ensure smooth automatic transitions
 
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, index) => (
@@ -87,61 +88,83 @@ export default function StudentSuccessSection() {
           </p>
         </div>
 
-        {/* Testimonials Grid */}
+        {/* Testimonials Carousel */}
         <div className={styles.testimonialsContainer}>
-          <div className={styles.testimonialsGrid}>
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay, EffectFade]}
+            spaceBetween={30}
+            slidesPerView={1}
+            navigation={{
+              nextEl: `.${styles.swiperButtonNext}`,
+              prevEl: `.${styles.swiperButtonPrev}`,
+            }}
+            pagination={{
+              el: `.${styles.swiperPagination}`,
+              clickable: true,
+              dynamicBullets: true,
+            }}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: false,
+            }}
+            effect="fade"
+            fadeEffect={{
+              crossFade: true
+            }}
+            speed={800}
+            loop={true}
+            className={styles.testimonialSwiper}
+          >
             {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className={`${styles.testimonialCard} ${
-                  index === activeTestimonial ? styles.active : ''
-                } ${isVisible ? styles.slideInUp : ''}`}
-                style={{ animationDelay: `${index * 0.2}s` }}
-                onMouseEnter={() => setActiveTestimonial(index)}
-              >
-                <div className={styles.cardHeader}>
-                  <div className={styles.studentImage}>
-                    <img src={testimonial.image} alt={testimonial.name} />
-                    <div className={styles.imageOverlay}></div>
+              <SwiperSlide key={index} className={styles.testimonialSlide}>
+                <div className={styles.testimonialCard}>
+                  <div className={styles.cardHeader}>
+                    <div className={styles.studentImage}>
+                      <img src={testimonial.image} alt={testimonial.name} />
+                      <div className={styles.imageOverlay}></div>
+                    </div>
+                    <div className={styles.studentInfo}>
+                      <h4 className={styles.studentName}>{testimonial.name}</h4>
+                      <p className={styles.studentRole}>{testimonial.role}</p>
+                      <p className={styles.university}>{testimonial.university}</p>
+                    </div>
+
                   </div>
-                  <div className={styles.studentInfo}>
-                    <h4 className={styles.studentName}>{testimonial.name}</h4>
-                    <p className={styles.studentRole}>{testimonial.role}</p>
-                    <p className={styles.university}>{testimonial.university}</p>
+
+                  <div className={styles.rating}>
+                    {renderStars(testimonial.rating)}
                   </div>
-                </div>
 
-                <div className={styles.rating}>
-                  {renderStars(testimonial.rating)}
-                </div>
+                  <blockquote className={styles.quote}>
+                    <i className="fa-solid fa-quote-left"></i>
+                    <p>{testimonial.quote}</p>
+                    <i className="fa-solid fa-quote-right"></i>
+                  </blockquote>
 
-                <blockquote className={styles.quote}>
-                  <i className="fa-solid fa-quote-left"></i>
-                  <p>{testimonial.quote}</p>
-                  <i className="fa-solid fa-quote-right"></i>
-                </blockquote>
-
-                <div className={styles.cardFooter}>
-                  <div className={styles.verifiedBadge}>
-                    <i className="fa-solid fa-check-circle"></i>
-                    <span>Verified Student</span>
+                  <div className={styles.cardFooter}>
+                    <div className={styles.verifiedBadge}>
+                      <i className="fa-solid fa-check-circle"></i>
+                      <span>Verified Student</span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </SwiperSlide>
             ))}
+          </Swiper>
+
+          {/* Custom Navigation */}
+          <div className={styles.swiperNavigation}>
+            <button className={styles.swiperButtonPrev}>
+              <i className="fa-solid fa-chevron-left"></i>
+            </button>
+            <button className={styles.swiperButtonNext}>
+              <i className="fa-solid fa-chevron-right"></i>
+            </button>
           </div>
 
-          {/* Navigation Dots */}
-          <div className={styles.navigationDots}>
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                className={`${styles.dot} ${index === activeTestimonial ? styles.activeDot : ''}`}
-                onClick={() => setActiveTestimonial(index)}
-                aria-label={`View testimonial ${index + 1}`}
-              />
-            ))}
-          </div>
+          {/* Custom Pagination */}
+          <div className={styles.swiperPagination}></div>
         </div>
 
         {/* CTA Section */}

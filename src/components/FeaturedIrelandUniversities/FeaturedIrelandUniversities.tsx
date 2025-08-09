@@ -7,8 +7,25 @@ export default function FeaturedIrelandUniversities() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 100);
-    return () => clearTimeout(timer);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const section = document.getElementById('featured-ireland-universities');
+    if (section) {
+      observer.observe(section);
+    }
+
+    return () => {
+      if (section) {
+        observer.unobserve(section);
+      }
+    };
   }, []);
 
   const universities = [
@@ -87,7 +104,7 @@ export default function FeaturedIrelandUniversities() {
   ];
 
   return (
-    <section className={styles.featuredSection}>
+    <section id="featured-ireland-universities" className={styles.featuredSection}>
       <div className={styles.container}>
         {/* Section Header */}
         <div className={`${styles.sectionHeader} ${isVisible ? styles.fadeInUp : ''}`}>

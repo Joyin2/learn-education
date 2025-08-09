@@ -58,7 +58,7 @@ export default function PrivacyPolicySection() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      element.scrollIntoView({ behavior: 'auto', block: 'start' });
     }
   };
 
@@ -81,6 +81,70 @@ export default function PrivacyPolicySection() {
             Learn how we collect, use, and protect your personal information. 
             Last updated: April 15, 2025
           </p>
+        </div>
+
+        {/* Statistics Background Section */}
+        <div className={`${styles.statsBackground} ${isVisible ? styles.fadeInUp : ''}`}>
+          <div className={styles.statsHeader}>
+            <h2 className={styles.statsTitle}>Trusted by 1000+ Students</h2>
+            <p className={styles.statsSubtitle}>Your Education Journey Begins Here</p>
+            <p className={styles.statsDescription}>
+              Explore top universities worldwide and get comprehensive support throughout your academic journey
+            </p>
+          </div>
+          
+          <div className={styles.statsContainer}>
+            <div className={`${styles.statItem} ${styles.statItem1}`}>
+              <div className={styles.statIcon}>
+                <i className="fa-solid fa-university"></i>
+              </div>
+              <div className={styles.statNumber}>130+</div>
+              <div className={styles.statLabel}>Universities</div>
+              <div className={styles.statGlow}></div>
+            </div>
+            <div className={`${styles.statItem} ${styles.statItem2}`}>
+              <div className={styles.statIcon}>
+                <i className="fa-solid fa-globe"></i>
+              </div>
+              <div className={styles.statNumber}>5</div>
+              <div className={styles.statLabel}>Countries</div>
+              <div className={styles.statGlow}></div>
+            </div>
+            <div className={`${styles.statItem} ${styles.statItem3}`}>
+              <div className={styles.statIcon}>
+                <i className="fa-solid fa-star"></i>
+              </div>
+              <div className={styles.statNumber}>4.5</div>
+              <div className={styles.statLabel}>Star Rating</div>
+              <div className={styles.statGlow}></div>
+            </div>
+          </div>
+
+          <div className={styles.studyDestinations}>
+            <h3 className={styles.destinationsTitle}>Study Destinations</h3>
+            <div className={styles.destinationsList}>
+              <div className={styles.destinationItem}>
+                <img src="https://asvbqmdvplqupbqpigoa.supabase.co/storage/v1/object/public/learneducation/united-kingdom.png" alt="UK Flag" className={styles.flagIcon} />
+                <span>United Kingdom</span>
+              </div>
+              <div className={styles.destinationItem}>
+                <img src="https://asvbqmdvplqupbqpigoa.supabase.co/storage/v1/object/public/learneducation/united-states.png" alt="USA Flag" className={styles.flagIcon} />
+                <span>United States</span>
+              </div>
+              <div className={styles.destinationItem}>
+                <img src="https://asvbqmdvplqupbqpigoa.supabase.co/storage/v1/object/public/learneducation/canada.png" alt="Canada Flag" className={styles.flagIcon} />
+                <span>Canada</span>
+              </div>
+              <div className={styles.destinationItem}>
+                <img src="https://asvbqmdvplqupbqpigoa.supabase.co/storage/v1/object/public/learneducation/ireland.png" alt="Ireland Flag" className={styles.flagIcon} />
+                <span>Ireland</span>
+              </div>
+              <div className={styles.destinationItem}>
+                <img src="https://asvbqmdvplqupbqpigoa.supabase.co/storage/v1/object/public/learneducation/germany.png" alt="Germany Flag" className={styles.flagIcon} />
+                <span>Germany</span>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className={styles.contentWrapper}>

@@ -125,13 +125,25 @@
 /* Testimonials Container */
 .testimonialsContainer {
   margin-bottom: 80px;
+  width: 100%;
+  position: relative;
+  overflow: visible;
 }
 
-.testimonialsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
-  margin-bottom: 50px;
+/* Swiper Container */
+.testimonialSwiper {
+  width: 100%;
+  padding: 20px 0 60px 0;
+  overflow: visible;
+}
+
+/* Testimonial Slide */
+.testimonialSlide {
+  padding: 0 20px;
+  box-sizing: border-box;
+  height: auto;
+  display: flex;
+  align-items: stretch;
 }
 
 /* Testimonial Card */
@@ -139,13 +151,19 @@
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;
-  padding: 32px;
+  padding: 40px;
   backdrop-filter: blur(20px);
   transition: all 0.4s ease;
-  opacity: 0;
-  transform: translateY(30px);
   position: relative;
   overflow: hidden;
+  height: 100%;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .testimonialCard::before {
@@ -156,26 +174,21 @@
   right: 0;
   height: 3px;
   background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.testimonialCard.active::before,
-.testimonialCard:hover::before {
   opacity: 1;
 }
 
-.testimonialCard.slideInUp {
+.testimonialSlide.slideInUp {
   opacity: 1;
   transform: translateY(0);
 }
 
-.testimonialCard.active,
-.testimonialCard:hover {
-  transform: translateY(-8px);
-  border-color: rgba(59, 130, 246, 0.3);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+.testimonialSlide {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
 }
+
+/* Removed hover effects to prevent interference with carousel transitions */
 
 /* Card Header */
 .cardHeader {
@@ -195,10 +208,7 @@
   transition: all 0.3s ease;
 }
 
-.testimonialCard:hover .studentImage {
-  border-color: #3b82f6;
-  transform: scale(1.05);
-}
+/* Removed hover effects to prevent interference with carousel transitions */
 
 .studentImage img {
   width: 100%;
@@ -217,9 +227,7 @@
   transition: opacity 0.3s ease;
 }
 
-.testimonialCard:hover .imageOverlay {
-  opacity: 1;
-}
+/* Removed hover effects to prevent interference with carousel transitions */
 
 .studentInfo {
   flex: 1;
@@ -291,6 +299,14 @@
   font-style: italic;
   padding: 0 20px;
   margin: 0;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  white-space: normal;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Card Footer */
@@ -316,27 +332,89 @@
   font-size: 0.9rem;
 }
 
-/* Navigation Dots */
-.navigationDots {
+/* Swiper Navigation */
+.swiperNavigation {
+  position: absolute;
+  top: 20px;
+  right: 20px;
   display: flex;
-  justify-content: center;
-  gap: 12px;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 10;
+  pointer-events: none;
 }
 
-.dot {
+.swiperButtonPrev,
+.swiperButtonNext {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid rgba(0, 123, 255, 0.3);
+  color: #007bff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  pointer-events: auto;
+  font-size: 16px;
+  opacity: 1;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+}
+
+.swiperButtonPrev:hover,
+.swiperButtonNext:hover {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+}
+
+.swiperButtonPrev {
+  transform: translateX(0);
+}
+
+.swiperButtonNext {
+  transform: translateX(0);
+}
+
+.swiperButtonPrev:hover {
+  transform: scale(1.1);
+}
+
+.swiperButtonNext:hover {
+  transform: scale(1.1);
+}
+
+/* Swiper Pagination */
+.swiperPagination {
+  position: relative;
+  margin-top: 30px;
+  text-align: center;
+}
+
+/* Custom Swiper Pagination Bullets */
+.swiperPagination :global(.swiper-pagination-bullet) {
   width: 12px;
   height: 12px;
-  border-radius: 50%;
-  border: none;
   background: rgba(255, 255, 255, 0.3);
-  cursor: pointer;
+  opacity: 1;
+  margin: 0 6px;
   transition: all 0.3s ease;
 }
 
-.dot:hover,
-.dot.activeDot {
-  background: #3b82f6;
+.swiperPagination :global(.swiper-pagination-bullet-active) {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
   transform: scale(1.2);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+.swiperPagination :global(.swiper-pagination-bullet:hover) {
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(1.1);
 }
 
 /* CTA Section */
@@ -439,17 +517,21 @@
     font-size: 3rem;
   }
 
-  .testimonialsGrid {
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 24px;
+  .testimonialSlide {
+    padding: 0 15px;
   }
 
   .testimonialCard {
-    padding: 24px;
+    padding: 30px;
+    min-height: 450px;
   }
 
   .ctaTitle {
     font-size: 2rem;
+  }
+
+  .progressBar {
+    width: 150px;
   }
 }
 
@@ -474,13 +556,13 @@
     font-size: 1.1rem;
   }
 
-  .testimonialsGrid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .testimonialSlide {
+    padding: 0 10px;
   }
 
   .testimonialCard {
-    padding: 20px;
+    padding: 24px;
+    min-height: 400px;
   }
 
   .cardHeader {
@@ -511,6 +593,19 @@
     padding: 16px 28px;
     font-size: 1rem;
   }
+
+  .progressBar {
+    width: 120px;
+  }
+
+  .navigationDots {
+    gap: 12px;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -527,8 +622,13 @@
     font-size: 0.8rem;
   }
 
+  .testimonialSlide {
+    padding: 0 5px;
+  }
+
   .testimonialCard {
-    padding: 16px;
+    padding: 20px;
+    min-height: 350px;
   }
 
   .studentImage {
@@ -552,6 +652,25 @@
   .ctaButton {
     padding: 14px 24px;
     font-size: 0.95rem;
+  }
+
+  .progressBar {
+    width: 100px;
+    height: 3px;
+  }
+
+  .navigationDots {
+    gap: 10px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .carouselControls {
+    margin-top: 30px;
+    gap: 15px;
   }
 
   .floatingShape1,

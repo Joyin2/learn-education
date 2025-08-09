@@ -1,8 +1,34 @@
 'use client';
 
+import React from 'react';
+import { useEffect, useState } from 'react';
+
 import styles from './PartnerEuropeanUniversities.module.css';
 
 export default function PartnerEuropeanUniversities() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const element = document.getElementById('partner-european-universities');
+    if (element) {
+      observer.observe(element);
+    }
+
+    return () => {
+      if (element) {
+        observer.unobserve(element);
+      }
+    };
+  }, []);
   const universities = [
     'Sorbonne University (France)',
     'Technical University of Munich (Germany)',
@@ -51,12 +77,12 @@ export default function PartnerEuropeanUniversities() {
   ];
 
   return (
-    <section className={styles.partnerUniversities}>
+    <section id="partner-european-universities" className={styles.partnerUniversities}>
       <div className={styles.container}>
         {/* Main Content Section */}
-        <div className={styles.mainContent}>
+        <div className={`${styles.mainContent} ${isVisible ? styles.fadeInUp : ''}`}>
           <div className={styles.contentLeft}>
-            <h2 className={styles.sectionTitle}>Our Partner Universities</h2>
+            <h2 className={`${styles.sectionTitle} ${isVisible ? styles.fadeInUp : ''}`}>Our Partner Universities</h2>
             <p className={styles.subtitle}>
               Learn Education has partnered with 25+ prestigious European universities
             </p>
@@ -76,11 +102,11 @@ export default function PartnerEuropeanUniversities() {
           </div>
 
           <div className={styles.contentRight}>
-            <div className={styles.universitiesList}>
+            <div className={`${styles.universitiesList} ${isVisible ? styles.fadeInUp : ''}`}>
               <h3 className={styles.listTitle}>
                 List of Universities in Europe that Learn Education London has partnered with:
               </h3>
-              <div className={styles.universitiesGrid}>
+              <div className={`${styles.universitiesGrid} ${isVisible ? styles.fadeInUp : ''}`}>
                 {universities.map((university, index) => (
                   <div key={index} className={styles.universityItem}>
                     <i className="fa-solid fa-check"></i>
