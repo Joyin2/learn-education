@@ -8,7 +8,7 @@ interface ParallaxSectionProps {
   speed?: number;
   direction?: 'up' | 'down';
   className?: string;
-  offset?: [string, string];
+  offset?: any;
 }
 
 export default function ParallaxSection({
@@ -21,7 +21,7 @@ export default function ParallaxSection({
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: offset as [string, string]
+    offset: offset
   });
 
   const y = useTransform(

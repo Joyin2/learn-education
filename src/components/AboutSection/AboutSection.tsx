@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import styles from './AboutSection.module.css';
 import ScrollAnimationWrapper from '../ScrollAnimationWrapper';
 
@@ -21,13 +21,32 @@ export default function AboutSection() {
     reviews: 0
   });
   const [hasAnimated, setHasAnimated] = useState(false);
+  const statsRef = useRef<HTMLDivElement>(null);
 
-  const handleInView = () => {
-    if (!hasAnimated) {
-      setHasAnimated(true);
-      startCounterAnimation();
+  // Set up intersection observer for counter animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true);
+            startCounterAnimation();
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
     }
-  };
+
+    return () => {
+      if (statsRef.current) {
+        observer.unobserve(statsRef.current);
+      }
+    };
+  }, [hasAnimated]);
 
   const startCounterAnimation = () => {
     // Prevent multiple animations
@@ -76,7 +95,7 @@ export default function AboutSection() {
       <div className={styles.container}>
         <div className={styles.aboutContent}>
           {/* Main heading with enhanced animations */}
-          <ScrollAnimationWrapper animation="fadeIn" onInView={handleInView}>
+          <ScrollAnimationWrapper animation="fadeIn">
             <div className={styles.aboutHeader}>
               <ScrollAnimationWrapper animation="slideUp" delay={0.2}>
                 <div className={styles.titleWrapper}>
@@ -99,7 +118,7 @@ export default function AboutSection() {
 
           {/* Enhanced Stats section with animations */}
           <ScrollAnimationWrapper animation="slideUp" delay={0.6}>
-            <div className={styles.statsContainer}>
+            <div ref={statsRef} className={styles.statsContainer}>
               <ScrollAnimationWrapper animation="scale" delay={0.8}>
                 <div className={`${styles.statItem} ${styles.statItem1}`}>
                   <div className={styles.statIcon}>

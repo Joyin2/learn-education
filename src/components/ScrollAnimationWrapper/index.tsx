@@ -50,8 +50,8 @@ export default function ScrollAnimationWrapper({
   once = true
 }: ScrollAnimationWrapperProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { 
-    threshold,
+  const isInView = useInView(ref, {
+    amount: threshold,
     once
   });
 
@@ -66,7 +66,7 @@ export default function ScrollAnimationWrapper({
       transition={{
         duration,
         delay,
-        ease: [0.25, 0.46, 0.45, 0.94]
+        ease: "easeOut"
       }}
       className={className}
     >
@@ -90,7 +90,7 @@ export function StaggerContainer({
   once?: boolean;
 }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { threshold, once });
+  const isInView = useInView(ref, { amount: threshold, once });
 
   const containerVariants = {
     hidden: {},
@@ -103,14 +103,7 @@ export function StaggerContainer({
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
+    visible: { opacity: 1, y: 0 }
   };
 
   return (
@@ -123,12 +116,19 @@ export function StaggerContainer({
     >
       {Array.isArray(children) ? (
         children.map((child, index) => (
-          <motion.div key={index} variants={itemVariants}>
+          <motion.div
+            key={index}
+            variants={itemVariants}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             {child}
           </motion.div>
         ))
       ) : (
-        <motion.div variants={itemVariants}>
+        <motion.div
+          variants={itemVariants}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           {children}
         </motion.div>
       )}

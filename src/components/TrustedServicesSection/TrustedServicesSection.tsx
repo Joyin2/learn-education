@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import styles from './TrustedServicesSection.module.css';
 import ScrollAnimationWrapper from '../ScrollAnimationWrapper';
 
@@ -12,13 +12,32 @@ export default function TrustedServicesSection() {
     successRate: 0
   });
   const [hasAnimated, setHasAnimated] = useState(false);
+  const trustRef = useRef<HTMLDivElement>(null);
 
-  const handleInView = () => {
-    if (!hasAnimated) {
-      setHasAnimated(true);
-      startCounterAnimation();
+  // Set up intersection observer for counter animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true);
+            startCounterAnimation();
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (trustRef.current) {
+      observer.observe(trustRef.current);
     }
-  };
+
+    return () => {
+      if (trustRef.current) {
+        observer.unobserve(trustRef.current);
+      }
+    };
+  }, [hasAnimated]);
 
   const startCounterAnimation = () => {
     // Prevent multiple animations
@@ -66,8 +85,8 @@ export default function TrustedServicesSection() {
       <div className={styles.container}>
         <div className={styles.trustedContent}>
           {/* Enhanced Trust Section */}
-          <ScrollAnimationWrapper animation="fadeIn" onInView={handleInView}>
-            <div className={styles.trustSection}>
+          <ScrollAnimationWrapper animation="fadeIn">
+            <div ref={trustRef} className={styles.trustSection}>
               {/* Main Trust Badge */}
               <ScrollAnimationWrapper animation="scale" delay={0.1}>
                 <div className={styles.trustBadge}>
