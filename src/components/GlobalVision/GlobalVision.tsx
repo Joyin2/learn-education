@@ -85,13 +85,11 @@ export default function GlobalVision() {
                   <h4 className={styles.countryName}>{country.name}</h4>
                   <div className={styles.countryStatus}>
                     <div className={styles.statusDot}></div>
-                    <span>Coming Soon</span>
                   </div>
                 </div>
                 <div className={styles.countryOverlay}>
                   <div className={styles.overlayContent}>
                     <i className="fa-solid fa-map-marker-alt" style={{fontStyle: 'normal'}}></i>
-                    <span>Future Hub</span>
                   </div>
                 </div>
               </div>

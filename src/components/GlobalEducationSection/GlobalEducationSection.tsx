@@ -34,7 +34,7 @@ export default function GlobalEducationSection() {
     const timer = setTimeout(() => {
       setIsVisible(true);
       startCounterAnimation();
-    }, 500);
+    }, 150);
 
     return () => clearTimeout(timer);
   }, []);

@@ -19,20 +19,20 @@ export default function EnhancedHeroSection() {
               <div className={styles.heroTextWrapper}>
               </div>
 
-              <ScrollAnimationWrapper animation="fadeIn" delay={0.2}>
+              <ScrollAnimationWrapper animation="fadeIn" delay={0.1}>
                 <h1 className={`${styles.heroTitle} ${styles.mb25}`}>
                   Premier Education Consultancy for{' '}
                   <span className={styles.heroTitleHighlight}>UK & International Students</span>
                 </h1>
               </ScrollAnimationWrapper>
 
-              <ScrollAnimationWrapper animation="slideUp" delay={0.4}>
+              <ScrollAnimationWrapper animation="slideUp" delay={0.15}>
                 <p className={`${styles.heroDescription} ${styles.textWhite} ${styles.mb30}`}>
                   Get personalized guidance and secure your spot at top universities in the UK, USA, Canada, Ireland, and Germany. FREE 1-on-1 consultation available now!
                 </p>
               </ScrollAnimationWrapper>
 
-              <StaggerContainer staggerDelay={0.2} className={styles.heroCtaButtons}>
+              <StaggerContainer staggerDelay={0.1} className={styles.heroCtaButtons}>
                 <a
                   href="/contact"
                   className={styles.btnPrimary}
@@ -54,7 +54,7 @@ export default function EnhancedHeroSection() {
           </div>
 
           <div className={styles.colLg5}>
-            <ScrollAnimationWrapper animation="slideRight" delay={0.6}>
+            <ScrollAnimationWrapper animation="slideRight" delay={0.18}>
               <div className={`${styles.heroImgWrapper} ${styles.pRelative}`}>
                 <div className={styles.heroImg}>
                   <ParallaxSection speed={0.2} direction="up">
@@ -68,7 +68,7 @@ export default function EnhancedHeroSection() {
                     </div>
                   </ParallaxSection>
                   
-                  <ScrollAnimationWrapper animation="scale" delay={1.0}>
+                  <ScrollAnimationWrapper animation="scale" delay={0.12}>
                     <div className={`${styles.heroSuccessRate} ${styles.dNone} ${styles.dLgBlock}`}>
                       <div className={styles.heroSuccessRateBadge}>
                         <span className={styles.successRateText}>95%</span>
@@ -76,8 +76,8 @@ export default function EnhancedHeroSection() {
                       </div>
                     </div>
                   </ScrollAnimationWrapper>
-                  
-                  <ScrollAnimationWrapper animation="scale" delay={1.2}>
+
+                  <ScrollAnimationWrapper animation="scale" delay={0.16}>
                     <div className={styles.heroStatsBadge}>
                       <span className={styles.statsText}>
                         1000+

@@ -104,7 +104,7 @@ export default function CompareChooseSection() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 500);
+    }, 120);
 
     return () => clearTimeout(timer);
   }, []);

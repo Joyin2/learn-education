@@ -50,7 +50,7 @@ export default function StudentSuccessSection() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 300);
+    }, 160);
 
     return () => {
       clearTimeout(timer);

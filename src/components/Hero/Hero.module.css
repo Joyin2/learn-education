@@ -3,30 +3,39 @@
 /* Main hero section - exactly 100vh minus navbar height */
 .enhancedHeroSection {
   position: relative;
-  height: calc(100vh - 3.5rem); /* 100vh minus navbar height (56px) */
-  min-height: calc(100vh - 3.5rem);
-  max-height: calc(100vh - 3.5rem);
+  height: calc(150vh - 3.5rem); /* Balanced height for mobile */
+  min-height: calc(150vh - 3.5rem);
+  max-height: calc(150vh - 3.5rem);
   background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #2b70fa 100%);
   overflow: hidden;
   display: flex;
-  align-items: center; /* Center content vertically */
+  align-items: center; /* Center content */
   padding: 0; /* Remove all padding for exact sizing */
 }
 
 /* Mobile-first responsive adjustments */
 @media (min-width: 480px) {
   .enhancedHeroSection {
-    height: calc(100vh - 4rem); /* 100vh minus navbar height (64px) */
-    min-height: calc(100vh - 4rem);
-    max-height: calc(100vh - 4rem);
+    height: calc(140vh - 4rem); /* Balanced for small tablets */
+    min-height: calc(140vh - 4rem);
+    max-height: calc(140vh - 4rem);
   }
 }
 
 @media (min-width: 768px) {
   .enhancedHeroSection {
-    height: calc(100vh - 4.5rem); /* 100vh minus navbar height (72px) */
+    height: calc(120vh - 4.5rem); /* Good balance for tablets */
+    min-height: calc(120vh - 4.5rem);
+    max-height: calc(120vh - 4.5rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .enhancedHeroSection {
+    height: calc(100vh - 4.5rem); /* Normal height for desktop */
     min-height: calc(100vh - 4.5rem);
     max-height: calc(100vh - 4.5rem);
+    align-items: center; /* Center content on desktop */
   }
 }
 
@@ -113,34 +122,40 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 12px;
+  padding: 0; /* Remove padding to eliminate gaps on mobile */
   position: relative;
   z-index: 3;
   width: 100%;
+  height: auto; /* Use content height instead of full height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
 }
 
 /* Mobile-first container padding */
 @media (min-width: 320px) {
   .container {
-    padding: 0 16px;
+    padding: 0; /* Keep no padding for mobile */
   }
 }
 
 @media (min-width: 480px) {
   .container {
-    padding: 0 20px;
+    padding: 0; /* Keep no padding for small tablets */
   }
 }
 
 @media (min-width: 768px) {
   .container {
-    padding: 0 24px;
+    padding: 0; /* Keep no padding for tablets */
   }
 }
 
 @media (min-width: 1024px) {
   .container {
-    padding: 0 30px;
+    padding: 0 30px; /* Add padding only for desktop */
+    display: block; /* Reset display for desktop */
+    height: auto; /* Reset height for desktop */
   }
 }
 
@@ -153,60 +168,73 @@
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -12px;
-  align-items: center; /* Center content vertically within row */
+  margin: 0; /* Remove negative margins to eliminate gaps */
+  align-items: stretch; /* Stretch to fill full height */
   min-height: 100%; /* Take full height of hero section */
+  height: 100%; /* Ensure full height */
   width: 100%;
 }
 
 /* Mobile-first row adjustments */
 @media (min-width: 320px) {
   .row {
-    margin: 0 -16px;
-    min-height: auto;
+    margin: 0; /* No margins to eliminate gaps */
+    min-height: 100%;
+    height: 100%;
   }
 }
 
 @media (min-width: 768px) {
   .row {
-    margin: 0 -24px;
-    min-height: auto;
+    margin: 0; /* No margins to eliminate gaps */
+    min-height: 100%;
+    height: 100%;
   }
 }
 
 @media (min-width: 1024px) {
   .row {
-    margin: 0 -15px;
-    min-height: auto;
+    margin: 0 -15px; /* Only desktop gets margins */
+    min-height: 100%;
+    height: 100%;
+    align-items: center; /* Center on desktop */
   }
 }
 
 .colLg7 {
   flex: 0 0 100%;
   max-width: 100%;
-  padding: 0 12px;
+  padding: 0; /* Remove padding to eliminate gaps */
   order: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 50%; /* Take at least half the height */
 }
 
 .colLg5 {
   flex: 0 0 100%;
   max-width: 100%;
-  padding: 0 12px;
+  padding: 0; /* Remove padding to eliminate gaps */
   order: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50%; /* Take at least half the height */
 }
 
 /* Responsive column layout */
 @media (min-width: 320px) {
   .colLg7,
   .colLg5 {
-    padding: 0 16px;
+    padding: 20px; /* Add internal padding instead of margins */
   }
 }
 
 @media (min-width: 768px) {
   .colLg7,
   .colLg5 {
-    padding: 0 24px;
+    padding: 30px; /* Increase internal padding for tablets */
   }
 }
 
@@ -830,6 +858,7 @@
     font-size: 2.2rem;
     letter-spacing: 0;
     line-height: 1.2;
+    margin-bottom: 20px; /* Balanced margin */
   }
 }
 
@@ -951,6 +980,7 @@
     line-height: 1.5;
     max-width: 100%;
     letter-spacing: 0.1px;
+    margin-bottom: 25px; /* Balanced margin */
   }
 
   .heroDescription::before {
@@ -1335,16 +1365,49 @@
 
 /* Mobile layout adjustments for screens below 720px */
 @media (max-width: 719px) {
-  /* Hide hero image section on mobile */
-  .colLg5 {
-    display: none !important;
+  /* Stack content vertically on mobile but keep image visible */
+  .row {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    height: 100%;
+    margin: 0; /* No margins */
   }
 
-  /* Make content take full width when image is hidden */
   .colLg7 {
-    flex: 0 0 100%;
+    flex: 0 0 auto; /* Don't stretch, use content size */
     max-width: 100%;
-    padding: 0 20px;
+    padding: 30px 20px 20px 20px; /* Balanced padding */
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .colLg5 {
+    flex: 0 0 auto; /* Don't stretch, use content size */
+    max-width: 100%;
+    padding: 10px 20px 40px 20px; /* Less top, more bottom to accommodate upward push */
+    order: 2;
+    margin-top: 0; /* Remove margin to eliminate gaps */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Adjust hero image for mobile - push upwards */
+  .heroImgWrapper {
+    padding-top: 5px;
+    padding-bottom: 25px;
+    transform: translateY(-20px); /* Push image upwards */
+  }
+
+  .heroImageContainer {
+    margin-top: -10px; /* Additional upward push */
+    transform: scale(0.85);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25), 0 0 30px rgba(43, 112, 250, 0.1);
   }
 
   /* University list visibility control */
@@ -1384,9 +1447,32 @@
 
 /* Desktop layout for screens 720px and above */
 @media (min-width: 720px) {
-  /* Show hero image section on desktop */
+  /* Restore row layout for desktop */
+  .row {
+    flex-direction: row;
+    align-items: center;
+    min-height: 100%;
+    height: 100%;
+    margin: 0 -15px; /* Restore margins for desktop */
+  }
+
+  .colLg7 {
+    order: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 15px; /* Restore padding for desktop */
+    min-height: auto; /* Reset min-height */
+  }
+
   .colLg5 {
-    display: block !important;
+    order: 0;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px; /* Restore padding for desktop */
+    min-height: auto; /* Reset min-height */
   }
 
   /* University list visibility control for desktop */
@@ -1423,8 +1509,16 @@
 }
 
 @media (max-width: 480px) {
+  /* Balanced hero height for very small screens */
+  .enhancedHeroSection {
+    height: calc(160vh - 3.5rem);
+    min-height: calc(160vh - 3.5rem);
+    max-height: calc(160vh - 3.5rem);
+  }
+
   .heroCtaButtons {
     gap: 12px;
+    margin-top: 15px; /* Balanced space above buttons */
   }
 
   .btnPrimary,
@@ -1435,6 +1529,28 @@
     max-width: 260px;
     gap: 6px;
     min-height: 46px;
+  }
+
+  /* Push image upwards on very small screens */
+  .heroImageContainer {
+    transform: scale(0.8);
+    margin-top: -15px; /* Push further upwards on small screens */
+  }
+
+  .heroImgWrapper {
+    padding-top: 0px;
+    padding-bottom: 20px; /* More bottom padding to compensate */
+    transform: translateY(-30px); /* Push image upwards more on small screens */
+  }
+
+  /* Balanced spacing for very small screens */
+  .colLg7 {
+    padding: 40px 20px 25px 20px !important; /* Balanced padding */
+  }
+
+  .colLg5 {
+    padding: 15px 20px 50px 20px !important; /* Less top, more bottom for upward push */
+    margin-top: 0 !important; /* No margin to eliminate gaps */
   }
 }
 
@@ -1450,23 +1566,23 @@
 }
 
 @media (max-width: 768px) {
-  /* Reduce image animations on mobile for better performance */
+  /* Optimize image for tablet and mobile with upward push */
   .heroImageContainer {
-    margin-top: 20px;
-    transform: scale(1.6);
+    margin-top: 0px;
+    transform: scale(1.1);
     animation: heroImageEntrance 1s ease-out 0.3s both, heroImageFloat 8s ease-in-out infinite 1.3s;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), 0 0 40px rgba(43, 112, 250, 0.12);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25), 0 0 30px rgba(43, 112, 250, 0.1);
   }
 
   .heroImgWrapper {
     padding-top: 10px;
-    padding-bottom: 100px;
-    transform: translateY(0px);
+    padding-bottom: 40px;
+    transform: translateY(-15px); /* Push upwards on tablets too */
   }
 
   .heroImageContainer:hover {
-    transform: scale(1.7) translateY(-8px);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35), 0 0 50px rgba(43, 112, 250, 0.18);
+    transform: scale(1.15) translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), 0 0 40px rgba(43, 112, 250, 0.15);
   }
 
   .heroFeaturesRight {

@@ -35,7 +35,7 @@ export default function CallToActionSection() {
     const timer = setTimeout(() => {
       setIsVisible(true);
       startCounterAnimation();
-    }, 300);
+    }, 140);
 
     return () => clearTimeout(timer);
   }, []);

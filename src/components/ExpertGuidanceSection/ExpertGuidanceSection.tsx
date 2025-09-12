@@ -14,7 +14,7 @@ export default function ExpertGuidanceSection() {
     const timer = setTimeout(() => {
       setIsVisible(true);
       startCounterAnimation();
-    }, 500);
+    }, 180);
 
     return () => clearTimeout(timer);
   }, []);

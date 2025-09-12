@@ -88,7 +88,7 @@ export default function TrustedServicesSection() {
           <ScrollAnimationWrapper animation="fadeIn">
             <div ref={trustRef} className={styles.trustSection}>
               {/* Main Trust Badge */}
-              <ScrollAnimationWrapper animation="scale" delay={0.1}>
+              <ScrollAnimationWrapper animation="scale" delay={0.05}>
                 <div className={styles.trustBadge}>
                   <div className={styles.trustBadgeContent}>
                     <div className={styles.trustIcon}>
@@ -107,9 +107,9 @@ export default function TrustedServicesSection() {
               </ScrollAnimationWrapper>
 
               {/* Enhanced Stats Grid */}
-              <ScrollAnimationWrapper animation="slideUp" delay={0.2}>
+              <ScrollAnimationWrapper animation="slideUp" delay={0.08}>
                 <div className={styles.statsGrid}>
-                  <ScrollAnimationWrapper animation="scale" delay={0.3}>
+                  <ScrollAnimationWrapper animation="scale" delay={0.1}>
                     <div className={`${styles.statCard} ${styles.statCard1}`}>
                       <div className={styles.statIcon}>
                         <i className="fa-solid fa-graduation-cap"></i>
@@ -121,7 +121,7 @@ export default function TrustedServicesSection() {
                       <div className={styles.statGlow}></div>
                     </div>
                   </ScrollAnimationWrapper>
-                  <ScrollAnimationWrapper animation="scale" delay={0.4}>
+                  <ScrollAnimationWrapper animation="scale" delay={0.12}>
                     <div className={`${styles.statCard} ${styles.statCard2}`}>
                       <div className={styles.statIcon}>
                         <i className="fa-solid fa-university"></i>
@@ -133,7 +133,7 @@ export default function TrustedServicesSection() {
                       <div className={styles.statGlow}></div>
                     </div>
                   </ScrollAnimationWrapper>
-                  <ScrollAnimationWrapper animation="scale" delay={0.5}>
+                  <ScrollAnimationWrapper animation="scale" delay={0.14}>
                     <div className={`${styles.statCard} ${styles.statCard3}`}>
                       <div className={styles.statIcon}>
                         <i className="fa-solid fa-globe"></i>
@@ -145,7 +145,7 @@ export default function TrustedServicesSection() {
                       <div className={styles.statGlow}></div>
                     </div>
                   </ScrollAnimationWrapper>
-                  <ScrollAnimationWrapper animation="scale" delay={0.6}>
+                  <ScrollAnimationWrapper animation="scale" delay={0.16}>
                     <div className={`${styles.statCard} ${styles.statCard4}`}>
                       <div className={styles.statIcon}>
                         <i className="fa-solid fa-chart-line"></i>
@@ -163,9 +163,9 @@ export default function TrustedServicesSection() {
           </ScrollAnimationWrapper>
 
           {/* Section Header */}
-          <ScrollAnimationWrapper animation="slideUp" delay={0.7}>
+          <ScrollAnimationWrapper animation="slideUp" delay={0.1}>
             <div className={styles.sectionHeader}>
-              <ScrollAnimationWrapper animation="fadeIn" delay={0.8}>
+              <ScrollAnimationWrapper animation="fadeIn" delay={0.12}>
                 <div className={styles.titleWrapper}>
                   <h2 className={styles.sectionTitle}>
                     <span className={styles.titleWord}>Your</span>
@@ -176,7 +176,7 @@ export default function TrustedServicesSection() {
                   <div className={styles.titleUnderline}></div>
                 </div>
               </ScrollAnimationWrapper>
-              <ScrollAnimationWrapper animation="slideUp" delay={0.9}>
+              <ScrollAnimationWrapper animation="slideUp" delay={0.14}>
                 <p className={styles.sectionDescription}>
                   Facilitating admissions for both Local and International students in{' '}
                   <span className={styles.highlight}>{counters.universities || 130}+ Universities</span> across{' '}
@@ -188,48 +188,48 @@ export default function TrustedServicesSection() {
           </ScrollAnimationWrapper>
 
           {/* Universities Grid */}
-          <ScrollAnimationWrapper animation="slideLeft" delay={1.0}>
+          <ScrollAnimationWrapper animation="slideLeft" delay={0.16}>
             <div className={styles.universitiesGrid}>
-              <ScrollAnimationWrapper animation="fadeIn" delay={1.1}>
+              <ScrollAnimationWrapper animation="fadeIn" delay={0.18}>
                 <h3 className={styles.gridTitle}>Study Destinations</h3>
               </ScrollAnimationWrapper>
               <div className={styles.universityList}>
-                <ScrollAnimationWrapper animation="slideRight" delay={1.2}>
+                <ScrollAnimationWrapper animation="slideRight" delay={0.05}>
                   <a className={styles.universityItem} href="/universities/uk">
                     <span className={`${styles.universityFlag} ${styles.flagUK}`}></span>
                     <span className={styles.universityName}>UK Universities</span>
                     <i className="fa-solid fa-arrow-right"></i>
                   </a>
                 </ScrollAnimationWrapper>
-                <ScrollAnimationWrapper animation="slideRight" delay={1.25}>
+                <ScrollAnimationWrapper animation="slideRight" delay={0.07}>
                   <a className={styles.universityItem} href="/usa-universities">
                     <span className={`${styles.universityFlag} ${styles.flagUSA}`}></span>
                     <span className={styles.universityName}>USA Universities</span>
                     <i className="fa-solid fa-arrow-right"></i>
                   </a>
                 </ScrollAnimationWrapper>
-                <ScrollAnimationWrapper animation="slideRight" delay={1.3}>
+                <ScrollAnimationWrapper animation="slideRight" delay={0.09}>
                   <a className={styles.universityItem} href="/universities/canada">
                     <span className={`${styles.universityFlag} ${styles.flagCanada}`}></span>
                     <span className={styles.universityName}>Canada Universities</span>
                     <i className="fa-solid fa-arrow-right"></i>
                   </a>
                 </ScrollAnimationWrapper>
-                <ScrollAnimationWrapper animation="slideRight" delay={1.35}>
+                <ScrollAnimationWrapper animation="slideRight" delay={0.11}>
                   <a className={styles.universityItem} href="/ireland-universities">
                     <span className={`${styles.universityFlag} ${styles.flagIreland}`}></span>
                     <span className={styles.universityName}>Ireland Universities</span>
                     <i className="fa-solid fa-arrow-right"></i>
                   </a>
                 </ScrollAnimationWrapper>
-                <ScrollAnimationWrapper animation="slideRight" delay={1.4}>
+                <ScrollAnimationWrapper animation="slideRight" delay={0.13}>
                   <a className={styles.universityItem} href="/australian-universities">
                     <span className={`${styles.universityFlag} ${styles.flagAustralia}`}></span>
                     <span className={styles.universityName}>Australia Universities</span>
                     <i className="fa-solid fa-arrow-right"></i>
                   </a>
                 </ScrollAnimationWrapper>
-                <ScrollAnimationWrapper animation="slideRight" delay={1.45}>
+                <ScrollAnimationWrapper animation="slideRight" delay={0.15}>
                   <a className={styles.universityItem} href="/new-zealand-universities">
                     <span className={`${styles.universityFlag} ${styles.flagNewZealand}`}></span>
                     <span className={styles.universityName}>New Zealand Universities</span>
@@ -241,13 +241,13 @@ export default function TrustedServicesSection() {
           </ScrollAnimationWrapper>
 
           {/* Services Grid */}
-          <ScrollAnimationWrapper animation="fadeIn" delay={1.5}>
+          <ScrollAnimationWrapper animation="fadeIn" delay={0.1}>
             <div className={styles.servicesSection}>
-              <ScrollAnimationWrapper animation="slideUp" delay={1.6}>
+              <ScrollAnimationWrapper animation="slideUp" delay={0.12}>
                 <h2 className={styles.servicesTitle}>Our Expert Services</h2>
               </ScrollAnimationWrapper>
               <div className={styles.servicesGrid}>
-                <ScrollAnimationWrapper animation="scale" delay={1.7}>
+                <ScrollAnimationWrapper animation="scale" delay={0.05}>
                   <div className={styles.serviceCard}>
                     <div className={styles.serviceIcon}>
                       <i className="fa-solid fa-graduation-cap"></i>
@@ -258,7 +258,7 @@ export default function TrustedServicesSection() {
                     </p>
                   </div>
                 </ScrollAnimationWrapper>
-                <ScrollAnimationWrapper animation="scale" delay={1.8}>
+                <ScrollAnimationWrapper animation="scale" delay={0.07}>
                   <div className={styles.serviceCard}>
                     <div className={styles.serviceIcon}>
                       <i className="fa-solid fa-passport"></i>
@@ -269,7 +269,7 @@ export default function TrustedServicesSection() {
                     </p>
                   </div>
                 </ScrollAnimationWrapper>
-                <ScrollAnimationWrapper animation="scale" delay={1.9}>
+                <ScrollAnimationWrapper animation="scale" delay={0.09}>
                   <div className={styles.serviceCard}>
                     <div className={styles.serviceIcon}>
                       <i className="fa-solid fa-award"></i>
@@ -280,7 +280,7 @@ export default function TrustedServicesSection() {
                     </p>
                   </div>
                 </ScrollAnimationWrapper>
-                <ScrollAnimationWrapper animation="scale" delay={2.0}>
+                <ScrollAnimationWrapper animation="scale" delay={0.11}>
                   <div className={styles.serviceCard}>
                     <div className={styles.serviceIcon}>
                       <i className="fa-solid fa-headset"></i>
@@ -291,7 +291,7 @@ export default function TrustedServicesSection() {
                     </p>
                   </div>
                 </ScrollAnimationWrapper>
-                <ScrollAnimationWrapper animation="scale" delay={2.1}>
+                <ScrollAnimationWrapper animation="scale" delay={0.13}>
                   <div className={styles.serviceCard}>
                     <div className={styles.serviceIcon}>
                       <i className="fa-solid fa-briefcase"></i>
@@ -302,7 +302,7 @@ export default function TrustedServicesSection() {
                     </p>
                   </div>
                 </ScrollAnimationWrapper>
-                <ScrollAnimationWrapper animation="scale" delay={2.2}>
+                <ScrollAnimationWrapper animation="scale" delay={0.15}>
                   <div className={styles.serviceCard}>
                     <div className={styles.serviceIcon}>
                       <i className="fa-solid fa-plane-departure"></i>

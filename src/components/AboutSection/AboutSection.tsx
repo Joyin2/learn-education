@@ -97,7 +97,7 @@ export default function AboutSection() {
           {/* Main heading with enhanced animations */}
           <ScrollAnimationWrapper animation="fadeIn">
             <div className={styles.aboutHeader}>
-              <ScrollAnimationWrapper animation="slideUp" delay={0.2}>
+              <ScrollAnimationWrapper animation="slideUp" delay={0.05}>
                 <div className={styles.titleWrapper}>
                   <h2 className={styles.aboutTitle}>
                     <span className={styles.titleWord}>Learn</span>
@@ -106,7 +106,7 @@ export default function AboutSection() {
                   <div className={styles.titleUnderline}></div>
                 </div>
               </ScrollAnimationWrapper>
-              <ScrollAnimationWrapper animation="slideUp" delay={0.4}>
+              <ScrollAnimationWrapper animation="slideUp" delay={0.08}>
                 <p className={styles.aboutDescription}>
                   Facilitating admissions for both Local UK and International students in{' '}
                   <span className={styles.highlight}>130+ Universities</span> across{' '}
@@ -117,9 +117,9 @@ export default function AboutSection() {
           </ScrollAnimationWrapper>
 
           {/* Enhanced Stats section with animations */}
-          <ScrollAnimationWrapper animation="slideUp" delay={0.6}>
+          <ScrollAnimationWrapper animation="slideUp" delay={0.1}>
             <div ref={statsRef} className={styles.statsContainer}>
-              <ScrollAnimationWrapper animation="scale" delay={0.8}>
+              <ScrollAnimationWrapper animation="scale" delay={0.12}>
                 <div className={`${styles.statItem} ${styles.statItem1}`}>
                   <div className={styles.statIcon}>
                     <i className="fa-solid fa-university"></i>
@@ -131,7 +131,7 @@ export default function AboutSection() {
                   <div className={styles.statGlow}></div>
                 </div>
               </ScrollAnimationWrapper>
-              <ScrollAnimationWrapper animation="scale" delay={1.0}>
+              <ScrollAnimationWrapper animation="scale" delay={0.14}>
                 <div className={`${styles.statItem} ${styles.statItem2}`}>
                   <div className={styles.statIcon}>
                     <i className="fa-solid fa-globe"></i>
@@ -143,7 +143,7 @@ export default function AboutSection() {
                   <div className={styles.statGlow}></div>
                 </div>
               </ScrollAnimationWrapper>
-              <ScrollAnimationWrapper animation="scale" delay={1.2}>
+              <ScrollAnimationWrapper animation="scale" delay={0.16}>
                 <div className={`${styles.statItem} ${styles.statItem3}`}>
                   <div className={styles.statIcon}>
                     <i className="fa-solid fa-star"></i>
@@ -155,7 +155,7 @@ export default function AboutSection() {
                   <div className={styles.statGlow}></div>
                 </div>
               </ScrollAnimationWrapper>
-              <ScrollAnimationWrapper animation="scale" delay={1.4}>
+              <ScrollAnimationWrapper animation="scale" delay={0.18}>
                 <div className={`${styles.statItem} ${styles.statItem4}`}>
                   <div className={styles.statIcon}>
                     <i className="fa-solid fa-comments"></i>
@@ -171,7 +171,7 @@ export default function AboutSection() {
           </ScrollAnimationWrapper>
 
           {/* Enhanced Rating section with animations */}
-          <ScrollAnimationWrapper animation="slideLeft" delay={1.6}>
+          <ScrollAnimationWrapper animation="slideLeft" delay={0.12}>
             <div className={styles.ratingSection}>
               <div className={styles.ratingWrapper}>
                 <div className={styles.ratingStars}>
@@ -192,13 +192,13 @@ export default function AboutSection() {
                 </div>
               </div>
               <div className={styles.trustBadges}>
-                <ScrollAnimationWrapper animation="scale" delay={1.8}>
+                <ScrollAnimationWrapper animation="scale" delay={0.2}>
                   <div className={styles.trustBadge}>
                     <i className="fa-solid fa-shield-check"></i>
                     <span>Verified Reviews</span>
                   </div>
                 </ScrollAnimationWrapper>
-                <ScrollAnimationWrapper animation="scale" delay={2.0}>
+                <ScrollAnimationWrapper animation="scale" delay={0.2}>
                   <div className={styles.trustBadge}>
                     <i className="fa-solid fa-award"></i>
                     <span>Top Rated</span>
@@ -209,9 +209,9 @@ export default function AboutSection() {
           </ScrollAnimationWrapper>
 
           {/* Enhanced Countries section with 3D effects */}
-          <ScrollAnimationWrapper animation="slideRight" delay={2.2}>
+          <ScrollAnimationWrapper animation="slideRight" delay={0.2}>
             <div className={styles.countriesSection}>
-              <ScrollAnimationWrapper animation="fadeIn" delay={2.4}>
+              <ScrollAnimationWrapper animation="fadeIn" delay={0.2}>
                 <div className={styles.countriesHeader}>
                   <h3 className={styles.countriesTitle}>
                     <span className={styles.titleIcon}>🌍</span>
@@ -230,25 +230,25 @@ export default function AboutSection() {
                   { name: 'Ireland', code: 'IRE', universities: '15+' },
                   { name: 'Germany', code: 'GER', universities: '15+' }
                 ].map((country, index) => (
-                  <ScrollAnimationWrapper key={country.code} animation="slideUp" delay={2.6 + index * 0.1}>
+                  <ScrollAnimationWrapper key={country.code} animation="slideUp" delay={0.2 + index * 0.1}>
                     <div
                       className={`${styles.countryItem} ${styles[`countryItem${index + 1}`]}`}
                     >
                       <div className={styles.countryCard}>
-                    <div className={styles.countryFlagWrapper}>
-                      <div className={styles.countryFlag}>
-                        <img
-                          src={flagPaths[country.code as keyof typeof flagPaths]}
-                          alt={`${country.name} flag`}
-                          className={styles.flagImage}
-                          onError={(e) => {
-                            console.error(`Failed to load flag for ${country.code}`);
-                            // Create fallback with flag emoji and country code
-                            const target = e.currentTarget;
-                            target.style.display = 'none';
-                            const parent = target.parentElement;
-                            if (parent) {
-                              parent.innerHTML = `
+                        <div className={styles.countryFlagWrapper}>
+                          <div className={styles.countryFlag}>
+                            <img
+                              src={flagPaths[country.code as keyof typeof flagPaths]}
+                              alt={`${country.name} flag`}
+                              className={styles.flagImage}
+                              onError={(e) => {
+                                console.error(`Failed to load flag for ${country.code}`);
+                                // Create fallback with flag emoji and country code
+                                const target = e.currentTarget;
+                                target.style.display = 'none';
+                                const parent = target.parentElement;
+                                if (parent) {
+                                  parent.innerHTML = `
                                 <div style="
                                   width: 100%;
                                   height: 100%;
@@ -266,28 +266,28 @@ export default function AboutSection() {
                                   <div style="font-size: 16px; margin-bottom: 2px;">
                                     ${country.code === 'UK' ? '🇬🇧' :
                                       country.code === 'USA' ? '🇺🇸' :
-                                      country.code === 'CAN' ? '🇨🇦' :
-                                      country.code === 'IRE' ? '🇮🇪' :
-                                      '🇩🇪'}
+                                        country.code === 'CAN' ? '🇨🇦' :
+                                          country.code === 'IRE' ? '🇮🇪' :
+                                            '🇩🇪'}
                                   </div>
                                   <div>${country.code}</div>
                                 </div>
                               `;
-                            }
-                          }}
-                          onLoad={() => {
-                            console.log(`Successfully loaded flag for ${country.code}`);
-                          }}
-                        />
-                      </div>
-                      <div className={styles.flagGlow}></div>
-                    </div>
-                    <div className={styles.countryInfo}>
-                      <span className={styles.countryName}>{country.name}</span>
-                      <span className={styles.countryCode}>{country.code}</span>
-                      <span className={styles.universityCount}>{country.universities} Universities</span>
-                    </div>
-                    <div className={styles.countryHoverEffect}></div>
+                                }
+                              }}
+                              onLoad={() => {
+                                console.log(`Successfully loaded flag for ${country.code}`);
+                              }}
+                            />
+                          </div>
+                          <div className={styles.flagGlow}></div>
+                        </div>
+                        <div className={styles.countryInfo}>
+                          <span className={styles.countryName}>{country.name}</span>
+                          <span className={styles.countryCode}>{country.code}</span>
+                          <span className={styles.universityCount}>{country.universities} Universities</span>
+                        </div>
+                        <div className={styles.countryHoverEffect}></div>
                       </div>
                     </div>
                   </ScrollAnimationWrapper>

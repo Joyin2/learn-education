@@ -60,7 +60,7 @@ export default function ProcessSection() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 300);
+    }, 100);
 
     // Adjust auto-cycle timing based on device
     const cycleTime = isMobile ? 4000 : 3000; // Slower on mobile for better UX
@@ -109,7 +109,7 @@ export default function ProcessSection() {
                 key={index}
                 className={`${styles.stepItem} ${index <= activeStep ? styles.active : ''} ${isVisible ? styles.slideInUp : ''}`}
                 style={{
-                  animationDelay: `${index * (isMobile ? 0.15 : 0.2)}s`,
+                  animationDelay: `${index * (isMobile ? 0.08 : 0.12)}s`,
                   '--step-index': index
                 } as React.CSSProperties}
                 onMouseEnter={!isMobile ? () => handleStepInteraction(index) : undefined}
