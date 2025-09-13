@@ -339,42 +339,60 @@
   margin-bottom: 80px;
 }
 
-.countriesTitle {
-  text-align: center;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 50px;
-}
-
 .countriesGrid {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 25px;
-  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+  gap: 30px;
+  max-width: 1400px;
   margin: 0 auto;
-  justify-content: center;
-  overflow-x: auto;
+  justify-items: center;
+  place-items: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .countryCard {
-  background: transparent;
-  padding: 30px 25px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08));
+  padding: 40px 30px;
   border-radius: 25px;
-  border: none;
-  box-shadow: none;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.4),
+    0 10px 40px rgba(43, 112, 250, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
   text-align: center;
   position: relative;
   overflow: hidden;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   animation: countryCardEntrance 0.8s ease-out var(--delay) both;
-  flex: 1;
-  min-width: 220px;
-  max-width: 280px;
+  width: 100%;
+  max-width: 100%;
+  backdrop-filter: blur(30px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 450px;
+  box-sizing: border-box;
+}
+
+.countryCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-color), rgba(255, 255, 255, 0.3));
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.5);
 }
 
 .countryCard:hover {
-  transform: translateY(-10px) scale(1.05);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow:
+    0 35px 100px rgba(43, 112, 250, 0.4),
+    0 15px 50px rgba(0, 0, 0, 0.4),
+    inset 0 2px 0 rgba(255, 255, 255, 0.3);
+  border-color: rgba(96, 165, 250, 0.3);
 }
 
 .countryFlag {
@@ -385,68 +403,107 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 20px;
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  margin: 0 auto 25px;
+  border: 3px solid rgba(255, 255, 255, 0.2);
   animation: flagFloat 4s ease-in-out infinite;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .flagEmoji {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
+}
+
+.countryHeader {
+  margin-bottom: 25px;
 }
 
 .countryName {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: white;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.countryStatus {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.9rem;
+.countryUniversities {
+  font-size: 1.1rem;
+  color: #60a5fa;
+  font-weight: 600;
+  margin-bottom: 0;
 }
 
-.statusDot {
-  width: 8px;
-  height: 8px;
-  background: #60a5fa;
-  border-radius: 50%;
-  animation: statusPulse 2s ease-in-out infinite;
-}
-
-.countryOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, var(--accent-color), rgba(0, 0, 0, 0.8));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.countryCard:hover .countryOverlay {
-  opacity: 1;
-}
-
-.overlayContent {
+.countryFeatures {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  color: white;
-  font-weight: 600;
+  gap: 15px;
+  margin-bottom: 30px;
 }
 
-.overlayContent i {
-  font-size: 2rem;
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.featureItem::before {
+  content: '✓';
+  color: #60a5fa;
+  font-weight: bold;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.featureText {
+  flex: 1;
+}
+
+.europeCountries {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.featuredLabel {
+  font-weight: 600;
+  color: #60a5fa;
+  font-size: 0.95rem;
+}
+
+.countryList {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.countryButton {
+  background: linear-gradient(135deg, #60a5fa, #3b82f6);
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(96, 165, 250, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.countryButton:hover {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(96, 165, 250, 0.4);
+}
+
+.europeCard .featureItem:first-child::before {
+  display: none;
 }
 
 /* Global Stats */
@@ -716,9 +773,56 @@
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+
+/* Large Desktop (1200px+) */
+@media (min-width: 1200px) {
+  .countriesGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1400px;
+  }
+}
+
+/* Desktop (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .countriesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+    max-width: 1000px;
+  }
+}
+
+/* Tablet (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .countriesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    max-width: 800px;
+  }
+
+  .countryCard {
+    min-height: 420px;
+    padding: 35px 25px;
+  }
+
+  .sectionTitle {
+    font-size: 3rem;
+  }
+
+  .sectionDescription {
+    font-size: 1.2rem;
+  }
+}
+
+/* Mobile (up to 767px) */
+@media (max-width: 767px) {
   .globalVisionSection {
     padding: 60px 0;
+  }
+
+  .container {
+    padding: 0 15px;
+    max-width: 100%;
   }
 
   .sectionTitle {
@@ -727,53 +831,254 @@
 
   .sectionDescription {
     font-size: 1.1rem;
+    padding: 0;
   }
 
-  .visionCard {
-    padding: 30px;
-  }
-
-  .cardFeatures {
-    flex-direction: column;
-    gap: 15px;
+  .headerBadge {
+    padding: 10px 25px;
+    font-size: 0.9rem;
   }
 
   .countriesGrid {
-    flex-wrap: wrap;
+    grid-template-columns: 1fr;
     gap: 20px;
+    padding: 0;
     max-width: 100%;
+    width: 100%;
+    margin: 0;
   }
 
   .countryCard {
-    flex: 0 0 calc(50% - 10px);
-    min-width: 200px;
+    min-height: 380px;
     padding: 25px 20px;
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+  }
+
+  .countryName {
+    font-size: 1.5rem;
+  }
+
+  .countryUniversities {
+    font-size: 0.95rem;
+  }
+
+  .flagEmoji {
+    font-size: 2.2rem;
+  }
+
+  .countryFlag {
+    width: 65px;
+    height: 65px;
+  }
+
+  .featureItem {
+    font-size: 0.9rem;
+  }
+
+  .countryButton {
+    padding: 12px 18px;
+    font-size: 0.85rem;
   }
 
   .globalStats {
     flex-direction: column;
-    gap: 25px;
+    gap: 20px;
     max-width: 100%;
+    width: 100%;
   }
 
   .statItem {
-    padding: 30px 25px;
-    gap: 20px;
-    min-height: 100px;
+    padding: 25px 20px;
+    gap: 15px;
+    min-height: 90px;
     min-width: auto;
+    width: 100%;
   }
 
   .statIcon {
-    width: 70px;
-    height: 70px;
-    font-size: 1.8rem;
+    width: 60px;
+    height: 60px;
+    font-size: 1.6rem;
   }
 
   .statNumber {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
   }
 
   .statLabel {
+    font-size: 0.85rem;
+  }
+}
+
+/* Small Mobile (up to 480px) */
+@media (max-width: 480px) {
+  .globalVisionSection {
+    padding: 40px 0;
+  }
+
+  .container {
+    padding: 0 10px;
+    max-width: 100%;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+    line-height: 1.1;
+  }
+
+  .sectionDescription {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .headerBadge {
+    padding: 8px 20px;
+    font-size: 0.8rem;
+  }
+
+  .countriesGrid {
+    gap: 15px;
+    padding: 0;
+    max-width: 100%;
+  }
+
+  .countryCard {
+    padding: 20px 15px;
+    min-height: 350px;
+    border-radius: 20px;
+  }
+
+  .countryName {
+    font-size: 1.3rem;
+    line-height: 1.2;
+  }
+
+  .countryUniversities {
+    font-size: 0.85rem;
+  }
+
+  .flagEmoji {
+    font-size: 2rem;
+  }
+
+  .countryFlag {
+    width: 55px;
+    height: 55px;
+    margin-bottom: 15px;
+  }
+
+  .countryHeader {
+    margin-bottom: 20px;
+  }
+
+  .countryFeatures {
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .featureItem {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .countryButton {
+    padding: 10px 15px;
+    font-size: 0.8rem;
+    border-radius: 10px;
+  }
+
+  .globalStats {
+    gap: 15px;
+  }
+
+  .statItem {
+    padding: 20px 15px;
+    gap: 12px;
+    min-height: 80px;
+    border-radius: 20px;
+  }
+
+  .statIcon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.4rem;
+  }
+
+  .statNumber {
+    font-size: 2.2rem;
+  }
+
+  .statLabel {
+    font-size: 0.8rem;
+  }
+}
+
+/* Extra Small Mobile (up to 360px) */
+@media (max-width: 360px) {
+  .container {
+    padding: 0 8px;
+  }
+
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+
+  .sectionDescription {
     font-size: 0.9rem;
+  }
+
+  .countriesGrid {
+    gap: 12px;
+  }
+
+  .countryCard {
+    padding: 18px 12px;
+    min-height: 320px;
+  }
+
+  .countryName {
+    font-size: 1.2rem;
+  }
+
+  .countryUniversities {
+    font-size: 0.8rem;
+  }
+
+  .flagEmoji {
+    font-size: 1.8rem;
+  }
+
+  .countryFlag {
+    width: 50px;
+    height: 50px;
+  }
+
+  .featureItem {
+    font-size: 0.75rem;
+  }
+
+  .countryButton {
+    padding: 8px 12px;
+    font-size: 0.75rem;
+  }
+
+  .statItem {
+    padding: 18px 12px;
+  }
+
+  .statIcon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
+
+  .statNumber {
+    font-size: 2rem;
+  }
+
+  .statLabel {
+    font-size: 0.75rem;
   }
 }
