@@ -159,31 +159,15 @@
 
 /* Countries Grid */
 .countriesGrid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  column-gap: 120px;
-  row-gap: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
   margin-bottom: 80px;
   width: 100%;
   box-sizing: border-box;
   padding: 0 20px;
-}
-
-/* Ensure grid items don't overflow */
-.countriesGrid > * {
-  min-width: 0;
-  box-sizing: border-box;
-  width: 100%;
-}
-
-/* Tablet and Desktop: consistent card widths */
-@media (min-width: 768px) {
-  .countryCard {
-    width: 100%;
-    max-width: 420px;
-    min-width: 350px;
-  }
+  justify-items: center;
+  place-items: center;
 }
 
 .countryCard {
@@ -196,7 +180,7 @@
   border: 2px solid;
   width: 100%;
   max-width: 400px;
-  min-width: 350px;
+  box-sizing: border-box;
 }
 
 .countryCard:hover {
@@ -531,10 +515,8 @@
 
 /* Europe Card Special Styling */
 .europeCard {
-  grid-column: span 2;
-  width: 800px;
-  max-width: 800px;
-  min-width: 700px;
+  width: 100%;
+  max-width: 400px;
 }
 
 .europeanFlags {
@@ -773,24 +755,16 @@
   }
 
   .countriesGrid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
     padding: 0 30px;
-    column-gap: 90px;
-    row-gap: 30px;
-  }
-  
-  .countryCard {
-    flex: 0 0 auto;
-    width: 400px;
-    max-width: 400px;
-    min-height: 400px;
   }
 
-  .europeCard {
-    width: 800px;
-    max-width: 800px;
+  /* Center the last card when it's alone in the row (7 cards = 3 rows of 2 + 1) */
+  .countryCard:nth-child(7) {
+    grid-column: 1 / -1;
+    max-width: 400px;
+    justify-self: center;
   }
 
   .statsSection {
@@ -803,404 +777,108 @@
   }
 }
 
-/* Large Desktop (1200px - 1599px) */
-@media (min-width: 1200px) and (max-width: 1599px) {
+/* Large Desktop (1200px+) */
+@media (min-width: 1200px) {
   .countriesGrid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding: 0 40px;
     max-width: 1500px;
     margin: 0 auto 80px auto;
-    column-gap: 90px;
-    row-gap: 30px;
-    padding: 0 40px;
   }
-  
-  .countryCard {
-    flex: 0 0 auto;
-    width: 400px;
-    max-width: 400px;
-    min-height: 420px;
-  }
-  
-  /* Europe card is wider to accommodate more content */
-  .europeCard {
-    width: 800px;
-    max-width: 800px;
+
+  /* Center the last card when it's alone in the row (7 cards = 3+3+1) */
+  .countryCard:nth-child(7) {
+    grid-column: 2 / 3;
   }
 }
 
-/* Extra Large Desktop (1600px and above) */
-@media (min-width: 1600px) {
-  .countriesGrid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 1800px;
-    margin: 0 auto 80px auto;
-    column-gap: 120px;
-    row-gap: 40px;
-    padding: 0 60px;
-  }
-  
-  .countryCard {
-    flex: 0 0 auto;
-    width: 400px;
-    max-width: 400px;
-    min-height: 440px;
-  }
-  
-  /* Europe card is wider to accommodate more content */
-  .europeCard {
-    width: 800px;
-    max-width: 800px;
-  }
-}
 
-/* Large Tablets and Small Desktops (900px - 1023px) */
-@media (min-width: 900px) and (max-width: 1023px) {
-  .countriesGrid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    column-gap: 90px;
-    row-gap: 30px;
-    padding: 0 30px;
-  }
-  
-  .countryCard {
-    flex: 0 0 auto;
-    width: 470px;
-    max-width: 470px;
-    min-width: 400px;
-  }
-  
-  .europeCard {
-    width: 470px;
-    max-width: 470px;
-  }
-}
 
-/* Medium Tablets (768px - 899px) */
-@media (min-width: 768px) and (max-width: 899px) {
-  .countriesGrid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    column-gap: 75px;
-    row-gap: 25px;
-    padding: 0 25px;
-  }
-
-  .countryCard {
-    flex: 0 0 auto;
-    padding: 25px;
-  }
-}
-
-/* Tablet Landscape (768px - 899px) */
-@media (min-width: 768px) and (max-width: 899px) {
-  .globalEducationSection {
-    padding: 100px 0;
-  }
-
-  .mainTitle {
-    font-size: 3rem;
-  }
-
-  .subtitle {
-    font-size: 1.8rem;
-  }
-
-  .tagline {
-    font-size: 1.3rem;
-  }
-
-  .description {
-    font-size: 1.15rem;
-    max-width: 700px;
-  }
-
-  .statsSection {
-    gap: 40px;
-    margin-bottom: 80px;
-  }
-
-  .statItem {
-    min-width: 160px;
-    padding: 28px 24px;
-  }
-
-  .statNumber {
-    font-size: 2.8rem;
-  }
-
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
   .countriesGrid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    padding: 0 30px;
-  }
-
-  .countryCard {
-    padding: 28px;
-    min-height: 400px;
-  }
-
-  .countryName {
-    font-size: 1.7rem;
-    margin-bottom: 12px;
-  }
-
-  .universityCount {
-    font-size: 1.05rem;
-    margin-bottom: 18px;
-    padding: 10px 18px;
-  }
-
-  .featuresList li {
-    font-size: 0.95rem;
-    margin-bottom: 8px;
-  }
-
-  .flagImage {
-    width: 70px;
-    height: 45px;
-  }
-
-  .europeCard {
-    grid-column: span 1;
-  }
-}
-
-/* Tablet Portrait (600px - 767px) */
-@media (min-width: 600px) and (max-width: 767px) {
-  .globalEducationSection {
-    padding: 90px 0;
-  }
-
-  .container {
-    padding: 0 30px;
-  }
-
-  .mainTitle {
-    font-size: 2.8rem;
-    line-height: 1.1;
-  }
-
-  .subtitle {
-    font-size: 1.7rem;
-  }
-
-  .tagline {
-    font-size: 1.25rem;
-  }
-
-  .description {
-    font-size: 1.1rem;
-    max-width: 600px;
-  }
-
-  .statsSection {
     gap: 30px;
-    margin-bottom: 70px;
+    padding: 0 30px;
   }
 
-  .statItem {
-    min-width: 140px;
-    padding: 24px 20px;
-  }
-
-  .statNumber {
-    font-size: 2.6rem;
-  }
-
-  .countriesGrid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 0 25px;
-  }
-
-  .countryCard {
-    padding: 24px;
-    min-height: 380px;
-  }
-
-  .countryName {
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-  }
-
-  .universityCount {
-    font-size: 1rem;
-    margin-bottom: 16px;
-    padding: 8px 14px;
-  }
-
-  .featuresList li {
-    font-size: 0.9rem;
-    margin-bottom: 7px;
-  }
-
-  .flagImage {
-    width: 65px;
-    height: 42px;
-  }
-
-  .smallFlag {
-    width: 30px;
-    height: 20px;
-  }
-
-  .learnMoreBtn {
-    padding: 12px 24px;
-    font-size: 0.95rem;
-  }
-
-  .ctaSection {
-    padding: 45px 35px;
-  }
-
-  .ctaTitle {
-    font-size: 2.2rem;
-  }
-
-  .ctaSubtitle {
-    font-size: 1.6rem;
-  }
-
-  .ctaFeatures {
-    gap: 20px;
-  }
-
-  .scheduleBtn {
-    padding: 16px 35px;
-    font-size: 1.15rem;
+  /* Center the last card when it's alone in the row (7 cards = 3 rows of 2 + 1) */
+  .countryCard:nth-child(7) {
+    grid-column: 1 / -1;
+    max-width: 400px;
+    justify-self: center;
   }
 }
 
-/* Mobile Landscape (480px - 599px) */
-@media (min-width: 480px) and (max-width: 599px) {
+
+
+/* Mobile (up to 767px) */
+@media (max-width: 767px) {
   .globalEducationSection {
-    padding: 80px 0;
+    padding: 60px 0;
   }
 
   .container {
-    padding: 0 25px;
+    padding: 0 20px;
   }
 
   .mainTitle {
     font-size: 2.5rem;
-    line-height: 1.05;
-    letter-spacing: -0.5px;
-    margin-bottom: 18px;
-    padding: 0 10px;
-  }
-
-  .subtitle {
-    font-size: 1.6rem;
-    margin-bottom: 8px;
-    padding: 0 15px;
-  }
-
-  .tagline {
-    font-size: 1.2rem;
-    margin-bottom: 25px;
-    padding: 0 15px;
-  }
-
-  .description {
-    font-size: 1.1rem;
-    max-width: 500px;
-    padding: 0 20px;
-    line-height: 1.6;
-  }
-
-  .statsSection {
-    gap: 25px;
-    margin-bottom: 60px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .statItem {
-    min-width: 130px;
-    max-width: 180px;
-    padding: 22px 18px;
-    flex: 0 0 calc(50% - 12.5px);
-  }
-
-  .statNumber {
-    font-size: 2.4rem;
-  }
-
-  .statLabel {
-    font-size: 0.9rem;
+    line-height: 1.1;
   }
 
   .countriesGrid {
     grid-template-columns: 1fr;
-    gap: 18px;
-    padding: 0 20px;
+    gap: 20px;
+    padding: 0;
   }
 
   .countryCard {
-    padding: 22px;
+    padding: 25px;
     min-height: 350px;
+    max-width: 100%;
+  }
+
+}
+
+/* Small Mobile (up to 480px) */
+@media (max-width: 480px) {
+  .globalEducationSection {
+    padding: 50px 0;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  .mainTitle {
+    font-size: 2.2rem;
+    line-height: 1.1;
+  }
+
+  .countriesGrid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 0;
+  }
+
+  .countryCard {
+    padding: 20px;
+    min-height: 320px;
   }
 
   .countryName {
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-  }
-
-  .universityCount {
-    font-size: 1rem;
-    margin-bottom: 16px;
-    padding: 8px 14px;
-  }
-
-  .featuresList li {
-    font-size: 0.9rem;
-    margin-bottom: 7px;
+    font-size: 1.4rem;
   }
 
   .flagImage {
     width: 60px;
     height: 38px;
   }
-
-  .smallFlag {
-    width: 28px;
-    height: 18px;
-  }
-
-  .learnMoreBtn {
-    padding: 12px 22px;
-    font-size: 0.9rem;
-  }
-
-  .ctaSection {
-    padding: 40px 30px;
-  }
-
-  .ctaTitle {
-    font-size: 2rem;
-  }
-
-  .ctaSubtitle {
-    font-size: 1.5rem;
-  }
-
-  .ctaFeatures {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .scheduleBtn {
-    padding: 15px 32px;
-    font-size: 1.1rem;
-  }
 }
+
+/* End of responsive design */
 
 /* Mobile Portrait (320px - 479px) */
 @media (min-width: 320px) and (max-width: 479px) {
