@@ -5,6 +5,14 @@ import ScrollAnimationWrapper, { StaggerContainer } from '@/components/ScrollAni
 import ParallaxSection, { ParallaxBackground } from '@/components/ParallaxSection';
 
 export default function EnhancedHeroSection() {
+  const handleExploreClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const targetElement = document.getElementById('study-destinations');
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <div className={styles.enhancedHeroSection}>
       <ParallaxBackground speed={0.3}>
@@ -42,9 +50,10 @@ export default function EnhancedHeroSection() {
                   <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
                 </a>
                 <a
-                  href="/universities"
+                  href="#study-destinations"
                   className={styles.btnSecondary}
                   aria-label="Explore universities - Browse our partner institutions"
+                  onClick={handleExploreClick}
                 >
                   <span>Explore Universities</span>
                   <i className="fa-solid fa-graduation-cap" aria-hidden="true"></i>

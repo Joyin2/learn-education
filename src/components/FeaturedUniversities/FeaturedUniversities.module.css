@@ -95,16 +95,26 @@
 /* Badge */
 .badge {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  padding: 0.5rem 1rem;
+  top: 0.75rem;
+  right: 0.75rem;
+  padding: 0.3rem 0.75rem;
   border-radius: 20px;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   z-index: 10;
   backdrop-filter: blur(10px);
+}
+
+/* Medium devices and up */
+@media (min-width: 768px) {
+  .badge {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
 }
 
 .featured {
@@ -140,8 +150,15 @@
 /* Image Container */
 .imageContainer {
   position: relative;
-  height: 200px;
+  height: 150px;
   overflow: hidden;
+}
+
+/* Medium devices and up */
+@media (min-width: 768px) {
+  .imageContainer {
+    height: 200px;
+  }
 }
 
 .universityImage {
@@ -311,8 +328,52 @@
   }
 }
 
-/* Mobile Adjustments */
-@media (max-width: 768px) {
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .featuredSection {
+    padding: 3rem 0;
+  }
+  
+  .sectionHeader {
+    margin-bottom: 2rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .sectionDescription {
+    font-size: 1rem;
+  }
+  
+  .universitiesGrid {
+    gap: 1rem;
+  }
+  
+  .universityCard {
+    border-radius: 15px;
+  }
+  
+  .cardContent {
+    padding: 1rem;
+  }
+  
+  .universityName {
+    font-size: 1.1rem;
+  }
+  
+  .statItem {
+    font-size: 0.8rem;
+  }
+  
+  .learnMoreBtn {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
   .featuredSection {
     padding: 4rem 0;
   }
@@ -327,5 +388,41 @@
   
   .universitiesGrid {
     gap: 1.5rem;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .featuredSection {
+    padding: 5rem 0;
+  }
+  
+  .sectionTitle {
+    font-size: 3rem;
+  }
+  
+  .universitiesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Large devices (desktops, 1024px and up) */
+@media (min-width: 1024px) {
+  .universitiesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .universitiesGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+  
+  .sectionTitle {
+    font-size: 4rem;
   }
 }

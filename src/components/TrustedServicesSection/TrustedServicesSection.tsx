@@ -189,7 +189,7 @@ export default function TrustedServicesSection() {
 
           {/* Universities Grid */}
           <ScrollAnimationWrapper animation="slideLeft" delay={0.16}>
-            <div className={styles.universitiesGrid}>
+            <div className={styles.universitiesGrid} id="study-destinations">
               <ScrollAnimationWrapper animation="fadeIn" delay={0.18}>
                 <h3 className={styles.gridTitle}>Study Destinations</h3>
               </ScrollAnimationWrapper>

@@ -158,7 +158,8 @@
 .leftAlign .stepCard {
   margin-left: 0;
   margin-right: 60px;
-  max-width: calc(50% - 100px);
+  width: 100%;
+  max-width: 500px;
 }
 
 .rightAlign {
@@ -168,7 +169,8 @@
 .rightAlign .stepCard {
   margin-right: 0;
   margin-left: 60px;
-  max-width: calc(50% - 100px);
+  width: 100%;
+  max-width: 500px;
 }
 
 /* Step Number */
@@ -232,6 +234,7 @@
   box-shadow:
     0 15px 40px rgba(0, 0, 0, 0.2),
     0 8px 25px rgba(59, 130, 246, 0.1);
+  width: 100%;
 }
 
 .stepCard::before {
@@ -480,6 +483,14 @@
   .stepWrapper {
     margin-bottom: 100px;
   }
+  
+  .leftAlign .stepCard {
+    max-width: 550px;
+  }
+  
+  .rightAlign .stepCard {
+    max-width: 550px;
+  }
 }
 
 /* Desktop (1024px - 1439px) */
@@ -499,10 +510,26 @@
   .stepWrapper {
     margin-bottom: 80px;
   }
+  
+  .leftAlign .stepCard {
+    max-width: 480px;
+  }
+  
+  .rightAlign .stepCard {
+    max-width: 480px;
+  }
+  
+  .leftAlign .stepCard {
+    margin-right: 50px;
+  }
+  
+  .rightAlign .stepCard {
+    margin-left: 50px;
+  }
 }
 
-/* Tablet Landscape (768px - 1023px) */
-@media (max-width: 1023px) and (min-width: 768px) {
+/* Large Tablet Landscape (992px - 1023px) */
+@media (max-width: 1023px) and (min-width: 992px) {
   .howWeWorkSection {
     padding: 100px 0;
   }
@@ -534,7 +561,7 @@
 
   .stepCard {
     padding: 40px 30px;
-    max-width: calc(50% - 80px);
+    max-width: 420px;
   }
 
   .leftAlign .stepCard {
@@ -566,8 +593,85 @@
   }
 }
 
-/* Tablet Portrait and Mobile (up to 767px) */
-@media (max-width: 767px) {
+/* Medium Tablet (768px - 991px) */
+@media (max-width: 991px) and (min-width: 768px) {
+  .howWeWorkSection {
+    padding: 90px 0;
+  }
+
+  .container {
+    padding: 0 25px;
+  }
+
+  .headerSection {
+    margin-bottom: 70px;
+  }
+
+  .badge {
+    padding: 10px 24px;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+  }
+
+  .mainTitle {
+    font-size: 2.8rem;
+    line-height: 1.1;
+  }
+
+  .description {
+    font-size: 1.1rem;
+  }
+
+  .stepsContainer {
+    max-width: 800px;
+  }
+
+  .stepWrapper {
+    margin-bottom: 60px;
+  }
+
+  .stepCard {
+    padding: 35px 25px;
+    max-width: 380px;
+  }
+
+  .leftAlign .stepCard {
+    margin-right: 40px;
+  }
+
+  .rightAlign .stepCard {
+    margin-left: 40px;
+  }
+
+  .stepNumber {
+    width: 70px;
+    height: 70px;
+    font-size: 1.5rem;
+  }
+
+  .stepIcon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+
+  .stepTitle {
+    font-size: 1.3rem;
+  }
+
+  .stepDescription {
+    font-size: 1rem;
+  }
+
+  .featureItem {
+    font-size: 0.9rem;
+    gap: 10px;
+  }
+}
+
+/* Tablet Portrait (601px - 767px) */
+@media (max-width: 767px) and (min-width: 601px) {
   .howWeWorkSection {
     padding: 80px 0;
   }
@@ -587,12 +691,12 @@
   }
 
   .mainTitle {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     line-height: 1.2;
   }
 
   .description {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
 
   .stepWrapper {
@@ -615,6 +719,8 @@
   .stepCard {
     max-width: 100%;
     padding: 30px 25px;
+    margin: 0 !important;
+    width: 100%;
   }
 
   .stepIcon {
@@ -634,6 +740,7 @@
 
   .featureItem {
     font-size: 0.9rem;
+    justify-content: center;
   }
 
   .stepConnector {
@@ -651,10 +758,10 @@
   }
 }
 
-/* Mobile (320px - 480px) */
-@media (max-width: 480px) {
+/* Mobile (481px - 600px) */
+@media (max-width: 600px) and (min-width: 481px) {
   .howWeWorkSection {
-    padding: 60px 0;
+    padding: 70px 0;
   }
 
   .container {
@@ -672,12 +779,102 @@
   }
 
   .mainTitle {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     line-height: 1.2;
   }
 
   .description {
     font-size: 1rem;
+  }
+
+  .stepWrapper {
+    margin-bottom: 50px;
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .rightAlign {
+    flex-direction: column !important;
+  }
+
+  .stepNumber {
+    width: 65px;
+    height: 65px;
+    font-size: 1.4rem;
+    margin: 0 0 15px 0;
+  }
+
+  .stepCard {
+    padding: 25px 20px;
+    max-width: 100%;
+    margin: 0 !important;
+    width: 100%;
+  }
+
+  .stepIcon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+    margin: 0 auto 15px;
+  }
+
+  .stepTitle {
+    font-size: 1.25rem;
+  }
+
+  .stepDescription {
+    font-size: 0.95rem;
+  }
+
+  .featureItem {
+    font-size: 0.85rem;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .stepConnector {
+    display: none;
+  }
+
+  .connectingLine {
+    display: none;
+  }
+
+  .floatingShape1,
+  .floatingShape2,
+  .floatingShape3 {
+    display: none;
+  }
+}
+
+/* Small Mobile (320px - 480px) */
+@media (max-width: 480px) {
+  .howWeWorkSection {
+    padding: 60px 0;
+  }
+
+  .container {
+    padding: 0 12px;
+  }
+
+  .headerSection {
+    margin-bottom: 40px;
+  }
+
+  .badge {
+    padding: 6px 16px;
+    font-size: 0.7rem;
+    letter-spacing: 0.8px;
+  }
+
+  .mainTitle {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .description {
+    font-size: 0.95rem;
+    line-height: 1.6;
   }
 
   .stepWrapper {
@@ -695,30 +892,46 @@
     height: 60px;
     font-size: 1.3rem;
     margin: 0 0 15px 0;
+    display: none; /* Hide step numbers on small mobile */
   }
 
   .stepCard {
-    padding: 25px 20px;
+    padding: 20px 15px;
     max-width: 100%;
+    margin: 0 !important;
+    border-radius: 20px;
+    width: 100%;
   }
 
   .stepIcon {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     font-size: 1.1rem;
     margin: 0 auto 15px;
   }
 
   .stepTitle {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
+    margin-bottom: 12px;
   }
 
   .stepDescription {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    line-height: 1.6;
   }
 
   .featureItem {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    gap: 6px;
+    margin-bottom: 6px;
+    justify-content: center;
+  }
+
+  .featureItem i {
+    width: 14px;
+    height: 14px;
+    font-size: 0.6rem;
   }
 
   .stepConnector {
@@ -733,5 +946,84 @@
   .floatingShape2,
   .floatingShape3 {
     display: none;
+  }
+}
+
+/* Extra Small Mobile (280px - 319px) */
+@media (max-width: 319px) {
+  .howWeWorkSection {
+    padding: 50px 0;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+
+  .headerSection {
+    margin-bottom: 30px;
+  }
+
+  .badge {
+    padding: 5px 12px;
+    font-size: 0.65rem;
+    letter-spacing: 0.5px;
+  }
+
+  .mainTitle {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+
+  .description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .stepWrapper {
+    margin-bottom: 30px;
+  }
+
+  .stepNumber {
+    width: 50px;
+    height: 50px;
+    font-size: 1.1rem;
+    margin: 0 0 12px 0;
+    display: none; /* Hide step numbers on extra small mobile */
+  }
+
+  .stepCard {
+    padding: 15px 12px;
+    border-radius: 15px;
+    width: 100%;
+  }
+
+  .stepIcon {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+    margin: 0 auto 12px;
+  }
+
+  .stepTitle {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .stepDescription {
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+
+  .featureItem {
+    font-size: 0.75rem;
+    gap: 5px;
+    margin-bottom: 5px;
+  }
+
+  .featureItem i {
+    width: 12px;
+    height: 12px;
+    font-size: 0.5rem;
   }
 }

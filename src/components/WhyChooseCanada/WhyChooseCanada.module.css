@@ -219,27 +219,74 @@
   }
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .headerContent {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    text-align: center;
-  }
-  
-  .reasonsGrid {
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 25px;
-  }
-}
-
-@media (max-width: 768px) {
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
   .whyChooseSection {
-    padding: 60px 0;
+    padding: 2rem 0;
   }
   
   .container {
     padding: 0 1rem;
+  }
+  
+  .sectionHeader {
+    margin-bottom: 2rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .sectionDescription {
+    font-size: 1rem;
+  }
+  
+  .headerContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .reasonsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .reasonCard {
+    padding: 1.5rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .cardIcon {
+    align-self: center;
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+  
+  .cardTitle {
+    font-size: 1.1rem;
+  }
+  
+  .cardDescription {
+    font-size: 0.9rem;
+  }
+  
+  .canadaImage {
+    max-width: 180px;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .whyChooseSection {
+    padding: 3rem 0;
+  }
+  
+  .sectionHeader {
+    margin-bottom: 3rem;
   }
   
   .sectionTitle {
@@ -250,13 +297,19 @@
     font-size: 1.1rem;
   }
   
+  .headerContent {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+  }
+  
   .reasonsGrid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 1.75rem;
   }
   
   .reasonCard {
-    padding: 30px 25px;
+    padding: 2rem;
   }
   
   .canadaImage {
@@ -264,23 +317,80 @@
   }
 }
 
-@media (max-width: 480px) {
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .whyChooseSection {
+    padding: 4rem 0;
+  }
+  
+  .sectionHeader {
+    margin-bottom: 4rem;
+  }
+  
   .sectionTitle {
-    font-size: 2rem;
+    font-size: 3rem;
+  }
+  
+  .headerContent {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .reasonsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
   
   .reasonCard {
-    padding: 25px 20px;
-    flex-direction: column;
-    text-align: center;
-    gap: 15px;
+    padding: 2.5rem;
+    flex-direction: row;
+    text-align: left;
   }
   
   .cardIcon {
-    align-self: center;
+    align-self: flex-start;
   }
   
   .canadaImage {
-    max-width: 180px;
+    max-width: 250px;
+  }
+}
+
+/* Large devices (desktops, 1024px and up) */
+@media (min-width: 1024px) {
+  .headerContent {
+    grid-template-columns: 1fr 300px;
+    gap: 4rem;
+    text-align: left;
+  }
+  
+  .reasonsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+  
+  .reasonCard {
+    padding: 3rem;
+  }
+  
+  .canadaImage {
+    max-width: 280px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .whyChooseSection {
+    padding: 5rem 0;
+  }
+  
+  .sectionTitle {
+    font-size: 3.5rem;
+  }
+  
+  .reasonsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
   }
 }

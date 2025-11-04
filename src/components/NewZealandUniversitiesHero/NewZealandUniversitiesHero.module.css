@@ -299,5 +299,44 @@
   .titleMain {
     white-space: normal;
     line-height: 1.1;
+    font-size: 2.2rem;
+  }
+  
+  .titleHighlight {
+    font-size: 1.8rem;
+  }
+  
+  .titleLocation {
+    font-size: 1.4rem;
+  }
+  
+  .titleEducation {
+    font-size: 1.1rem;
+  }
+  
+  .trustBadge {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+  }
+  
+  .primaryBtn,
+  .secondaryBtn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .bgElement1 {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .bgElement2 {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .bgElement3 {
+    width: 100px;
+    height: 100px;
   }
 }

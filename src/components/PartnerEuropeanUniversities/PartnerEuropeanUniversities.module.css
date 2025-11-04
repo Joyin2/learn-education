@@ -308,4 +308,168 @@
   .featureCard {
     padding: 1.5rem;
   }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .description p {
+    font-size: 1rem;
+  }
+  
+  .listTitle {
+    font-size: 1.1rem;
+  }
+  
+  .universityItem {
+    font-size: 0.9rem;
+  }
+  
+  .featuresTitle {
+    font-size: 2rem;
+  }
+  
+  .featuresSubtitle {
+    font-size: 1rem;
+  }
+  
+  .featureTitle {
+    font-size: 1.1rem;
+  }
+  
+  .featureDescription {
+    font-size: 0.9rem;
+  }
+  
+  .ctaButton {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+/* Small Devices (480px and below) */
+@media (max-width: 480px) {
+  .partnerUniversities {
+    padding: 2rem 0;
+  }
+  
+  .container {
+    padding: 0 0.75rem;
+  }
+  
+  .mainContent {
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .description {
+    margin-bottom: 1.5rem;
+  }
+  
+  .description p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  
+  .brandSection {
+    padding: 1rem;
+  }
+  
+  .brandName {
+    font-size: 1rem;
+  }
+  
+  .universitiesList {
+    padding: 1.5rem;
+    min-height: 350px;
+  }
+  
+  .listTitle {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .universitiesGrid {
+    max-height: 300px;
+    gap: 0.75rem;
+  }
+  
+  .universityItem {
+    font-size: 0.85rem;
+    padding: 0.5rem 0;
+  }
+  
+  .statsSection {
+    margin-bottom: 2rem;
+  }
+  
+  .statCard {
+    padding: 1.25rem 1.5rem;
+  }
+  
+  .statNumber {
+    font-size: 2rem;
+  }
+  
+  .statLabel {
+    font-size: 0.9rem;
+  }
+  
+  .featuresSection {
+    margin-bottom: 2rem;
+  }
+  
+  .featuresTitle {
+    font-size: 1.8rem;
+  }
+  
+  .featuresSubtitle {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+  
+  .featuresGrid {
+    gap: 1rem;
+  }
+  
+  .featureCard {
+    padding: 1.25rem;
+  }
+  
+  .featureIcon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+  
+  .featureTitle {
+    font-size: 1rem;
+  }
+  
+  .featureDescription {
+    font-size: 0.85rem;
+  }
+  
+  .ctaSection {
+    margin-top: 1.5rem;
+  }
+  
+  .ctaButton {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    width: 100%;
+  }
 }

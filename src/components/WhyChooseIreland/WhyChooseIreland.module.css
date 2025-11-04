@@ -69,10 +69,25 @@
 .contentWrapper {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 3rem;
+  gap: 2rem;
   align-items: center;
 }
 
+/* Small devices */
+@media (min-width: 576px) {
+  .contentWrapper {
+    gap: 2.5rem;
+  }
+}
+
+/* Medium devices */
+@media (min-width: 768px) {
+  .contentWrapper {
+    gap: 3rem;
+  }
+}
+
+/* Large devices */
 @media (min-width: 1024px) {
   .contentWrapper {
     grid-template-columns: 1fr 1fr;
@@ -218,7 +233,7 @@
   border-radius: 20px;
   overflow: hidden;
   background: linear-gradient(135deg, rgba(5, 150, 105, 0.1), rgba(249, 115, 22, 0.1));
-  padding: 2rem;
+  padding: 1.5rem;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -226,13 +241,28 @@
 .irelandImage {
   width: 100%;
   height: auto;
-  max-width: 400px;
+  max-width: 300px;
   filter: drop-shadow(0 10px 30px rgba(5, 150, 105, 0.3));
   transition: transform 0.3s ease;
 }
 
 .imageWrapper:hover .irelandImage {
-  transform: scale(1.05);
+  transform: scale(1.03);
+}
+
+/* Medium devices */
+@media (min-width: 768px) {
+  .imageWrapper {
+    padding: 2rem;
+  }
+  
+  .irelandImage {
+    max-width: 400px;
+  }
+  
+  .imageWrapper:hover .irelandImage {
+    transform: scale(1.05);
+  }
 }
 
 .imageGlow {
@@ -328,10 +358,78 @@
   animation: slideInRight 0.8s ease-out 0.3s both;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
   .whyChooseIrelandSection {
-    padding: 4rem 0;
+    padding: 2rem 0;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .titleMain {
+    font-size: 2rem;
+  }
+  
+  .sectionDescription {
+    font-size: 1rem;
+  }
+  
+  .featureItem {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+  
+  .featureIcon {
+    align-self: center;
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+  
+  .featureTitle {
+    font-size: 1.1rem;
+  }
+  
+  .featureDescription {
+    font-size: 0.9rem;
+  }
+  
+  .floatingStats {
+    position: static;
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .statCard {
+    padding: 1.25rem;
+  }
+  
+  .statNumber {
+    font-size: 1.5rem;
+  }
+  
+  .statLabel {
+    font-size: 0.8rem;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .whyChooseIrelandSection {
+    padding: 3rem 0;
+  }
+  
+  .sectionTitle {
+    font-size: 2.5rem;
+  }
+  
+  .titleMain {
+    font-size: 2.5rem;
   }
   
   .featureItem {
@@ -349,5 +447,44 @@
     margin-top: 2rem;
     display: flex;
     justify-content: center;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .whyChooseIrelandSection {
+    padding: 4rem 0;
+  }
+  
+  .sectionTitle {
+    font-size: 3rem;
+  }
+  
+  .titleMain {
+    font-size: 3.5rem;
+  }
+  
+  .featureItem {
+    flex-direction: row;
+    text-align: left;
+  }
+  
+  .featureIcon {
+    align-self: flex-start;
+  }
+}
+
+/* Large devices (desktops, 1024px and up) */
+@media (min-width: 1024px) {
+  .whyChooseIrelandSection {
+    padding: 6rem 0;
+  }
+  
+  .sectionTitle {
+    font-size: 3.5rem;
+  }
+  
+  .titleMain {
+    font-size: 3.5rem;
   }
 }

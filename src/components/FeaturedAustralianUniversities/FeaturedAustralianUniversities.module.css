@@ -321,4 +321,100 @@
     grid-template-columns: 1fr;
     gap: 1rem;
   }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .sectionDescription {
+    font-size: 1rem;
+  }
+}
+
+/* Small Devices (480px and below) */
+@media (max-width: 480px) {
+  .featuredUniversities {
+    padding: 2rem 0;
+  }
+  
+  .container {
+    padding: 0 0.75rem;
+  }
+  
+  .sectionHeader {
+    margin-bottom: 2rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+  
+  .sectionDescription {
+    font-size: 0.95rem;
+  }
+  
+  .sectionTitle::after {
+    width: 60px;
+    height: 3px;
+    bottom: -8px;
+  }
+  
+  .universitiesGrid {
+    gap: 1rem;
+  }
+  
+  .universityCard {
+    max-width: 100%;
+  }
+  
+  .cardImage {
+    height: 180px;
+  }
+  
+  .cardContent {
+    padding: 0.75rem;
+  }
+  
+  .universityName {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .universityDetails {
+    margin-bottom: 1rem;
+  }
+  
+  .detailItem {
+    font-size: 0.8rem;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .badge {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.7rem;
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+  
+  .learnMoreBtn {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 10px;
+  }
+  
+  .floatingElement1 {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .floatingElement2 {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .floatingElement3 {
+    width: 75px;
+    height: 75px;
+  }
 }

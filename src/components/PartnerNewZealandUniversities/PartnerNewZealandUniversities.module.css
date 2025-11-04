@@ -469,4 +469,256 @@
     padding: 1rem 2rem;
     font-size: 1rem;
   }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .sectionSubtitle {
+    font-size: 1rem;
+  }
+  
+  .headerSection {
+    padding: 1.5rem;
+  }
+  
+  .missionText {
+    font-size: 0.95rem;
+  }
+  
+  .statNumber {
+    font-size: 2rem;
+  }
+  
+  .statLabel {
+    font-size: 0.8rem;
+  }
+  
+  .brandSection {
+    padding: 1rem;
+  }
+  
+  .brandName {
+    font-size: 1rem;
+  }
+  
+  .contentRight {
+    padding: 1.5rem;
+  }
+  
+  .listTitle {
+    font-size: 1.1rem;
+  }
+  
+  .universityItem {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+  
+  .featuresTitle {
+    font-size: 1.8rem;
+  }
+  
+  .featuresSubtitle {
+    font-size: 0.95rem;
+  }
+  
+  .featureCard {
+    padding: 1.25rem;
+  }
+  
+  .featureTitle {
+    font-size: 1rem;
+  }
+  
+  .featureDescription {
+    font-size: 0.85rem;
+  }
+  
+  .ctaButton {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+  
+  .finalCtaTitle {
+    font-size: 1.8rem;
+  }
+  
+  .finalCtaDescription {
+    font-size: 0.95rem;
+  }
+  
+  .finalCtaFeature {
+    font-size: 0.9rem;
+  }
+}
+
+/* Small Devices (480px and below) */
+@media (max-width: 480px) {
+  .partnerUniversities {
+    padding: 2rem 0;
+  }
+  
+  .container {
+    padding: 0 0.75rem;
+  }
+  
+  .sectionHeader {
+    margin-bottom: 2rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+  
+  .sectionSubtitle {
+    font-size: 0.95rem;
+  }
+  
+  .mainContent {
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .headerSection {
+    padding: 1rem;
+  }
+  
+  .mainTitle {
+    font-size: 1.5rem;
+  }
+  
+  .missionText {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .statsSection {
+    gap: 1rem;
+  }
+  
+  .statNumber {
+    font-size: 1.8rem;
+  }
+  
+  .statLabel {
+    font-size: 0.75rem;
+  }
+  
+  .brandSection {
+    padding: 0.75rem;
+  }
+  
+  .brandName {
+    font-size: 0.9rem;
+  }
+  
+  .contentRight {
+    padding: 1rem;
+  }
+  
+  .listTitle {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .universitiesGrid {
+    gap: 0.5rem;
+  }
+  
+  .universityItem {
+    font-size: 0.85rem;
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+  
+  .featuresSection {
+    padding: 1.5rem 0.75rem;
+    border-radius: 20px;
+  }
+  
+  .featuresTitle {
+    font-size: 1.5rem;
+  }
+  
+  .featuresSubtitle {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .featuresGrid {
+    gap: 1rem;
+  }
+  
+  .featureCard {
+    padding: 1rem;
+  }
+  
+  .featureIcon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+  
+  .featureTitle {
+    font-size: 0.95rem;
+  }
+  
+  .featureDescription {
+    font-size: 0.8rem;
+  }
+  
+  .ctaButton {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+    border-radius: 25px;
+  }
+  
+  .finalCtaSection {
+    margin-top: 2rem;
+    padding: 1.5rem 0.75rem;
+    border-radius: 20px;
+  }
+  
+  .finalCtaTitle {
+    font-size: 1.5rem;
+  }
+  
+  .finalCtaDescription {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .finalCtaFeatures {
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .finalCtaFeature {
+    font-size: 0.85rem;
+  }
+  
+  .finalCtaButtons {
+    gap: 0.75rem;
+  }
+  
+  .finalCtaButton {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+    border-radius: 30px;
+  }
+  
+  .finalCtaNote {
+    font-size: 0.8rem;
+  }
+  
+  .floatingElement1 {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .floatingElement2 {
+    width: 120px;
+    height: 120px;
+  }
 }

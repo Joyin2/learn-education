@@ -189,7 +189,7 @@
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 60px;
+  padding: 0 20px;
 }
 
 .purposeCard {
@@ -206,112 +206,9 @@
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   animation: cardEntrance 1s ease-out 0.3s both;
-  width: 75%;
-  position: relative;
-}
-
-/* Alternating positions for cards */
-.purposeCard:nth-child(1) {
-  align-self: flex-start;
-  margin-left: -80px;
-  margin-right: auto;
-}
-
-.purposeCard:nth-child(2) {
-  align-self: flex-end;
-  margin-right: -80px;
-  margin-left: auto;
-}
-
-/* Removed dotted connection lines for cleaner design */
-
-/* Removed dotted line animations */
-
-/* Removed connection dots for cleaner design */
-
-/* Dynamic Decorative Animations */
-@keyframes decorativePulse {
-  0%, 100% {
-    opacity: 0.6;
-    transform: translateX(-50%) scaleY(1);
-    filter: blur(0px);
-  }
-  50% {
-    opacity: 1;
-    transform: translateX(-50%) scaleY(1.1);
-    filter: blur(0.5px);
-  }
-}
-
-@keyframes floatingOrb {
-  0%, 100% {
-    transform: translateX(-50%) translateY(0px) rotate(0deg);
-    opacity: 0.3;
-  }
-  33% {
-    transform: translateX(-50%) translateY(-10px) rotate(120deg);
-    opacity: 0.6;
-  }
-  66% {
-    transform: translateX(-50%) translateY(5px) rotate(240deg);
-    opacity: 0.4;
-  }
-}
-
-@keyframes decorativeLineFlow {
-  0%, 100% {
-    opacity: 0.7;
-    transform: translateY(-50%) rotate(var(--rotation, 15deg)) scaleX(1);
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(-50%) rotate(var(--rotation, 15deg)) scaleX(1.2);
-  }
-}
-
-@keyframes decorativeDot {
-  0%, 100% {
-    opacity: 0.8;
-    transform: translateY(-50%) scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(-50%) scale(1.3);
-  }
-}
-
-/* Mixed Style Animations */
-@keyframes geometricFloat {
-  0%, 100% {
-    transform: rotate(45deg) translateY(0px);
-    opacity: 0.6;
-  }
-  50% {
-    transform: rotate(45deg) translateY(-8px);
-    opacity: 1;
-  }
-}
-
-@keyframes geometricPulse {
-  0%, 100% {
-    transform: rotate(90deg) scale(1);
-    opacity: 0.5;
-  }
-  50% {
-    transform: rotate(90deg) scale(1.2);
-    opacity: 0.8;
-  }
-}
-
-@keyframes lineStretch {
-  0%, 100% {
-    transform: scaleX(1);
-    opacity: 0.6;
-  }
-  50% {
-    transform: scaleX(1.3);
-    opacity: 1;
-  }
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .purposeCard::before {
@@ -332,14 +229,6 @@
     0 20px 60px rgba(0, 0, 0, 0.4),
     inset 0 3px 0 rgba(255, 255, 255, 0.3);
   border-color: rgba(59, 130, 246, 0.3);
-}
-
-.purposeCard:nth-child(1):hover {
-  transform: translateY(-15px) scale(1.03) translateX(15px);
-}
-
-.purposeCard:nth-child(2):hover {
-  transform: translateY(-15px) scale(1.03) translateX(-15px);
 }
 
 .cardHeader {
@@ -446,23 +335,25 @@
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   animation: stepSlideIn 0.8s ease-out var(--delay) both;
   position: relative;
-  width: 55%;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
   box-shadow:
     0 15px 40px rgba(0, 0, 0, 0.3),
     0 5px 15px rgba(59, 130, 246, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
-/* Alternating positions */
 .stepItem:nth-child(odd) {
-  align-self: flex-start;
-  margin-left: 0;
+  align-self: center;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .stepItem:nth-child(even) {
-  align-self: flex-end;
-  margin-right: 0;
-  flex-direction: row-reverse;
+  align-self: center;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 /* Dynamic Decorative Elements for Step Items */
@@ -569,79 +460,11 @@
 }
 
 .stepItem:nth-child(odd):hover {
-  transform: scale(1.03) translateX(10px);
-}
-
-.stepItem:nth-child(odd):hover::before {
-  --rotation: 25deg;
+  transform: scale(1.03);
 }
 
 .stepItem:nth-child(even):hover {
-  transform: scale(1.03) translateX(-10px);
-}
-
-.stepItem:nth-child(even):hover::before {
-  --rotation: -25deg;
-}
-
-/* Mixed Style Decorative Elements - Curves and Straight Segments */
-.stepsList {
-  position: relative;
-}
-
-/* Additional curved decorative elements */
-.stepItem:nth-child(1) {
-  position: relative;
-}
-
-.stepItem:nth-child(1)::after {
-  content: '';
-  position: absolute;
-  right: -60px;
-  top: 30%;
-  width: 30px;
-  height: 30px;
-  border: 2px solid rgba(96, 165, 250, 0.4);
-  border-radius: 50% 0 50% 0;
-  transform: rotate(45deg);
-  animation: geometricFloat 5s ease-in-out infinite;
-}
-
-.stepItem:nth-child(2)::after {
-  content: '';
-  position: absolute;
-  left: -60px;
-  top: 30%;
-  width: 25px;
-  height: 25px;
-  border: 2px solid rgba(37, 99, 235, 0.4);
-  border-radius: 0 50% 0 50%;
-  transform: rotate(-45deg);
-  animation: geometricFloat 5s ease-in-out infinite 2.5s;
-}
-
-.stepItem:nth-child(3)::after {
-  content: '';
-  position: absolute;
-  right: -55px;
-  top: 35%;
-  width: 20px;
-  height: 20px;
-  background: linear-gradient(45deg, transparent 40%, rgba(29, 78, 216, 0.3) 50%, transparent 60%);
-  transform: rotate(90deg);
-  animation: geometricPulse 4s ease-in-out infinite 1s;
-}
-
-.stepItem:nth-child(4)::after {
-  content: '';
-  position: absolute;
-  left: -55px;
-  top: 35%;
-  width: 28px;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.6), transparent);
-  border-radius: 2px;
-  animation: lineStretch 3s ease-in-out infinite 1.5s;
+  transform: scale(1.03);
 }
 
 .stepNumber {
@@ -673,8 +496,6 @@
   position: relative;
   z-index: 2;
 }
-
-
 
 /* Animations */
 @keyframes fadeInUp {
@@ -784,7 +605,55 @@
   }
 }
 
+@keyframes decorativePulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translateX(-50%) scaleY(1);
+    filter: blur(0px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scaleY(1.1);
+    filter: blur(0.5px);
+  }
+}
 
+@keyframes floatingOrb {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0px) rotate(0deg);
+    opacity: 0.3;
+  }
+  33% {
+    transform: translateX(-50%) translateY(-10px) rotate(120deg);
+    opacity: 0.6;
+  }
+  66% {
+    transform: translateX(-50%) translateY(5px) rotate(240deg);
+    opacity: 0.4;
+  }
+}
+
+@keyframes decorativeLineFlow {
+  0%, 100% {
+    opacity: 0.7;
+    transform: translateY(-50%) rotate(var(--rotation, 15deg)) scaleX(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-50%) rotate(var(--rotation, 15deg)) scaleX(1.2);
+  }
+}
+
+@keyframes decorativeDot {
+  0%, 100% {
+    opacity: 0.8;
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.3);
+  }
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -808,9 +677,8 @@
 
   .purposeCard {
     padding: 35px 25px;
-    width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    width: 100%;
+    max-width: 100%;
   }
 
   .purposeCard:nth-child(1):hover,
@@ -855,6 +723,7 @@
     --decorative-opacity: 0.6;
 
     width: 100%;
+    max-width: 100%;
     margin-left: 45px !important;
     margin-right: 0 !important;
     flex-direction: row !important;
@@ -885,14 +754,12 @@
 
   .stepItem:nth-child(odd):hover,
   .stepItem:nth-child(even):hover {
-    transform: scale(1.02) translateX(5px);
+    transform: scale(1.02);
   }
 
   .stepItem:hover::before {
     transform: translateY(-50%) rotate(0deg) scaleX(1.3) !important;
   }
-
-
 
   .hexagonalGrid,
   .flowingLines,
@@ -918,6 +785,7 @@
 
   .purposeCard {
     padding: 40px 30px;
+    max-width: 100%;
   }
 
   .cardTitle {
@@ -936,6 +804,7 @@
     --decorative-dot-size: 7px;
     --decorative-scale: 0.9;
     --decorative-opacity: 0.7;
+    max-width: 100%;
   }
 
   .stepsList::after {
@@ -1002,6 +871,7 @@
     --decorative-opacity: 0.5;
 
     margin-left: 35px !important;
+    padding: 20px;
   }
 
   .stepsList::before {
@@ -1018,5 +888,15 @@
   .stepItem:nth-child(odd)::after,
   .stepItem:nth-child(even)::after {
     left: -12px;
+  }
+  
+  .stepText {
+    font-size: 1rem;
+  }
+  
+  .stepNumber {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
   }
 }

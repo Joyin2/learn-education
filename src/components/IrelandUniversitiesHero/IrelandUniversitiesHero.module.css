@@ -1,19 +1,43 @@
 /* Ireland Universities Hero Section */
 .irelandHeroSection {
   position: relative;
-  min-height: 80vh;
+  min-height: 75vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #0f1419 0%, #065f46 25%, #059669 50%, #f97316 75%, #0f1419 100%);
   overflow: hidden;
-  padding: 3.5rem 0;
+  padding: 3rem 0;
 }
 
-@media (min-width: 1024px) {
+/* Small devices (phones, 576px and up) */
+@media (min-width: 576px) {
+  .irelandHeroSection {
+    min-height: 80vh;
+    padding: 3.5rem 0;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
   .irelandHeroSection {
     min-height: 85vh;
+    padding: 4rem 0;
+  }
+}
+
+/* Large devices (desktops, 1024px and up) */
+@media (min-width: 1024px) {
+  .irelandHeroSection {
+    min-height: 90vh;
     padding: 4.5rem 0;
+  }
+}
+
+/* Extra large devices */
+@media (min-width: 1200px) {
+  .irelandHeroSection {
+    min-height: 95vh;
   }
 }
 
@@ -36,30 +60,51 @@
 }
 
 .bgElement1 {
-  width: 300px;
-  height: 300px;
+  width: 150px;
+  height: 150px;
   background: rgba(5, 150, 105, 0.15);
   top: 10%;
-  left: -10%;
+  left: -15%;
   animation-delay: 0s;
 }
 
 .bgElement2 {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   background: rgba(249, 115, 22, 0.15);
   top: 60%;
-  right: -5%;
+  right: -10%;
   animation-delay: 2s;
 }
 
 .bgElement3 {
-  width: 150px;
-  height: 150px;
+  width: 75px;
+  height: 75px;
   background: rgba(5, 150, 105, 0.1);
   bottom: 20%;
-  left: 20%;
+  left: 10%;
   animation-delay: 4s;
+}
+
+/* Scale down elements on smaller screens */
+@media (max-width: 768px) {
+  .bgElement1 {
+    width: 100px;
+    height: 100px;
+    left: -20%;
+  }
+  
+  .bgElement2 {
+    width: 70px;
+    height: 70px;
+    right: -15%;
+  }
+  
+  .bgElement3 {
+    width: 50px;
+    height: 50px;
+    left: 5%;
+  }
 }
 
 @keyframes float {
@@ -83,11 +128,26 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 300px;
-  height: 200px;
+  width: 200px;
+  height: 150px;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M0 0h60v30H0z'/%3E%3Cpath d='M0 0h20v30H20zM40 0h20v30H60z'/%3E%3Cg fill='%2305a855' fill-opacity='0.05'%3E%3Cpath d='M20 0h20v30H40z'/%3E%3C/g%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M5 5l3 3-3 3-3-3zM15 5l3 3-3 3-3-3zM25 5l3 3-3 3-3-3zM35 5l3 3-3 3-3-3zM45 5l3 3-3 3-3-3zM55 5l3 3-3 3-3-3z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
-  opacity: 0.5;
+  opacity: 0.3;
   z-index: 2;
+}
+
+/* Hide pattern on small screens */
+@media (max-width: 768px) {
+  .irishPattern {
+    width: 150px;
+    height: 100px;
+    opacity: 0.2;
+  }
+}
+
+@media (max-width: 576px) {
+  .irishPattern {
+    display: none;
+  }
 }
 
 /* Container */
@@ -163,7 +223,7 @@
 }
 
 .titleMain {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 900;
   color: #ffffff;
   text-shadow:
@@ -174,7 +234,7 @@
 }
 
 .titleHighlight {
-  font-size: 2.5rem;
+  font-size: 1.75rem;
   font-weight: 700;
   background: linear-gradient(90deg, #059669 0%, #f97316 50%, #059669 100%);
   background-clip: text;
@@ -186,7 +246,7 @@
 }
 
 .titleLocation {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: #e2e8f0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
@@ -194,28 +254,30 @@
 }
 
 .titleEducation {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 500;
   color: #cbd5e1;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   line-height: 1.4;
 }
 
-/* Responsive Typography */
-@media (max-width: 480px) {
-  .titleMain { font-size: 2.2rem; }
-  .titleHighlight { font-size: 1.8rem; }
-  .titleLocation { font-size: 1.4rem; }
-  .titleEducation { font-size: 1.1rem; }
+/* Small devices */
+@media (min-width: 576px) {
+  .titleMain { font-size: 2.5rem; }
+  .titleHighlight { font-size: 2rem; }
+  .titleLocation { font-size: 1.75rem; }
+  .titleEducation { font-size: 1.5rem; }
 }
 
-@media (min-width: 481px) and (max-width: 768px) {
-  .titleMain { font-size: 2.8rem; }
-  .titleHighlight { font-size: 2.2rem; }
-  .titleLocation { font-size: 1.6rem; }
-  .titleEducation { font-size: 1.3rem; }
+/* Medium devices */
+@media (min-width: 768px) {
+  .titleMain { font-size: 3.5rem; }
+  .titleHighlight { font-size: 3rem; }
+  .titleLocation { font-size: 2.5rem; }
+  .titleEducation { font-size: 2rem; }
 }
 
+/* Large devices */
 @media (min-width: 1024px) {
   .titleMain { font-size: 4.5rem; }
   .titleHighlight { font-size: 4rem; }
@@ -245,24 +307,27 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 1rem 2rem;
+  padding: 0.8rem 1.5rem;
   border-radius: 50px;
   font-weight: 600;
+  font-size: 0.9rem;
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  width: 100%;
+  justify-content: center;
 }
 
 .primaryBtn {
   background: linear-gradient(135deg, #059669 0%, #f97316 50%, #059669 100%);
   color: white;
-  box-shadow: 0 10px 25px rgba(5, 150, 105, 0.3);
+  box-shadow: 0 8px 20px rgba(5, 150, 105, 0.3);
 }
 
 .primaryBtn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 15px 35px rgba(5, 150, 105, 0.4);
+  box-shadow: 0 12px 30px rgba(5, 150, 105, 0.4);
 }
 
 .secondaryBtn {
@@ -276,6 +341,25 @@
   background: rgba(5, 150, 105, 0.2);
   border-color: rgba(5, 150, 105, 0.6);
   transform: translateY(-2px);
+}
+
+/* Medium devices */
+@media (min-width: 576px) {
+  .primaryBtn,
+  .secondaryBtn {
+    width: auto;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+/* Large devices */
+@media (min-width: 1024px) {
+  .primaryBtn,
+  .secondaryBtn {
+    padding: 1.2rem 2.5rem;
+    font-size: 1.1rem;
+  }
 }
 
 /* Button Icons */

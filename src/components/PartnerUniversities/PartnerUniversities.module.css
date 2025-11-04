@@ -180,13 +180,38 @@
 .universitiesList {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
 
+/* Small devices */
+@media (min-width: 576px) {
+  .universitiesList {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+}
+
+/* Medium devices */
 @media (min-width: 768px) {
   .universitiesList {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+  }
+}
+
+/* Large devices */
+@media (min-width: 1024px) {
+  .universitiesList {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+/* Extra large devices */
+@media (min-width: 1200px) {
+  .universitiesList {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
   }
 }
 
@@ -239,14 +264,25 @@
 .benefitsSection {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
-  margin-bottom: 5rem;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
 }
 
+/* Small devices */
+@media (min-width: 576px) {
+  .benefitsSection {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+}
+
+/* Medium devices */
 @media (min-width: 768px) {
   .benefitsSection {
     grid-template-columns: repeat(3, 1fr);
     gap: 2.5rem;
+    margin-bottom: 5rem;
   }
 }
 
@@ -605,18 +641,133 @@
   }
 }
 
-/* Mobile Adjustments */
-@media (max-width: 768px) {
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
   .partnerSection {
-    padding: 4rem 0;
+    padding: 2rem 0;
   }
 
   .sectionHeader {
+    margin-bottom: 2rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .sectionSubtitle {
+    font-size: 1.1rem;
+  }
+
+  .mainContent {
+    gap: 2rem;
     margin-bottom: 3rem;
+  }
+  
+  .descriptionBox {
+    padding: 1.5rem;
+  }
+  
+  .description,
+  .mission {
+    font-size: 0.95rem;
+  }
+  
+  .statsCard {
+    padding: 1.5rem;
+  }
+  
+  .statNumber {
+    font-size: 2.5rem;
+  }
+  
+  .statLabel {
+    font-size: 1rem;
+  }
+  
+  .universitiesContainer {
+    padding: 1.5rem;
+  }
+  
+  .listTitle {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .universityName {
+    font-size: 0.85rem;
+  }
+
+  .benefitsSection {
+    margin-bottom: 3rem;
+    gap: 1.5rem;
+  }
+  
+  .benefitCard {
+    padding: 1.5rem;
+  }
+  
+  .benefitTitle {
+    font-size: 1.1rem;
+  }
+  
+  .benefitDescription {
+    font-size: 0.9rem;
+  }
+
+  .ctaSection {
+    padding: 1.5rem;
+    gap: 2rem;
+  }
+
+  .ctaTitle {
+    font-size: 1.75rem;
+  }
+  
+  .ctaDescription {
+    font-size: 0.95rem;
+  }
+  
+  .ctaStatCard {
+    padding: 1.5rem;
+  }
+  
+  .ctaStatNumber {
+    font-size: 2.5rem;
+  }
+  
+  .ctaStatLabel {
+    font-size: 1rem;
+  }
+
+  .primaryCtaBtn {
+    min-width: auto;
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .disclaimer {
+    font-size: 0.8rem;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .partnerSection {
+    padding: 3rem 0;
+  }
+
+  .sectionHeader {
+    margin-bottom: 2.5rem;
   }
 
   .sectionTitle {
     font-size: 2.5rem;
+  }
+  
+  .sectionSubtitle {
+    font-size: 1.2rem;
   }
 
   .mainContent {
@@ -639,5 +790,70 @@
   .primaryCtaBtn {
     min-width: auto;
     width: 100%;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .partnerSection {
+    padding: 4rem 0;
+  }
+  
+  .sectionTitle {
+    font-size: 3rem;
+  }
+  
+  .sectionSubtitle {
+    font-size: 1.3rem;
+  }
+  
+  .mainContent {
+    gap: 4rem;
+    margin-bottom: 5rem;
+  }
+  
+  .benefitsSection {
+    margin-bottom: 5rem;
+    gap: 2rem;
+  }
+  
+  .ctaSection {
+    padding: 3rem;
+    gap: 3rem;
+  }
+  
+  .ctaTitle {
+    font-size: 2.5rem;
+  }
+}
+
+/* Large devices (desktops, 1024px and up) */
+@media (min-width: 1024px) {
+  .partnerSection {
+    padding: 6rem 0;
+  }
+  
+  .sectionTitle {
+    font-size: 4rem;
+  }
+  
+  .mainContent {
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+  }
+  
+  .benefitsSection {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+  
+  .ctaSection {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding: 4rem;
+  }
+  
+  .ctaTitle {
+    font-size: 3rem;
   }
 }

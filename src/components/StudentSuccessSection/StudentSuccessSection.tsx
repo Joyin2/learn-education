@@ -2,48 +2,96 @@
 
 import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay, Mousewheel, Keyboard } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import 'swiper/css/effect-fade';
 import styles from './StudentSuccessSection.module.css';
 
 export default function StudentSuccessSection() {
   const [isVisible, setIsVisible] = useState(false);
+  const [swiperInstance, setSwiperInstance] = useState<any>(null);
 
   const testimonials = [
     {
-      name: "Sarah M.",
+      id: 1,
+      name: "Sarah Mitchell",
       role: "UK Student",
       university: "University of London",
       image: "https://asvbqmdvplqupbqpigoa.supabase.co/storage/v1/object/public/learneducation/students%20icons/sarah.jpg",
       quote: "Thanks to Learn Education London, I was able to get into my dream university. The team provided me with incredible support throughout the entire process, from my application to interview preparation. I couldn't have done it without their expert guidance!",
-      rating: 5
+      rating: 5,
+      date: "2024"
     },
     {
-      name: "Fatima S.",
+      id: 2,
+      name: "Fatima Sheikh",
       role: "International Student from UAE",
       university: "University of Manchester",
       image: "https://asvbqmdvplqupbqpigoa.supabase.co/storage/v1/object/public/learneducation/students%20icons/fatima.jpg",
       quote: "The team at Learn Education London is dedicated and knowledgeable. They helped me navigate the UK education system, assisted with my visa application, and even offered career advice. Their ongoing support has been instrumental in my academic journey.",
-      rating: 5
+      rating: 5,
+      date: "2024"
     },
     {
-      name: "Daniel P.",
+      id: 3,
+      name: "Daniel Pereira",
       role: "International Student from Brazil",
       university: "University of Edinburgh",
       image: "https://asvbqmdvplqupbqpigoa.supabase.co/storage/v1/object/public/learneducation/students%20icons/daniel.jpg",
       quote: "I was impressed by the level of detail and care Learn Education London provided. They guided me through every step of the application process, and their interview preparation tips were spot on. I felt well-prepared and confident thanks to their expert advice.",
-      rating: 5
+      rating: 5,
+      date: "2024"
     },
     {
-      name: "John D.",
+      id: 4,
+      name: "John Dev",
       role: "International Student from India",
       university: "University of Birmingham",
       image: "https://asvbqmdvplqupbqpigoa.supabase.co/storage/v1/object/public/learneducation/students%20icons/john.jpg",
       quote: "Applying to universities in the UK felt overwhelming at first, but Learn Education London made the entire process smooth and stress-free. Their personalized approach and detailed advice helped me secure a spot at one of the top universities. I highly recommend their services!",
-      rating: 5
+      rating: 5,
+      date: "2024"
+    },
+    {
+      id: 5,
+      name: "Emma Thompson",
+      role: "UK Student",
+      university: "King's College London",
+      image: "https://asvbqmdvplqupbqpigoa.supabase.co/storage/v1/object/public/learneducation/students%20icons/sarah.jpg",
+      quote: "The personalized attention I received was exceptional. They understood my goals and helped me craft applications that truly reflected my potential. I'm now studying at my dream university thanks to their support!",
+      rating: 5,
+      date: "2024"
+    },
+    {
+      id: 6,
+      name: "Michael Chen",
+      role: "International Student from China",
+      university: "Imperial College London",
+      image: "https://asvbqmdvplqupbqpigoa.supabase.co/storage/v1/object/public/learneducation/students%20icons/daniel.jpg",
+      quote: "The visa support and interview preparation were invaluable. They helped me secure a place at one of the most competitive universities in the world. Their expertise and dedication made all the difference.",
+      rating: 5,
+      date: "2024"
+    },
+    {
+      id: 7,
+      name: "Sophia Williams",
+      role: "UK Student",
+      university: "University of Cambridge",
+      image: "https://asvbqmdvplqupbqpigoa.supabase.co/storage/v1/object/public/learneducation/students%20icons/fatima.jpg",
+      quote: "The guidance I received was beyond what I expected. They helped me craft a compelling personal statement and prepared me for interviews. I'm grateful for their support in achieving my dream of studying at Cambridge.",
+      rating: 5,
+      date: "2024"
+    },
+    {
+      id: 8,
+      name: "Ahmed Khan",
+      role: "International Student from Pakistan",
+      university: "University College London",
+      image: "https://asvbqmdvplqupbqpigoa.supabase.co/storage/v1/object/public/learneducation/students%20icons/john.jpg",
+      quote: "Moving to the UK for studies was a big step, but Learn Education made it seamless. Their support with accommodation, visa, and cultural adaptation was invaluable. I felt supported every step of the way.",
+      rating: 5,
+      date: "2024"
     }
   ];
 
@@ -57,8 +105,6 @@ export default function StudentSuccessSection() {
     };
   }, []);
 
-  // Removed manual navigation to ensure smooth automatic transitions
-
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, index) => (
       <i
@@ -66,6 +112,12 @@ export default function StudentSuccessSection() {
         className={`fa-solid fa-star ${index < rating ? styles.starFilled : styles.starEmpty}`}
       ></i>
     ));
+  };
+
+  const handleNext = () => {
+    if (swiperInstance) {
+      swiperInstance.slideNext();
+    }
   };
 
   return (
@@ -91,9 +143,10 @@ export default function StudentSuccessSection() {
         {/* Testimonials Carousel */}
         <div className={styles.testimonialsContainer}>
           <Swiper
-            modules={[Navigation, Pagination, Autoplay, EffectFade]}
+            modules={[Navigation, Pagination, Autoplay, Mousewheel, Keyboard]}
             spaceBetween={30}
             slidesPerView={1}
+            onSwiper={setSwiperInstance}
             navigation={{
               nextEl: `.${styles.swiperButtonNext}`,
               prevEl: `.${styles.swiperButtonPrev}`,
@@ -104,32 +157,56 @@ export default function StudentSuccessSection() {
               dynamicBullets: true,
             }}
             autoplay={{
-              delay: 3000,
+              delay: 4000,
               disableOnInteraction: false,
-              pauseOnMouseEnter: false,
+              pauseOnMouseEnter: true,
             }}
-            effect="fade"
-            fadeEffect={{
-              crossFade: true
+            mousewheel={{
+              forceToAxis: true,
+              sensitivity: 1,
+              releaseOnEdges: true,
             }}
-            speed={800}
+            keyboard={{
+              enabled: true,
+              onlyInViewport: false,
+            }}
+            breakpoints={{
+              // when window width is >= 768px (tablets)
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              // when window width is >= 1024px (desktop)
+              1024: {
+                slidesPerView: 4,
+                spaceBetween: 30,
+              },
+              // when window width is >= 1200px (large desktop)
+              1200: {
+                slidesPerView: 4,
+                spaceBetween: 30,
+              },
+            }}
             loop={true}
             className={styles.testimonialSwiper}
+            grabCursor={true}
           >
-            {testimonials.map((testimonial, index) => (
-              <SwiperSlide key={index} className={styles.testimonialSlide}>
+            {testimonials.map((testimonial) => (
+              <SwiperSlide key={testimonial.id} className={styles.testimonialSlide}>
                 <div className={styles.testimonialCard}>
                   <div className={styles.cardHeader}>
-                    <div className={styles.studentImage}>
-                      <img src={testimonial.image} alt={testimonial.name} />
-                      <div className={styles.imageOverlay}></div>
+                    <div className={styles.studentAvatar}>
+                      <img 
+                        src={testimonial.image} 
+                        alt={testimonial.name} 
+                        className={styles.studentImage}
+                      />
                     </div>
                     <div className={styles.studentInfo}>
                       <h4 className={styles.studentName}>{testimonial.name}</h4>
                       <p className={styles.studentRole}>{testimonial.role}</p>
                       <p className={styles.university}>{testimonial.university}</p>
                     </div>
-
                   </div>
 
                   <div className={styles.rating}>
@@ -137,28 +214,23 @@ export default function StudentSuccessSection() {
                   </div>
 
                   <blockquote className={styles.quote}>
-                    <i className="fa-solid fa-quote-left"></i>
                     <p>{testimonial.quote}</p>
-                    <i className="fa-solid fa-quote-right"></i>
                   </blockquote>
 
                   <div className={styles.cardFooter}>
-                    <div className={styles.verifiedBadge}>
-                      <i className="fa-solid fa-check-circle"></i>
-                      <span>Verified Student</span>
-                    </div>
+                    <div className={styles.reviewDate}>{testimonial.date}</div>
                   </div>
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
 
-          {/* Custom Navigation */}
+          {/* Custom Navigation - Only Right Arrow */}
           <div className={styles.swiperNavigation}>
-            <button className={styles.swiperButtonPrev}>
-              <i className="fa-solid fa-chevron-left"></i>
-            </button>
-            <button className={styles.swiperButtonNext}>
+            <button 
+              className={`${styles.swiperButton} ${styles.swiperButtonNext}`}
+              onClick={handleNext}
+            >
               <i className="fa-solid fa-chevron-right"></i>
             </button>
           </div>

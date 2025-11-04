@@ -6,6 +6,7 @@ import styles from './HowWeWorkSection.module.css';
 export default function HowWeWorkSection() {
   const [isVisible, setIsVisible] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   const steps = [
     {
@@ -65,21 +66,44 @@ export default function HowWeWorkSection() {
     }
   ];
 
+  // Check screen size for responsive behavior
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
     }, 300);
 
-    // Auto-cycle through steps
+    // Auto-cycle through steps - slower on mobile for better UX
+    const cycleTime = isMobile ? 5000 : 4000;
     const stepTimer = setInterval(() => {
       setActiveStep((prev) => (prev + 1) % steps.length);
-    }, 4000);
+    }, cycleTime);
 
     return () => {
       clearTimeout(timer);
       clearInterval(stepTimer);
     };
-  }, [steps.length]);
+  }, [steps.length, isMobile]);
+
+  // Handle step interaction for both mouse and touch devices
+  const handleStepInteraction = (index: number) => {
+    setActiveStep(index);
+    
+    // Add haptic feedback on mobile devices
+    if (isMobile && 'vibrate' in navigator) {
+      navigator.vibrate(50);
+    }
+  };
 
   return (
     <section className={styles.howWeWorkSection}>
@@ -88,7 +112,7 @@ export default function HowWeWorkSection() {
         <div className={styles.floatingShape1}></div>
         <div className={styles.floatingShape2}></div>
         <div className={styles.floatingShape3}></div>
-        <div className={styles.connectingLine}></div>
+        {!isMobile && <div className={styles.connectingLine}></div>}
       </div>
 
       <div className={styles.container}>
@@ -110,18 +134,31 @@ export default function HowWeWorkSection() {
               key={index}
               className={`${styles.stepWrapper} ${index % 2 === 0 ? styles.leftAlign : styles.rightAlign} ${isVisible ? styles.slideIn : ''}`}
               style={{'--delay': `${index * 0.2}s`} as React.CSSProperties}
-              onMouseEnter={() => setActiveStep(index)}
+              onMouseEnter={() => handleStepInteraction(index)}
+              onClick={() => handleStepInteraction(index)}
+              onTouchStart={() => handleStepInteraction(index)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleStepInteraction(index);
+                }
+              }}
+              aria-label={`Step ${step.number}: ${step.title}`}
             >
-              {/* Step Number Circle */}
-              <div className={`${styles.stepNumber} ${index === activeStep ? styles.active : ''}`}>
-                <span>{step.number}</span>
-                <div className={styles.numberGlow}></div>
-              </div>
+              {/* Step Number Circle - Hidden on mobile devices */}
+              {!isMobile && (
+                <div className={`${styles.stepNumber} ${index === activeStep ? styles.active : ''}`}>
+                  <span>{step.number}</span>
+                  <div className={styles.numberGlow}></div>
+                </div>
+              )}
 
               {/* Step Card */}
               <div className={`${styles.stepCard} ${index === activeStep ? styles.activeCard : ''}`}>
                 <div className={styles.stepIcon}>
-                  <i className={step.icon} style={{fontStyle: 'normal'}}></i>
+                  <i className={step.icon} aria-hidden="true"></i>
                 </div>
                 
                 <div className={styles.stepContent}>
@@ -131,7 +168,7 @@ export default function HowWeWorkSection() {
                   <ul className={styles.featuresList}>
                     {step.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className={styles.featureItem}>
-                        <i className="fa-solid fa-check" style={{fontStyle: 'normal'}}></i>
+                        <i className="fa-solid fa-check" aria-hidden="true"></i>
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -141,8 +178,8 @@ export default function HowWeWorkSection() {
                 <div className={styles.stepGlow}></div>
               </div>
 
-              {/* Connecting Line */}
-              {index < steps.length - 1 && (
+              {/* Connecting Line - hidden on mobile */}
+              {!isMobile && index < steps.length - 1 && (
                 <div className={styles.stepConnector}></div>
               )}
             </div>
