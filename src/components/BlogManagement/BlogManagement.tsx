@@ -8,6 +8,7 @@ import {
   deleteBlogPost, 
   BlogPost 
 } from '@/lib/firestore';
+import RichTextEditor from '@/components/RichTextEditor';
 import styles from './BlogManagement.module.css';
 
 interface BlogFormData {
@@ -79,6 +80,13 @@ export default function BlogManagement() {
     setFormData(prev => ({
       ...prev,
       [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value
+    }));
+  };
+
+  const handleContentChange = (html: string) => {
+    setFormData(prev => ({
+      ...prev,
+      content: html
     }));
   };
 
@@ -301,14 +309,10 @@ export default function BlogManagement() {
 
             <div className={styles.formGroup}>
               <label htmlFor="content">Content *</label>
-              <textarea
-                id="content"
-                name="content"
-                value={formData.content}
-                onChange={handleInputChange}
-                required
-                rows={10}
-                placeholder="Full blog post content"
+              <RichTextEditor
+                content={formData.content}
+                onChange={handleContentChange}
+                placeholder="Write your blog post content here..."
               />
             </div>
 
