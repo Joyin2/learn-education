@@ -764,7 +764,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ id: s
                     relatedPosts.map((relatedPost) => (
                       <Link
                         key={relatedPost.id}
-                        href={`/blog/${relatedPost.id}`}
+                        href={`/blog/${relatedPost.slug || relatedPost.id}`}
                         className={styles.relatedPost}
                       >
                         {relatedPost.image ? (

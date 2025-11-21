@@ -55,8 +55,12 @@ const BlogSection: React.FC = () => {
     return matchesCategory && matchesSearch;
   });
 
-  const handleViewFull = (postId: string) => {
-    router.push(`/blog/${postId}`);
+  const handleViewFull = (slug: string, postId?: string) => {
+    // Use slug if available, otherwise fallback to ID
+    const urlParam = slug || postId || '';
+    if (urlParam) {
+      router.push(`/blog/${urlParam}`);
+    }
   };
 
   if (loading) {
@@ -202,7 +206,7 @@ const BlogSection: React.FC = () => {
                   
                   <button 
                     className={styles.viewFullButton}
-                    onClick={() => handleViewFull(post.id!)}
+                    onClick={() => handleViewFull(post.slug, post.id)}
                   >
                     <span>View Full</span>
                     <svg 

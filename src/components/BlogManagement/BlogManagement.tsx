@@ -19,6 +19,7 @@ interface BlogFormData {
   date: string;
   category: string;
   readTime: string;
+  image: string;
   tags: string;
   featured: boolean;
   published: boolean;
@@ -32,6 +33,7 @@ const initialFormData: BlogFormData = {
   date: new Date().toISOString().split('T')[0],
   category: '',
   readTime: '',
+  image: '',
   tags: '',
   featured: false,
   published: false
@@ -131,6 +133,7 @@ export default function BlogManagement() {
       date: post.date,
       category: post.category,
       readTime: post.readTime,
+      image: post.image || '',
       tags: post.tags.join(', '),
       featured: post.featured || false,
       published: post.published
@@ -305,6 +308,21 @@ export default function BlogManagement() {
                 rows={3}
                 placeholder="Brief description of the blog post"
               />
+            </div>
+
+            <div className={styles.formGroup}>
+              <label htmlFor="image">Featured Image URL (Optional)</label>
+              <input
+                type="url"
+                id="image"
+                name="image"
+                value={formData.image}
+                onChange={handleInputChange}
+                placeholder="https://example.com/image.jpg"
+              />
+              <small style={{ color: '#64748b', fontSize: '0.875rem', marginTop: '0.25rem' }}>
+                Enter a URL to an image hosted online (e.g., from Unsplash, Pexels, or your CDN)
+              </small>
             </div>
 
             <div className={styles.formGroup}>

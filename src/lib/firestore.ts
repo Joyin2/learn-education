@@ -37,6 +37,7 @@ function getEmptyBlogData(): BlogPost[] {
   return [
     {
       id: 'sample-1',
+      slug: 'sample-blog-post-1',
       title: 'Sample Blog Post 1',
       excerpt: 'This is a sample blog post for testing purposes when Firebase is not available.',
       content: '<p>This is sample content for testing.</p>',
@@ -50,6 +51,7 @@ function getEmptyBlogData(): BlogPost[] {
     },
     {
       id: 'sample-2',
+      slug: 'sample-blog-post-2',
       title: 'Sample Blog Post 2',
       excerpt: 'Another sample blog post for testing the blog functionality.',
       content: '<p>This is more sample content for testing.</p>',
@@ -86,6 +88,7 @@ const BLOG_COLLECTION = 'blog_posts';
 // Types for blog data
 export interface BlogPost {
   id?: string;
+  slug: string; // URL-friendly slug for SEO
   title: string;
   excerpt: string;
   content: string;
@@ -99,6 +102,60 @@ export interface BlogPost {
   published: boolean;
   createdAt?: Timestamp;
   updatedAt?: Timestamp;
+}
+
+/**
+ * Generate a URL-friendly slug from a title
+ */
+export function generateSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '') // Remove special characters
+    .replace(/[\s_]+/g, '-') // Replace spaces and underscores with hyphens
+    .replace(/^-+|-+$/g, ''); // Remove leading/trailing hyphens
+}
+
+/**
+ * Ensure slug is unique by checking existing posts
+ */
+export async function ensureUniqueSlug(baseSlug: string, excludeId?: string): Promise<string> {
+  try {
+    const q = query(
+      collection(db, BLOG_COLLECTION),
+      where('slug', '==', baseSlug)
+    );
+    
+    const querySnapshot = await getDocs(q);
+    
+    // If no posts with this slug exist, or the only one is the post we're updating
+    if (querySnapshot.empty || (excludeId && querySnapshot.docs.length === 1 && querySnapshot.docs[0].id === excludeId)) {
+      return baseSlug;
+    }
+    
+    // If slug exists, append a number
+    let counter = 1;
+    let newSlug = `${baseSlug}-${counter}`;
+    
+    while (true) {
+      const checkQuery = query(
+        collection(db, BLOG_COLLECTION),
+        where('slug', '==', newSlug)
+      );
+      const checkSnapshot = await getDocs(checkQuery);
+      
+      if (checkSnapshot.empty || (excludeId && checkSnapshot.docs.length === 1 && checkSnapshot.docs[0].id === excludeId)) {
+        return newSlug;
+      }
+      
+      counter++;
+      newSlug = `${baseSlug}-${counter}`;
+    }
+  } catch (error) {
+    console.error('Error ensuring unique slug:', error);
+    // Fallback to timestamp-based slug
+    return `${baseSlug}-${Date.now()}`;
+  }
 }
 
 /**
@@ -192,15 +249,20 @@ export async function deleteSubmission(submissionId: string): Promise<void> {
 /**
  * Create a new blog post (admin only)
  */
-export async function createBlogPost(blogData: Omit<BlogPost, 'id' | 'createdAt' | 'updatedAt'>): Promise<string> {
+export async function createBlogPost(blogData: Omit<BlogPost, 'id' | 'createdAt' | 'updatedAt' | 'slug'>): Promise<string> {
   try {
     // Validate required fields
     if (!blogData.title || !blogData.excerpt || !blogData.content || !blogData.author) {
       throw new Error('Please fill in all required fields');
     }
 
+    // Generate slug from title
+    const baseSlug = generateSlug(blogData.title);
+    const uniqueSlug = await ensureUniqueSlug(baseSlug);
+
     const docRef = await addDoc(collection(db, BLOG_COLLECTION), {
       ...blogData,
+      slug: uniqueSlug,
       createdAt: Timestamp.now(),
       updatedAt: Timestamp.now()
     });
@@ -329,13 +391,13 @@ export async function getBlogPosts(options?: {
 }
 
 /**
- * Get a single blog post by ID
+ * Get a single blog post by slug or ID
  */
-export async function getBlogPost(postId: string): Promise<BlogPost | null> {
+export async function getBlogPost(slugOrId: string): Promise<BlogPost | null> {
   try {
     // Validate input
-    if (!postId || typeof postId !== 'string') {
-      console.error('Invalid postId provided to getBlogPost:', postId);
+    if (!slugOrId || typeof slugOrId !== 'string') {
+      console.error('Invalid slugOrId provided to getBlogPost:', slugOrId);
       return null;
     }
 
@@ -345,7 +407,30 @@ export async function getBlogPost(postId: string): Promise<BlogPost | null> {
       return null;
     }
 
-    const docRef = doc(db, BLOG_COLLECTION, postId);
+    // First, try to find by slug
+    try {
+      const q = query(
+        collection(db, BLOG_COLLECTION),
+        where('slug', '==', slugOrId)
+      );
+      const querySnapshot = await getDocs(q);
+      
+      if (!querySnapshot.empty) {
+        const docSnap = querySnapshot.docs[0];
+        const data = docSnap.data();
+        if (data) {
+          return {
+            id: docSnap.id,
+            ...data
+          } as BlogPost;
+        }
+      }
+    } catch (queryError) {
+      console.log('Slug query failed, trying by ID:', queryError);
+    }
+
+    // If not found by slug, try by ID (for backward compatibility)
+    const docRef = doc(db, BLOG_COLLECTION, slugOrId);
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
@@ -362,12 +447,12 @@ export async function getBlogPost(postId: string): Promise<BlogPost | null> {
   } catch (error) {
     // Handle null errors specifically
     if (error === null) {
-      console.error('Error fetching blog post: null error encountered for postId:', postId);
+      console.error('Error fetching blog post: null error encountered for slugOrId:', slugOrId);
       console.error('This usually indicates a Firebase connection or initialization issue');
     } else {
       console.error('Error fetching blog post:', error);
       console.error('Error details:', {
-        postId,
+        slugOrId,
         message: error instanceof Error ? error.message : 'Unknown error',
         code: error instanceof Error && 'code' in error ? error.code : 'No code',
         type: typeof error,
@@ -385,6 +470,12 @@ export async function getBlogPost(postId: string): Promise<BlogPost | null> {
  */
 export async function updateBlogPost(postId: string, updates: Partial<BlogPost>): Promise<void> {
   try {
+    // If title is being updated, regenerate slug
+    if (updates.title) {
+      const baseSlug = generateSlug(updates.title);
+      updates.slug = await ensureUniqueSlug(baseSlug, postId);
+    }
+    
     const postRef = doc(db, BLOG_COLLECTION, postId);
     await updateDoc(postRef, {
       ...updates,
