@@ -120,6 +120,12 @@ export default function StudentSuccessSection() {
     }
   };
 
+  const handlePrev = () => {
+    if (swiperInstance) {
+      swiperInstance.slidePrev();
+    }
+  };
+
   return (
     <section className={styles.studentSuccessSection}>
       {/* Background Elements */}
@@ -171,17 +177,37 @@ export default function StudentSuccessSection() {
               onlyInViewport: false,
             }}
             breakpoints={{
-              // when window width is >= 768px (tablets)
+              // Mobile devices (< 480px) - 1 card per slide
+              0: {
+                slidesPerView: 1,
+                spaceBetween: 15,
+              },
+              // Small mobile (480px - 600px) - 1 card per slide with more space
+              480: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+              },
+              // Tablet portrait (601px - 767px) - 1.5 cards
+              601: {
+                slidesPerView: 1.5,
+                spaceBetween: 20,
+              },
+              // Tablets (768px and up) - 2 cards
               768: {
                 slidesPerView: 2,
                 spaceBetween: 20,
               },
-              // when window width is >= 1024px (desktop)
+              // Large tablets (900px and up) - 3 cards
+              900: {
+                slidesPerView: 3,
+                spaceBetween: 25,
+              },
+              // Desktop (1024px and up) - 4 cards
               1024: {
                 slidesPerView: 4,
                 spaceBetween: 30,
               },
-              // when window width is >= 1200px (large desktop)
+              // Large desktop (1200px and up) - 4 cards with more space
               1200: {
                 slidesPerView: 4,
                 spaceBetween: 30,
@@ -225,11 +251,19 @@ export default function StudentSuccessSection() {
             ))}
           </Swiper>
 
-          {/* Custom Navigation - Only Right Arrow */}
+          {/* Custom Navigation - Both Arrows */}
           <div className={styles.swiperNavigation}>
+            <button 
+              className={`${styles.swiperButton} ${styles.swiperButtonPrev}`}
+              onClick={handlePrev}
+              title="Previous testimonial"
+            >
+              <i className="fa-solid fa-chevron-left"></i>
+            </button>
             <button 
               className={`${styles.swiperButton} ${styles.swiperButtonNext}`}
               onClick={handleNext}
+              title="Next testimonial"
             >
               <i className="fa-solid fa-chevron-right"></i>
             </button>

@@ -135,6 +135,8 @@
   width: 100%;
   padding: 20px 0 60px 0;
   overflow: visible;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 /* Testimonial Slide */
@@ -144,6 +146,7 @@
   height: auto;
   display: flex;
   align-items: stretch;
+  width: 100%;
 }
 
 /* Testimonial Card */
@@ -349,6 +352,11 @@
   transform: scale(1.05);
 }
 
+.swiperButtonPrev,
+.swiperButtonNext {
+  transition: all 0.3s ease;
+}
+
 /* Swiper Pagination */
 .swiperPagination {
   position: relative;
@@ -469,12 +477,171 @@
 }
 
 /* Responsive Design */
+
+/* Extra Small Mobile (280px - 319px) */
+@media (max-width: 319px) {
+  .studentSuccessSection {
+    padding: 40px 0;
+  }
+
+  .container {
+    padding: 0 12px;
+  }
+
+  .badge {
+    font-size: 0.7rem;
+    padding: 5px 12px;
+  }
+
+  .mainTitle {
+    font-size: 1.6rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+
+  .testimonialSlide {
+    padding: 0 3px;
+  }
+
+  .testimonialCard {
+    padding: 18px;
+    min-height: 400px;
+  }
+
+  .studentAvatar {
+    width: 45px;
+    height: 45px;
+  }
+
+  .studentName {
+    font-size: 0.95rem;
+  }
+
+  .quote p {
+    font-size: 0.8rem;
+  }
+
+  .ctaTitle {
+    font-size: 1.3rem;
+  }
+
+  .ctaButton {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Small Mobile (320px - 480px) */
+@media (max-width: 480px) and (min-width: 320px) {
+  .studentSuccessSection {
+    padding: 50px 0;
+  }
+
+  .container {
+    padding: 0 14px;
+  }
+
+  .mainTitle {
+    font-size: 1.8rem;
+  }
+
+  .badge {
+    padding: 6px 16px;
+    font-size: 0.75rem;
+  }
+
+  .testimonialSlide {
+    padding: 0 5px;
+  }
+
+  .testimonialCard {
+    padding: 20px;
+    min-height: 450px;
+  }
+
+  .studentAvatar {
+    width: 50px;
+    height: 50px;
+  }
+
+  .studentName {
+    font-size: 1rem;
+  }
+
+  .quote p {
+    font-size: 0.85rem;
+  }
+
+  .ctaTitle {
+    font-size: 1.4rem;
+  }
+
+  .ctaButton {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile & Tablet Responsive */
 @media (max-width: 1200px) {
   .testimonialSlide {
     padding: 0 12px;
   }
 }
 
+/* Large Tablet (600px - 900px) */
+@media (min-width: 601px) and (max-width: 900px) {
+  .studentSuccessSection {
+    padding: 70px 0;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .mainTitle {
+    font-size: 2.4rem;
+  }
+
+  .description {
+    font-size: 1.05rem;
+  }
+
+  .testimonialSlide {
+    padding: 0 10px;
+  }
+
+  .testimonialCard {
+    padding: 26px;
+    min-height: auto;
+  }
+
+  .studentAvatar {
+    width: 58px;
+    height: 58px;
+  }
+
+  .quote p {
+    font-size: 0.92rem;
+  }
+
+  .ctaTitle {
+    font-size: 1.7rem;
+  }
+
+  .ctaContent {
+    padding: 32px 20px;
+  }
+
+  .ctaButton {
+    padding: 14px 28px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Tablet Portrait (481px - 768px) */
 @media (max-width: 1024px) {
   .studentSuccessSection {
     padding: 80px 0;
@@ -586,6 +753,10 @@
     padding: 50px 0;
   }
 
+  .container {
+    padding: 0 14px;
+  }
+
   .mainTitle {
     font-size: 1.8rem;
   }
@@ -601,6 +772,7 @@
 
   .testimonialCard {
     padding: 20px;
+    min-height: 450px;
   }
 
   .studentAvatar {

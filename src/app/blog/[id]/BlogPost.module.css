@@ -718,7 +718,316 @@
   box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
 }
 
-/* Responsive Design */
+/* Responsive Design - Mobile First */
+
+/* Extra Small Mobile (280px - 319px) */
+@media (max-width: 319px) {
+  .blogPostPage {
+    min-height: 100vh;
+  }
+  
+  .heroSection {
+    height: 35vh;
+    min-height: 250px;
+  }
+  
+  .postTitle {
+    font-size: 1.5rem;
+  }
+  
+  .postContent {
+    padding: 16px;
+    border-radius: 12px;
+  }
+  
+  .content {
+    font-size: 14px;
+  }
+  
+  .content h2 {
+    font-size: 1.3rem;
+    margin: 24px 0 12px 0;
+  }
+  
+  .content h3 {
+    font-size: 1.1rem;
+    margin: 18px 0 10px 0;
+  }
+  
+  .sidebarCard {
+    padding: 16px;
+  }
+  
+  .sidebarCard h3 {
+    font-size: 1.1rem;
+  }
+  
+  .breadcrumb {
+    font-size: 11px;
+    gap: 4px;
+  }
+  
+  .category {
+    padding: 6px 12px;
+    font-size: 10px;
+  }
+  
+  .readTime {
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+}
+
+/* Small Mobile (320px - 480px) */
+@media (max-width: 480px) {
+  .heroSection {
+    height: 40vh;
+    min-height: 300px;
+  }
+  
+  .heroContainer {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: calc(100% - 20px);
+    padding: 0 5px;
+  }
+  
+  .container {
+    padding: 0 12px;
+  }
+  
+  .contentSection {
+    padding: 40px 0;
+  }
+  
+  .postTitle {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  
+  .content {
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+  
+  .content h1 {
+    font-size: 2rem;
+    margin: 24px 0 16px 0;
+  }
+  
+  .content h2 {
+    font-size: 1.4rem;
+    margin: 24px 0 12px 0;
+    padding-bottom: 8px;
+  }
+  
+  .content h3 {
+    font-size: 1.2rem;
+    margin: 18px 0 10px 0;
+  }
+  
+  .content h4 {
+    font-size: 1.1rem;
+    margin: 16px 0 8px 0;
+  }
+  
+  .content ul,
+  .content ol {
+    padding-left: 18px;
+    margin: 12px 0;
+  }
+  
+  .content p {
+    margin-bottom: 12px;
+  }
+  
+  .content blockquote {
+    padding: 0.75rem 1rem;
+    margin: 1rem 0;
+  }
+  
+  .content pre {
+    padding: 1rem;
+    font-size: 0.8rem;
+    margin: 1rem 0;
+  }
+  
+  .postContent {
+    padding: 16px;
+    border-radius: 12px;
+  }
+  
+  .postTags {
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+  
+  .tag {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  
+  .contentWrapper {
+    gap: 20px;
+  }
+  
+  .sidebar {
+    gap: 20px;
+  }
+  
+  .sidebarCard {
+    padding: 16px;
+    border-radius: 12px;
+  }
+  
+  .sidebarCard h3 {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+  }
+  
+  .authorCard {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .authorCard .authorAvatar {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+  
+  .relatedPost {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+  }
+  
+  .relatedPost img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+  }
+  
+  .relatedPostPlaceholder {
+    width: 100%;
+    height: 120px;
+  }
+  
+  .authorSection {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .postMeta {
+    gap: 8px;
+  }
+  
+  .breadcrumb {
+    font-size: 12px;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+  
+  .navigationSection {
+    margin-top: 40px;
+    padding-top: 20px;
+  }
+  
+  .backToBlogs {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+  
+  .notFound h1 {
+    font-size: 2rem;
+  }
+  
+  .notFound p {
+    font-size: 1rem;
+  }
+}
+
+/* Mobile (481px - 600px) */
+@media (max-width: 600px) and (min-width: 481px) {
+  .heroSection {
+    height: 45vh;
+    min-height: 350px;
+  }
+  
+  .postTitle {
+    font-size: 2rem;
+  }
+  
+  .content {
+    font-size: 15px;
+  }
+  
+  .content h2 {
+    font-size: 1.5rem;
+  }
+  
+  .content h3 {
+    font-size: 1.25rem;
+  }
+  
+  .postContent {
+    padding: 20px;
+  }
+  
+  .sidebarCard {
+    padding: 20px;
+  }
+  
+  .contentWrapper {
+    gap: 30px;
+  }
+  
+  .authorSection {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* Tablet Portrait (601px - 767px) */
+@media (max-width: 767px) and (min-width: 601px) {
+  .heroSection {
+    height: 50vh;
+    min-height: 400px;
+  }
+  
+  .postTitle {
+    font-size: 2.2rem;
+  }
+  
+  .content {
+    font-size: 15px;
+  }
+  
+  .content h2 {
+    font-size: 1.6rem;
+  }
+  
+  .postContent {
+    padding: 28px;
+  }
+  
+  .sidebarCard {
+    padding: 24px;
+  }
+  
+  .contentWrapper {
+    gap: 35px;
+  }
+  
+  .authorSection {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* Default Tablet & Below (max-width: 768px) */
 @media (max-width: 1024px) {
   .contentWrapper {
     grid-template-columns: 1fr;
@@ -805,5 +1114,82 @@
   .relatedPost img {
     width: 100%;
     height: 120px;
+  }
+}
+
+/* Medium Tablet (769px - 991px) */
+@media (min-width: 769px) and (max-width: 991px) {
+  .heroContainer {
+    margin-left: 30px;
+    margin-right: 30px;
+    width: calc(100% - 60px);
+  }
+  
+  .contentWrapper {
+    gap: 50px;
+  }
+  
+  .sidebar {
+    gap: 28px;
+  }
+  
+  .postContent {
+    padding: 32px;
+  }
+  
+  .sidebarCard {
+    padding: 28px;
+  }
+}
+
+/* Desktop (992px and up) */
+@media (min-width: 992px) {
+  .heroContainer {
+    margin-left: 40px;
+    margin-right: 40px;
+    width: calc(100% - 80px);
+    padding: 0 20px;
+  }
+  
+  .contentWrapper {
+    grid-template-columns: 1fr 300px;
+    gap: 60px;
+  }
+  
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  
+  .postContent {
+    padding: 40px;
+  }
+  
+  .sidebarCard {
+    padding: 32px;
+  }
+  
+  .contentSection {
+    padding: 80px 0;
+  }
+}
+
+/* Large Desktop (1200px and up) */
+@media (min-width: 1200px) {
+  .contentSection {
+    padding: 100px 0;
+  }
+  
+  .postContent {
+    padding: 48px;
+  }
+  
+  .sidebarCard {
+    padding: 40px;
+  }
+  
+  .postTitle {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
   }
 }
