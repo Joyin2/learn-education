@@ -180,37 +180,37 @@ export default function StudentSuccessSection() {
               // Mobile devices (< 480px) - 1 card per slide
               0: {
                 slidesPerView: 1,
-                spaceBetween: 15,
+                spaceBetween: 20,
               },
               // Small mobile (480px - 600px) - 1 card per slide with more space
               480: {
                 slidesPerView: 1,
-                spaceBetween: 20,
+                spaceBetween: 25,
               },
               // Tablet portrait (601px - 767px) - 1.5 cards
               601: {
                 slidesPerView: 1.5,
-                spaceBetween: 20,
+                spaceBetween: 25,
               },
               // Tablets (768px and up) - 2 cards
               768: {
                 slidesPerView: 2,
-                spaceBetween: 20,
+                spaceBetween: 25,
               },
               // Large tablets (900px and up) - 3 cards
               900: {
                 slidesPerView: 3,
-                spaceBetween: 25,
+                spaceBetween: 35,
               },
-              // Desktop (1024px and up) - 4 cards
+              // Desktop (1024px and up) - 3 cards
               1024: {
-                slidesPerView: 4,
-                spaceBetween: 30,
+                slidesPerView: 3,
+                spaceBetween: 40,
               },
-              // Large desktop (1200px and up) - 4 cards with more space
+              // Large desktop (1200px and up) - 3 cards with more space
               1200: {
-                slidesPerView: 4,
-                spaceBetween: 30,
+                slidesPerView: 3,
+                spaceBetween: 45,
               },
             }}
             loop={true}

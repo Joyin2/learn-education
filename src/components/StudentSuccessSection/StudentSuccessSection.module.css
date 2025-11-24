@@ -126,17 +126,30 @@
 .testimonialsContainer {
   margin-bottom: 70px;
   width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
   overflow: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 80px;
+  padding-right: 20px;
+  box-sizing: border-box;
 }
 
 /* Swiper Container */
 .testimonialSwiper {
   width: 100%;
+  max-width: 100%;
   padding: 20px 0 60px 0;
   overflow: visible;
   -webkit-user-select: none;
   user-select: none;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 /* Testimonial Slide */
@@ -163,6 +176,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-width: 350px;
   box-sizing: border-box;
 }
 
@@ -501,6 +515,14 @@
     font-size: 0.9rem;
   }
 
+  .testimonialsContainer {
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 12px;
+    margin-bottom: 50px;
+  }
+
   .testimonialSlide {
     padding: 0 3px;
   }
@@ -508,6 +530,7 @@
   .testimonialCard {
     padding: 18px;
     min-height: 400px;
+    margin: 0 auto;
   }
 
   .studentAvatar {
@@ -552,13 +575,25 @@
     font-size: 0.75rem;
   }
 
+  .testimonialsContainer {
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 28px;
+    padding-right: 14px;
+    margin-bottom: 60px;
+  }
+
   .testimonialSlide {
     padding: 0 5px;
+    display: flex;
+    justify-content: center;
   }
 
   .testimonialCard {
     padding: 20px;
     min-height: 450px;
+    margin: 0 auto;
+    max-width: 100%;
   }
 
   .studentAvatar {
@@ -599,6 +634,13 @@
 
   .container {
     padding: 0 16px;
+    margin: 0 auto;
+  }
+
+  .testimonialsContainer {
+    padding-left: 40px;
+    padding-right: 16px;
+    margin: 0 auto;
   }
 
   .mainTitle {
@@ -611,11 +653,14 @@
 
   .testimonialSlide {
     padding: 0 10px;
+    display: flex;
+    justify-content: center;
   }
 
   .testimonialCard {
     padding: 26px;
     min-height: auto;
+    margin: 0 auto;
   }
 
   .studentAvatar {
@@ -647,16 +692,29 @@
     padding: 80px 0;
   }
 
-  .mainTitle {
-    font-size: 2.5rem;
+  .container {
+    margin: 0 auto;
+  }
+
+  .testimonialsContainer {
+    margin: 0 auto;
+    padding-left: 48px;
+    padding-right: 16px;
   }
 
   .testimonialSlide {
     padding: 0 10px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .mainTitle {
+    font-size: 2.5rem;
   }
 
   .testimonialCard {
     padding: 25px;
+    margin: 0 auto;
   }
 
   .ctaTitle {
@@ -675,6 +733,19 @@
 
   .container {
     padding: 0 16px;
+    margin: 0 auto;
+  }
+
+  .testimonialsContainer {
+    margin: 0 auto;
+    padding-left: 40px;
+    padding-right: 12px;
+  }
+
+  .testimonialSlide {
+    padding: 0 8px;
+    display: flex;
+    justify-content: center;
   }
 
   .headerSection {
@@ -689,12 +760,9 @@
     font-size: 1rem;
   }
 
-  .testimonialSlide {
-    padding: 0 8px;
-  }
-
   .testimonialCard {
     padding: 24px;
+    margin: 0 auto;
   }
 
   .cardHeader {
@@ -755,6 +823,13 @@
 
   .container {
     padding: 0 14px;
+    margin: 0 auto;
+  }
+
+  .testimonialsContainer {
+    margin: 0 auto;
+    padding-left: 32px;
+    padding-right: 12px;
   }
 
   .mainTitle {
@@ -768,11 +843,15 @@
 
   .testimonialSlide {
     padding: 0 5px;
+    display: flex;
+    justify-content: center;
   }
 
   .testimonialCard {
     padding: 20px;
     min-height: 450px;
+    margin: 0 auto;
+    max-width: 100%;
   }
 
   .studentAvatar {
