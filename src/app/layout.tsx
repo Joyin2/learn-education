@@ -19,6 +19,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Learn Education - Premier Education Consultancy",
   description: "Expert university placement and visa support for UK & international students. Get professional guidance for studying abroad.",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=5",
 };
 
 export default function RootLayout({

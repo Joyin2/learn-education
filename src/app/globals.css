@@ -315,7 +315,7 @@ html.lenis {
   --foreground: #171717;
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -461,7 +461,6 @@ nav[class*="navbarContainer"] {
 /* Basic scrolling optimizations */
 body {
   -webkit-overflow-scrolling: touch;
-  overflow-scrolling: touch;
   overscroll-behavior: contain;
 }
 

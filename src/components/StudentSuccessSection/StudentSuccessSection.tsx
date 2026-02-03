@@ -137,140 +137,129 @@ export default function StudentSuccessSection() {
       </div>
 
       <div className={styles.container}>
-        {/* Header Section */}
-        <div className={`${styles.headerSection} ${isVisible ? styles.fadeInUp : ''}`}>
-          <div className={styles.badge}>STUDENT SUCCESS STORIES</div>
-          <h2 className={styles.mainTitle}>What Our Students Say</h2>
-          <p className={styles.description}>
-            Real experiences from students who have achieved their educational dreams with Learn Education.
-          </p>
-        </div>
-
-        {/* Testimonials Carousel */}
-        <div className={styles.testimonialsContainer}>
-          <Swiper
-            modules={[Navigation, Pagination, Autoplay, Mousewheel, Keyboard]}
-            spaceBetween={30}
-            slidesPerView={1}
-            onSwiper={setSwiperInstance}
-            navigation={{
-              nextEl: `.${styles.swiperButtonNext}`,
-              prevEl: `.${styles.swiperButtonPrev}`,
-            }}
-            pagination={{
-              el: `.${styles.swiperPagination}`,
-              clickable: true,
-              dynamicBullets: true,
-            }}
-            autoplay={{
-              delay: 4000,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true,
-            }}
-            mousewheel={{
-              forceToAxis: true,
-              sensitivity: 1,
-              releaseOnEdges: true,
-            }}
-            keyboard={{
-              enabled: true,
-              onlyInViewport: false,
-            }}
-            breakpoints={{
-              // Mobile devices (< 480px) - 1 card per slide
-              0: {
-                slidesPerView: 1,
-                spaceBetween: 20,
-              },
-              // Small mobile (480px - 600px) - 1 card per slide with more space
-              480: {
-                slidesPerView: 1,
-                spaceBetween: 25,
-              },
-              // Tablet portrait (601px - 767px) - 1.5 cards
-              601: {
-                slidesPerView: 1.5,
-                spaceBetween: 25,
-              },
-              // Tablets (768px and up) - 2 cards
-              768: {
-                slidesPerView: 2,
-                spaceBetween: 25,
-              },
-              // Large tablets (900px and up) - 3 cards
-              900: {
-                slidesPerView: 3,
-                spaceBetween: 35,
-              },
-              // Desktop (1024px and up) - 3 cards
-              1024: {
-                slidesPerView: 3,
-                spaceBetween: 40,
-              },
-              // Large desktop (1200px and up) - 3 cards with more space
-              1200: {
-                slidesPerView: 3,
-                spaceBetween: 45,
-              },
-            }}
-            loop={true}
-            className={styles.testimonialSwiper}
-            grabCursor={true}
-          >
-            {testimonials.map((testimonial) => (
-              <SwiperSlide key={testimonial.id} className={styles.testimonialSlide}>
-                <div className={styles.testimonialCard}>
-                  <div className={styles.cardHeader}>
-                    <div className={styles.studentAvatar}>
-                      <img 
-                        src={testimonial.image} 
-                        alt={testimonial.name} 
-                        className={styles.studentImage}
-                      />
-                    </div>
-                    <div className={styles.studentInfo}>
-                      <h4 className={styles.studentName}>{testimonial.name}</h4>
-                      <p className={styles.studentRole}>{testimonial.role}</p>
-                      <p className={styles.university}>{testimonial.university}</p>
-                    </div>
-                  </div>
-
-                  <div className={styles.rating}>
-                    {renderStars(testimonial.rating)}
-                  </div>
-
-                  <blockquote className={styles.quote}>
-                    <p>{testimonial.quote}</p>
-                  </blockquote>
-
-                  <div className={styles.cardFooter}>
-                    <div className={styles.reviewDate}>{testimonial.date}</div>
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-
-          {/* Custom Navigation - Both Arrows */}
-          <div className={styles.swiperNavigation}>
-            <button 
-              className={`${styles.swiperButton} ${styles.swiperButtonPrev}`}
-              onClick={handlePrev}
-              title="Previous testimonial"
-            >
-              <i className="fa-solid fa-chevron-left"></i>
-            </button>
-            <button 
-              className={`${styles.swiperButton} ${styles.swiperButtonNext}`}
-              onClick={handleNext}
-              title="Next testimonial"
-            >
-              <i className="fa-solid fa-chevron-right"></i>
-            </button>
+        <div className={styles.contentWrapper}>
+          {/* Header Section */}
+          <div className={`${styles.headerSection} ${isVisible ? styles.fadeInUp : ''}`}>
+            <div className={styles.badge}>STUDENT SUCCESS STORIES</div>
+            <h2 className={styles.mainTitle}>What Our Students Say</h2>
+            <p className={styles.description}>
+              Real experiences from students who have achieved their educational dreams with Learn Education.
+            </p>
           </div>
 
-          {/* Custom Pagination */}
-          <div className={styles.swiperPagination}></div>
+          {/* Testimonials Carousel */}
+          <div className={styles.testimonialsContainer}>
+            {/* Desktop Navigation */}
+            <div className={styles.swiperNavigation}>
+              <button 
+                className={`${styles.navButton} ${styles.swiperButtonPrev}`}
+                onClick={handlePrev}
+                aria-label="Previous testimonial"
+              >
+                <i className="fa-solid fa-arrow-left"></i>
+              </button>
+              <button 
+                className={`${styles.navButton} ${styles.swiperButtonNext}`}
+                onClick={handleNext}
+                aria-label="Next testimonial"
+              >
+                <i className="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+
+            <Swiper
+              modules={[Navigation, Pagination, Autoplay, Mousewheel, Keyboard]}
+              spaceBetween={24}
+              slidesPerView={1}
+              onSwiper={setSwiperInstance}
+              navigation={{
+                nextEl: `.${styles.swiperButtonNext}`,
+                prevEl: `.${styles.swiperButtonPrev}`,
+              }}
+              pagination={{
+                el: `.${styles.swiperPagination}`,
+                clickable: true,
+                dynamicBullets: true,
+              }}
+              autoplay={{
+                delay: 4000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
+              mousewheel={{
+                forceToAxis: true,
+                sensitivity: 1,
+                releaseOnEdges: true,
+              }}
+              keyboard={{
+                enabled: true,
+                onlyInViewport: false,
+              }}
+              breakpoints={{
+                // Mobile devices
+                0: {
+                  slidesPerView: 1,
+                  spaceBetween: 20,
+                },
+                // Tablet
+                640: {
+                  slidesPerView: 1.5,
+                  spaceBetween: 24,
+                },
+                // Desktop
+                1024: {
+                  slidesPerView: 2,
+                  spaceBetween: 30,
+                },
+                // Large Desktop
+                1280: {
+                  slidesPerView: 2.5,
+                  spaceBetween: 30,
+                }
+              }}
+              loop={true}
+              className={styles.testimonialSwiper}
+              grabCursor={true}
+            >
+              {testimonials.map((testimonial) => (
+                <SwiperSlide key={testimonial.id} className={styles.testimonialSlide}>
+                  <div className={styles.testimonialCard}>
+                    <div className={styles.cardHeader}>
+                      <div className={styles.studentAvatar}>
+                        <img 
+                          src={testimonial.image} 
+                          alt={testimonial.name} 
+                          className={styles.studentImage}
+                        />
+                      </div>
+                      <div className={styles.studentInfo}>
+                        <h4 className={styles.studentName}>{testimonial.name}</h4>
+                        <p className={styles.studentRole}>{testimonial.role}</p>
+                        <p className={styles.university}>{testimonial.university}</p>
+                      </div>
+                    </div>
+
+                    <div className={styles.rating}>
+                      {renderStars(testimonial.rating)}
+                    </div>
+
+                    <blockquote className={styles.quote}>
+                      <p>{testimonial.quote}</p>
+                    </blockquote>
+
+                    <div className={styles.cardFooter}>
+                      <div className={styles.reviewDate}>{testimonial.date}</div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            {/* Mobile Navigation (Hidden on Desktop) */}
+            <div className={styles.mobileNavigation}>
+              <div className={styles.swiperPagination}></div>
+            </div>
+          </div>
         </div>
 
         {/* CTA Section */}
