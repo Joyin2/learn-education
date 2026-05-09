@@ -19,6 +19,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Learn Education - Premier Education Consultancy",
   description: "Expert university placement and visa support for UK & international students. Get professional guidance for studying abroad.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export const viewport: Viewport = {
