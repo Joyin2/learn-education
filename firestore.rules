@@ -7,11 +7,11 @@ service cloud.firestore {
     match /contact_submissions/{document} {
       // Allow anyone to create contact submissions (for the contact form)
       allow create: if true;
-      
+
       // Only authenticated users can read, update, and delete submissions
       allow read, update, delete: if request.auth != null;
     }
-    
+
     // Blog posts collection
     match /blog_posts/{document} {
       // TEMPORARY: Allow all read and list operations for testing
@@ -25,29 +25,49 @@ service cloud.firestore {
       allow write: if request.auth != null &&
         validateBlogPost(request.resource.data);
     }
-    
+
+    // Job postings collection (careers page)
+    match /job_postings/{document} {
+      // Public read so the careers page and individual job pages work for
+      // logged-out visitors. Draft filtering happens in the application layer.
+      allow read, list: if true;
+
+      // Only authenticated admin users can post, edit or remove jobs
+      allow create, update, delete: if request.auth != null;
+    }
+
+    // Job applications collection
+    match /job_applications/{document} {
+      // Anyone can submit an application from the careers page, but the payload
+      // must look like a real application - this keeps junk writes out.
+      allow create: if validateJobApplication(request.resource.data);
+
+      // Applications contain personal data: admin access only
+      allow read, list, update, delete: if request.auth != null;
+    }
+
     // Config collection (for admin setup self-destruct mechanism)
     match /config/{document} {
       // Allow reading setup status (needed to check if setup is completed)
       allow read: if true;
-      
+
       // Only allow creating/updating the setup document during setup
       // Once created, it can only be deleted by authenticated admin users
-      allow create, update: if document == 'setup' && 
+      allow create, update: if document == 'setup' &&
         request.resource.data.keys().hasAll(['completed', 'completedAt']) &&
         request.resource.data.completed is bool &&
         request.resource.data.completedAt is string;
-      
+
       // Only authenticated admin users can delete config documents
       allow delete: if request.auth != null;
     }
-    
+
     // Deny all other access by default
     match /{document=**} {
       allow read, write: if false;
     }
   }
-  
+
   // Helper function to validate blog post data structure
   function validateBlogPost(data) {
     return data.keys().hasAll(['title', 'slug', 'content', 'author', 'category', 'date', 'excerpt', 'readTime', 'published']) &&
@@ -65,6 +85,24 @@ service cloud.firestore {
            (data.tags == null || data.tags is list) &&
            (data.createdAt == null || data.createdAt is timestamp) &&
            (data.updatedAt == null || data.updatedAt is timestamp);
+  }
+
+  // Helper function to validate a public job application submission
+  function validateJobApplication(data) {
+    return data.keys().hasAll(['jobId', 'jobTitle', 'fullName', 'email', 'phone', 'cvUrl', 'status', 'submittedAt']) &&
+           data.jobId is string && data.jobId.size() > 0 && data.jobId.size() < 200 &&
+           data.jobTitle is string && data.jobTitle.size() > 0 && data.jobTitle.size() < 300 &&
+           data.fullName is string && data.fullName.size() > 0 && data.fullName.size() < 150 &&
+           data.email is string && data.email.size() > 0 && data.email.size() < 250 &&
+           data.phone is string && data.phone.size() > 0 && data.phone.size() < 60 &&
+           data.cvUrl is string && data.cvUrl.size() > 0 && data.cvUrl.size() < 2000 &&
+           (data.coverLetter == null || (data.coverLetter is string && data.coverLetter.size() < 6000)) &&
+           (data.linkedInUrl == null || (data.linkedInUrl is string && data.linkedInUrl.size() < 2000)) &&
+           (data.currentRole == null || (data.currentRole is string && data.currentRole.size() < 200)) &&
+           (data.yearsOfExperience == null || (data.yearsOfExperience is string && data.yearsOfExperience.size() < 100)) &&
+           // Applicants cannot pre-set their own review status
+           data.status == 'new' &&
+           data.submittedAt is timestamp;
   }
 }
 
@@ -94,6 +132,18 @@ BLOG POSTS:
 - Additional security through field validation (title, content, author, etc.)
 - Separate read and list rules for better query performance
 
+JOB POSTINGS (Careers):
+- Public users can read and list job postings (needed for /careers and /careers/[slug])
+- Unpublished drafts are filtered out in the application layer, not the rules
+- Only authenticated admin users can create, update, and delete job postings
+
+JOB APPLICATIONS:
+- Anyone can submit an application from a job page (create operation)
+- Submissions are validated: required fields must be present, field sizes are
+  capped, and the applicant cannot set their own review status (always 'new')
+- Applications hold personal data, so only authenticated admin users can read,
+  update (change status) or delete them
+
 CONFIG COLLECTION (Admin Setup):
 - Anyone can read the setup status (needed to check if setup is completed)
 - Only the setup process can create/update the 'setup' document
@@ -103,8 +153,7 @@ CONFIG COLLECTION (Admin Setup):
 
 SECURITY FEATURES:
 - All other operations are denied by default
-- Comprehensive data validation for blog posts and config documents
+- Comprehensive data validation for blog posts, job applications and config documents
 - Separation of public and admin access levels
 - Protection against malformed data submissions
-- Self-destruct mechanism for one-time admin setup
 */

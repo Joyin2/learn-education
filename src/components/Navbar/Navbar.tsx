@@ -114,6 +114,7 @@ export default function Navbar() {
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
     { name: 'Blog', href: '/blog' },
+    { name: 'Careers', href: '/careers' },
   ];
 
   return (

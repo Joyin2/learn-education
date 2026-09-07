@@ -15,23 +15,16 @@ export default function AdminPage() {
         <p className={styles.description}>
           Access the Learn Education administration dashboard
         </p>
-        
+
         <div className={styles.buttonGroup}>
           <Link href="/admin/login" className={styles.primaryButton}>
             Login to Dashboard
           </Link>
-          
-          <Link href="/admin/setup" className={styles.secondaryButton}>
-            First-Time Setup
-          </Link>
         </div>
-        
+
         <div className={styles.info}>
           <p>
-            <strong>First-time admin?</strong> Use the setup page to create your admin account.
-          </p>
-          <p>
-            <strong>Already have an account?</strong> Login to access the dashboard.
+            Sign in with your admin credentials to manage site content.
           </p>
         </div>
       </div>

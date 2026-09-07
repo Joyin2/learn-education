@@ -13,6 +13,7 @@ export default function Footer() {
     { name: 'Services', href: '/services' },
     { name: 'Privacy Policy', href: '/privacy' },
     { name: 'Blog', href: '/blog' },
+    { name: 'Careers', href: '/careers' },
     { name: 'FAQ', href: '/faq' },
     { name: 'Contact', href: '/contact' },
   ];

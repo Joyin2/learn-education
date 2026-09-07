@@ -1,0 +1,204 @@
+/* Job Application Form Styles */
+
+.formCard,
+.successCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1.75rem;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+  scroll-margin-top: 6rem;
+}
+
+@media (min-width: 768px) {
+  .formCard,
+  .successCard {
+    padding: 2.25rem;
+  }
+}
+
+.formHeader {
+  margin-bottom: 1.5rem;
+}
+
+.formHeader h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.35rem;
+}
+
+.formHeader p {
+  color: #64748b;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.errorMessage {
+  padding: 0.85rem 1.1rem;
+  margin-bottom: 1.25rem;
+  border-radius: 10px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  font-size: 0.9rem;
+}
+
+/* Form layout */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .formGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 0.45rem;
+}
+
+.formGroup input,
+.formGroup textarea {
+  width: 100%;
+  padding: 0.75rem 0.95rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #0f172a;
+  font-size: 0.925rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.formGroup textarea {
+  resize: vertical;
+  line-height: 1.65;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  border-color: #2b70fa;
+  box-shadow: 0 0 0 3px rgba(43, 112, 250, 0.12);
+}
+
+.formGroup input:disabled,
+.formGroup textarea:disabled {
+  background: #f8fafc;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+  color: #cbd5e1;
+}
+
+.hint {
+  margin-top: 0.4rem;
+  color: #64748b;
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+/* Submit */
+
+.submitButton {
+  align-self: flex-start;
+  padding: 0.9rem 2rem;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #2b70fa 0%, #4a90ff 100%);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 8px 18px rgba(43, 112, 250, 0.28);
+}
+
+.submitButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.submitButton:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Success state */
+
+.successCard {
+  text-align: center;
+}
+
+.successIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #f0fdf4;
+  color: #16a34a;
+  margin-bottom: 1rem;
+}
+
+.successCard h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.6rem;
+}
+
+.successCard p {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0 auto 1.5rem;
+  max-width: 460px;
+}
+
+.resetButton {
+  padding: 0.7rem 1.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #475569;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.resetButton:hover {
+  border-color: #bfdbfe;
+  color: #2b70fa;
+  background: #f8fafc;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .submitButton:hover:not(:disabled) {
+    transform: none;
+  }
+}

@@ -3,15 +3,34 @@ import { initializeApp, getApps, getApp } from "firebase/app";
 import { getFirestore, connectFirestoreEmulator, Firestore } from "firebase/firestore";
 import { getAuth, connectAuthEmulator, Auth } from "firebase/auth";
 
-// Your web app's Firebase configuration
+// Firebase configuration - values live in .env.local (see .env.example).
+// Each variable must be read as a full static expression: Next.js replaces
+// `process.env.NEXT_PUBLIC_X` at build time, but a dynamic lookup such as
+// process.env[key] is NOT replaced and would come back undefined in the browser.
 const firebaseConfig = {
-  apiKey: "AIzaSyD52EbpTWD9LQkby1wf_Wt_NVcdYwkBz9U",
-  authDomain: "learn-education-834bb.firebaseapp.com",
-  projectId: "learn-education-834bb",
-  storageBucket: "learn-education-834bb.firebasestorage.app",
-  messagingSenderId: "963412813766",
-  appId: "1:963412813766:web:7d45f8dc8177824735f4c7"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
 };
+
+// Fail with an actionable message instead of letting the SDK throw a cryptic
+// "auth/invalid-api-key" from somewhere deep in a page render.
+const missingConfigKeys = Object.entries(firebaseConfig)
+  .filter(([, value]) => !value)
+  .map(([key]) => key);
+
+if (missingConfigKeys.length > 0) {
+  throw new Error(
+    `Firebase config is incomplete - missing: ${missingConfigKeys.join(', ')}. ` +
+    'Copy .env.example to .env.local, fill in the values from the Firebase Console ' +
+    '(Project settings > Your apps), then restart the dev server. ' +
+    'On a hosting platform, add the same NEXT_PUBLIC_FIREBASE_* variables to its ' +
+    'environment settings and redeploy.'
+  );
+}
 
 // Initialize Firebase only if it hasn't been initialized already
 // This prevents multiple initialization errors in SSR
