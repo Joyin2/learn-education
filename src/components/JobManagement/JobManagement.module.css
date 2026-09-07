@@ -166,6 +166,15 @@
   font-size: 1rem;
   transition: all 0.2s ease;
   background: white;
+  /* Explicit text colour: without it these inherit body's --foreground, which
+     globals.css flips to near-white under prefers-color-scheme: dark - giving
+     white text on this white background. */
+  color: #0f172a;
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+  color: #9ca3af;
 }
 
 .formGroup input:focus,

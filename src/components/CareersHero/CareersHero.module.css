@@ -12,8 +12,8 @@
 
 @media (min-width: 1024px) {
   .heroSection {
-    min-height: 68vh;
-    padding: 5rem 0 4rem;
+    min-height: 72vh;
+    padding: 5rem 0;
   }
 }
 
@@ -50,7 +50,7 @@
   background: radial-gradient(circle, #4a90ff 0%, transparent 70%);
 }
 
-/* Content */
+/* Layout */
 
 .container {
   position: relative;
@@ -64,6 +64,20 @@
 @media (min-width: 1024px) {
   .container {
     padding: 0 2rem;
+  }
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .heroGrid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: 3.5rem;
   }
 }
 
@@ -117,7 +131,7 @@
 
 @media (min-width: 1024px) {
   .heroTitle {
-    font-size: 3.4rem;
+    font-size: 3.1rem;
   }
 }
 
@@ -211,13 +225,123 @@
   margin-top: 0.25rem;
 }
 
+/* ===== Hero image ===== */
+
+.heroImageWrapper {
+  position: relative;
+  display: none;
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+/* The image is decorative support for the copy - on narrow screens it would
+   only push the call to action below the fold, so it is desktop-only. */
+@media (min-width: 1024px) {
+  .heroImageWrapper {
+    display: block;
+  }
+}
+
+.fadeInImage {
+  animation: fadeInImage 0.9s ease-out 0.15s forwards;
+}
+
+@keyframes fadeInImage {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.imageGlow {
+  position: absolute;
+  inset: -12% -8% -18% -8%;
+  background: radial-gradient(ellipse at center, rgba(43, 112, 250, 0.45) 0%, transparent 68%);
+  filter: blur(50px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.imageFrame {
+  position: relative;
+  z-index: 1;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 26px 60px rgba(5, 10, 20, 0.55);
+  aspect-ratio: 5 / 4;
+}
+
+.heroImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Ties the photo into the dark background instead of leaving a bright block */
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    150deg,
+    rgba(15, 20, 25, 0.12) 0%,
+    rgba(15, 20, 25, 0.05) 45%,
+    rgba(43, 112, 250, 0.22) 100%
+  );
+  pointer-events: none;
+}
+
+.floatingCard {
+  position: absolute;
+  left: -1.5rem;
+  bottom: 1.75rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.15rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 16px 34px rgba(5, 10, 20, 0.4);
+}
+
+.floatingIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #eff6ff;
+  color: #2b70fa;
+  flex-shrink: 0;
+}
+
+.floatingTitle {
+  display: block;
+  color: #0f172a;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.floatingLabel {
+  display: block;
+  color: #64748b;
+  font-size: 0.75rem;
+  margin-top: 0.15rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .heroContent {
+  .heroContent,
+  .heroImageWrapper {
     opacity: 1;
     transform: none;
   }
 
-  .fadeInUp {
+  .fadeInUp,
+  .fadeInImage {
     animation: none;
   }
 

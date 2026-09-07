@@ -1,8 +1,14 @@
-/* CareersSection Component Styles */
+/* CareersSection Component Styles - dark theme, continues the careers hero */
 
 .careersSection {
   padding: 4rem 0 5rem;
-  background: #f8fafc;
+  background: linear-gradient(180deg, #0f1419 0%, #121b2a 55%, #0f1419 100%);
+}
+
+@media (min-width: 1024px) {
+  .careersSection {
+    padding: 5rem 0 6rem;
+  }
 }
 
 .container {
@@ -28,8 +34,9 @@
 .sectionTitle {
   font-size: 1.9rem;
   font-weight: 800;
-  color: #0f172a;
+  color: #ffffff;
   letter-spacing: -0.02em;
+  text-wrap: balance;
   margin: 0 0 0.75rem;
 }
 
@@ -40,7 +47,7 @@
 }
 
 .sectionSubtitle {
-  color: #64748b;
+  color: rgba(255, 255, 255, 0.68);
   font-size: 1rem;
   line-height: 1.7;
   margin: 0;
@@ -54,11 +61,11 @@
   align-items: center;
   gap: 1rem;
   padding: 5rem 1rem;
-  color: #64748b;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .loadingSpinner {
-  color: #2b70fa;
+  color: #8fbcff;
 }
 
 .errorMessage {
@@ -66,9 +73,9 @@
   margin: 0 auto 2rem;
   padding: 0.9rem 1.1rem;
   border-radius: 10px;
-  background: #fef2f2;
-  border: 1px solid #fecaca;
-  color: #b91c1c;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  color: #fecaca;
   font-size: 0.9rem;
   text-align: center;
 }
@@ -93,7 +100,7 @@
   left: 0.9rem;
   top: 50%;
   transform: translateY(-50%);
-  color: #94a3b8;
+  color: rgba(255, 255, 255, 0.45);
   pointer-events: none;
 }
 
@@ -101,13 +108,15 @@
 .filterSelect {
   width: 100%;
   padding: 0.8rem 1rem;
-  border: 1px solid #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 10px;
-  background: #ffffff;
-  color: #0f172a;
+  background: rgba(255, 255, 255, 0.05);
+  /* Explicit colour - never let form text inherit from body */
+  color: #ffffff;
   font-size: 0.925rem;
+  font-family: inherit;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .searchInput {
@@ -120,10 +129,22 @@
   cursor: pointer;
 }
 
+/* Native dropdown lists are painted by the OS, so the options need their own
+   light background or they render as white-on-white in some browsers. */
+.filterSelect option {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+.searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.42);
+}
+
 .searchInput:focus,
 .filterSelect:focus {
-  border-color: #2b70fa;
-  box-shadow: 0 0 0 3px rgba(43, 112, 250, 0.12);
+  border-color: #4a90ff;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(74, 144, 255, 0.18);
 }
 
 /* Job grid */
@@ -143,17 +164,19 @@
 .jobCard {
   display: flex;
   flex-direction: column;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 14px;
   padding: 1.5rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease,
+    background 0.2s ease;
 }
 
 .jobCard:hover {
   transform: translateY(-3px);
-  border-color: #bfdbfe;
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.09);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(143, 188, 255, 0.4);
+  box-shadow: 0 16px 34px rgba(5, 10, 20, 0.45);
 }
 
 .jobCardHeader {
@@ -168,8 +191,9 @@
   display: inline-block;
   padding: 0.3rem 0.75rem;
   border-radius: 999px;
-  background: #eff6ff;
-  color: #1d4ed8;
+  background: rgba(43, 112, 250, 0.2);
+  border: 1px solid rgba(143, 188, 255, 0.3);
+  color: #b9d4ff;
   font-size: 0.75rem;
   font-weight: 700;
 }
@@ -178,8 +202,9 @@
   display: inline-block;
   padding: 0.3rem 0.75rem;
   border-radius: 999px;
-  background: #fef9c3;
-  color: #a16207;
+  background: rgba(250, 204, 21, 0.14);
+  border: 1px solid rgba(250, 204, 21, 0.35);
+  color: #fde68a;
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -194,12 +219,12 @@
 }
 
 .jobTitle a {
-  color: #0f172a;
+  color: #ffffff;
   text-decoration: none;
 }
 
 .jobTitle a:hover {
-  color: #2b70fa;
+  color: #8fbcff;
 }
 
 .metaRow {
@@ -213,17 +238,17 @@
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  color: #64748b;
+  color: rgba(255, 255, 255, 0.62);
   font-size: 0.83rem;
 }
 
 .meta svg {
   flex-shrink: 0;
-  color: #94a3b8;
+  color: rgba(143, 188, 255, 0.75);
 }
 
 .jobSummary {
-  color: #475569;
+  color: rgba(255, 255, 255, 0.72);
   font-size: 0.925rem;
   line-height: 1.65;
   margin: 0 0 1.25rem;
@@ -242,7 +267,7 @@
   gap: 0.75rem;
   margin-top: auto;
   padding-top: 1rem;
-  border-top: 1px solid #f1f5f9;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footerMeta {
@@ -252,13 +277,13 @@
 }
 
 .salary {
-  color: #0f172a;
+  color: #ffffff;
   font-size: 0.875rem;
   font-weight: 700;
 }
 
 .deadline {
-  color: #94a3b8;
+  color: rgba(255, 255, 255, 0.5);
   font-size: 0.78rem;
 }
 
@@ -268,16 +293,18 @@
   gap: 0.45rem;
   padding: 0.6rem 1.1rem;
   border-radius: 8px;
-  background: #2b70fa;
+  background: linear-gradient(135deg, #2b70fa 0%, #4a90ff 100%);
   color: #ffffff;
   font-size: 0.875rem;
   font-weight: 600;
   text-decoration: none;
-  transition: background 0.2s ease;
+  box-shadow: 0 6px 16px rgba(43, 112, 250, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .viewButton:hover {
-  background: #1e5ce8;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(43, 112, 250, 0.42);
 }
 
 /* Empty state */
@@ -288,17 +315,17 @@
   align-items: center;
   gap: 0.85rem;
   padding: 4rem 1.5rem;
-  background: #ffffff;
-  border: 1px dashed #cbd5e1;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed rgba(255, 255, 255, 0.16);
   border-radius: 14px;
   text-align: center;
-  color: #94a3b8;
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .emptyState h3 {
   margin: 0;
   font-size: 1.15rem;
-  color: #334155;
+  color: #ffffff;
 }
 
 .emptyState p {
@@ -306,11 +333,11 @@
   max-width: 460px;
   font-size: 0.925rem;
   line-height: 1.65;
-  color: #64748b;
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .inlineLink {
-  color: #2b70fa;
+  color: #8fbcff;
   font-weight: 600;
   text-decoration: none;
 }
@@ -320,7 +347,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .jobCard:hover {
+  .jobCard:hover,
+  .viewButton:hover {
     transform: none;
   }
 }
