@@ -278,12 +278,12 @@ export default function ContactSection() {
               <div className={styles.officeDetails}>
                 <h4 className={styles.officeLocation}>Sylhet, Bangladesh</h4>
                 <address className={styles.officeAddress}>
-                  Millennium Market, 7th Floor.<br />
-                  Zindabazar Sylhet.<br />
-                  Bangladesh
+                  Shop No 309, 2nd Floor,<br />
+                  Kaniz Plaza, Zindabazar,<br />
+                  Sylhet
                 </address>
-                <a href="tel:+8801234567890" className={styles.officePhone}>
-                  +880 1234 56789
+                <a href="tel:+8801804834674" className={styles.officePhone}>
+                  +880 18 0483 4674
                 </a>
               </div>
             </div>

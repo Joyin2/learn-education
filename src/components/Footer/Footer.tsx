@@ -135,6 +135,12 @@ export default function Footer() {
                 Romford Road, 5th floor.<br />
                 London. E7 9HZ
               </address>
+              <div className={styles.contactItem}>
+                <i className="fa-solid fa-phone" style={{fontStyle: 'normal'}}></i>
+                <a href="tel:+447540258059" className={styles.contactLink}>
+                  +44 7540 258059
+                </a>
+              </div>
             </div>
 
             {/* Office */}
@@ -144,20 +150,20 @@ export default function Footer() {
                 Office:
               </h4>
               <address className={styles.address}>
-                Millennium Market, 7th Floor.<br />
-                Zindabazar Sylhet.<br />
-                Bangladesh
+                Shop No 309, 2nd Floor,<br />
+                Kaniz Plaza, Zindabazar,<br />
+                Sylhet
               </address>
+              <div className={styles.contactItem}>
+                <i className="fa-solid fa-phone" style={{fontStyle: 'normal'}}></i>
+                <a href="tel:+8801804834674" className={styles.contactLink}>
+                  +880 18 0483 4674
+                </a>
+              </div>
             </div>
 
             {/* Contact Details */}
             <div className={styles.contactDetails}>
-              <div className={styles.contactItem}>
-                <i className="fa-solid fa-phone" style={{fontStyle: 'normal'}}></i>
-                <a href="tel:+447540258059" className={styles.contactLink}>
-                  +44 7540 258059
-                </a>
-              </div>
               <div className={styles.contactItem}>
                 <i className="fa-solid fa-envelope" style={{fontStyle: 'normal'}}></i>
                 <a href="mailto:info@learn-education.co.uk" className={styles.contactLink}>
