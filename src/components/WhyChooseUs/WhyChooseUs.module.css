@@ -1,6 +1,9 @@
 /* Why Choose Us Component Styles */
 
 .whyChooseSection {
+  /* Skip rendering + animating this section while it is off-screen */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
   padding: 120px 0;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #1e293b 75%, #0f172a 100%);
   position: relative;
@@ -151,7 +154,6 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   text-transform: uppercase;
   letter-spacing: 1px;
-  backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -209,7 +211,6 @@
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
   border-radius: 25px;
   padding: 40px 35px;
-  backdrop-filter: blur(30px);
   border: 2px solid rgba(255, 255, 255, 0.1);
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   animation: cardSlideIn 0.8s ease-out var(--delay) both;
@@ -384,7 +385,6 @@
   padding: 60px 40px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
   border-radius: 30px;
-  backdrop-filter: blur(30px);
   border: 2px solid rgba(255, 255, 255, 0.1);
   position: relative;
   overflow: hidden;

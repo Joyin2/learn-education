@@ -105,7 +105,6 @@
   border-radius: 25px;
   font-size: 0.9rem;
   font-weight: 600;
-  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -159,7 +158,6 @@
   background: rgba(255, 255, 255, 0.05);
   padding: 15px 20px;
   border-radius: 15px;
-  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
 }
@@ -288,7 +286,6 @@
   z-index: 4;
   animation: floatSvg 8s ease-in-out infinite;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-  backdrop-filter: blur(20px);
   border-radius: 20px;
   padding: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -324,7 +321,6 @@
     0 15px 40px rgba(43, 112, 250, 0.3),
     0 5px 15px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(25px);
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease;
@@ -370,7 +366,6 @@
     0 15px 40px rgba(43, 112, 250, 0.3),
     0 5px 15px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(25px);
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease;

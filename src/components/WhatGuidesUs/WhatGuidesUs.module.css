@@ -1,6 +1,9 @@
 /* What Guides Us Component Styles */
 
 .guidesSection {
+  /* Skip rendering + animating this section while it is off-screen */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
   padding: 100px 0;
   background: linear-gradient(135deg, #0a0e1a 0%, #1a1f2e 25%, #2a3441 50%, #1e2a3a 75%, #0f1419 100%);
   position: relative;
@@ -185,7 +188,6 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   text-transform: uppercase;
   letter-spacing: 1px;
-  backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -239,7 +241,6 @@
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
   border-radius: 20px;
   padding: 35px 25px;
-  backdrop-filter: blur(30px);
   border: 2px solid rgba(255, 255, 255, 0.1);
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   animation: cardSlideIn 0.8s ease-out var(--delay) both;

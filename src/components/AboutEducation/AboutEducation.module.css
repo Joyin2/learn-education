@@ -1,6 +1,9 @@
 /* About Education Component Styles */
 
 .aboutEducationSection {
+  /* Skip rendering + animating this section while it is off-screen */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
   padding: 50px 0;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 30%, #334155 70%, #475569 100%);
   position: relative;
@@ -151,7 +154,6 @@
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   animation: featureSlideIn 0.8s ease-out var(--delay) both;
   border: 2px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(30px);
   position: relative;
   overflow: hidden;
 }
@@ -312,7 +314,6 @@
   align-items: center;
   gap: 12px;
   border: 2px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(20px);
   transition: all 0.3s ease;
 }
 

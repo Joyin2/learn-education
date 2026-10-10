@@ -1,6 +1,9 @@
 /* Our Purpose Component Styles */
 
 .purposeSection {
+  /* Skip rendering + animating this section while it is off-screen */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
   padding: 80px 0;
   background: linear-gradient(135deg, #0c0a1e 0%, #1a0f2e 25%, #2d1065 50%, #1e0a3e 75%, #0f0a1c 100%);
   position: relative;
@@ -141,7 +144,6 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   text-transform: uppercase;
   letter-spacing: 1px;
-  backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -196,7 +198,6 @@
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08));
   padding: 50px 40px;
   border-radius: 30px;
-  backdrop-filter: blur(30px);
   border: 2px solid rgba(255, 255, 255, 0.1);
   box-shadow:
     0 30px 100px rgba(0, 0, 0, 0.5),
@@ -251,7 +252,6 @@
   box-shadow:
     0 15px 40px rgba(59, 130, 246, 0.4),
     0 5px 15px rgba(0, 0, 0, 0.3);
-  animation: iconGlow 3s ease-in-out infinite;
 }
 
 .cardTitle {
@@ -331,7 +331,6 @@
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08));
   border-radius: 20px;
   border: 2px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(30px);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   animation: stepSlideIn 0.8s ease-out var(--delay) both;
   position: relative;
@@ -581,19 +580,6 @@
   }
 }
 
-@keyframes iconGlow {
-  0%, 100% {
-    box-shadow:
-      0 15px 40px rgba(59, 130, 246, 0.4),
-      0 5px 15px rgba(0, 0, 0, 0.3);
-  }
-  50% {
-    box-shadow:
-      0 20px 50px rgba(59, 130, 246, 0.6),
-      0 8px 20px rgba(0, 0, 0, 0.3);
-  }
-}
-
 @keyframes stepSlideIn {
   from {
     opacity: 0;
@@ -609,12 +595,10 @@
   0%, 100% {
     opacity: 0.6;
     transform: translateX(-50%) scaleY(1);
-    filter: blur(0px);
   }
   50% {
     opacity: 1;
     transform: translateX(-50%) scaleY(1.1);
-    filter: blur(0.5px);
   }
 }
 

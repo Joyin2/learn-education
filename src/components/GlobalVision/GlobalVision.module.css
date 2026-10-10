@@ -1,6 +1,9 @@
 /* Global Vision Component Styles */
 
 .globalVisionSection {
+  /* Skip rendering + animating this section while it is off-screen */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
   padding: 100px 0;
   background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #2b70fa 100%);
   position: relative;
@@ -187,7 +190,6 @@
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 25px;
-  backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   text-transform: uppercase;
@@ -238,7 +240,6 @@
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08));
   padding: 50px;
   border-radius: 30px;
-  backdrop-filter: blur(30px);
   border: 2px solid rgba(255, 255, 255, 0.1);
   box-shadow:
     0 25px 80px rgba(0, 0, 0, 0.5),
@@ -365,7 +366,6 @@
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   animation: countryCardEntrance 0.8s ease-out var(--delay) both;
   width: 100%;
-  backdrop-filter: blur(30px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -403,12 +403,25 @@
   justify-content: center;
   margin: 0 auto 25px;
   border: 3px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
   animation: flagFloat 4s ease-in-out infinite;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-.flagEmoji {
+/* Flag PNGs are square with transparent bands above/below the flag,
+   so scale up to let the flag itself fill the circle */
+.flagImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.55);
+  display: block;
+}
+
+.flagIcon {
   font-size: 2.8rem;
+  color: #ffffff;
+  line-height: 1;
 }
 
 .countryHeader {
@@ -521,7 +534,6 @@
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08));
   padding: 40px 35px;
   border-radius: 25px;
-  backdrop-filter: blur(30px);
   border: 2px solid rgba(255, 255, 255, 0.1);
   box-shadow:
     0 20px 60px rgba(0, 0, 0, 0.4),
@@ -658,30 +670,24 @@
 @keyframes constellationTwinkle {
   0%, 100% {
     opacity: 0.6;
-    filter: brightness(1);
   }
   25% {
     opacity: 0.9;
-    filter: brightness(1.3);
   }
   50% {
     opacity: 0.4;
-    filter: brightness(0.8);
   }
   75% {
     opacity: 0.8;
-    filter: brightness(1.1);
   }
 }
 
 @keyframes worldMapGlow {
   0%, 100% {
     opacity: 0.3;
-    filter: blur(1px);
   }
   50% {
     opacity: 0.6;
-    filter: blur(0px);
   }
 }
 
@@ -821,7 +827,7 @@
     font-size: 0.8rem;
   }
 
-  .flagEmoji {
+  .flagIcon {
     font-size: 1.8rem;
   }
 
@@ -893,7 +899,7 @@
     font-size: 0.9rem;
   }
 
-  .flagEmoji {
+  .flagIcon {
     font-size: 2rem;
   }
 
@@ -949,7 +955,7 @@
     font-size: 1rem;
   }
 
-  .flagEmoji {
+  .flagIcon {
     font-size: 2.3rem;
   }
 
@@ -1005,7 +1011,7 @@
     font-size: 1.05rem;
   }
 
-  .flagEmoji {
+  .flagIcon {
     font-size: 2.5rem;
   }
 
@@ -1061,7 +1067,7 @@
     font-size: 1.1rem;
   }
 
-  .flagEmoji {
+  .flagIcon {
     font-size: 2.8rem;
   }
 

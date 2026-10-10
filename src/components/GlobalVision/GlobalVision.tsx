@@ -6,7 +6,7 @@ export default function GlobalVision() {
   const countries = [
     {
       name: 'United Kingdom',
-      flag: '��',
+      flag: 'https://asvbqmdvplqupbqpigoa.supabase.co/storage/v1/object/public/learneducation/united-kingdom.png',
       color: '#012169',
       universities: '40+ Top-Ranked Universities',
       features: [
@@ -18,7 +18,7 @@ export default function GlobalVision() {
     },
     {
       name: 'United States',
-      flag: '🇺🇸',
+      flag: 'https://asvbqmdvplqupbqpigoa.supabase.co/storage/v1/object/public/learneducation/united-states.png',
       color: '#B22234',
       universities: '40+ Prestigious Institutions',
       features: [
@@ -30,7 +30,7 @@ export default function GlobalVision() {
     },
     {
       name: 'Ireland',
-      flag: '��',
+      flag: 'https://asvbqmdvplqupbqpigoa.supabase.co/storage/v1/object/public/learneducation/ireland.png',
       color: '#169B62',
       universities: '10+ Quality Universities',
       features: [
@@ -42,7 +42,7 @@ export default function GlobalVision() {
     },
     {
       name: 'Canada',
-      flag: '🇨🇦',
+      flag: 'https://asvbqmdvplqupbqpigoa.supabase.co/storage/v1/object/public/learneducation/canada.png',
       color: '#FF0000',
       universities: '10+ Leading Universities',
       features: [
@@ -54,7 +54,7 @@ export default function GlobalVision() {
     },
     {
       name: 'Australia',
-      flag: '��',
+      flag: 'https://asvbqmdvplqupbqpigoa.supabase.co/storage/v1/object/public/learneducation/australia.png',
       color: '#012169',
       universities: '15+ Top Universities',
       features: [
@@ -66,7 +66,7 @@ export default function GlobalVision() {
     },
     {
       name: 'New Zealand',
-      flag: '🇳🇿',
+      flag: 'https://asvbqmdvplqupbqpigoa.supabase.co/storage/v1/object/public/learneducation/new-zealand.png',
       color: '#012169',
       universities: '8+ Quality Institutions',
       features: [
@@ -78,7 +78,7 @@ export default function GlobalVision() {
     },
     {
       name: 'Europe',
-      flag: '🇪🇺',
+      icon: 'fa-solid fa-globe-europe',
       color: '#003399',
       universities: '50+ Countries Available',
       features: [
@@ -132,7 +132,17 @@ export default function GlobalVision() {
                 style={{'--delay': `${index * 0.1}s`, '--accent-color': country.color} as React.CSSProperties}
               >
                 <div className={styles.countryFlag}>
-                  <span className={styles.flagEmoji}>{country.flag}</span>
+                  {country.flag ? (
+                    <img
+                      src={country.flag}
+                      alt={`${country.name} flag`}
+                      className={styles.flagImage}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ) : (
+                    <i className={`${country.icon} ${styles.flagIcon}`} style={{fontStyle: 'normal'}}></i>
+                  )}
                 </div>
                 <div className={styles.countryHeader}>
                   <h3 className={styles.countryName}>{country.name}</h3>

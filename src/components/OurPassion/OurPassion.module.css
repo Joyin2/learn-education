@@ -1,6 +1,9 @@
 /* Our Passion Component Styles */
 
 .passionSection {
+  /* Skip rendering + animating this section while it is off-screen */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
   padding: 100px 0;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 30%, #334155 70%, #475569 100%);
   position: relative;
@@ -98,7 +101,6 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   text-transform: uppercase;
   letter-spacing: 1px;
-  backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -161,7 +163,6 @@
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   border: 2px solid rgba(255, 255, 255, 0.1);
   animation: serviceCardEntrance 0.8s ease-out var(--delay) both;
-  backdrop-filter: blur(30px);
 }
 
 .serviceCard::before {
@@ -304,7 +305,6 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(30px);
   border: 2px solid rgba(255, 255, 255, 0.1);
   box-shadow:
     0 20px 60px rgba(0, 0, 0, 0.4),
